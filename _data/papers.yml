@@ -1,3 +1,18 @@
+- year: under review
+  papers:
+  - citation: "Xia, Patrick, Guanghui Qin, Siddharth Vashishtha, Yunmo Chen, Tongfei Chen, Chandler May, Craig Harman, Kyle Rawlins, Aaron Steven White, & Benjamin Van Durme. under review. LOME: Large Ontology Multilingual Extraction."
+    links:
+    - label: "pdf"
+      href: "https://arxiv.org/pdf/2101.12175"
+    - label: "demo"
+      href: "https://nlp.jhu.edu/demos/lome/"
+    - label: "docker"
+      href: "https://hub.docker.com/r/hltcoe/lome"
+  - citation: "Huang, Nick, Aaron Steven White, Chia-Hsuan Liao, Valentine Hacquard, and Jeffrey Lidz. under review. Syntactic bootstrapping attitude verbs despite impoverished morphosyntax."
+    links:
+    - label: "pdf"
+      href: "https://ling.auf.net/lingbuzz/005553/current.pdf"
+
 - year: accepted
   papers:
   - citation: "White, Aaron Steven. accepted with revisions. On Believing and Hoping Whether. <i>Semantics and Pragmatics</i>."
@@ -249,24 +264,14 @@
     - label: "data"
       href: "https://github.com/aaronstevenwhite/ProjectionExperiments"      
 
-- year: "under revision"
+- year: unpublished
   papers:
-  - citation: "Yan, Shaorong, and Aaron Steven White. under revision. Understanding Event Related Potentials during Reading Using Pre-Compiled Abstractive Decoders. <i>Neurobiology of Language</i>."
+  - citation: "Yan, Shaorong, and Aaron Steven White. 2019. Understanding Event Related Potentials during Reading Using Pre-Compiled Abstractive Decoders. <i>Neurobiology of Language</i>."
     links:
     - label: "pdf"
       href: "https://psyarxiv.com/mwpf5/download"
     - label: "doi"
-      href: "https://doi.org/10.31234/osf.io/mwpf5"      
-
-- year: "under review"
-  papers:
-  - citation: "Huang, Nick, Aaron Steven White, Chia-Hsuan Liao, Valentine Hacquard, and Jeffrey Lidz. under review. Syntactic bootstrapping attitude verbs despite impoverished morphosyntax. <i>Language Acquisition</i>."
-    links:
-    - label: "pdf"
-      href: "https://ling.auf.net/lingbuzz/005553/current.pdf"
-
-- year: unpublished
-  papers:
+      href: "https://doi.org/10.31234/osf.io/mwpf5"    
   - citation: "White, Aaron Steven. 2016. The Interaction of Implicativity with the Form and Scope of Negation."
     links:
     - label: "pdf"
