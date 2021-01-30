@@ -13,17 +13,18 @@ share: false
 
 I'm an Assistant Professor in the [Department of
 Linguistics](http://www.sas.rochester.edu/lin/index.html) at the
-[University of Rochester](https://www.rochester.edu/), with secondary
-appointments in the [Department of Computer
-Science](https://www.cs.rochester.edu/) and the [Department of Brain
-and Cognitive Sciences](http://www.sas.rochester.edu/bcs/) and an
+[University of Rochester](https://www.rochester.edu/), with a secondary
+appointment in the [Department of Computer
+Science](https://www.cs.rochester.edu/) and an
 affiliation with the [Goergen Institute for Data
 Science](http://www.sas.rochester.edu/dsc/). I'm also Director of the
 [FACTS.lab](http://factslab.io) at UR, and I co-lead the [MegaAttitude
 Project](http://megaattitude.io) and the [Decompositional Semantic
 Initiative](http://decomp.io).
 
-Check out [my recent interview](https://soundcloud.com/nlp-highlights/94-decompositional-semantics-with-aaron-white) on NLP Highlights.
+To hear more about some of my work, check out [my
+interview](https://soundcloud.com/nlp-highlights/94-decompositional-semantics-with-aaron-white)
+on NLP Highlights.
 
 # How to find me
 
