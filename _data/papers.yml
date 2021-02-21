@@ -1,13 +1,5 @@
 - year: under review
   papers:
-  - citation: "Xia, Patrick, Guanghui Qin, Siddharth Vashishtha, Yunmo Chen, Tongfei Chen, Chandler May, Craig Harman, Kyle Rawlins, Aaron Steven White, & Benjamin Van Durme. under review. LOME: Large Ontology Multilingual Extraction."
-    links:
-    - label: "pdf"
-      href: "https://arxiv.org/pdf/2101.12175"
-    - label: "demo"
-      href: "https://nlp.jhu.edu/demos/lome/"
-    - label: "docker"
-      href: "https://hub.docker.com/r/hltcoe/lome"
   - citation: "Huang, Nick, Aaron Steven White, Chia-Hsuan Liao, Valentine Hacquard, and Jeffrey Lidz. under review. Syntactic bootstrapping attitude verbs despite impoverished morphosyntax."
     links:
     - label: "pdf"
@@ -21,6 +13,15 @@
       href: "https://ling.auf.net/lingbuzz/005665/current.pdf"
     - label: "code"
       href: "https://github.com/MegaAttitude/on-believing-and-hoping-whether"
+  - citation: "Xia, Patrick, Guanghui Qin, Siddharth Vashishtha, Yunmo Chen, Tongfei Chen, Chandler May, Craig Harman, Kyle Rawlins, Aaron Steven White, and Benjamin Van Durme. accepted. LOME: Large Ontology Multilingual Extraction. <i>Proceedings of the 16th Conference of the European Chapter of the Association for Computational Linguistics: System Demonstrations</i>. Kyiv, Ukraine: Association for Computational Linguistics."
+    links:
+    - label: "pdf"
+      href: "https://arxiv.org/pdf/2101.12175"
+    - label: "demo"
+      href: "https://nlp.jhu.edu/demos/lome/"
+    - label: "docker"
+      href: "https://hub.docker.com/r/hltcoe/lome"
+  - citation: "Xu, Haoran, Seth Ebner, Mahsa Yarmohammadi, Aaron Steven White, Benjamin Van Durme, and Kenton Murray. accepted. Gradual Fine-Tuning for Low-Resource Domain Adaptation. <i>Proceedings of the Second Workshop on Domain Adaptation for NLP</i>. Kyiv, Ukraine: Association for Computational Linguistics."
 
 - year: to appear
   papers:
