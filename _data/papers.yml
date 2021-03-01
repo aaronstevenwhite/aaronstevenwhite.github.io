@@ -13,6 +13,7 @@
       href: "https://ling.auf.net/lingbuzz/005665/current.pdf"
     - label: "code"
       href: "https://github.com/MegaAttitude/on-believing-and-hoping-whether"
+  - citation: "Stengel-Eskin, Elias, Sheng Zhang, Kenton Murray, Aaron Steven White, and Benjamin Van Durme. accepted. Joint Universal Syntactic and Semantic Parsing. <i>Transactions of the Association for Computational Linguistics</i>."      
   - citation: "Xia, Patrick, Guanghui Qin, Siddharth Vashishtha, Yunmo Chen, Tongfei Chen, Chandler May, Craig Harman, Kyle Rawlins, Aaron Steven White, and Benjamin Van Durme. accepted. LOME: Large Ontology Multilingual Extraction. <i>Proceedings of the 16th Conference of the European Chapter of the Association for Computational Linguistics: System Demonstrations</i>. Kyiv, Ukraine: Association for Computational Linguistics."
     links:
     - label: "pdf"
