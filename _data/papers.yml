@@ -24,13 +24,15 @@
       href: "https://hub.docker.com/r/hltcoe/lome"
   - citation: "Xu, Haoran, Seth Ebner, Mahsa Yarmohammadi, Aaron Steven White, Benjamin Van Durme, and Kenton Murray. accepted. Gradual Fine-Tuning for Low-Resource Domain Adaptation. <i>Proceedings of the Second Workshop on Domain Adaptation for NLP</i>. Kyiv, Ukraine: Association for Computational Linguistics."
 
-- year: to appear
+- year: 2021
   papers:
-  - citation: "Kim, Gene Louis and Aaron Steven White. to appear. Montague Grammar Induction. <i>Semantics and Linguistic Theory</i> 30."
+  - citation: "Kim, Gene Louis and Aaron Steven White. 2021. Montague Grammar Induction. Edited by Joseph Rhyne, Kaelyn Lamp, Nicole Dreier, and Chloe Kwon. <i>Semantics and Linguistic Theory</i> 30: 227–251."
     links:
     - label: "pdf"
-      href: "https://ling.auf.net/lingbuzz/005498/current.pdf"
-
+      href: "https://journals.linguisticsociety.org/proceedings/index.php/SALT/article/download/30.227/4573"
+    - label: "doi"
+      href: "https://doi.org/10.3765/salt.v30i0.4816"
+    
 - year: 2020
   papers:
   - citation: "White, Aaron Steven, and Kyle Rawlins. 2020. Frequency, Acceptability, and Selection: A Case Study of Clause-Embedding. <i>Glossa</i> 5(1): 105. 1–41."
@@ -41,14 +43,14 @@
       href: "https://github.com/MegaAttitude/frequency-acceptability-selection"
     - label: "doi"
       href: "https://doi.org/10.5334/gjgl.1001"
-
+      
   - citation: "White, Aaron Steven, Elias Stengel-Eskin, Siddharth Vashishtha, Venkata Subrahmanyan Govindarajan, Dee Ann Reisinger, Tim Vieira, Keisuke Sakaguchi, Sheng Zhang, Francis Ferraro, Rachel Rudinger, Kyle Rawlins, and Benjamin Van Durme. 2020. The Universal Decompositional Semantics Dataset and Decomp Toolkit. In <i>Proceedings of The 12th Language Resources and Evaluation Conference</i>, 5698–5707. Marseille, France: European Language Resources Association."
     links:
     - label: "pdf"
       href: "https://www.aclweb.org/anthology/2020.lrec-1.699.pdf"
     - label: "code + data"
       href: "https://github.com/decompositional-semantics-initiative/decomp"
-
+      
   - citation: "Stengel-Eskin, Elias, Aaron Steven White, Sheng Zhang, and Benjamin Van Durme. 2020. Universal Decompositional Semantic Parsing. In <i>Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics</i>, 8427–8439. Online: Association for Computational Linguistics."
     links:
     - label: "pdf"
