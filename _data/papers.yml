@@ -23,6 +23,9 @@
     - label: "docker"
       href: "https://hub.docker.com/r/hltcoe/lome"
   - citation: "Xu, Haoran, Seth Ebner, Mahsa Yarmohammadi, Aaron Steven White, Benjamin Van Durme, and Kenton Murray. accepted. Gradual Fine-Tuning for Low-Resource Domain Adaptation. <i>Proceedings of the Second Workshop on Domain Adaptation for NLP</i>. Kyiv, Ukraine: Association for Computational Linguistics."
+    links:
+    - label: "pdf"
+    - href: "https://arxiv.org/pdf/2103.02205"
 
 - year: 2021
   papers:
