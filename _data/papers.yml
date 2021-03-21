@@ -7,7 +7,7 @@
 
 - year: accepted
   papers:
-  - citation: "White, Aaron Steven. accepted with revisions. On Believing and Hoping Whether. <i>Semantics and Pragmatics</i>."
+  - citation: "White, Aaron Steven. accepted. On Believing and Hoping Whether. <i>Semantics and Pragmatics</i>."
     links:
     - label: "pdf"
       href: "https://ling.auf.net/lingbuzz/005665/current.pdf"
@@ -29,6 +29,15 @@
 
 - year: 2021
   papers:
+  - citation: "Gantt, William, Lelia Glass, and Aaron Steven White. 2021. Decomposing and Recomposing Event Structure. arXiv:2103.10387 [cs.CL]"
+    links:
+    - label: "pdf"
+      href: "https://ling.auf.net/lingbuzz/005824/current.pdf"
+    - label: "data"
+      href: "http://decomp.io/projects/event-structure/"
+    - label: "doi"
+      href: "https://arxiv.org/abs/2103.10387"
+
   - citation: "Kim, Gene Louis and Aaron Steven White. 2021. Montague Grammar Induction. Edited by Joseph Rhyne, Kaelyn Lamp, Nicole Dreier, and Chloe Kwon. <i>Semantics and Linguistic Theory</i> 30: 227–251."
     links:
     - label: "pdf"
