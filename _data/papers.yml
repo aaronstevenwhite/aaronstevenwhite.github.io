@@ -13,6 +13,14 @@
       href: "https://ling.auf.net/lingbuzz/005665/current.pdf"
     - label: "code"
       href: "https://github.com/MegaAttitude/on-believing-and-hoping-whether"
+  - citation: "Kane, Benjamin, William Gantt, and Aaron Steven White. accepted. Intensional Gaps: Relating veridicality, doxasticity, bouleticity, and neg-raising. <i>Semantics and Linguistic Theory 31</i>."
+    links:
+    - label: "pdf"
+      href: "https://ling.auf.net/lingbuzz/005930/current.pdf"
+    - label: "data"
+      href: "http://megaattitude.io/projects/mega-intensionality/"            
+    - label: "code"
+      href: "https://github.com/MegaAttitude/intensional-gaps"      
   - citation: "Stengel-Eskin, Elias, Sheng Zhang, Kenton Murray, Aaron Steven White, and Benjamin Van Durme. accepted. Joint Universal Syntactic and Semantic Parsing. <i>Transactions of the Association for Computational Linguistics</i>."
     links:
     - label: "pdf"
