@@ -1,10 +1,3 @@
-- year: under review
-  papers:
-  - citation: "Huang, Nick, Aaron Steven White, Chia-Hsuan Liao, Valentine Hacquard, and Jeffrey Lidz. under review. Syntactic bootstrapping attitude verbs despite impoverished morphosyntax."
-    links:
-    - label: "pdf"
-      href: "https://ling.auf.net/lingbuzz/005553/current.pdf"
-
 - year: accepted
   papers:
   - citation: "White, Aaron Steven. accepted. On Believing and Hoping Whether. <i>Semantics and Pragmatics</i>."
@@ -27,6 +20,10 @@
       href: "https://arxiv.org/pdf/2104.05696"
     - label: "code"
       href: "https://github.com/esteng/miso_uds"
+  - citation: "Huang, Nick, Aaron Steven White, Chia-Hsuan Liao, Valentine Hacquard, and Jeffrey Lidz. accepted. Syntactic bootstrapping attitude verbs despite impoverished morphosyntax. <i>Language Acquisition</i>."
+    links:
+    - label: "pdf"
+      href: "https://ling.auf.net/lingbuzz/005553/current.pdf"
 
 - year: 2021
   papers:
