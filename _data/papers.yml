@@ -1,11 +1,5 @@
 - year: accepted
   papers:
-  - citation: "White, Aaron Steven. accepted. On Believing and Hoping Whether. <i>Semantics and Pragmatics</i>."
-    links:
-    - label: "pdf"
-      href: "https://ling.auf.net/lingbuzz/005665/current.pdf"
-    - label: "code"
-      href: "https://github.com/MegaAttitude/on-believing-and-hoping-whether"
   - citation: "Kane, Benjamin, William Gantt, and Aaron Steven White. accepted. Intensional Gaps: Relating veridicality, doxasticity, bouleticity, and neg-raising. <i>Semantics and Linguistic Theory 31</i>."
     links:
     - label: "pdf"
@@ -27,6 +21,15 @@
 
 - year: 2021
   papers:
+  - citation: "White, Aaron Steven. 2021. On Believing and Hoping Whether. <i>Semantics and Pragmatics</i> 14 (6): 1–18."
+    links:
+    - label: "pdf"
+      href: "https://semprag.org/index.php/sp/article/view/sp.14.6/pdf"
+    - label: "code"
+      href: "https://github.com/MegaAttitude/on-believing-and-hoping-whether"
+    - label: "doi"
+      href: "https://doi.org/10.3765/sp.14.6"
+
   - citation: "Gantt, William, Lelia Glass, and Aaron Steven White. 2021. Decomposing and Recomposing Event Structure. arXiv:2103.10387 [cs.CL]"
     links:
     - label: "pdf"
