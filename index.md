@@ -9,6 +9,8 @@ share: false
 <a href="http://aaronstevenwhite.io"><img class="people" alt="Aaron Steven White" src="assets/img/aaron-white.jpg" srcset="assets/img/aaron-white.jpg" /></a>
 </center>
 
+<span style="color:#AF4C2E;font-weight:bold;">I'm on the job market.</span>
+
 # What I do
 
 I'm an Assistant Professor in the [Department of
