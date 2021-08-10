@@ -1,10 +1,3 @@
-- year: under review
-  papers:
-  - citation: "White, Aaron Steven, and Jeffrey Lidz. under review. Lexicalization in the developing parser."
-    links:
-    - label: "pdf"
-      href: "https://ling.auf.net/lingbuzz/006107/current.pdf"    
-
 - year: accepted
   papers:
   - citation: "Kane, Benjamin, William Gantt, and Aaron Steven White. accepted. Intensional Gaps: Relating veridicality, doxasticity, bouleticity, and neg-raising. <i>Semantics and Linguistic Theory 31</i>."
@@ -15,12 +8,6 @@
       href: "http://megaattitude.io/projects/mega-intensionality/"            
     - label: "code"
       href: "https://github.com/MegaAttitude/intensional-gaps"      
-  - citation: "Stengel-Eskin, Elias, Sheng Zhang, Kenton Murray, Aaron Steven White, and Benjamin Van Durme. accepted. Joint Universal Syntactic and Semantic Parsing. <i>Transactions of the Association for Computational Linguistics</i>."
-    links:
-    - label: "pdf"
-      href: "https://arxiv.org/pdf/2104.05696"
-    - label: "code"
-      href: "https://github.com/esteng/miso_uds"
 
 - year: 2021
   papers:
@@ -40,6 +27,15 @@
     - label: "data"
       href: "http://decomp.io/projects/event-structure/"
 
+  - citation: "Stengel-Eskin, Elias, Sheng Zhang, Kenton Murray, Aaron Steven White, and Benjamin Van Durme. 2021. Joint Universal Syntactic and Semantic Parsing. <i>Transactions of the Association for Computational Linguistics</i> 9: 756—773."
+    links:
+    - label: "pdf"
+      href: "https://direct.mit.edu/tacl/article-pdf/doi/10.1162/tacl_a_00396/1955190/tacl_a_00396.pdf"
+    - label: "code"
+      href: "https://github.com/esteng/miso_uds"
+    - label: "doi"
+      href: "https://doi.org/10.1162/tacl_a_00396"
+      
   - citation: "Huang, Nick, Aaron Steven White, Chia-Hsuan Liao, Valentine Hacquard, and Jeffrey Lidz. 2021. Syntactic bootstrapping attitude verbs despite impoverished morphosyntax. <i>Language Acquisition</i>."
     links:
     - label: "pdf (preprint)"
@@ -342,6 +338,13 @@
     - label: "data"
       href: "https://github.com/aaronstevenwhite/ProjectionExperiments"      
 
+- year: under review
+  papers:
+  - citation: "White, Aaron Steven, and Jeffrey Lidz. under review. Lexicalization in the developing parser."
+    links:
+    - label: "pdf"
+      href: "https://ling.auf.net/lingbuzz/006107/current.pdf"
+      
 - year: unpublished
   papers:
   - citation: "Yan, Shaorong, and Aaron Steven White. 2019. Understanding Event Related Potentials during Reading Using Pre-Compiled Abstractive Decoders. <i>Neurobiology of Language</i>."
