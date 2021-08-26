@@ -1,9 +1,10 @@
 - year: 2021
   presentations:
-  - citation: "Kane, B., W. Gantt, and A.S. White. 2021. Intensional Gaps: Relating doxasticity, bouleticity, veridicality, factivity, and neg-raising. To be presented at Semantics and Linguistic Theory 31 (SALT 31), Brown University, May 7-9, 2021."
-  - citation: "Stengel-Eskin, E., S. Zhang, K. Murray, A.S. White, and B. Van Durme. 2021. Joint Universal Syntactic and Semantic Parsing. To be presented at the 59th Annual Meeting of the Association for Computational Linguistics (ACL 2021), Bangkok, Thailand, August 1-6, 2021."
-  - citation: "Xia, P., G. Qin, S. Vashishtha, Y. Chen, T. Chen, C. May, C. Harman, K. Rawlins, A.S. White, and B. Van Durme. 2021. LOME: Large Ontology Multilingual Extraction. System demonstration to be presented at the 16th Conference of the European Chapter of the Association for Computational Linguistics. Kyiv, Ukraine, April 19-23, 2021."    
-  - citation: "Xu, H., S. Ebner, M. Yarmohammadi, A.S. White, B. Van Durme, and K. Murray. 2021. Gradual Fine-Tuning for Low-Resource Domain Adaptation. To be presented at the Second Workshop on Domain Adaptation for NLP. Kyiv, Ukraine, April 20, 2021."    
+  - citation: "White, A.S. 2021. A broad-coverage syntactic and semantic classification of attitude verbs. Invited talk to be given at the MECORE Workshop, University of Edinburgh, October 22, 2021."
+  - citation: "Yarmohammadi, M., S. Wu, M. Marone, H. Xu, S. Ebner, G. Qin, Y. Chen, J. Guo, C. Harman, K. Murray, A.S. White, M. Dredze and B. Van Durme. 2021. Everything Is All It Takes: A Multipronged Strategy for Zero-Shot Cross-Lingual Information Extraction. To be presented at the 2021 Conference on Empirical Methods in Natural Language Processing. November 7-11, 2021."
+  - citation: "Kane, B., W. Gantt, and A.S. White. 2021. Intensional Gaps: Relating doxasticity, bouleticity, veridicality, factivity, and neg-raising. Poster at Semantics and Linguistic Theory 31 (SALT 31), Brown University, May 7-9, 2021."
+  - citation: "Xia, P., G. Qin, S. Vashishtha, Y. Chen, T. Chen, C. May, C. Harman, K. Rawlins, A.S. White, and B. Van Durme. 2021. LOME: Large Ontology Multilingual Extraction. System demonstration at the 16th Conference of the European Chapter of the Association for Computational Linguistics. Kyiv, Ukraine, April 19-23, 2021."    
+  - citation: "Xu, H., S. Ebner, M. Yarmohammadi, A.S. White, B. Van Durme, and K. Murray. 2021. Gradual Fine-Tuning for Low-Resource Domain Adaptation. Poster at the Second Workshop on Domain Adaptation for NLP. Kyiv, Ukraine, April 20, 2021."    
 
 - year: 2020
   presentations:

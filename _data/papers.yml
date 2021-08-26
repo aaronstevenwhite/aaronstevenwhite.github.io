@@ -1,5 +1,12 @@
 - year: accepted
   papers:
+  - citation: "Gantt, William, Lelia Glass, and Aaron Steven White. accepted. Decomposing and Recomposing Event Structure. <i>Transactions of the Association for Computational Linguistics</i>."
+    links:
+    - label: "pdf"
+      href: "https://ling.auf.net/lingbuzz/005824/current.pdf"
+    - label: "data"
+      href: "http://decomp.io/projects/event-structure/"
+    
   - citation: "Kane, Benjamin, William Gantt, and Aaron Steven White. accepted. Intensional Gaps: Relating veridicality, doxasticity, bouleticity, and neg-raising. <i>Semantics and Linguistic Theory 31</i>."
     links:
     - label: "pdf"
@@ -7,7 +14,9 @@
     - label: "data"
       href: "http://megaattitude.io/projects/mega-intensionality/"            
     - label: "code"
-      href: "https://github.com/MegaAttitude/intensional-gaps"      
+      href: "https://github.com/MegaAttitude/intensional-gaps"
+
+  - citation: "Yarmohammadi, M., S. Wu, M. Marone, H. Xu, S. Ebner, G. Qin, Y. Chen, J. Guo, C. Harman, K. Murray, A.S. White, M. Dredze and B. Van Durme. accepted. Everything Is All It Takes: A Multipronged Strategy for Zero-Shot Cross-Lingual Information Extraction. <i>Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing</i>."
 
 - year: 2021
   papers:
@@ -19,13 +28,6 @@
       href: "https://github.com/MegaAttitude/on-believing-and-hoping-whether"
     - label: "doi"
       href: "https://doi.org/10.3765/sp.14.6"
-
-  - citation: "Gantt, William, Lelia Glass, and Aaron Steven White. 2021. Decomposing and Recomposing Event Structure. arXiv:2103.10387 [cs.CL]"
-    links:
-    - label: "pdf"
-      href: "https://ling.auf.net/lingbuzz/005824/current.pdf"
-    - label: "data"
-      href: "http://decomp.io/projects/event-structure/"
 
   - citation: "Stengel-Eskin, Elias, Sheng Zhang, Kenton Murray, Aaron Steven White, and Benjamin Van Durme. 2021. Joint Universal Syntactic and Semantic Parsing. <i>Transactions of the Association for Computational Linguistics</i> 9: 756—773."
     links:
