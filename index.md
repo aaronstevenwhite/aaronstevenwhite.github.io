@@ -26,7 +26,8 @@ Initiative](http://decomp.io).
 
 To hear more about some of my work, check out [my
 interview](https://soundcloud.com/nlp-highlights/94-decompositional-semantics-with-aaron-white)
-on NLP Highlights.
+on NLP Highlights. You can also read more about my broader research program in my 
+[research statement](research-statement.pdf).
 
 # How to find me
 
