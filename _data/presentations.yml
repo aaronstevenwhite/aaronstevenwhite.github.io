@@ -1,6 +1,9 @@
 - year: 2021
   presentations:
-  - citation: "White, A.S. 2021. A broad-coverage syntactic and semantic classification of attitude verbs. Invited talk to be given at the MECORE Workshop, University of Edinburgh, October 22, 2021."
+  - citation: "White, A.S. 2021. A broad-coverage semantic classification of the English clause-embedding lexicon. Talk to be given at the MECORE Workshop, University of Edinburgh, October 21, 2021."
+    links:
+    - label: "slides"
+      href: "https://docs.google.com/presentation/d/1pLvk_M-N5bJNXfIfJNIJQbxSRh2NXbMU/edit?usp=sharing&ouid=117170965507909676291&rtpof=true&sd=true"
   - citation: "Yarmohammadi, M., S. Wu, M. Marone, H. Xu, S. Ebner, G. Qin, Y. Chen, J. Guo, C. Harman, K. Murray, A.S. White, M. Dredze and B. Van Durme. 2021. Everything Is All It Takes: A Multipronged Strategy for Zero-Shot Cross-Lingual Information Extraction. To be presented at the 2021 Conference on Empirical Methods in Natural Language Processing, Punta Cana, Dominican Republic, November 7-11, 2021."
   - citation: "Dou, J., A.J. Anderson, A.S. White, and Edmund C Lalor. 2021. On characterizing the narrative speech N400 using semantically-tuned language models. To be presented at Neuroscience 2021, Chicago, IL, November 13-16, 2021."
   - citation: "Kane, B., W. Gantt, and A.S. White. 2021. Intensional Gaps: Relating doxasticity, bouleticity, veridicality, factivity, and neg-raising. Poster at Semantics and Linguistic Theory 31 (SALT 31), Brown University, May 7-9, 2021."
