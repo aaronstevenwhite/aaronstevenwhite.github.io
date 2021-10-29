@@ -17,6 +17,9 @@
       href: "https://github.com/MegaAttitude/intensional-gaps"
 
   - citation: "Yarmohammadi, M., S. Wu, M. Marone, H. Xu, S. Ebner, G. Qin, Y. Chen, J. Guo, C. Harman, K. Murray, A.S. White, M. Dredze and B. Van Durme. accepted. Everything Is All It Takes: A Multipronged Strategy for Zero-Shot Cross-Lingual Information Extraction. <i>Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing</i>."
+    links:
+    - label: "pdf"
+      href: "https://arxiv.org/pdf/2109.06798"
 
 - year: 2021
   papers:
