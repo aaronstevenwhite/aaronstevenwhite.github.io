@@ -16,8 +16,6 @@
     - label: "code"
       href: "https://github.com/MegaAttitude/intensional-gaps"
 
-  - citation: "Yarmohammadi, M., S. Wu, M. Marone, H. Xu, S. Ebner, G. Qin, Y. Chen, J. Guo, C. Harman, K. Murray, A.S. White, M. Dredze and B. Van Durme. accepted. Everything Is All It Takes: A Multipronged Strategy for Zero-Shot Cross-Lingual Information Extraction. <i>Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing</i>."
-
 - year: 2021
   papers:
   - citation: "White, Aaron Steven. 2021. On Believing and Hoping Whether. <i>Semantics and Pragmatics</i> 14 (6): 1–18."
@@ -52,7 +50,12 @@
       href: "https://journals.linguisticsociety.org/proceedings/index.php/SALT/article/download/30.227/4573"
     - label: "doi"
       href: "https://doi.org/10.3765/salt.v30i0.4816"
-      
+
+  - citation: "Yarmohammadi, M., S. Wu, M. Marone, H. Xu, S. Ebner, G. Qin, Y. Chen, J. Guo, C. Harman, K. Murray, A.S. White, M. Dredze and B. Van Durme. 2021. Everything Is All It Takes: A Multipronged Strategy for Zero-Shot Cross-Lingual Information Extraction. <i>Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing</i>, 1950–1967. Online and Punta Cana, Dominican Republic: Association for Computational Linguistics."
+    links:
+    - label: "pdf"
+      href: "https://aclanthology.org/2021.emnlp-main.149.pdf"
+
   - citation: "Xia, Patrick, Guanghui Qin, Siddharth Vashishtha, Yunmo Chen, Tongfei Chen, Chandler May, Craig Harman, Kyle Rawlins, Aaron Steven White, and Benjamin Van Durme. 2021. LOME: Large Ontology Multilingual Extraction. <i>Proceedings of the 16th Conference of the European Chapter of the Association for Computational Linguistics: System Demonstrations</i>. Kyiv, Ukraine: Association for Computational Linguistics."
     links:
     - label: "pdf"
