@@ -56,7 +56,7 @@
     - label: "pdf"
       href: "https://aclanthology.org/2021.emnlp-main.149.pdf"
 
-  - citation: "Xia, Patrick, Guanghui Qin, Siddharth Vashishtha, Yunmo Chen, Tongfei Chen, Chandler May, Craig Harman, Kyle Rawlins, Aaron Steven White, and Benjamin Van Durme. 2021. LOME: Large Ontology Multilingual Extraction. <i>Proceedings of the 16th Conference of the European Chapter of the Association for Computational Linguistics: System Demonstrations</i>. Kyiv, Ukraine: Association for Computational Linguistics."
+  - citation: "Xia, Patrick, Guanghui Qin, Siddharth Vashishtha, Yunmo Chen, Tongfei Chen, Chandler May, Craig Harman, Kyle Rawlins, Aaron Steven White, and Benjamin Van Durme. 2021. LOME: Large Ontology Multilingual Extraction. <i>Proceedings of the 16th Conference of the European Chapter of the Association for Computational Linguistics: System Demonstrations</i>, 149–159. Kyiv, Ukraine: Association for Computational Linguistics."
     links:
     - label: "pdf"
       href: "https://www.aclweb.org/anthology/2021.eacl-demos.19.pdf"
