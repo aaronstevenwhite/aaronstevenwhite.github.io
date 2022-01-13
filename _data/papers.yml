@@ -6,10 +6,12 @@
       href: "https://ling.auf.net/lingbuzz/005824/current.pdf"
     - label: "data"
       href: "http://decomp.io/projects/event-structure/"
+    - code: "code"
+      href: "https://github.com/wgantt/event_type_induction"
 
 - year: 2022
   papers:
-  - citation: "Kane, Benjamin, William Gantt, and Aaron Steven White. 2022. Intensional Gaps: Relating veridicality, doxasticity, bouleticity, and neg-raising. <i>Semantics and Linguistic Theory</i> 31: 570-605"
+  - citation: "Kane, Benjamin, William Gantt, and Aaron Steven White. 2022. Intensional Gaps: Relating veridicality, doxasticity, bouleticity, and neg-raising. Edited by Nicole Dreier and Chloe Kwon. <i>Semantics and Linguistic Theory</i> 31: 570-605."
     links:
     - label: "pdf"
       href: "https://journals.linguisticsociety.org/proceedings/index.php/SALT/article/download/31.029/4792"
