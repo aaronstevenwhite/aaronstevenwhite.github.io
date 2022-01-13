@@ -6,7 +6,7 @@
       href: "https://ling.auf.net/lingbuzz/005824/current.pdf"
     - label: "data"
       href: "http://decomp.io/projects/event-structure/"
-    - code: "code"
+    - label: "code"
       href: "https://github.com/wgantt/event_type_induction"
 
 - year: 2022
