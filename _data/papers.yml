@@ -8,6 +8,11 @@
       href: "http://decomp.io/projects/event-structure/"
     - label: "code"
       href: "https://github.com/wgantt/event_type_induction"
+      
+  - citation: "White, Aaron Steven, and Jeffrey Lidz. accepted. Lexicalization in the developing parser. <i> Glossa Psycholinguistics</i>."
+    links:
+    - label: "pdf"
+      href: "https://ling.auf.net/lingbuzz/006107/current.pdf" 
 
 - year: 2022
   papers:
@@ -347,14 +352,7 @@
     - label: "pdf (preprint)"
       href: "http://aaronstevenwhite.io/papers/white_discovering_2014.pdf"
     - label: "data"
-      href: "https://github.com/aaronstevenwhite/ProjectionExperiments"      
-
-- year: under review
-  papers:
-  - citation: "White, Aaron Steven, and Jeffrey Lidz. under review. Lexicalization in the developing parser."
-    links:
-    - label: "pdf"
-      href: "https://ling.auf.net/lingbuzz/006107/current.pdf"
+      href: "https://github.com/aaronstevenwhite/ProjectionExperiments"
       
 - year: unpublished
   papers:
