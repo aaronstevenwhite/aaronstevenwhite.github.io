@@ -1,14 +1,5 @@
 - year: accepted
-  papers:
-  - citation: "Gantt, William, Lelia Glass, and Aaron Steven White. accepted. Decomposing and Recomposing Event Structure. <i>Transactions of the Association for Computational Linguistics</i>."
-    links:
-    - label: "pdf"
-      href: "https://ling.auf.net/lingbuzz/005824/current.pdf"
-    - label: "data"
-      href: "http://decomp.io/projects/event-structure/"
-    - label: "code"
-      href: "https://github.com/wgantt/event_type_induction"
-      
+  papers:      
   - citation: "White, Aaron Steven, and Jeffrey Lidz. accepted. Lexicalization in the developing parser. <i> Glossa Psycholinguistics</i>."
     links:
     - label: "pdf"
@@ -16,6 +7,17 @@
 
 - year: 2022
   papers:
+  - citation: "Gantt, William, Lelia Glass, and Aaron Steven White. 2022. Decomposing and Recomposing Event Structure. <i>Transactions of the Association for Computational Linguistics</i> 10: 17–34"
+    links:
+    - label: "pdf"
+      href: "https://direct.mit.edu/tacl/article-pdf/doi/10.1162/tacl_a_00445/1984114/tacl_a_00445.pdf"
+    - label: "data"
+      href: "http://decomp.io/projects/event-structure/"
+    - label: "code"
+      href: "https://github.com/wgantt/event_type_induction"
+    - label: "doi"
+      href: "https://doi.org/10.1162/tacl_a_00445"
+   
   - citation: "Kane, Benjamin, William Gantt, and Aaron Steven White. 2022. Intensional Gaps: Relating veridicality, doxasticity, bouleticity, and neg-raising. Edited by Nicole Dreier and Chloe Kwon. <i>Semantics and Linguistic Theory</i> 31: 570-605."
     links:
     - label: "pdf"
