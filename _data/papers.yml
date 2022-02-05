@@ -28,6 +28,13 @@
       href: "https://github.com/MegaAttitude/intensional-gaps"
     - label: "doi"
       href: "https://doi.org/10.3765/salt.v31i0.5137"
+      
+  - citation: "Huang, Nick, Aaron Steven White, Chia-Hsuan Liao, Valentine Hacquard, and Jeffrey Lidz. 2022. Syntactic bootstrapping attitude verbs despite impoverished morphosyntax. <i>Language Acquisition</i> 29(1): 27--53."
+    links:
+    - label: "pdf (preprint)"
+      href: "https://ling.auf.net/lingbuzz/005553/current.pdf"
+    - label: "doi"
+      href: "https://doi.org/10.1080/10489223.2021.1934686"
 
 - year: 2021
   papers:
@@ -48,14 +55,6 @@
       href: "https://github.com/esteng/miso_uds"
     - label: "doi"
       href: "https://doi.org/10.1162/tacl_a_00396"
-      
-  - citation: "Huang, Nick, Aaron Steven White, Chia-Hsuan Liao, Valentine Hacquard, and Jeffrey Lidz. 2021. Syntactic bootstrapping attitude verbs despite impoverished morphosyntax. <i>Language Acquisition</i>."
-    links:
-    - label: "pdf (preprint)"
-      href: "https://ling.auf.net/lingbuzz/005553/current.pdf"
-    - label: "doi"
-      href: "https://doi.org/10.1080/10489223.2021.1934686"
-
       
   - citation: "Kim, Gene Louis and Aaron Steven White. 2021. Montague Grammar Induction. Edited by Joseph Rhyne, Kaelyn Lamp, Nicole Dreier, and Chloe Kwon. <i>Semantics and Linguistic Theory</i> 30: 227–251."
     links:
