@@ -1,12 +1,12 @@
-- year: accepted
-  papers:      
-  - citation: "White, Aaron Steven, and Jeffrey Lidz. accepted. Lexicalization in the developing parser. <i> Glossa Psycholinguistics</i>."
-    links:
-    - label: "pdf"
-      href: "https://ling.auf.net/lingbuzz/006107/current.pdf" 
-
 - year: 2022
   papers:
+  - citation: "White, Aaron Steven, and Jeffrey Lidz. 2022. Lexicalization in the developing parser. <i> Glossa Psycholinguistics</i> 1(1)."
+    links:
+    - label: "pdf (preprint)"
+      href: "https://ling.auf.net/lingbuzz/006107/current.pdf"
+    - label: "doi"
+      href: "https://doi.org/10.5070/G601148"
+  
   - citation: "Gantt, William, Lelia Glass, and Aaron Steven White. 2022. Decomposing and Recomposing Event Structure. <i>Transactions of the Association for Computational Linguistics</i> 10: 17–34"
     links:
     - label: "pdf"
