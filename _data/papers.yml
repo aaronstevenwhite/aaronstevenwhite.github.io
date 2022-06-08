@@ -10,7 +10,7 @@
   - citation: "Gantt, William, Lelia Glass, and Aaron Steven White. 2022. Decomposing and Recomposing Event Structure. <i>Transactions of the Association for Computational Linguistics</i> 10: 17–34"
     links:
     - label: "pdf"
-      href: "https://direct.mit.edu/tacl/article-pdf/doi/10.1162/tacl_a_00445/1984114/tacl_a_00445.pdf"
+      href: "https://direct.mit.edu/tacl/article-pdf/doi/10.1162/tacl_a_00445/1986604/tacl_a_00445.pdf"
     - label: "data"
       href: "http://decomp.io/projects/event-structure/"
     - label: "code"
