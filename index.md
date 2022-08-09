@@ -9,7 +9,7 @@ share: false
 <a href="http://aaronstevenwhite.io"><img class="people" alt="Aaron Steven White" src="assets/img/aaron-white.jpg" srcset="assets/img/aaron-white.jpg" /></a>
 </center>
 
-<!-- <center><span style="color:#AF4C2E;font-weight:bold;">I'm on the job market!</span></center> -->
+<!-- <center><span style="color:#AF4C2E;font-weight:bold;">Announcement!</span></center> -->
 
 # What I do
 
@@ -28,6 +28,15 @@ To hear more about some of my work, check out [my
 interview](https://soundcloud.com/nlp-highlights/94-decompositional-semantics-with-aaron-white)
 on NLP Highlights. You can also read more about my broader research program in my 
 [research statement](research-statement.pdf).
+
+# Open positions
+
+<span style="color:#AF4C2E;font-weight:bold;">I am taking PhD students 
+in Linguistics and/or Computer Science this year.</span> I do not respond
+to applications for these positions by email. Please apply to the relevant 
+department through [the University of Rochester's application system](https://apply.grad.rochester.edu/apply/). 
+I encourage you to request a waiver of the application fee, as waivers are 
+frequently granted.
 
 # How to find me
 
