@@ -7,7 +7,7 @@ url                          : http://aaronstevenwhite.io # the base hostname & 
 
 blog:
   title                      : Aaron Steven White
-  description                : Assistant Professor at the University of Rochester
+  description                : ""
 
 # Layout configuration
   logo_path                  : "assets/img/logo1.svg" # path to logo file
