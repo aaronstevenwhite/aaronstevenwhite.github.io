@@ -30,8 +30,8 @@ Initiative](http://decomp.io).
 
 <span style="color:#AF4C2E;font-weight:bold;">I am taking PhD students 
 in Linguistics and/or Computer Science this year.</span> If you are 
-interested in one of these positions and would like to hear more. You 
-can schedule a time to chat [here](https://app.squarespacescheduling.com/schedule.php?owner=26977798&appointmentType=36263692).
+interested in one of these positions and would like to hear more, you 
+can schedule a time to talk with me [here](https://app.squarespacescheduling.com/schedule.php?owner=26977798&appointmentType=36263692).
 
 I do not respond to applications for these positions by email. Please apply to the relevant 
 department through [the University of Rochester's application system](https://apply.grad.rochester.edu/apply/). 
