@@ -8,9 +8,7 @@ share: false
 <center>
 <a href="http://aaronstevenwhite.io"><img class="people" alt="Aaron Steven White" src="assets/img/aaron-white.jpg" srcset="assets/img/aaron-white.jpg" /></a>
 
-<a href="https://app.squarespacescheduling.com/schedule.php?owner=26977798&owner=26977798&appointmentType=36264617" target="_blank" class="acuity-embed-button" style="background: #0b3f69; color: #fff; padding: 8px 12px; border: 0px; -webkit-box-shadow: 0 -2px 0 rgba(0,0,0,0.15) inset;-moz-box-shadow: 0 -2px 0 rgba(0,0,0,0.15) inset;box-shadow: 0 -2px 0 rgba(0,0,0,0.15) inset;border-radius: 4px; text-decoration: none; display: inline-block;">Schedule Appointment</a>
-<link rel="stylesheet" href="https://embed.acuityscheduling.com/embed/button/26977798.css" id="acuity-button-styles" />
-<script src="https://embed.acuityscheduling.com/embed/button/26977798.js" async></script>
+<a href="https://app.squarespacescheduling.com/schedule.php?owner=26977798" target="_blank" class="acuity-embed-button" style="background: #0b3f69; color: #fff; padding: 8px 12px; border: 0px; -webkit-box-shadow: 0 -2px 0 rgba(0,0,0,0.15) inset;-moz-box-shadow: 0 -2px 0 rgba(0,0,0,0.15) inset;box-shadow: 0 -2px 0 rgba(0,0,0,0.15) inset;border-radius: 4px; text-decoration: none; display: inline-block;">Schedule Appointment</a><link rel="stylesheet" href="https://embed.acuityscheduling.com/embed/button/26977798.css" id="acuity-button-styles" /><script src="https://embed.acuityscheduling.com/embed/button/26977798.js" async></script>
 </center>
 
 <!-- <center><span style="color:#AF4C2E;font-weight:bold;">Announcement!</span></center> -->
@@ -31,8 +29,11 @@ Initiative](http://decomp.io).
 # Open positions
 
 <span style="color:#AF4C2E;font-weight:bold;">I am taking PhD students 
-in Linguistics and/or Computer Science this year.</span> I do not respond
-to applications for these positions by email. Please apply to the relevant 
+in Linguistics and/or Computer Science this year.</span> If you are 
+interested in one of these positions and would like to hear more. You 
+can schedule a time to chat [here](https://app.squarespacescheduling.com/schedule.php?owner=26977798&appointmentType=36263692).
+
+I do not respond to applications for these positions by email. Please apply to the relevant 
 department through [the University of Rochester's application system](https://apply.grad.rochester.edu/apply/). 
 I encourage you to request a waiver of the application fee, as waivers are 
 frequently granted.
