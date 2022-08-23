@@ -33,10 +33,10 @@ in Linguistics and/or Computer Science this year.</span> If you are
 interested in one of these positions and would like to hear more, you 
 can schedule a time to talk with me [here](https://app.squarespacescheduling.com/schedule.php?owner=26977798&appointmentType=36263692).
 
-I do not respond to applications for these positions by email. Please apply to the relevant 
-department through [the University of Rochester's application system](https://apply.grad.rochester.edu/apply/). 
-I encourage you to request a waiver of the application fee, as waivers are 
-frequently granted.
+I do not respond to inquiries about or applications for these positions
+by email. If you have an inquiry, please schedule a time to talk with me
+at the link above. If you would like to submit an application, please use 
+[the University of Rochester's application system](https://apply.grad.rochester.edu/apply/).
 
 # How to find me
 
