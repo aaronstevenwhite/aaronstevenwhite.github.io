@@ -225,7 +225,7 @@
     - label: "pdf"
       href: "https://www.aclweb.org/anthology/D18-1007.pdf"
     - label: "data"
-      href: "http://decomp.io/projects/diverse-natural-language-inference/"
+      href: "https://github.com/decompositional-semantics-initiative/DNC"
     - label: "doi"
       href: "https://doi.org/10.18653/v1/D18-1007"
     - label: "bib"
@@ -245,7 +245,7 @@
   - citation: "White, Aaron Steven, Rachel Rudinger, Kyle Rawlins, and Benjamin Van Durme. 2018. Lexicosyntactic Inference in Neural Models. In <i>Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing</i>, 4717–4724. Brussels, Belgium: Association for Computational Linguistics."
     links:
     - label: "pdf"
-      href: "https://www.aclweb.org/anthology/N18-1501.pdf"
+      href: "https://aclanthology.org/D18-1501.pdf"
     - label: "data"
       href: "http://megaattitude.io/projects/mega-veridicality/"      
     - label: "doi"
