@@ -42,7 +42,8 @@ at the link above. If you would like to submit an application, please use
 
 | **Email**    | [{{ site.author.mail }}](mailto:{{ site.author.mail }})                             |
 | **Github**   | [{{ site.author.github }}](http://github.com/{{ site.author.github }})              |
-| **Twitter**  | [{{ site.author.twitter }}](http://twitter.com/{{ site.author.twitter }})           |
+| **Twitter**  | [@{{ site.author.twitter }}](http://twitter.com/{{ site.author.twitter }})          |
+| **Mastodon** | [@aaron@sigmoid.social</a>](https://sigmoid.social/@aaron)                          |
 | **Office**   | 511A Lattimore Hall                                                                 |
 
 # Where I've been
