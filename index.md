@@ -13,6 +13,10 @@ share: false
 
 <!-- <center><span style="color:#AF4C2E;font-weight:bold;">Announcement!</span></center> -->
 
+# Today's talk
+
+I'm giving a talk in the Department of Linguistics at Rutgers University today (Nov. 11, 2022). The slides are available [here](https://docs.google.com/presentation/d/1Sj-KvoNOdbHmJ3IVUKSN1XO4r0Tw0QOZ/edit?usp=sharing&ouid=117170965507909676291&rtpof=true&sd=true). 
+
 # What I do
 
 I'm an Assistant Professor in the [Department of
