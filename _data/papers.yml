@@ -1,6 +1,6 @@
 - year: 2022
   papers:
-  - citation: "White, Aaron Steven, and Jeffrey Lidz. 2022. Lexicalization in the developing parser. <i> Glossa Psycholinguistics</i> 1(1)."
+  - citation: "White, Aaron Steven, and Jeffrey Lidz. 2022. Lexicalization in the developing parser. <i>Glossa Psycholinguistics</i> 1(1)."
     links:
     - label: "pdf (preprint)"
       href: "https://ling.auf.net/lingbuzz/006107/current.pdf"
@@ -357,12 +357,20 @@
       
 - year: unpublished
   papers:
+  - citation: "Chen, Yunmo, William Gantt, Weiwei Gu, Tongfei Chen, Aaron Steven White, Benjamin Van Durme. 2022. Iterative Document-level Information Extraction via Imitation Learning."
+    links:
+    - label: "pdf"
+      href: "https://arxiv.org/pdf/2210.06600"
+    - label: "doi"
+      href: "https://doi.org/10.48550/arXiv.2210.06600"  
+  
   - citation: "Yan, Shaorong, and Aaron Steven White. 2019. Understanding Event Related Potentials during Reading Using Pre-Compiled Abstractive Decoders."
     links:
     - label: "pdf"
       href: "https://psyarxiv.com/mwpf5/download"
     - label: "doi"
-      href: "https://doi.org/10.31234/osf.io/mwpf5"    
+      href: "https://doi.org/10.31234/osf.io/mwpf5"
+
   - citation: "White, Aaron Steven. 2016. The Interaction of Implicativity with the Form and Scope of Negation."
     links:
     - label: "pdf"
