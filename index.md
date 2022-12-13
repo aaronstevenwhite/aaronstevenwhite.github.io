@@ -26,18 +26,6 @@ Science](http://www.sas.rochester.edu/dsc/). I'm also Director of the
 Project](http://megaattitude.io) and the [Decompositional Semantics
 Initiative](http://decomp.io).
 
-# Open positions
-
-<span style="color:#AF4C2E;font-weight:bold;">I am taking PhD students 
-in Linguistics and/or Computer Science this year.</span> If you are 
-interested in one of these positions and would like to hear more, you 
-can schedule a time to talk with me [here](https://app.squarespacescheduling.com/schedule.php?owner=26977798&appointmentType=36263692).
-
-I do not respond to inquiries about or applications for these positions
-by email. If you have an inquiry, please schedule a time to talk with me
-at the link above. If you would like to submit an application, please use 
-[the University of Rochester's application system](https://apply.grad.rochester.edu/apply/).
-
 # How to find me
 
 | **Email**    | [{{ site.author.mail }}](mailto:{{ site.author.mail }})                             |
