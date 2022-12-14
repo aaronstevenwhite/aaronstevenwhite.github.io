@@ -4,7 +4,10 @@
     links:
     - label: "slides"
       href: "https://docs.google.com/presentation/d/1Sj-KvoNOdbHmJ3IVUKSN1XO4r0Tw0QOZ/edit?usp=sharing&ouid=117170965507909676291&rtpof=true&sd=true"
-  - citation: "Gantt, W., L. Glass, & A.S. White. 2022. Decomposing and Recomposing Event Structure. Poster at the 60th Annual Meeting of the Association for Computational Linguistics (ACL 2022), Dublin, Ireland, May 22–27, 2022."
+  - citation: "Gantt, W., L. Glass, & A.S. White. 2022. Decomposing and Recomposing Event Structure. Talk and poster at the 60th Annual Meeting of the Association for Computational Linguistics (ACL 2022), Dublin, Ireland, May 22–27, 2022."
+    links:
+    - label: "video"
+      href: "https://screencast-o-matic.com/watch/c3fbbmVYfou"
   - citation: "White, A.S. 2022. Montague Grammar Induction. Talk at the second Experiments in Linguistic Meaning conference (ELM2), May 18, 2022."
   - citation: "White, A.S. 2022. Semantic Category Induction. Talk at the University of Toronto, March 16, 2022."
 
