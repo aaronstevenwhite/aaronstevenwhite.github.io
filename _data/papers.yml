@@ -36,12 +36,19 @@
     - label: "doi"
       href: "https://doi.org/10.1080/10489223.2021.1934686"
       
-  - citation: "Chen, Yunmo, William Gantt, Weiwei Gu, Tongfei Chen, Aaron Steven White, Benjamin Van Durme. 2022. Iterative Document-level Information Extraction via Imitation Learning."
+  - citation: "Chen, Yunmo, William Gantt, Weiwei Gu, Tongfei Chen, Aaron Steven White, and Benjamin Van Durme. 2022. Iterative Document-level Information Extraction via Imitation Learning."
     links:
     - label: "pdf"
       href: "https://arxiv.org/pdf/2210.06600"
     - label: "doi"
       href: "https://doi.org/10.48550/arXiv.2210.06600"
+      
+  - citation: "Gantt, William, Reno Kriz, Yunmo Chen, Siddharth Vashishtha, and Aaron Steven White. 2022. On Event Individuation for Document-Level Information Extraction."
+    links:
+    - label: "pdf"
+      href: "https://arxiv.org/pdf/2212.09702"
+    - label: "doi"
+      href: "https://doi.org/10.48550/arXiv.2212.09702"
 
 - year: 2021
   papers:
