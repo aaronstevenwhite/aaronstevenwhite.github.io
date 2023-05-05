@@ -1,6 +1,6 @@
 - year: 2023
   papers:
-  - citation: "Chen, Yunmo, William Gantt, Weiwei Gu, Tongfei Chen, Aaron White, and Benjamin Van Durme. 2023. Iterative Document-level Information Extraction via Imitation Learning. *Proceedings of the 17th Conference of the European Chapter of the Association for Computational Linguistics*, pages 1850–1866, Dubrovnik, Croatia. Association for Computational Linguistics."
+  - citation: "Chen, Yunmo, William Gantt, Weiwei Gu, Tongfei Chen, Aaron White, and Benjamin Van Durme. 2023. Iterative Document-level Information Extraction via Imitation Learning. <i>Proceedings of the 17th Conference of the European Chapter of the Association for Computational Linguistics</i>, pages 1850–1866, Dubrovnik, Croatia. Association for Computational Linguistics."
     links:
     - label: "pdf"
       href: "https://aclanthology.org/2023.eacl-main.136.pdf"
