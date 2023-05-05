@@ -1,9 +1,18 @@
+- year: 2023
+  papers:
+  - citation: "Chen, Yunmo, William Gantt, Weiwei Gu, Tongfei Chen, Aaron White, and Benjamin Van Durme. 2023. Iterative Document-level Information Extraction via Imitation Learning. *Proceedings of the 17th Conference of the European Chapter of the Association for Computational Linguistics*, pages 1850–1866, Dubrovnik, Croatia. Association for Computational Linguistics."
+    links:
+    - label: "pdf"
+      href: "https://aclanthology.org/2023.eacl-main.136.pdf"
+    - label: "bib"
+      href: "https://aclanthology.org/2023.eacl-main.136.bib"
+
 - year: 2022
   papers:
-  - citation: "White, Aaron Steven, and Jeffrey Lidz. 2022. Lexicalization in the developing parser. <i>Glossa Psycholinguistics</i> 1(1)."
+  - citation: "White, Aaron Steven, and Jeffrey Lidz. 2022. Lexicalization in the developing parser. <i>Glossa Psycholinguistics</i> 1(1): 2, 1-22."
     links:
-    - label: "pdf (preprint)"
-      href: "https://ling.auf.net/lingbuzz/006107/current.pdf"
+    - label: "pdf"
+      href: "https://escholarship.org/content/qt1h153783/supp/qt1h153783.pdf"
     - label: "doi"
       href: "https://doi.org/10.5070/G601148"
   
@@ -35,13 +44,6 @@
       href: "https://ling.auf.net/lingbuzz/005553/current.pdf"
     - label: "doi"
       href: "https://doi.org/10.1080/10489223.2021.1934686"
-      
-  - citation: "Chen, Yunmo, William Gantt, Weiwei Gu, Tongfei Chen, Aaron Steven White, and Benjamin Van Durme. 2022. Iterative Document-level Information Extraction via Imitation Learning."
-    links:
-    - label: "pdf"
-      href: "https://arxiv.org/pdf/2210.06600"
-    - label: "doi"
-      href: "https://doi.org/10.48550/arXiv.2210.06600"
       
   - citation: "Gantt, William, Reno Kriz, Yunmo Chen, Siddharth Vashishtha, and Aaron Steven White. 2022. On Event Individuation for Document-Level Information Extraction."
     links:
