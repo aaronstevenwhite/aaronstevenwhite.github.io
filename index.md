@@ -15,7 +15,7 @@ share: false
 
 **31 May 2023:** Giving a talk on [The role of discreteness in gradient inference judgments](https://docs.google.com/presentation/d/19o8vCpu8PX6w_pRfvjSCdPkhcQ0388u_/edit?usp=sharing&ouid=117170965507909676291&rtpof=true&sd=true) at Leipzig University.
 
-**19–30 June 2023:** Teaching a course at the [LSA Institute](https://blogs.umass.edu/lingstitute2023/) at the University of Massachusetts, Amherst. You can check out the course notes [here](representation-learning-course/). 
+**19–30 June 2023:** Teaching a course at the [LSA Institute](https://blogs.umass.edu/lingstitute2023/) at the University of Massachusetts, Amherst. You can check out the course notes [here](http://aaronstevenwhite.io/representation-learning-course/). 
 
 <!-- <center><span style="color:#AF4C2E;font-weight:bold;">Announcement!</span></center> -->
 
