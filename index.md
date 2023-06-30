@@ -11,14 +11,6 @@ share: false
 <a href="https://app.squarespacescheduling.com/schedule.php?owner=26977798" target="_blank" class="acuity-embed-button" style="background: #0b3f69; color: #fff; padding: 8px 12px; border: 0px; -webkit-box-shadow: 0 -2px 0 rgba(0,0,0,0.15) inset;-moz-box-shadow: 0 -2px 0 rgba(0,0,0,0.15) inset;box-shadow: 0 -2px 0 rgba(0,0,0,0.15) inset;border-radius: 4px; text-decoration: none; display: inline-block;">Schedule Appointment</a><link rel="stylesheet" href="https://embed.acuityscheduling.com/embed/button/26977798.css" id="acuity-button-styles" /><script src="https://embed.acuityscheduling.com/embed/button/26977798.js" async></script>
 </center>
 
-# Where I'll be
-
-**31 May 2023:** Giving a talk on [The role of discreteness in gradient inference judgments](https://docs.google.com/presentation/d/19o8vCpu8PX6w_pRfvjSCdPkhcQ0388u_/edit?usp=sharing&ouid=117170965507909676291&rtpof=true&sd=true) at Leipzig University.
-
-**19–30 June 2023:** Teaching a course at the [LSA Institute](https://blogs.umass.edu/lingstitute2023/) at the University of Massachusetts, Amherst. You can check out the course notes [here](http://aaronstevenwhite.io/representation-learning-course/). 
-
-<!-- <center><span style="color:#AF4C2E;font-weight:bold;">Announcement!</span></center> -->
-
 # What I do
 
 I'm an Assistant Professor in the [Department of
