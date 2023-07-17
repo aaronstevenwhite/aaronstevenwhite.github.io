@@ -13,7 +13,7 @@ share: false
 
 # What I do
 
-I'm an Assistant Professor in the [Department of
+I'm an Associate Professor in the [Department of
 Linguistics](http://www.sas.rochester.edu/lin/index.html) at the
 University of Rochester, with a secondary
 appointment in the [Department of Computer
