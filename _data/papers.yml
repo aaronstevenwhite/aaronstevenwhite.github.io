@@ -1,5 +1,14 @@
 - year: 2023
   papers:
+  - citation: "Barham, Samuel, Orion Weller, Michelle Yuan, Kenton Murray, Mahsa Yarmohammadi, Zhengping Jiang, Siddharth Vashishtha, Alexander Martin, Anqi Liu, Aaron Steven White, Jordan Boyd-Graber, Benjamin Van Durme. 2023. MegaWika: Millions of reports and their sources across 50 diverse languages."
+    links:
+    - label: "pdf"
+      href: "https://arxiv.org/pdf/2307.07049"
+    - label: "data"
+      href: "https://huggingface.co/datasets/hltcoe/megawika"
+    - label: "doi"
+      href: "https://doi.org/10.48550/arXiv.2307.07049"
+
   - citation: "Chen, Yunmo, William Gantt, Weiwei Gu, Tongfei Chen, Aaron White, and Benjamin Van Durme. 2023. Iterative Document-level Information Extraction via Imitation Learning. <i>Proceedings of the 17th Conference of the European Chapter of the Association for Computational Linguistics</i>, pages 1850–1866, Dubrovnik, Croatia. Association for Computational Linguistics."
     links:
     - label: "pdf"
