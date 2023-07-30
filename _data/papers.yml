@@ -1,5 +1,10 @@
 - year: 2023
   papers:
+  - citation: "Grove, Julian and Aaron Steven White. 2023. Factivity, presupposition projection, and the role of discrete knowledge in gradient inference judgments."
+    links:
+    - label: "pdf"
+      href: "https://lingbuzz.net/lingbuzz/007450/current.pdf"
+
   - citation: "Barham, Samuel, Orion Weller, Michelle Yuan, Kenton Murray, Mahsa Yarmohammadi, Zhengping Jiang, Siddharth Vashishtha, Alexander Martin, Anqi Liu, Aaron Steven White, Jordan Boyd-Graber, Benjamin Van Durme. 2023. MegaWika: Millions of reports and their sources across 50 diverse languages."
     links:
     - label: "pdf"
