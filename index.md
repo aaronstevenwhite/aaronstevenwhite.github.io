@@ -13,9 +13,10 @@ share: false
 
 # Open positions
 
-I aim to take at least one PhD student in the coming year. 
-I do <i>not</i> respond to inquiries by email.
-If you are interested, please schedule an informational interview [here](https://app.acuityscheduling.com/schedule.php?owner=26977798&appointmentType=37307058).
+I aim to bring on at least one PhD student in the coming year. 
+If you are interested in one of these positions, please schedule 
+an informational interview [here](https://app.acuityscheduling.com/schedule.php?owner=26977798&appointmentType=37307058). 
+<b>I do <i>not</i> respond to inquiries by email.</b>
 
 # What I do
 
