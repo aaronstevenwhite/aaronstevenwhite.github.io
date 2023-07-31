@@ -1,3 +1,15 @@
+- year: 2023
+  presentations:
+  - citation: "White, Aaron Steven. 2023. The role of discreteness in gradient inference judgments: A case study of lexically triggered inferences. Talk given at Leipzig University, May 31, 2023."
+    links:
+    - label: "slides"
+      href: "https://docs.google.com/presentation/d/19o8vCpu8PX6w_pRfvjSCdPkhcQ0388u_/edit?usp=sharing&ouid=117170965507909676291&rtpof=true&sd=true"
+
+  - citation: "Chen, Yunmo, William Gantt, Weiwei Gu, Tongfei Chen, Aaron White, and Benjamin Van Durme. 2023. Iterative Document-level Information Extraction via Imitation Learning. Talk given at the 17th Conference of the European Chapter of the Association for Computational Linguistics, Dubrovnik, Croatia. May 2–6, 2023."
+    links:
+    - label: "video"
+      href: "https://aclanthology.org/2023.eacl-main.136.mp4"
+
 - year: 2022
   presentations:
   - citation: "White, A.S. 2022. Semantic Category Induction. Talk at Rutgers University, November 11, 2022."
