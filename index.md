@@ -27,9 +27,7 @@ appointment in the [Department of Computer
 Science](https://www.cs.rochester.edu/) and an
 affiliation with the [Goergen Institute for Data
 Science](http://www.sas.rochester.edu/dsc/). I'm also Director of the
-[FACTS.lab](http://factslab.io) at UR, and I lead the [MegaAttitude
-Project](http://megaattitude.io) and the [Decompositional Semantics
-Initiative](http://decomp.io). An overview of my research can be found
+[FACTS.lab](http://factslab.io) at UR. An overview of my research can be found
 [here]({{ '/research' | prepend: site.baseurl }}).
 
 # How to find me
