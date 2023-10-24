@@ -5,14 +5,14 @@
     - label: "pdf"
       href: "https://lingbuzz.net/lingbuzz/007450/current.pdf"
 
-  - citation: "Gantt, William, Reno Kriz, Yunmo Chen, Siddharth Vashishtha, and Aaron Steven White. 2023. On Event Individuation for Document-Level Information Extraction. To appear in <i>Findings of the Association for Computational Linguistics: EMNLP 2023</i>".
+  - citation: "Gantt, William, Reno Kriz, Yunmo Chen, Siddharth Vashishtha, and Aaron Steven White. 2023. On Event Individuation for Document-Level Information Extraction. To appear in <i>Findings of the Association for Computational Linguistics: EMNLP 2023</i>."
     links:
     - label: "pdf"
       href: "https://arxiv.org/pdf/2212.09702"
     - label: "doi"
       href: "https://doi.org/10.48550/arXiv.2212.09702"
 
-  - citation: "Chen, Yunmo, William Gantt, Tongfei Chen, Aaron Steven White, Benjamin Van Durme. 2023. A Unified View of Evaluation Metrics for Structured Prediction. To appear in <i>Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing</i>".
+  - citation: "Chen, Yunmo, William Gantt, Tongfei Chen, Aaron Steven White, and Benjamin Van Durme. 2023. A Unified View of Evaluation Metrics for Structured Prediction. To appear in <i>Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing</i>."
     links:
     - label: "pdf"
       href: "https://arxiv.org/abs/2310.13793"
