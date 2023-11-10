@@ -1,5 +1,14 @@
 - year: 2023
   papers:
+  - citation: "Vashishtha, Siddharth, Alexander Martin, William Gantt, Benjamin Van Durme, Aaron Steven White. 2023. FAMuS: Frames Across Multiple Sources."
+    links:
+    - label: "pdf"
+      href: "https://arxiv.org/pdf/2311.05601.pdf"
+    - label: "data"
+      href: "https://github.com/FACTSlab/FAMuS"
+    - label: "doi"
+      href: "https://doi.org/10.48550/arXiv.2311.05601"
+
   - citation: "Grove, Julian and Aaron Steven White. 2023. Factivity, presupposition projection, and the role of discrete knowledge in gradient inference judgments."
     links:
     - label: "pdf"
