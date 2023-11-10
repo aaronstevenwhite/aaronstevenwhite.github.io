@@ -11,6 +11,10 @@ share: false
 <a href="https://app.squarespacescheduling.com/schedule.php?owner=26977798" target="_blank" class="acuity-embed-button" style="background: #0b3f69; color: #fff; padding: 8px 12px; border: 0px; -webkit-box-shadow: 0 -2px 0 rgba(0,0,0,0.15) inset;-moz-box-shadow: 0 -2px 0 rgba(0,0,0,0.15) inset;box-shadow: 0 -2px 0 rgba(0,0,0,0.15) inset;border-radius: 4px; text-decoration: none; display: inline-block;">Schedule Appointment</a><link rel="stylesheet" href="https://embed.acuityscheduling.com/embed/button/26977798.css" id="acuity-button-styles" /><script src="https://embed.acuityscheduling.com/embed/button/26977798.js" async></script>
 </center>
 
+# Talk today
+
+I'm giving a talk at UT Austin today. You can find the slides [here](presentations/slides/ut-talk-nov-2023-final.pptx).
+
 # Open positions
 
 I'm looking to bring on at least one PhD student in 2024-2025 to work on the project described [here]({{ '/logical-form-induction-summary' | prepend: site.baseurl }}).
