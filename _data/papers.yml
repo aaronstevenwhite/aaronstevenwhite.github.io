@@ -14,21 +14,27 @@
     - label: "pdf"
       href: "https://lingbuzz.net/lingbuzz/007450/current.pdf"
 
-  - citation: "Gantt, William, Reno Kriz, Yunmo Chen, Siddharth Vashishtha, and Aaron Steven White. 2023. On Event Individuation for Document-Level Information Extraction. To appear in <i>Findings of the Association for Computational Linguistics: EMNLP 2023</i>."
+  - citation: "Gantt, William, Reno Kriz, Yunmo Chen, Siddharth Vashishtha, and Aaron White. 2023. On Event Individuation for Document-Level Information Extraction. <i>Findings of the Association for Computational Linguistics: EMNLP 2023</i>, pages 12938–12958, Singapore. Association for Computational Linguistics."
     links:
     - label: "pdf"
-      href: "https://arxiv.org/pdf/2212.09702"
+      href: "https://aclanthology.org/2023.findings-emnlp.862.pdf"
+    - label: "data"
+      href: "https://github.com/wgantt/event_individuation"
     - label: "doi"
-      href: "https://doi.org/10.48550/arXiv.2212.09702"
+      href: "https://doi.org/10.18653/v1/2023.findings-emnlp.862"
+    - label: "bib"
+      href: "https://aclanthology.org/2023.findings-emnlp.862.bib"
 
-  - citation: "Chen, Yunmo, William Gantt, Tongfei Chen, Aaron Steven White, and Benjamin Van Durme. 2023. A Unified View of Evaluation Metrics for Structured Prediction. To appear in <i>Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing</i>."
+  - citation: "Chen, Yunmo, William Gantt, Tongfei Chen, Aaron White, and Benjamin Van Durme. 2023. A Unified View of Evaluation Metrics for Structured Prediction. <i>Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing</i>, pages 12868–12882, Singapore. Association for Computational Linguistics."
     links:
     - label: "pdf"
-      href: "https://arxiv.org/abs/2310.13793"
+      href: "https://aclanthology.org/2023.emnlp-main.795.pdf"
     - label: "code"
       href: "https://github.com/wanmok/metametric"
     - label: "doi"
-      href: "https://doi.org/10.48550/arXiv.2310.13793"
+      href: "https://doi.org/10.18653/v1/2023.emnlp-main.795"
+    - label: "bib"
+      href: "https://aclanthology.org/2023.emnlp-main.795.bib"
 
   - citation: "Barham, Samuel, Orion Weller, Michelle Yuan, Kenton Murray, Mahsa Yarmohammadi, Zhengping Jiang, Siddharth Vashishtha, Alexander Martin, Anqi Liu, Aaron Steven White, Jordan Boyd-Graber, Benjamin Van Durme. 2023. MegaWika: Millions of reports and their sources across 50 diverse languages."
     links:
@@ -43,6 +49,8 @@
     links:
     - label: "pdf"
       href: "https://aclanthology.org/2023.eacl-main.136.pdf"
+    - label: "doi"
+      href: "https://doi.org/10.18653/v1/2023.eacl-main.136"
     - label: "bib"
       href: "https://aclanthology.org/2023.eacl-main.136.bib"
 
