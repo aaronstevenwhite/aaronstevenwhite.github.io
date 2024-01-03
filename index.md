@@ -11,13 +11,6 @@ share: false
 <a href="https://app.squarespacescheduling.com/schedule.php?owner=26977798" target="_blank" class="acuity-embed-button" style="background: #0b3f69; color: #fff; padding: 8px 12px; border: 0px; -webkit-box-shadow: 0 -2px 0 rgba(0,0,0,0.15) inset;-moz-box-shadow: 0 -2px 0 rgba(0,0,0,0.15) inset;box-shadow: 0 -2px 0 rgba(0,0,0,0.15) inset;border-radius: 4px; text-decoration: none; display: inline-block;">Schedule Appointment</a><link rel="stylesheet" href="https://embed.acuityscheduling.com/embed/button/26977798.css" id="acuity-button-styles" /><script src="https://embed.acuityscheduling.com/embed/button/26977798.js" async></script>
 </center>
 
-# Open positions
-
-I'm looking to bring on at least one PhD student in 2024-2025 to work on the project described [here]({{ '/logical-form-induction-summary' | prepend: site.baseurl }}).
-If you are interested in one of these positions, please schedule 
-an informational interview [here](https://app.acuityscheduling.com/schedule.php?owner=26977798&appointmentType=37307058). 
-<b>I do <i>not</i> respond to inquiries by email.</b>
-
 # What I do
 
 I'm an Associate Professor in the [Department of
