@@ -1,3 +1,10 @@
+- year: 2024
+  papers:
+  - citation: "Gantt, William, Shabnam Behzad, Hannah YoungEun An, Yunmo Chen, Aaron Steven White, Benjamin Van Durme, Mahsa Yarmohammadi. 2024. MultiMUC: Multilingual Template Filling on MUC-4. <i>Proceedings of the 18th Conference of the European Chapter of the Association for Computational Linguistics</i>, Malta. Association for Computational Linguistics."
+    links:
+    - label: "pdf"
+      href: "https://openreview.net/pdf?id=Idd4xM5BK0"
+
 - year: 2023
   papers:
   - citation: "Vashishtha, Siddharth, Alexander Martin, William Gantt, Benjamin Van Durme, Aaron Steven White. 2023. FAMuS: Frames Across Multiple Sources."
