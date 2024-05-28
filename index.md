@@ -29,7 +29,7 @@ can be found [here]({{ '/research' | prepend: site.baseurl }}).
 | **Email**    | [{{ site.author.mail }}](mailto:{{ site.author.mail }})                             |
 | **Github**   | [{{ site.author.github }}](http://github.com/{{ site.author.github }})              |
 | **Twitter**  | [@{{ site.author.twitter }}](http://twitter.com/{{ site.author.twitter }})          |
-| **Mastodon** | [@aaron@sigmoid.social](https://sigmoid.social/@aaron)                              |
+| **Bluesky**  | [@aaronsteven](https://bsky.app/profile/aaronsteven.bsky.social)                    |
 | **Office**   | 511A Lattimore Hall                                                                 |
 
 # Where I've been
