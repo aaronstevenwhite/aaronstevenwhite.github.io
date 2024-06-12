@@ -1,6 +1,9 @@
 - year: 2024
   presentations:
   - citation: "Grove, Julian and Aaron Steven White. 2024. Modeling the prompt in inference judgment tasks. Talk given at the third Experiments in Linguistic Meaning conference (ELM 3), June 13, 2024."
+    links:
+    - label: "slides"
+      href: "https://juliangrove.github.io/slides/elm3talk.pdf" 
   - citation: "Cao, Angela, Aaron Steven White, and Dan Lassiter. 2024. Graded Causatives. Poster presented at the third Experiments in Linguistic Meaning conference (ELM 3), June 13, 2024."
   - citation: "White, Aaron Steven. 2024. Ontological scaffolding for ontology-free representations of complex situations. Talk given at the GdR LIFT ILFC Seminar, April 10, 2024."
   - citation: "White, Aaron Steven. 2024. Identifying lexical semantic categories from noisy inference judgments. Talk given at the University of Chicago, February 23, 2024."
