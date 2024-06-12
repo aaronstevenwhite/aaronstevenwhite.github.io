@@ -5,6 +5,11 @@
     - label: "pdf"
       href: "https://lingbuzz.net/lingbuzz/007450/current.pdf"
 
+  - citation: "Grove, Julian and Aaron Steven White. 2024. Modeling the prompt in inference judgment tasks. To appear in <i>Proceedings of the third Experiments in Linguistic Meaning conference (ELM 3)</i>."
+    links:
+    - label: "pdf"
+      href: "https://ling.auf.net/lingbuzz/008196/current.pdf"
+
   - citation: "Vashishtha, Siddharth, Alexander Martin, William Gantt, Benjamin Van Durme, and Aaron Steven White. 2024. FAMuS: Frames Across Multiple Sources.  <i>Proceedings of the 2024 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies</i>. Mexico City: Association for Computational Linguistics."
     links:
     - label: "pdf"
