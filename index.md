@@ -11,7 +11,12 @@ share: false
 <a href="https://app.squarespacescheduling.com/schedule.php?owner=26977798" target="_blank" class="acuity-embed-button" style="background: #0b3f69; color: #fff; padding: 8px 12px; border: 0px; -webkit-box-shadow: 0 -2px 0 rgba(0,0,0,0.15) inset;-moz-box-shadow: 0 -2px 0 rgba(0,0,0,0.15) inset;box-shadow: 0 -2px 0 rgba(0,0,0,0.15) inset;border-radius: 4px; text-decoration: none; display: inline-block;">Schedule Appointment</a><link rel="stylesheet" href="https://embed.acuityscheduling.com/embed/button/26977798.css" id="acuity-button-styles" /><script src="https://embed.acuityscheduling.com/embed/button/26977798.js" async></script>
 </center>
 
-<b><span style="color:#AF4C2E;">I am accepting PhD students in Linguistics or Computer Science to start Fall 2025. I do not respond to inquiries about these positions by email. Please see [this page](https://www.sas.rochester.edu/lin/graduate/apply.html) for application information.</span></b>
+# Open positions
+
+I am accepting PhD students in Linguistics or Computer Science to 
+start Fall 2025. I do not respond to inquiries about these positions 
+by email. Please see [this page](https://apply.grad.rochester.edu/apply/) 
+for application information.
 
 # What I do
 
