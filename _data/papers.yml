@@ -1,5 +1,10 @@
 - year: 2024
   papers:
+  - citation: "Cao, Angela, Faye Holt, Jonas Chan, Stephanie Richter, Lelia Glass, Aaron Steven White. 2024. Generating event descriptions under syntactic and semantic constraints."
+    links:
+    - label: "pdf"
+      href: "https://ling.auf.net/lingbuzz/008208/current.pdf"
+
   - citation: "Grove, Julian and Aaron Steven White. 2024. Factivity, presupposition projection, and the role of discrete knowledge in gradient inference judgments."
     links:
     - label: "pdf"
@@ -34,6 +39,8 @@
       href: "https://arxiv.org/pdf/2402.06973.pdf"
     - label: "data"
       href: "https://github.com/wgantt/eks"
+    - label: "doi"
+      href: "https://doi.org/10.48550/arXiv.2402.06973"
 
   - citation: "Gantt, William and Aaron Steven White. 2024. Small Models Are (Still) Effective Cross-Domain Argument Extractors. "
     links:
