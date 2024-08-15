@@ -27,7 +27,6 @@ appointment in the [Department of Computer
 Science](https://www.cs.rochester.edu/) and an
 affiliation with the [Goergen Institute for Data
 Science](http://www.sas.rochester.edu/dsc/). I'm also Director of 
-Graduate Studies for the Department of Linguistics and Director of 
 the [FACTS.lab](http://factslab.io) at UR. An overview of my research 
 can be found [here]({{ '/research' | prepend: site.baseurl }}).
 
