@@ -1,0 +1,53 @@
+
+.fade-in {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.animate__animated {
+  opacity: 1;
+  visibility: visible;
+}
+.fade-in-up {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.animate__animated.animate__fadeInUp {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (max-width: 900px) {
+  .fade-in-upM {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .animate__animated.animate__fadeInUpM {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@media (min-width: 900px) {
+  .fade-in-right {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .animate__animated.animate__fadeInRight {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .fade-in-left {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .animate__animated.animate__fadeInLeft {
+    opacity: 1;
+    visibility: visible;
+  }
+}

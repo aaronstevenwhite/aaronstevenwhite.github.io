@@ -1,0 +1,46 @@
+.where__section {
+  .where__grid {
+    display: grid;
+    align-items: center;
+    justify-content: space-around;
+    gap: 60px;
+
+    @media (min-width:900px) {
+      display: flex;
+    }
+  }
+
+  .where__img {
+    max-width: 500px;
+    order: 1;
+
+    @media (max-width:900px) {
+      order: 1;
+    }
+
+  }
+
+  .where__text {
+    max-width: 466px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    order: 2;
+
+    @media (min-width: 900px) {
+      text-align: left;
+      order: 1;
+    }
+
+    a {
+      color: var(--background-color);
+      opacity: 0.8;
+    }
+
+    a:hover {
+      color: var(--main-color);
+
+    }
+  }
+}

@@ -1,0 +1,19 @@
+---
+layout: page
+image: svg/404-page.svg
+title: Sorry!
+btn: Back to Home
+permalink: /404.html
+---
+
+<div class="page__error">
+  <div class="container">
+    <div class="error__image">
+      {%- include {{page.image}} -%}
+    </div>
+    <h2>Sorry, page not found!</h2>
+    <div class="btn">
+      <a class="button" href="/" aria-label="Back to Home">{{page.btn}}</a>
+    </div>
+  </div>
+</div>

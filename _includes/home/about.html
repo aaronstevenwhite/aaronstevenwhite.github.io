@@ -1,0 +1,30 @@
+<section id="about" class="about__section">
+  <div class="container">
+    <div class="box__row">
+      <h2 class="border"> {{h.about_section.title}} </h2>
+      <div class="box__grid">
+        <img width="561" alt="Aaron Steven White" class="box__img fade-in  fade-left" style="aspect-ratio: 2 / 1.8;" src="{{h.about_section.image}}"
+          alt="{{h.about_section.title}}">
+        <div class="box__text fade-in fade-right ">
+          {{h.about_section.text | markdownify}}
+          <span>
+            <a href="#" id="scheduleBtn" aria-label="Schedule button" class="btn button">{{h.about_section.btn}}</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="scheduleModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <button class="close" arial-label="close"><span aria-hidden="true">&times;</span></button>
+      
+      <iframe id="modalIframe" src="" frameborder="0" width="100%" height="688" style="max-width: 900px; height: 720px; width: 100%; margin-top: 30px;"></iframe>
+    </div>
+  </div>
+</section>
+
+
+
+<script src="/assets/js/modal.js" defer></script>
+

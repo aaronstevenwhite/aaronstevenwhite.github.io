@@ -1,0 +1,14 @@
+nav:
+- title: Papers
+  link: /papers
+  page_id: papers
+- title: Presentations
+  link: /presentations
+  page_id: presentations
+- title: CV
+  link: https://aaronstevenwhite.io/cv.pdf
+  page_id: cv
+#- title: lab
+  #link: http://factslab.io/
+  #page_id: lab
+

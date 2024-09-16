@@ -1,0 +1,260 @@
+- year: 2024
+  class: "2024"
+  presentations:
+  - citation: "Grove, Julian and Aaron Steven White. 2024. Modeling the prompt in inference judgment tasks. Talk given at the third Experiments in Linguistic Meaning conference (ELM 3), June 13, 2024."
+    links:
+    - label: "slides"
+      href: "https://juliangrove.github.io/slides/elm3talk.pdf" 
+  - citation: "Cao, Angela, Aaron Steven White, and Dan Lassiter. 2024. Graded Causatives. Poster presented at the third Experiments in Linguistic Meaning conference (ELM 3), June 13, 2024."
+  - citation: "White, Aaron Steven. 2024. Ontological scaffolding for ontology-free representations of complex situations. Talk given at the GdR LIFT ILFC Seminar, April 10, 2024."
+  - citation: "White, Aaron Steven. 2024. Identifying lexical semantic categories from noisy inference judgments. Talk given at the University of Chicago, February 23, 2024."
+    links:
+    - label: "slides"
+      href: "/presentations/slides/chicago-leap-talk-feb-2024.pptx" 
+  - citation: "White, Aaron Steven. 2024. Distinguishing metalinguistic and contextual uncertainty. Talk given at the University of Chicago, February 22, 2024."
+    links:
+    - label: "slides"
+      href: "/presentations/slides/chicago-colloq-talk-feb-2024.pptx"  
+  - citation: "White, Aaron Steven. 2024. Frames Across Multiple Sources. Talk given at the Johns Hopkins University Human Language Technology Center of Excellence, January 25, 2024."
+
+- year: 2023
+  class: "2023"
+  presentations:
+  - citation: "White, Aaron Steven. 2023. Representing complex situations. Talk given at University of Texas at Austin, November 10, 2023."
+    links:
+    - label: "slides"
+      href: "/presentations/slides/ut-talk-nov-2023.pptx"
+
+  - citation: "White, Aaron Steven. 2023. The role of discreteness in gradient inference judgments: A case study of lexically triggered inferences. Talk given at Leipzig University, May 31, 2023."
+    links:
+    - label: "slides"
+      href: "https://docs.google.com/presentation/d/19o8vCpu8PX6w_pRfvjSCdPkhcQ0388u_/edit?usp=sharing&ouid=117170965507909676291&rtpof=true&sd=true"
+
+  - citation: "Chen, Yunmo, William Gantt, Weiwei Gu, Tongfei Chen, Aaron White, and Benjamin Van Durme. 2023. Iterative Document-level Information Extraction via Imitation Learning. Talk given at the 17th Conference of the European Chapter of the Association for Computational Linguistics, Dubrovnik, Croatia. May 2–6, 2023."
+    links:
+    - label: "video"
+      href: "https://aclanthology.org/2023.eacl-main.136.mp4"
+
+- year: 2022
+  class: "2022"
+  presentations:
+  - citation: "White, A.S. 2022. Semantic Category Induction. Talk at Rutgers University, November 11, 2022."
+    links:
+    - label: "slides"
+      href: "https://docs.google.com/presentation/d/1Sj-KvoNOdbHmJ3IVUKSN1XO4r0Tw0QOZ/edit?usp=sharing&ouid=117170965507909676291&rtpof=true&sd=true"
+  - citation: "Gantt, W., L. Glass, & A.S. White. 2022. Decomposing and Recomposing Event Structure. Talk and poster at the 60th Annual Meeting of the Association for Computational Linguistics (ACL 2022), Dublin, Ireland, May 22–27, 2022."
+    links:
+    - label: "video"
+      href: "https://screencast-o-matic.com/watch/c3fbbmVYfou"
+  - citation: "White, A.S. 2022. Montague Grammar Induction. Talk at the second Experiments in Linguistic Meaning conference (ELM2), May 18, 2022."
+  - citation: "White, A.S. 2022. Semantic Category Induction. Talk at the University of Toronto, March 16, 2022."
+
+- year: 2021
+  class: "2021"
+  presentations:
+  - citation: "White, A.S. 2021. A broad-coverage semantic classification of the English clause-embedding lexicon. Talk to be given at the MECORE Workshop, University of Edinburgh, October 21, 2021."
+    links:
+    - label: "slides"
+      href: "https://docs.google.com/presentation/d/1pLvk_M-N5bJNXfIfJNIJQbxSRh2NXbMU/edit?usp=sharing&ouid=117170965507909676291&rtpof=true&sd=true"
+  - citation: "Yarmohammadi, M., S. Wu, M. Marone, H. Xu, S. Ebner, G. Qin, Y. Chen, J. Guo, C. Harman, K. Murray, A.S. White, M. Dredze and B. Van Durme. 2021. Everything Is All It Takes: A Multipronged Strategy for Zero-Shot Cross-Lingual Information Extraction. Poster at the 2021 Conference on Empirical Methods in Natural Language Processing, Punta Cana, Dominican Republic, November 7-11, 2021."
+  - citation: "Dou, J., A.J. Anderson, A.S. White, and Edmund C Lalor. 2021. On characterizing the narrative speech N400 using semantically-tuned language models. Poster at Neuroscience 2021, Chicago, IL, November 13-16, 2021."
+  - citation: "Kane, B., W. Gantt, and A.S. White. 2021. Intensional Gaps: Relating doxasticity, bouleticity, veridicality, factivity, and neg-raising. Poster at Semantics and Linguistic Theory 31 (SALT 31), Brown University, May 7-9, 2021."
+  - citation: "Xia, P., G. Qin, S. Vashishtha, Y. Chen, T. Chen, C. May, C. Harman, K. Rawlins, A.S. White, and B. Van Durme. 2021. LOME: Large Ontology Multilingual Extraction. System demonstration at the 16th Conference of the European Chapter of the Association for Computational Linguistics. Kyiv, Ukraine, April 19-23, 2021."    
+  - citation: "Xu, H., S. Ebner, M. Yarmohammadi, A.S. White, B. Van Durme, and K. Murray. 2021. Gradual Fine-Tuning for Low-Resource Domain Adaptation. Poster at the Second Workshop on Domain Adaptation for NLP. Kyiv, Ukraine, April 20, 2021."    
+
+- year: 2020
+  class: "2020"
+  presentations:
+  - citation: "Kim, G., and A.S. White. 2020. Montague Grammar Induction. Talk at Semantics and Linguistics Theory 30, Cornell University, August 17-20, 2020."
+    links:
+    - label: "slides"
+      href: "/presentations/slides/kim_salt30_slides.pdf"
+
+  - citation: "Gantt, W., B. Kane, and  A.S. White. 2020. Natural Language Inference with Mixed Effects. Talk at the Ninth Joint Conference on Lexical and Computational Semantics (*SEM 2020), Online, December 12-13, 2020."
+      
+  - citation: "Govindarajan, V.S., B. Van Durme, and A.S. White. 2020. Decomposing Generalization: Models of Generic, Habitual, and Episodic Statements. Talk at the 58th Annual Meeting of the Association for Computational Linguistics (ACL 2020), Seattle, WA, July 5-10, 2019."
+    links:
+    - label: "slides"
+      href: "/presentations/slides/govindarajan_acl2020_slides.pdf"
+
+  - citation: "Stengel-Eskin, E. A.S. White, S. Zhang, and B. Van Durme. 2020. Universal Decompositional Semantic Parsing. Talk at the 58th Annual Meeting of the Association for Computational Linguistics (ACL 2020), Seattle, WA, July 5-10, 2020."
+    links:
+    - label: "slides"
+      href: "/presentations/slides/stengel-eskin_acl2020_slides.pdf"
+
+  - citation: "An, H.Y., and A.S. White. 2020. The lexical and grammatical sources of neg-raising inferences. Poster at the Annual Meeting of Society for Computation in Linguistics, New Orleans, LA, January 2-5, 2020."
+    links:
+    - label: "poster"
+      href: "/presentations/posters/an_scil2020_poster.pdf"
+
+- year: 2019
+  class: "2019"
+  presentations:
+  - citation: "White, A.S. 2019. Universal Decompositional Semantics. Colloquium talk at the Center for Language and Speech Processing, Johns Hopkins University, December 6, 2019."
+
+  - citation: "Rawlins, K., and A.S. White. 2019. Veridicality, factivity, and embedded clauses at the scale of the lexicon. Talk at the Workshop on Clausal Complements and Sentence-Embedding Predicates, NYU, November 1, 2019."
+
+  - citation: "Moon, E., and A.S. White. 2019. The source of nonfinite temporal interpretation. Talk at the 50th Annual Meeting of the Northeast Linguistic Society (NELS 50), Massachusetts Institute of Technology, October 24-27, 2019."
+    links:
+    - label: "slides"
+      href: "/presentations/slides/moon_nels50_slides.pdf"
+
+  - citation: "Vashishtha, S., B. Van Durme, and A.S. White. 2019. Fine-Grained Temporal Relation Extraction. Talk at the 57th Annual Meeting of the Association for Computational Linguistics (ACL 2019), Florence, Italy, July 29-31, 2019."
+    links:
+    - label: "slides"
+      href: "/presentations/slides/vashishtha_acl2019_slides.pdf"
+    - label: "video"
+      href: "https://vimeo.com/384767692"
+
+  - citation: "Yan, S., and A.S. White. 2019. A Framework for Decoding Event-Related Potentials from Text. Poster at the 9th Workshop on Cognitive Modeling and Computational Linguistics (CMCL 2019), Minneapolis, MN, June 7, 2019."
+    links:
+    - label: "poster"
+      href: "/presentations/posters/yan_cmcl2019_poster.pdf"
+
+- year: 2018
+  class: "2018"
+  presentations:
+  - citation: "White, A.S., R. Rudinger, K. Rawlins, and B. Van Durme. 2018. Lexicosyntactic Inference in Neural Models. Talk at the 2018 Conference on Empirical Methods in Natural Language Processing, Brussels, Belgium, October 31-November 4, 2018."
+    links:
+    - label: "slides"
+      href: "/presentations/slides/white_emnlp2018_lexicosyntactic_slides.pptx"
+    - label: "video"
+      href: "https://vimeo.com/306154470"
+
+  - citation: "Poliak, A., A. Haldar, R. Rudinger, J.E. Hu, E. Pavlick, A.S. White, and B. Van Durme. 2018. Collecting Diverse Natural Language Inference Problems for Sentence Representation Evaluation. Talk at the 2018 Conference on Empirical Methods in Natural Language Processing, Brussels, Belgium, October 31-November 4, 2018."
+    links:
+    - label: "video"
+      href: "https://vimeo.com/305194062"
+
+  - citation: "White, A.S. 2018. Distribution, Inference, and Event Structure. Colloquium talk at Stanford University, October 12, 2018."
+    links:
+    - label: "slides"
+      href: "/presentations/slides/white_stanford_colloq_slides.pdf"
+
+  - citation: "White, A.S., and K. Rawlins. 2018. The typology of veridicality inferences. Talk at the 49th annual meeting of the North East Linguistic Society, Cornell University, October 5-7, 2018."
+    links:
+    - label: "slides"
+      href: "/presentations/slides/white_nels49_slides.pdf"
+
+  - citation: "Rudinger, R., A.S. White, and B. Van Durme. 2018. Neural Models of Factuality. Talk at the 2018 Conference of the North American Chapter of the Association for Computational Linguistics, New Orleans, LA, June 1 – June 6, 2018."
+    links:
+    - label: "slides"
+      href: "/presentations/slides/rudinger_naacl2018_slides.pdf"
+    - label: "video"
+      href: "http://vimeo.com/276898126"
+
+  - citation: "White, A.S. 2018. Frequency, Acceptability, and Natural Language Ontology. Talk at the University of Rochester Cognitive Science Dinner, Rochester, NY, March 22, 2018."
+
+- year: 2017
+  class: "2017"
+  presentations:
+  - citation: "White, A.S., P. Rastogi, K. Duh, and B. Van Durme. 2017. Inference is Everything: Recasting Semantic Resources into a Unified Evaluation Framework. Talk at the 8th International Joint Conference on Natural Language Processing. Taipei, Taiwan, November 27-December 1, 2017."
+    links:
+    - label: "slides"
+      href: "/presentations/slides/white_ijcnlp17_slides.pdf"
+
+  - citation: "White, A.S. 2017. Computational approaches to clause selection. Invited talk at Selectionfest 2017. Humboldt University of Berlin and ZAS Berlin. Berlin, Germany. November 10-11, 2017."
+    links:
+    - label: "slides"
+      href: "/presentations/slides/white_selectionfest2017_slides.pdf"
+
+  - citation: "White, A.S., and K. Rawlins. 2017. The role of veridicality and factivity in clause selection. Talk at the 48th annual meeting of the North East Linguistic Society, University of Iceland. October 27-29, 2017."
+    links:
+    - label: "slides"
+      href: "/presentations/slides/white_nels48_slides.pdf"
+
+  - citation: "Hirzel, M., A.S. White, and J. Lidz. 2017. Biased distributions in dialogs do not shape verb learning. Poster at the 42nd Boston University Conference on Language Development. Boston University. November 3-5, 2017."
+
+  - citation: "White, A.S., K. Rawlins, and B. Van Durme. 2017. The Semantic Proto-Role Linking Model. Talk at the 15th Conference of the European Chapter of the Association for Computational Linguistics. Valencia, Spain. April 3-7, 2017."
+    links:
+    - label: "slides"
+      href: "https://docs.google.com/presentation/d/1lcl-sSI9FFFbSXT9ajoRyFZXbFW-nucFs8Ahe9p5atM/edit?usp=sharing"
+
+  - citation: "White, A.S., and K. Rawlins. 2017. Entropy predicts uncertainty in subcategorization frame distributions. Talk at the 39th Annual Conference of the German Linguistic Society, AG1: Information-theory based modeling of linguistic variation in context, Saarland University. March 8-10, 2017."
+    links:
+    - label: "slides"
+      href: "https://docs.google.com/presentation/d/1h--TW-ITRYdW311gqM_RV5rLFTTIfxU4HOYucVWFNA0/edit?usp=sharing"
+
+  - citation: "White, A.S. 2017.  Factoring word knowledge. Invited talk for the Goergen Institute for Data Science Seminar Series, University of Rochester. March 2, 2017."
+
+- year: 2016
+  class: "2016"
+  presentations:
+  - citation: "White, A.S., D. Reisinger, K. Sakaguchi, T. Vieira, S. Zhang, R. Rudinger, K. Rawlins, and B. Van Durme. 2016. Universal decompositional semantics on universal dependencies. Poster at Empirical Methods in Natural Language Processing 2016, Austin, TX. November 1–5, 2016."
+
+  - citation: "White, A.S., and K. Rawlins. 2016. Question agnosticism and change of state. Talk at Sinn und Bedeutung 21, University of Edinburgh. September 4-6, 2016."
+    links:
+    - label: "slides"
+      href: "/presentations/slides/white_sub21_slides.pdf"
+
+  - citation: "White, A.S., and K. Rawlins. 2016. A computational model of S-selection. Talk at Semantics and Linguistic Theory 26, University of Texas, Austin. May 12-15, 2016."
+    links:
+    - label: "slides"
+      href: "/presentations/slides/white_salt_2016_slides.pdf"
+
+  - citation: "Fetters, M., and A.S. White. 2016. Pseudogapping does not involve heavy shift. Talk at the 34th West Coast Conference on Formal Linguistics, University of Utah. April 29-May 1, 2016."
+    links:
+    - label: "slides"
+      href: "https://docs.google.com/presentation/d/1A5va6y6fsG12U96G_NsW2BtWfgx221DU7ku0uZyQao4/edit?usp=sharing"
+
+  - citation: "White, A.S., and J. Sprouse. 2016. The trace of categorical structure in gradient judgments. Poster at the 34th West Coast Conference on Formal Linguistics, University of Utah. April 29-May 1, 2016."
+    links:
+    - label: "poster"
+      href: "/presentations/posters/white_sprouse_wccfl34_poster.pdf"
+
+  - citation: "White, A.S., V. Hacquard, P. Resnik, and J. Lidz. 2016. Subcategorization frame entropy in online verb-learning. Poster at the 29th CUNY Conference on Human Sentence Processing, University of Florida. March 3-5, 2016."
+    links:
+    - label: "poster"
+      href: "/presentations/posters/white_cuny2016_poster.pdf"
+
+- year: 2015
+  class: "2015"
+  presentations:
+  - citation: "White, A.S. 2015. Learner as lexical semanticist. Distinguished Alumnus Address at the Linguistics Undergraduate Research Conference, University of California, Santa Cruz. May 29th, 2015."
+
+  - citation: "Altshuler, D., V. Hacquard, T. Roberts, and A.S. White. 2015. On double access, cessation and parentheticality. Talk at Semantics and Linguistic Theory 25, Stanford University. May 15-17, 2015."
+    links:
+    - label: "slides"
+      href: "https://docs.google.com/presentation/d/1wPUTIcIbYk2SSOEMz6CsLcyS31-4hs62t7QyPvHt28k/edit?usp=sharing"
+
+  - citation: "White, A.S. 2015. Soft implicative entailments. Talk at the 89th Annual Meeting of the Linguistic Society of America, Portland, OR. January 8-11, 2015."
+    links:
+    - label: "slides"
+      href: "https://docs.google.com/presentation/d/1qAopUSp6G2IdMyUrvZKoRfcQ25N5--6nSd53Z4SymL0/edit?usp=sharing"
+
+- year: 2014
+  class: "2014"
+  presentations:
+  - citation: "White, A.S. 2014. Contextually modulated syntactic variability in child-directed speech. Poster at the 13th International Congress for the Study of Child Language, Amsterdam, The Netherlands. July 14-18, 2014."
+    links:
+    - label: "poster"
+      href: "/presentations/posters/white_iascl2014_poster.pdf"
+
+  - citation: "White, A.S., V. Hacquard, and J. Lidz. 2014. Syntactic sources of semantics and pragmatics. Talk at the 13th International Congress for the Study of Child Language, Amsterdam, The Netherlands. July 14-18, 2014."
+
+- year: 2013
+  class: "2013"
+  presentations:
+  - citation: "White, A.S. 2013. Factive-implicatives and modalized complements. Poster at the 44th annual meeting of the North East Linguistic Society, University of Connecticut. October 18-20, 2013."
+    links:
+    - label: "poster"
+      href: "/presentations/posters/white_nels44_poster.pdf"
+
+  - citation: "White, A.S., and T. Grano. 2013. An experimental investigation of partial control. Poster at Sinn und Bedeutung 18, University of the Basque Country. September 11-13, 2013."
+
+  - citation: "Lidz, J., A.S. White, and R. Baier. 2013. Predictive parsing and the acquisition of thematic structure. Talk at the SRCD Biennial Meeting, Seattle, WA. April 18-20, 2013."
+
+- year: 2012
+  class: "2012"
+  presentations:
+  - citation: "White, A.S., R. Dudley, V. Hacquard, and J. Lidz. 2012. Discovering classes of attitude verbs using subcategorization frame distributions. Poster at the 43rd annual meeting of the North East Linguistic Society, CUNY. October 19-21, 2012."
+
+- year: 2011
+  class: "2011"
+  presentations:
+  - citation: "White, A.S., R. Baier, and J. Lidz. 2011. Prediction and subcategorization frame frequency in the developing parser. Talk at the 24th CUNY Conference on Human Sentence Processing, Stanford University. March 24-26, 2011."
+
+- year: 2010
+  class: "2010"
+  presentations:
+  - citation: "White, A.S., R. Baier, and J. Lidz. 2010. When knowledge causes failure: Effects of subcategorization frequency in novel word learning. Poster at the 35th Boston University Conference on Language Development, Boston University. November 5-7, 2010."

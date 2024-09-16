@@ -1,0 +1,43 @@
+{%- assign f = site.data.footer -%}
+{%- assign h = site.data.homepage -%}
+<footer class="footer text-white">
+  <div class="container">
+    <div class="footer-top__grid">
+      <div class="logo">
+        <a href="/" alt="Logo icon" aria-label="Logo of website"> <img width="60" style="width: 80px;  object-fit: inherit;" src="{{site.footer-logo}}"></a>
+      </div>
+      <div class="footer_links">
+        <p class="footer-title">Quick links</p>
+        <div class="footer-nav">
+          {%- for i in n.nav -%}
+          <a href="{{i.link}}" class="nav-link">{{i.title}}</a>
+          {%- endfor -%}
+        </div>
+      </div>
+      <div class="footer_socials">
+        <p class="footer-title">
+          Socials
+        </p>
+        <div class="contact-row">
+          {%- for i in h.find_section.items -%}
+          <a width="30" target="_blank" aria-label="Social links" href="{{i.icon-link}}">{% include {{i.icon}}%}</a>
+
+          {%- endfor -%}
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom__grid">
+      <div class="copyright">
+        <p>
+          Copyright &copy;
+          {{ 'now' | date: "%Y" }}
+          {{f.copyright}}.All rights reserved
+        </p>
+      </div>
+      <a class="privacy" aria-label="Privacy Policy" href="/privacy-policy">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+<button id="GoTop" title="Go to top" onclick="topFunction()" style="display: none;"><span> &raquo; </span></button>

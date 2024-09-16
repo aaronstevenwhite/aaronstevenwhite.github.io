@@ -1,0 +1,33 @@
+.page__header {
+  background-color: var(--main-color);
+
+  @media (min-width: 768px) {
+    margin-top: 60px;
+  }
+
+  h1 {
+    color: white;
+    text-align: center;
+    padding: 80px 0;
+
+    @media (min-width: 600px) {
+      padding: 100px 0;
+    }
+  }
+}
+
+.page__content {
+  margin: 50px 0;
+
+  @media (min-width: 1000px) {
+    margin: 100px;
+  }
+
+  a {
+    color: var(--main-color);
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+.map__row {
+  display: grid;
+  gap: 50px;
+  align-items: center;
+
+  @media (min-width: 900px) {
+    display: flex;
+    gap: 100px;
+
+  }
+}
+
+.map {
+  flex-grow: 2;
+}
+
+.map__details p:first-of-type {
+  color: var(--main-color);
+  font-weight: bold;
+}
+
+@media (max-width: 899px) {
+  .map__details {
+    text-align: center;
+  }
+}

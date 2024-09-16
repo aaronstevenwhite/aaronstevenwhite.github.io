@@ -1,0 +1,294 @@
+/*Filter container of years style Start*/
+.filter-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  @media (min-width: 500px) {
+    padding: 0 15px;
+  }
+}
+
+#filterContainer {
+  margin: 20px 5px 40px;
+  padding-bottom: 10px;
+  gap: 30px;
+  @media (min-width: 600px) {
+    gap: 60px;
+  }
+}
+
+#filterContainer:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background: var(--text-color);
+  bottom: 30px;
+  left: 0;
+}
+
+#filterContainer::-webkit-scrollbar {
+  display: none;
+}
+
+
+#filterContainer {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+
+button {
+  border: none;
+  background: transparent;
+}
+
+button h2 {
+  border: none;
+  background: transparent;
+  color: var(--text-color);
+  opacity: 0.6;
+  margin-bottom: 0;
+}
+
+button.active h2 {
+  color: var(--main-color);
+  opacity: 1;
+}
+
+.scroll-container {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  padding: 10px 0;
+  margin: 0 30px;
+}
+
+.arrow {
+  cursor: pointer;
+  font-size: 24px;
+  color: var(--main-color);
+  padding: 0 10px;
+  user-select: none;
+}
+
+.left-arrow {
+  position: absolute;
+  left: -15px;
+  top: 50%;
+  transform: translateY(-75%);
+
+  @media (min-width: 1000px) {
+    left: -25px;
+  }
+}
+
+.right-arrow {
+  position: absolute;
+  right: -15px;
+  top: 50%;
+  transform: translateY(-75%);
+
+  @media (min-width: 1000px) {
+    right: -25px;
+  }
+}
+
+.left-arrow {
+  display: none;
+}
+
+
+.right-arrow {
+  display: block;
+}
+
+/*Filter container of years style End*/
+
+
+
+.paper-year {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  font-size: 28px;
+
+  @media (min-width: 600px) {
+    font-size: 40px;
+  }
+}
+
+.papers-container,
+.presentations-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.paper-group,
+.presentations {
+  display: none;
+}
+
+.paper-group.active,
+.presentations.active {
+  display: block;
+}
+
+.paper-item {
+  padding: 10px;
+  background: #cccccc14;
+  border-radius: 5px;
+  margin-bottom: 10px;
+
+}
+
+
+.paper-content {
+  font-family: Georgia, Times New Roman, Times, serif;
+  padding: 15px;
+  border-radius: 5px;
+  position: relative;
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 10px;
+  padding: 7px;
+  border-radius: 5px;
+
+  @media (min-width:500px) {
+    padding: 30px;
+    grid-template-columns: 40px 1fr;
+    gap: 15px;
+  }
+
+}
+
+svg {
+  margin-top: 2px;
+  width: 25px;
+
+  @media (min-width:500px) {
+    margin-top: 5px;
+    width: 35px;
+  }
+}
+
+.presentation-icon svg {
+  margin-top: -5px;
+  padding-right: 10px;
+  width: 40px;
+
+  @media (min-width:500px) {
+    margin-top: -2px;
+    width: 55px;
+  }
+}
+
+
+.papers {
+  margin-top: 3rem;
+
+  @media (min-width: 500px) {
+    margin-top: 6rem;
+  }
+}
+
+
+.bib-btn {
+  margin-top: 10px;
+  gap: 10px;
+  display: inline-flex;
+  z-index: 5;
+  margin-bottom: auto;
+  margin-left: 30px;
+
+
+  & a,
+  & button {
+    padding: 0 .6rem 0;
+    font-size: .7rem;
+    line-height: 1.2rem;
+    border-radius: .2rem;
+    border: 1px solid var(--main-color);
+    background-color: transparent;
+    color: var(--main-color);
+
+  }
+
+  & a:hover,
+  button:hover {
+    border: 1px solid var(--text-color);
+    background-color: var(--main-color);
+    color: white;
+    cursor: pointer;
+  }
+
+  @media (min-width: 500px) {
+    margin-left: 50px;
+  }
+
+}
+
+
+.bibliography li {
+  list-style: none;
+  @media (max-width:500px) {
+    word-break: break-word;
+  }
+}
+
+.bibliography-container {
+  padding: 5px 9px;
+  text-align: left;
+  z-index: 30;
+  background: white;
+  margin-top: 50px;
+}
+
+pre {
+  font-family: 'Courier New', Courier, monospace;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  padding: 10px;
+  border-radius: 5px;
+  overflow: auto;
+  font-size: 0.7rem;
+  line-height: 1rem;
+}
+
+
+code {
+  font-family: "Courier New", Courier, monospace;
+  background-color: transparent;
+  display: block;
+  overflow-x: auto;
+}
+
+
+.bib__buttons {
+  display: flex;
+  align-items: end;
+  gap: 10px;
+  justify-content: end;
+  position: relative;
+}
+
+.btn-save {
+  float: right;
+  font-size: 0.8rem;
+  display: flex;
+
+  &:hover {
+    opacity: 0.6;
+    cursor: pointer;
+  }
+}
+
+.copy-message {
+  position: absolute;
+  right: 80px;
+  bottom: 5px;
+  color: var(--main-color);
+}

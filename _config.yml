@@ -1,0 +1,53 @@
+title: Aaron Steven White
+email: aaron.white@rochester.edu
+description: >- 
+  I'm a researcher in computational linguistics and natural language processing. I work at the intersection of machine learning and language science
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+author: Aaron Steven White
+logo: /assets/images/facts-logo.png
+footer-logo: /assets/images/facts-logo-white.png
+# Build settings
+
+plugins:
+  - jekyll-feed
+  - jekyll-include-cache
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+  - jekyll/scholar
+
+
+# Permalinks
+permalink: pretty
+
+# Collections
+collections:
+  pages:
+    output: true
+    permalink: /:path/
+  posts:
+    output: true
+    permalink: /blog/:name/
+
+highlighter: rouge
+
+
+scholar:
+  style: unified-style-sheet-for-linguistics.csl
+  source: _bibliography   # Folder containing .bib files
+  bibliography: aaronstevenwhite.bib  # Can be the primary .bib file, optional if using multiple .bib files
+  details_link: true
+  locale: en
+
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+#   - node_modules/
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/

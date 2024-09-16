@@ -1,0 +1,50 @@
+hero_section:
+  title: I’m <span style="color:#415DA5;">Aaron Steven White</span> - a researcher in computational linguistics and natural language processing. 
+
+positions_section:
+  title: Open positions
+  text: |
+    I am accepting PhD students in Linguistics or Computer Science to start Fall 2025. I do not respond to inquiries about these positions by email. Please see <a href="https://apply.grad.rochester.edu/apply/">this page</a> for application information.
+
+about_section:
+  title: What I do
+  image: /assets/images/aaron-white.webp
+  btn: Schedule
+  btn-link: "#"
+  text: |
+    I’m an Associate Professor in the <a href="http://www.sas.rochester.edu/lin/index.html">Department of Linguistics</a> at the University of Rochester, with a secondary appointment in the <a href="https://www.cs.rochester.edu/">Department of Computer Science</a> and an affiliation with the <a href="http://www.sas.rochester.edu/dsc/">Goergen Institute for Data Science</a>. I’m also Director of  the <a href="http://factslab.io">FACTS.lab</a> at UR. An overview of my research  can be found <a href="/research">here</a>.
+
+find_section: 
+  title: How to Find me
+  items:
+    - title: Email
+      icon: svg/email.svg
+      icon-link: mailto:aaron.white@rochester.edu
+    - title: Linkedin
+      icon: svg/linkedin.svg
+      icon-link: https://www.linkedin.com/in/aaronstevenwhite/
+    - title: Github
+      icon: svg/github.svg
+      icon-link: https://github.com/aaronstevenwhite
+    - title: Bluesky
+      icon: svg/bluesky.svg
+      icon-link: https://bsky.app/profile/aaronsteven.bsky.social
+    - title: 511A Lattimore Hall
+      icon: svg/location.svg
+      icon-link: https://maps.app.goo.gl/Quo4Wxhzs4PyoDQN6
+
+where_section: 
+  title: Where I’ve been
+  image: /assets/images/johns-hopkins-university.webp
+  text: |
+    Before joining the University of Rochester, I was a postdoctoral fellow at Johns Hopkins University’s <a href="http://scienceoflearning.jhu.edu/">Science of Learning Institute</a> with affiliations in the <a href="http://cogsci.jhu.edu/">Department of Cognitive Science</a> and the <a href="http://www.clsp.jhu.edu">Center for Language and Speech Processing</a> from 2015 to 2017. I  received my PhD in <a href="http://ling.umd.edu/">Linguistics</a> from the University of Maryland in 2015.
+
+contact_section:
+  title: Where I am
+  text: |
+    <strong  style="color: #415DA5">See Where we are and <br>Get  directions on the map</strong>
+  subtitle: My office
+  address: 511A Lattimore Hall<br>
+    University of Rochester<br>
+    500 Joseph C Wilson Blvd.<br>
+    Rochester, NY 14627

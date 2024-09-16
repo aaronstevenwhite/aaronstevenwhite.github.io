@@ -1,0 +1,80 @@
+---
+layout: page
+title: Papers
+description: Each paper reflects my commitment to advancing knowledge and contributing meaningful insights to the field.
+share: false
+---
+
+<p>All of the citations for published papers listed below are collected in the .bib file located <a
+    style="font-weight: 600;" href="/papers/aaronstevenwhite.bib">here</a>.</p>
+
+<div class="filter-wrapper">
+  <span class="arrow left-arrow" onclick="scrollLeftAction()">&#10094;</span>
+  <div id="filterContainer" class="scroll-container">
+    {% for batch in site.data.papers %}
+    <button data-year="{{ batch.year }}" class=" year-button {% if batch.year == '2024' %}active{% endif %}">
+      <h2 class="paper-year">{{ batch.year }}</h2>
+    </button>
+    {% endfor %}
+  </div>
+  <span class="arrow right-arrow" onclick="scrollLeftAction()">&#10095;</span>
+</div>
+
+
+<div class="papers-container">
+  {% for batch in site.data.papers %}
+  <div class="paper-group {{ batch.year }} {% if batch.year == '2024' %}active{% endif %}">
+    {% for paper in batch.papers %}
+    <div class="paper-item">
+      <div class="paper-content">
+        {% include svg/papers.svg %}
+        {% if paper.citation == "bib" %}
+        {% if paper.bib_key %}
+        <div class="citation">
+          {% bibliography -f {{ paper.bib_key }} %}
+        </div>
+        {% else %}
+
+        {% endif %}
+        {% else %}
+        <span>{{ paper.citation }}</span>
+        {% endif %}
+        {% if paper.links %}
+        <p class="bib-btn">
+          {% for link in paper.links %}
+          {% if link.label == "bib" %}
+          {% assign unique_id = global_counter | append: "-bib" %}
+          {% assign global_counter = global_counter | plus: 1 %}
+          <a class="label" data-target="{{ unique_id }}" onclick="toggleBibliography('{{ unique_id }}')">
+            {{ link.label }}
+          </a>
+        <div id="{{ unique_id }}" class="bibliography-container" style="display: none;">
+          {% capture bib_content %}
+          {% include_relative _bibliography/{{ link.href }}.bib %}
+          {% endcapture %}
+          <pre id="{{ unique_id }}-content"><code class="bibtex">{{ bib_content | strip }}</code></pre>
+          <p class="bib__buttons">
+            <a class="btn-save" onclick="copyToClipboard('{{ unique_id }}')">
+              {% include svg/copy.svg %}
+            </a>
+            <a href="{{ link.save }}" class="btn-save" target="_blank" download>
+              {% include svg/save.svg %}
+            </a>
+            <span id="{{ unique_id }}-message" class="copy-message" style="display: none;">Copied!</span>
+          </p>
+        </div>
+        {% else %}
+        <a class="label" href="{{ link.href }}" target="_blank">{{ link.label }}</a>
+        {% endif %}
+        {% endfor %}
+        </p>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endfor %}
+</div>
+
+<script src="/assets/js/bib.js"></script>
+<script src="/assets/js/years-slider.js"></script>

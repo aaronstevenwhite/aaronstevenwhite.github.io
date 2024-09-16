@@ -1,0 +1,12 @@
+<section id="find" class="find__section">
+  <div class="container">
+    <div class="find__row">
+      <h2 class="border">{{h.find_section.title}}</h2>
+      <div class="site_socials">
+        {%- for i in h.find_section.items -%}
+        <a width="30" target="_blank" aria-label="Social links"  class="icon icon-{{forloop.index}}" href="{{i.icon-link}}">{% include {{i.icon}}%}</a>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>

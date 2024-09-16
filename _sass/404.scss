@@ -1,0 +1,26 @@
+.page__error {
+  .error__image {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  h2 {
+    font-family: 'Open Sans';
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 25px;
+    text-align: center;
+    margin-top: 20px;
+
+    @media (min-width: 600px) {
+      font-size: 30px;
+      line-height: 35px;
+    }
+  }
+
+  .btn {
+    text-align: center;
+    margin-top: 30px;
+  }
+}
