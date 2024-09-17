@@ -104,8 +104,9 @@ p {
 }
 
 a {
-  color: var(--text-color);
+  color: var(--link-color);
   text-decoration: none;
+  font-weight: 600;
 
   &:hover {
     color: var(--main-color);
