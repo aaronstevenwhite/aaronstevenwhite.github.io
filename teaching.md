@@ -3,7 +3,6 @@ layout: page
 title: Teaching
 description: I teach a series of courses on computational linguistics at the University of Rochester.
 share: false
-page_noindex: true
 ---
 
 I teach a series of courses on computational linguistics at the University of Rochester.

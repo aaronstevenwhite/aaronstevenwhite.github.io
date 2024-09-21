@@ -3,42 +3,39 @@ layout: page
 title: Presentations
 description: In this page, you’ll find a selection of my professional presentations and keynote talks delivered at conferences, workshops, and seminars.
 share: false
-page_noindex: true
 ---
 <div class="filter-wrapper">
   <span class="arrow left-arrow" onclick="scrollLeftAction()">&#10094;</span>
   <div id="filterContainer" class="scroll-container">
     {% for batch in site.data.presentations %}
-      <button  class="{% if batch.year == '2024' %}active{% endif %}" data-year="{{ batch.year }}" onclick="filterPresentation('{{ batch.year }}')">
-        <h2 class="paper-year">{{ batch.year }}</h2>
-      </button>
+    <button class="{% if batch.year == '2024' %}active{% endif %}" data-year="{{ batch.year }}"
+      onclick="filterPresentation('{{ batch.year }}')">
+      <h2 class="paper-year">{{ batch.year }}</h2>
+    </button>
     {% endfor %}
   </div>
-
   <span class="arrow right-arrow" onclick="scrollRightAction()">&#10095;</span>
 </div>
 
 <div class="presentations-container">
   {% for batch in site.data.presentations %}
-    <div class="presentations {{ batch.year }} {% if batch.year == '2024' %}active{% endif %}">
-      {% for paper in batch.presentations %}
-        <div class="paper-item">
-          <div class="paper-content">
-
-              <span class="presentation-icon">{% include svg/presentation.svg %}</span>
-              <span>{{ paper.citation }}</span>
-              
-              {% if paper.links %}
-                <p class="bib-btn">
-                  {% for link in paper.links %}
-                    <a class="label" href="{{ link.href }}">{{ link.label }}</a>
-                  {% endfor %}
-                </p>
-              {% endif %}
-          </div>
-        </div>
-      {% endfor %}
+  <div class="presentations {{ batch.year }} {% if batch.year == '2024' %}active{% endif %}">
+    {% for paper in batch.presentations %}
+    <div class="paper-item">
+      <div class="paper-content">
+        <span class="presentation-icon">{% include svg/presentation.svg %}</span>
+        <span>{{ paper.citation }}</span>
+        {% if paper.links %}
+        <p class="bib-btn">
+          {% for link in paper.links %}
+          <a class="label" href="{{ link.href }}">{{ link.label }}</a>
+          {% endfor %}
+        </p>
+        {% endif %}
+      </div>
     </div>
+    {% endfor %}
+  </div>
   {% endfor %}
 </div>
 

@@ -1,12 +1,12 @@
 .page__error {
-  .error__image {
+  text-align: center;
+  svg {
     max-width: 600px;
     margin: 0 auto;
-    text-align: center;
+    width: 100%;
   }
 
   h2 {
-    font-family: 'Open Sans';
     font-weight: 700;
     font-size: 20px;
     line-height: 25px;

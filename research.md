@@ -3,7 +3,6 @@ layout: page
 title: Research
 description: The human ability to convey information about possible past, present, and future configurations of things in the world is undergirded by systematic ...
 share: false
-page_noindex: true
 ---
 
 The human ability to convey information about possible past, present, and future configurations of things in the world is undergirded by systematic relationships between intricately structured linguistic expressions and the dizzying array of conceptual categories available to humans. My research investigates (a) which of these conceptual categories can be related to which sorts of linguistic expressions, (b) what those relationships look like, and (c) how they can be leveraged for building better natural language understanding (NLU) systems.
