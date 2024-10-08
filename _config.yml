@@ -35,11 +35,14 @@ highlighter: rouge
 
 scholar:
   style: unified-style-sheet-for-linguistics.csl
-  source: _bibliography   # Folder containing .bib files
+  source: bibliography   # Folder containing .bib files
   bibliography: aaronstevenwhite.bib  # Can be the primary .bib file, optional if using multiple .bib files
   details_link: true
   locale: en
 
+include: 
+  - _bibliography
+  
 exclude:
   - .sass-cache/
   - .jekyll-cache/

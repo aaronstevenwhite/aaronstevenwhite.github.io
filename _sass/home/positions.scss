@@ -20,6 +20,8 @@
 }
 
 .positions__text a {
-  color: white;
-  opacity: 0.5;
+  color: var(--link-color);
+  &:hover{
+    opacity: 0.8;
+  }
 }

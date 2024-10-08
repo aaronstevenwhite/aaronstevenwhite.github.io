@@ -12,7 +12,7 @@ share: false
   <div id="filterContainer" class="scroll-container">
     {% for batch in site.data.papers %}
     <button data-year="{{ batch.year }}" class=" year-button {% if batch.year == '2024' %}active{% endif %}">
-      <h2 class="paper-year">{{ batch.year }}</h2>
+      {{ batch.year }}
     </button>
     {% endfor %}
   </div>
@@ -28,45 +28,47 @@ share: false
       <div class="paper-content">
         {% include svg/papers.svg %}
         {% if paper.citation == "bib" %}
-        {% if paper.bib_key %}
-        <div class="citation">
-          {% bibliography -f {{ paper.bib_key }} %}
-        </div>
-        {% else %}
-        {% endif %}
-        {% else %}
-        <span>{{ paper.citation }}</span>
-        {% endif %}
+            <div class="citation">
+              {% bibliography -f {{paper.bib_key}} %} 
+            </div>
+          {% else %}
+            <p>{{ paper.citation }}</p>
+          {% endif %}
         {% if paper.links %}
-        <p class="bib-btn">
+        <div class="bib-btn">
           {% for link in paper.links %}
-          {% if link.label == "bib" %}
-          {% assign unique_id = global_counter | append: "-bib" %}
-          {% assign global_counter = global_counter | plus: 1 %}
-          <a class="label" data-target="{{ unique_id }}" onclick="toggleBibliography('{{ unique_id }}')">
-            {{ link.label }}
-          </a>
-        <div id="{{ unique_id }}" class="bibliography-container" style="display: none;">
-          {% capture bib_content %}
-          {% include_relative _bibliography/{{ link.href }}.bib %}
-          {% endcapture %}
-          <pre id="{{ unique_id }}-content"><code class="bibtex">{{ bib_content | strip }}</code></pre>
-          <p class="bib__buttons">
-            <a class="btn-save" onclick="copyToClipboard('{{ unique_id }}')">
-              {% include svg/copy.svg %}
-            </a>
-            <a href="{{ link.save }}" class="btn-save" target="_blank" download>
-              {% include svg/save.svg %}
-            </a>
-            <span id="{{ unique_id }}-message" class="copy-message" style="display: none;">Copied!</span>
-          </p>
+            {% if link.label == "bib" %}
+              {% assign unique_id = global_counter | append: "-bib" %}
+              {% assign global_counter = global_counter | plus: 1 %}
+              <a class="label" aria-label="Bibliography link" data-target="{{ unique_id }}" onclick="toggleBibliography('{{ unique_id }}')">
+                {{ link.label }}
+              </a>
+            {% else %}
+              <a class="label" aria-label="Button" href="{{ link.href }}" target="_blank">{{ link.label }}</a>
+            {% endif %}
+          {% endfor %}
         </div>
-        {% else %}
-        <a class="label" href="{{ link.href }}" target="_blank">{{ link.label }}</a>
-        {% endif %}
+        {% for link in paper.links %}
+          {% if link.label == "bib" %}
+          <div id="{{ unique_id }}" class="bibliography-container" style="display: none;">
+            {% capture bib_content %}
+            {% include_relative bibliography/{{ link.href }}.bib %}
+            {% endcapture %}
+            <pre id="{{ unique_id }}-content"><code class="bibtex">{{ bib_content | strip }}</code></pre>
+            <p class="bib__buttons">
+              <a class="btn-save" aria-label="Copy button" onclick="copyToClipboard('{{ unique_id }}')">
+                {% include svg/copy.svg %}
+              </a>
+              <a href="{{ link.save }}" aria-label="Save button" class="btn-save" target="_blank" download>
+                {% include svg/save.svg %}
+              </a>
+              <span id="{{ unique_id }}-message" class="copy-message" style="display: none;">Copied!</span>
+            </p>
+          </div>
+          {% endif %}
         {% endfor %}
-        </p>
-        {% endif %}
+      {% endif %}
+      
       </div>
     </div>
     {% endfor %}

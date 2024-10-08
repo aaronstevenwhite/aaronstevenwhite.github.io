@@ -10,7 +10,7 @@ share: false
     {% for batch in site.data.presentations %}
     <button class="{% if batch.year == '2024' %}active{% endif %}" data-year="{{ batch.year }}"
       onclick="filterPresentation('{{ batch.year }}')">
-      <h2 class="paper-year">{{ batch.year }}</h2>
+      {{ batch.year }}
     </button>
     {% endfor %}
   </div>

@@ -3,8 +3,7 @@
     <div class="box__row">
       <h2 class="border"> {{h.about_section.title}} </h2>
       <div class="box__grid">
-        <img width="561" alt="Aaron Steven White" class="box__img fade-in  fade-left" style="aspect-ratio: 2 / 1.8;" src="{{h.about_section.image}}"
-          alt="{{h.about_section.title}}">
+        <img width="561" loading="lazy" alt="Aaron Steven White" class="box__img fade-in  fade-left" style="aspect-ratio: 2 / 1.8;" src="{{h.about_section.image}}">
         <div class="box__text fade-in fade-right ">
           {{h.about_section.text | markdownify}}
           <span>
@@ -17,9 +16,9 @@
   
   <div id="scheduleModal" class="modal" style="display: none;">
     <div class="modal-content">
-      <button class="close" arial-label="close"><span aria-hidden="true">&times;</span></button>
+      <button class="close"><span aria-hidden="true">&times;</span></button>
       
-      <iframe id="modalIframe" src="" frameborder="0" width="100%" height="688" style="max-width: 900px; height: 720px; width: 100%; margin-top: 30px;"></iframe>
+      <iframe id="modalIframe"  width="900" height="688" style="max-width: 900px; height: 720px; width: 100%; margin-top: 30px;border: none;"></iframe>
     </div>
   </div>
 </section>

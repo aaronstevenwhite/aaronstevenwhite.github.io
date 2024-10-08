@@ -44,15 +44,28 @@ button {
   background: transparent;
 }
 
-button h2 {
+button {
   border: none;
   background: transparent;
   color: var(--text-color);
   opacity: 0.6;
   margin-bottom: 0;
+  font-family: 'Raleway', sans-serif;
+  color: var(--text-color);
+  font-size: 30px;
+  z-index: 10;
+  line-height: 0.9;
+  word-break: break-word;
+  font-weight: 700;
+  cursor: pointer;
+  @media (min-width: 600px) {
+    font-size: 40px;
+  }
 }
-
-button.active h2 {
+button:hover{
+  color: var(--link-color);
+}
+button.active {
   color: var(--main-color);
   opacity: 1;
 }
@@ -203,7 +216,9 @@ svg {
   z-index: 5;
   margin-bottom: auto;
   margin-left: 30px;
-
+@media (max-width: 340px) {
+  margin-left: 5px;
+}
 
   & a,
   & button {
@@ -245,6 +260,13 @@ svg {
   z-index: 30;
   background: white;
   margin-top: 50px;
+  @media (max-width: 345px) {
+    max-width: 250px;
+    margin-left: -30px;
+  }
+  @media (max-width: 355px) {
+    max-width: 270px;
+  }
 }
 
 pre {
@@ -264,6 +286,7 @@ code {
   background-color: transparent;
   display: block;
   overflow-x: auto;
+  word-break: break-word;
 }
 
 
@@ -291,4 +314,5 @@ code {
   right: 80px;
   bottom: 5px;
   color: var(--main-color);
+  font-size: 1rem;
 }

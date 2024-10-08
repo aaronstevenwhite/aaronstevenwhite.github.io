@@ -8,7 +8,7 @@ positions_section:
 
 about_section:
   title: What I do
-  image: /assets/images/aaron-white.webp
+  image: /assets/images/aaron-white.jpg
   btn: Schedule
   btn-link: "#"
   text: |
@@ -35,7 +35,7 @@ find_section:
 
 where_section: 
   title: Where I’ve been
-  image: /assets/images/johns-hopkins-university.webp
+  image: /assets/images/johns-hopkins-university.jpg
   text: |
     Before joining the University of Rochester, I was a postdoctoral fellow at Johns Hopkins University’s <a href="http://scienceoflearning.jhu.edu/">Science of Learning Institute</a> with affiliations in the <a href="http://cogsci.jhu.edu/">Department of Cognitive Science</a> and the <a href="http://www.clsp.jhu.edu">Center for Language and Speech Processing</a> from 2015 to 2017. I  received my PhD in <a href="http://ling.umd.edu/">Linguistics</a> from the University of Maryland in 2015.
 

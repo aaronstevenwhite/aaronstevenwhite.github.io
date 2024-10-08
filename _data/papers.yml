@@ -1,22 +1,35 @@
 - year: 2024
   class: "2024"
   papers:
-  - citation: "Cao, Angela, Faye Holt, Jonas Chan, Stephanie Richter, Lelia Glass, and Aaron Steven White. 2024. Generating event descriptions under syntactic and semantic constraints."
+  - citation: "bib"
+    bib_key: "cao_generating_2024"
     links:
     - label: "pdf"
       href: "https://ling.auf.net/lingbuzz/008208/current.pdf"
+    - label: "bib"
+      href: "cao_generating_2024"
+      save: "/bibliography/cao_generating_2024.bib"
 
-  - citation: "Grove, Julian and Aaron Steven White. 2024. Factivity, presupposition projection, and the role of discrete knowledge in gradient inference judgments."
+  - citation: "bib"
+    bib_key: "grove_factivity_2024"
     links:
     - label: "pdf"
       href: "https://lingbuzz.net/lingbuzz/007450/current.pdf"
+    - label: "bib"
+      href: "grove_factivity_2024"
+      save: "/bibliography/grove_factivity_2024.bib"
 
-  - citation: "Grove, Julian and Aaron Steven White. 2024. Modeling the prompt in inference judgment tasks. To appear in <i>Proceedings of the third Experiments in Linguistic Meaning conference (ELM 3)</i>."
+  - citation: "bib"
+    bib_key: "grove_modeling_2024"
     links:
     - label: "pdf"
       href: "https://ling.auf.net/lingbuzz/008196/current.pdf"
+    - label: "bib"
+      href: "grove_modeling_2024"
+      save: "/bibliography/grove_modeling_2024.bib"
 
-  - citation: "Vashishtha, Siddharth, Alexander Martin, William Gantt, Benjamin Van Durme, and Aaron Steven White. 2024. FAMuS: Frames Across Multiple Sources.  <i>Proceedings of the 2024 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies</i>. Mexico City: Association for Computational Linguistics."
+  - citation: "bib"
+    bib_key: "vashishtha_famus_2024"
     links:
     - label: "data"
       href: "https://github.com/FACTSlab/FAMuS"
@@ -24,8 +37,12 @@
       href: "https://doi.org/10.48550/arXiv.2311.05601"
     - label: "pdf"
       href: "https://arxiv.org/pdf/2311.05601.pdf"
+    - label: "bib"
+      href: "vashishtha_famus_2024"
+      save: "/bibliography/vashishtha_famus_2024.bib"
 
-  - citation: "Gantt, William, Shabnam Behzad, Hannah YoungEun An, Yunmo Chen, Aaron Steven White, Benjamin Van Durme, and Mahsa Yarmohammadi. 2024. MultiMUC: Multilingual Template Filling on MUC-4. <i>Proceedings of the 18th Conference of the European Chapter of the Association for Computational Linguistics</i>, Malta. Association for Computational Linguistics."
+  - citation: "bib"
+    bib_key: "gantt_multimuc_2024"    
     links:
     - label: "data"
       href: "https://github.com/wgantt/multimuc"
@@ -33,8 +50,12 @@
       href: "https://doi.org/10.48550/arXiv.2401.16209"
     - label: "pdf"
       href: "https://arxiv.org/pdf/2401.16209.pdf"
+    - label: "bib"
+      href: "gantt_multimuc_2024"
+      save: "/bibliography/gantt_multimuc_2024.bib"
 
-  - citation: "Gantt, William, Alexander Martin, Pavlo Kuchmiichuk, and Aaron Steven White. 2024. Event-Keyed Summarization."
+  - citation: "bib"
+    bib_key: "gantt_event_2024"
     links:
     - label: "data"
       href: "https://github.com/wgantt/eks"
@@ -42,8 +63,12 @@
       href: "https://doi.org/10.48550/arXiv.2402.06973"
     - label: "pdf"
       href: "https://arxiv.org/pdf/2402.06973.pdf"
+    - label: "bib"
+      href: "gantt_event_2024"
+      save: "/bibliography/gantt_event_2024.bib"
 
-  - citation: "Gantt, William and Aaron Steven White. 2024. Small Models Are (Still) Effective Cross-Domain Argument Extractors. "
+  - citation: "bib"
+    bib_key: "gantt_small_2024"
     links:
     - label: "data"
       href: "https://github.com/wgantt/eae-transfer"
@@ -51,6 +76,9 @@
       href: "https://doi.org/10.48550/arXiv.2404.08579"
     - label: "pdf"
       href: "https://arxiv.org/pdf/2404.08579"
+    - label: "bib"
+      href: "gantt_small_2024"
+      save: "/bibliography/gantt_small_2024.bib"
 
 - year: 2023
   class: "2023"
@@ -66,7 +94,7 @@
       href: "https://aclanthology.org/2023.findings-emnlp.862.pdf"
     - label: "bib"
       href: "gantt_event_2023"
-      save: "/_bibliography/gantt_event_2023.bib"
+      save: "/bibliography/gantt_event_2023.bib"
 
   - citation: "bib"
     bib_key: "chen_unified_2023"
@@ -79,9 +107,10 @@
       href: "https://aclanthology.org/2023.emnlp-main.795.pdf"
     - label: "bib"
       href: "chen_unified_2023"
-      save: "/_bibliography/chen_unified_2023.bib"
+      save: "/bibliography/chen_unified_2023.bib"
 
-  - citation: "Barham, Samuel, Orion Weller, Michelle Yuan, Kenton Murray, Mahsa Yarmohammadi, Zhengping Jiang, Siddharth Vashishtha, Alexander Martin, Anqi Liu, Aaron Steven White, Jordan Boyd-Graber, Benjamin Van Durme. 2023. MegaWika: Millions of reports and their sources across 50 diverse languages."
+  - citation: "bib"
+    bib_key: "barham_megawika_2023"
     links:
     - label: "data"
       href: "https://huggingface.co/datasets/hltcoe/megawika"
@@ -89,6 +118,9 @@
       href: "https://doi.org/10.48550/arXiv.2307.07049"
     - label: "pdf"
       href: "https://arxiv.org/pdf/2307.07049"
+    - label: "bib"
+      href: "barham_megawika_2023"
+      save: "/bibliography/barham_megawika_2023.bib"
 
   - citation: "bib"
     bib_key: "chen_iterative_2023"
@@ -99,9 +131,10 @@
       href: "https://aclanthology.org/2023.eacl-main.136.pdf"
     - label: "bib"
       href: "chen_iterative_2023"
-      save: "/_bibliography/chen_iterative_2023.bib"
+      save: "/bibliography/chen_iterative_2023.bib"
 
 - year: 2022
+  class: "2022"
   papers:
   - citation: "White, Aaron Steven, and Jeffrey Lidz. 2022. Lexicalization in the developing parser. <i>Glossa Psycholinguistics</i> 1(1): 2, 1-22."
     links:
@@ -110,7 +143,8 @@
     - label: "pdf"
       href: "https://escholarship.org/content/qt1h153783/supp/qt1h153783.pdf"
   
-  - citation: "Gantt, William, Lelia Glass, and Aaron Steven White. 2022. Decomposing and Recomposing Event Structure. <i>Transactions of the Association for Computational Linguistics</i> 10: 17–34"
+  - citation: "bib"
+    bib_key: "gantt_decomposing_2022"
     links:
     - label: "pdf"
       href: "https://direct.mit.edu/tacl/article-pdf/doi/10.1162/tacl_a_00445/1986604/tacl_a_00445.pdf"
@@ -120,8 +154,12 @@
       href: "https://github.com/wgantt/event_type_induction"
     - label: "doi"
       href: "https://doi.org/10.1162/tacl_a_00445"
+    - label: "bib"
+      href: "gantt_decomposing_2022"
+      save: "/bibliography/gantt_decomposing_2022.bib"
    
-  - citation: "Kane, Benjamin, William Gantt, and Aaron Steven White. 2022. Intensional Gaps: Relating veridicality, doxasticity, bouleticity, and neg-raising. Edited by Nicole Dreier and Chloe Kwon. <i>Semantics and Linguistic Theory</i> 31: 570-605."
+  - citation: "bib"
+    bib_key: "kane_intensional_2022"
     links:
     - label: "pdf"
       href: "https://journals.linguisticsociety.org/proceedings/index.php/SALT/article/download/31.029/4792"
@@ -131,6 +169,9 @@
       href: "https://github.com/MegaAttitude/intensional-gaps"
     - label: "doi"
       href: "https://doi.org/10.3765/salt.v31i0.5137"
+    - label: "bib"
+      href: "kane_intensional_2022"
+      save: "/bibliography/kane_intensional_2022.bib"
       
   - citation: "Huang, Nick, Aaron Steven White, Chia-Hsuan Liao, Valentine Hacquard, and Jeffrey Lidz. 2022. Syntactic bootstrapping attitude verbs despite impoverished morphosyntax. <i>Language Acquisition</i> 29(1): 27--53."
     links:
@@ -140,8 +181,10 @@
       href: "https://ling.auf.net/lingbuzz/005553/current.pdf"
 
 - year: 2021
+  class: "2021"
   papers:
-  - citation: "White, Aaron Steven. 2021. On Believing and Hoping Whether. <i>Semantics and Pragmatics</i> 14 (6): 1–18."
+  - citation: "bib"
+    bib_key: "white_believing_2021"
     links:
     - label: "code"
       href: "https://github.com/MegaAttitude/on-believing-and-hoping-whether"
@@ -149,8 +192,12 @@
       href: "https://doi.org/10.3765/sp.14.6"
     - label: "pdf"
       href: "https://semprag.org/index.php/sp/article/download/sp.14.6/pdf"
+    - label: "bib"
+      href: "white_believing_2021"
+      save: "/bibliography/white_believing_2021.bib"
 
-  - citation: "Stengel-Eskin, Elias, Sheng Zhang, Kenton Murray, Aaron Steven White, and Benjamin Van Durme. 2021. Joint Universal Syntactic and Semantic Parsing. <i>Transactions of the Association for Computational Linguistics</i> 9: 756—773."
+  - citation: "bib"
+    bib_key: "stengel-eskin_joint_2021"
     links:
     - label: "code"
       href: "https://github.com/esteng/miso_uds"
@@ -158,13 +205,20 @@
       href: "https://doi.org/10.1162/tacl_a_00396"
     - label: "pdf"
       href: "https://direct.mit.edu/tacl/article-pdf/doi/10.1162/tacl_a_00396/1955190/tacl_a_00396.pdf"
+    - label: "bib"
+      href: "stengel-eskin_joint_2021"
+      save: "/bibliography/stengel-eskin_joint_2021.bib"
       
-  - citation: "Kim, Gene Louis and Aaron Steven White. 2021. Montague Grammar Induction. Edited by Joseph Rhyne, Kaelyn Lamp, Nicole Dreier, and Chloe Kwon. <i>Semantics and Linguistic Theory</i> 30: 227–251."
+  - citation: "bib"
+    bib_key: "kim_montague_2021"
     links:
     - label: "doi"
       href: "https://doi.org/10.3765/salt.v30i0.4816"
     - label: "pdf"
       href: "https://journals.linguisticsociety.org/proceedings/index.php/SALT/article/download/30.227/4573"
+    - label: "bib"
+      href: "kim_montague_2021"
+      save: "/bibliography/kim_montague_2021.bib"
 
   - citation: "Yarmohammadi, M., S. Wu, M. Marone, H. Xu, S. Ebner, G. Qin, Y. Chen, J. Guo, C. Harman, K. Murray, A.S. White, M. Dredze and B. Van Durme. 2021. Everything Is All It Takes: A Multipronged Strategy for Zero-Shot Cross-Lingual Information Extraction. <i>Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing</i>, 1950–1967. Online and Punta Cana, Dominican Republic: Association for Computational Linguistics."
     links:
@@ -182,7 +236,7 @@
       href: "https://www.aclweb.org/anthology/2021.eacl-demos.19.pdf"
     - label: "bib"
       href: "xia-etal-2021-lome"
-      save: "/_bibliography/xia-etal-2021-lome.bib"
+      save: "/bibliography/xia-etal-2021-lome.bib"
 
   - citation: "bib"
     bib_key: "xu-etal-2021-gradual"
@@ -193,11 +247,13 @@
       href: "https://www.aclweb.org/anthology/2021.adaptnlp-1.22/"
     - label: "bib"
       href: "xu-etal-2021-gradual"
-      save: "/_bibliography/xu-etal-2021-gradual.bib"
+      save: "/bibliography/xu-etal-2021-gradual.bib"
     
 - year: 2020
+  class: "2020"
   papers:
-  - citation: "White, Aaron Steven, and Kyle Rawlins. 2020. Frequency, Acceptability, and Selection: A Case Study of Clause-Embedding. <i>Glossa</i> 5(1): 105. 1–41."
+  - citation: "bib"
+    bib_key: "white_frequency_2020"
     links:
     - label: "code"
       href: "https://github.com/MegaAttitude/frequency-acceptability-selection"
@@ -205,7 +261,10 @@
       href: "https://doi.org/10.5334/gjgl.1001"
     - label: "pdf"
       href: "https://www.glossa-journal.org/articles/10.5334/gjgl.1001/galley/1056/download/"
-      
+    - label: "bib"
+      href: "white_frequency_2020" 
+      save: "/bibliography/white_frequency_2020.bib"
+
   - citation: "bib"
     bib_key: "white-etal-2020-universal"
     links:
@@ -215,7 +274,7 @@
       href: "https://www.aclweb.org/anthology/2020.lrec-1.699.pdf"
     - label: "bib"
       href: "white-etal-2020-universal" 
-      save: "/_bibliography/white-etal-2020-universal.bib"
+      save: "/bibliography/white-etal-2020-universal.bib"
       
   - citation: "bib"
     bib_key: "stengel-eskin_universal_2020"
@@ -226,7 +285,7 @@
       href: "https://www.aclweb.org/anthology/2020.acl-main.746.pdf"
     - label: "bib"
       href: "stengel-eskin_universal_2020"  
-      save: "/_bibliography/stengel-eskin_universal_2020.bib" 
+      save: "/bibliography/stengel-eskin_universal_2020.bib" 
 
   - citation: "bib"
     bib_key: "gantt_natural_2020"
@@ -237,7 +296,7 @@
       href: "https://www.aclweb.org/anthology/2020.starsem-1.9.pdf"
     - label: "bib"
       href: "gantt_natural_2020"
-      save: "/_bibliography/gantt_natural_2020.bib"
+      save: "/bibliography/gantt_natural_2020.bib"
       
   - citation: "bib"
     bib_key: "vashishtha_temporal_2020"
@@ -248,7 +307,7 @@
       href: "https://www.aclweb.org/anthology/2020.findings-emnlp.363.pdf"
     - label: "bib"
       href: "vashishtha_temporal_2020"
-      save: "/_bibliography/vashishtha_temporal_2020.bib"
+      save: "/bibliography/vashishtha_temporal_2020.bib"
       
   - citation: "bib"
     bib_key: "an_lexical_2020"
@@ -261,14 +320,18 @@
       href: "https://www.aclweb.org/anthology/2020.scil-1.45.pdf"
     - label: "bib"
       href: "an_lexical_2020"
-      save: "/_bibliography/an_lexical_2020.bib"
+      save: "/bibliography/an_lexical_2020.bib"
 
-  - citation: "Moon, Ellise, and Aaron Steven White. 2020. The Source of Nonfinite Temporal Interpretation. In <i>Proceedings of the 50th Annual Meeting of the North East Linguistic Society</i>, 11-24. Amherst, MA: GLSA Publications."
+  - citation: "bib"
+    bib_key: "moon_source_2020"
     links:
     - label: "data"
       href: "http://megaattitude.io/projects/mega-orientation/"
     - label: "pdf&nbsp;(preprint)"
       href: "https://ling.auf.net/lingbuzz/005282/current.pdf"
+    - label: "bib"
+      href: "moon_source_2020"
+      save: "/bibliography/moon_source_2020.bib"
 
   - citation: "bib"
     bib_key: "chen_reading_2020"
@@ -277,9 +340,10 @@
       href: "https://www.aclweb.org/anthology/2020.spnlp-1.9.pdf"
     - label: "bib"
       href: "chen_reading_2020"
-      save: "/_bibliography/chen_reading_2020.bib"
+      save: "/bibliography/chen_reading_2020.bib"
 
 - year: 2019
+  class: "2019"
   papers:
   - citation: "bib"
     bib_key: "govindarajan_decomposing_2019"
@@ -292,7 +356,7 @@
       href: "https://www.aclweb.org/anthology/Q19-1035.pdf"
     - label: "bib"
       href: "govindarajan_decomposing_2019"
-      save: "/_bibliography/govindarajan_decomposing_2019.bib"
+      save: "/bibliography/govindarajan_decomposing_2019.bib"
 
   - citation: "bib"
     bib_key: "vashishtha_fine-grained_2019"
@@ -305,14 +369,18 @@
       href: "https://www.aclweb.org/anthology/P19-1280.pdf"
     - label: "bib"
       href: "vashishtha_fine-grained_2019"
-      save: "/_bibliography/vashishtha_fine-grained_2019.bib"
+      save: "/bibliography/vashishtha_fine-grained_2019.bib"
 
-  - citation: "White, Aaron Steven. 2019. Lexically Triggered Veridicality Inferences. In <i>Handbook of Pragmatics</i>, 22:115–148. John Benjamins Publishing Company."
+  - citation: "bib"
+    bib_key: "white_lexically_2019"
     links:
     - label: "doi"
       href: "https://doi.org/10.1075/hop.22.lex4"
     - label: "pdf&nbsp;(preprint)"
       href: "https://ling.auf.net/lingbuzz/004664"
+    - label: "bib"
+      href: "white_lexically_2019"
+      save: "/bibliography/white_lexically_2019.bib"
 
   - citation: "bib"
     bib_key: "yan_framework_2019"
@@ -323,7 +391,7 @@
       href: "https://www.aclweb.org/anthology/W19-2910.pdf"
     - label: "bib"
       href: "yan_framework_2019"
-      save: "/_bibliography/yan_framework_2019.bib"
+      save: "/bibliography/yan_framework_2019.bib"
       
   - citation: "Yan, Shaorong, and Aaron Steven White. 2019. Understanding Event Related Potentials during Reading Using Pre-Compiled Abstractive Decoders."
     links:
@@ -333,8 +401,10 @@
       href: "https://psyarxiv.com/mwpf5/download"
 
 - year: 2018
+  class: "2018"
   papers:
-  - citation: "White, Aaron Steven, Valentine Hacquard, and Jeffrey Lidz. 2018. Semantic Information and the Syntax of Propositional Attitude Verbs. <i>Cognitive Science</i> 42 (2): 416–456."
+  - citation: "bib"
+    bib_key: "white_semantic_2018"
     links:
     - label: "data"
       href: "https://github.com/aaronstevenwhite/ProjectionExperiments"      
@@ -342,8 +412,12 @@
       href: "https://doi.org/10.1111/cogs.12512"
     - label: "pdf"
       href: "https://onlinelibrary.wiley.com/doi/epdf/10.1111/cogs.12512"
+    - label: "bib"
+      href: "white_semantic_2018"
+      save: "/bibliography/white_semantic_2018.bib"
 
-  - citation: "White, Aaron Steven, Valentine Hacquard, and Jeffrey Lidz. 2018. The Labeling Problem in Syntactic Bootstrapping: Main Clause Syntax in the Acquisition of Propositional Attitude Verbs. In <i>Semantics in Acquisition</i>, edited by Kristen Syrett and Sudha Arunachalam, 198–220. Trends in Language Acquisition Research (TiLAR) 24. John Benjamins Publishing Company."
+  - citation: "bib"
+    bib_key: "white_labeling_2018"
     links:
     - label: "code"
       href: "https://github.com/aaronstevenwhite/MainClauseModel"
@@ -351,6 +425,9 @@
       href: "https://doi.org/10.1075/tilar.24.09whi"
     - label: "pdf&nbsp;(preprint)"
       href: "https://ling.auf.net/lingbuzz/002917/current.pdf"
+    - label: "bib"
+      href: "white_labeling_2018"
+      save: "/bibliography/white_labeling_2018.bib"
 
   - citation: "bib"
     bib_key: "poliak_collecting_2018"
@@ -363,7 +440,7 @@
       href: "https://www.aclweb.org/anthology/D18-1007.pdf"
     - label: "bib"
       href: "poliak_collecting_2018"
-      save: "/_bibliography/poliak_collecting_2018.bib"
+      save: "/bibliography/poliak_collecting_2018.bib"
 
   - citation: "bib"
     bib_key: "rudinger_neural_2018"
@@ -376,7 +453,7 @@
       href: "https://www.aclweb.org/anthology/N18-1067.pdf"
     - label: "bib"
       href: "rudinger_neural_2018"
-      save: "/_bibliography/rudinger_neural_2018.bib"
+      save: "/bibliography/rudinger_neural_2018.bib"
 
   - citation: "bib"
     bib_key: "white_lexicosyntactic_2018"    
@@ -389,28 +466,40 @@
       href: "https://aclanthology.org/D18-1501.pdf"
     - label: "bib"
       href: "white_lexicosyntactic_2018"
-      save: "/_bibliography/white_lexicosyntactic_2018.bib"
+      save: "/bibliography/white_lexicosyntactic_2018.bib"
 
-  - citation: "White, Aaron Steven, and Kyle Rawlins. 2018. The Role of Veridicality and Factivity in Clause Selection. In <i>Proceedings of the 48th Annual Meeting of the North East Linguistic Society</i>, edited by Sherry Hucklebridge and Max Nelson, 221–234. Amherst, MA: GLSA Publications."
+  - citation: "bib"
+    bib_key: "white_role_2018"
     links:
     - label: "data"
       href: "http://megaattitude.io/projects/mega-veridicality/"
     - label: "pdf&nbsp;(preprint)"
       href: "https://ling.auf.net/lingbuzz/004012/current.pdf"
+    - label: "bib"
+      href: "white_role_2018"
+      save: "/bibliography/white_role_2018.bib"
 
-  - citation: "White, Aaron Steven, and Kyle Rawlins. 2018. Question Agnosticism and Change of State. In <i>Proceedings of Sinn Und Bedeutung 21</i>, edited by Robert Truswell, Chris Cummins, Caroline Heycock, Brian Rabern, and Hannah Rohde, 1325–1342. University of Edinburgh."
+  - citation: "bib"
+    bib_key: "white_question_2018"
     links:
     - label: "pdf"
       href: "https://semanticsarchive.net/Archive/DRjNjViN/WhiteRawlins.pdf"
+    - label: "bib"
+      href: "white_question_2018"
+      save: "/bibliography/white_question_2018.bib"
 
 - year: 2017
   papers:
-  - citation: "Lidz, Jeffrey, Aaron Steven White, and Rebecca Baier. 2017. The Role of Incremental Parsing in Syntactically Conditioned Word Learning. <i>Cognitive Psychology</i> 97: 62–78."
+  - citation: "bib"
+    bib_key: "lidz_role_2017"
     links:
     - label: "doi"
       href: "https://doi.org/10.1016/j.cogpsych.2017.06.002"
     - label: "pdf&nbsp;(preprint)"
       href: "https://ling.auf.net/lingbuzz/003145/current.pdf"
+    - label: "bib"
+      href: "lidz_role_2017"
+      save: "/bibliography/lidz_role_2017.bib"
 
   - citation: "bib"
     bib_key: "white_inference_2017"      
@@ -421,10 +510,10 @@
       href: "https://www.aclweb.org/anthology/I17-1100.pdf"
     - label: "bib"
       href: "white_inference_2017"
-      save: "/_bibliography/white_inference_2017.bib"
+      save: "/bibliography/white_inference_2017.bib"
 
   - citation: "bib"
-    bib_key: "white_inference_2017"     
+    bib_key: "white_semantic_2017"     
     links:
     - label: "code"
       href: "https://github.com/aaronstevenwhite/SemanticProtoRoleLinkingModel"
@@ -432,16 +521,21 @@
       href: "https://www.aclweb.org/anthology/E17-2015.pdf"
     - label: "bib"
       href: "white_semantic_2017"
-      save: "/_bibliography/white_semantic_2017.bib"
+      save: "/bibliography/white_semantic_2017.bib"
 
-  - citation: "Fetters, Michael, and Aaron Steven White. 2017. Pseudogapping Does Not Involve Heavy Shift. In <i>Proceedings of the 34th West Coast Conference on Formal Linguistics</i>, edited by Aaron Kaplan, Abby Kaplan, Miranda K. McCarvel, and Edward J. Rubin, 205–213. Somerville, MA: Cascadilla Proceedings Project."
+  - citation: "bib"
+    bib_key: "fetters_pseudogapping_2017"
     links:
     - label: "pdf"
       href: "http://www.lingref.com/cpp/wccfl/34/paper3313.pdf"
+    - label: "bib"
+      href: "fetters_pseudogapping_2017"
+      save: "/bibliography/fetters_pseudogapping_2017.bib"
 
 - year: 2016
   papers:
-  - citation: "White, Aaron Steven, Dee Ann Reisinger, Keisuke Sakaguchi, Tim Vieira, Sheng Zhang, Rachel Rudinger, Kyle Rawlins, and Benjamin Van Durme. 2016. Universal Decompositional Semantics on Universal Dependencies. In <i>Proceedings of the 2016 Conference on Empirical Methods in Natural Language Processing</i>, 1713–1723. Austin, Texas: Association for Computational Linguistics."
+  - citation: "bib"
+    bib_key: "white_universal_2016"
     links:
     - label: "data"
       href: "http://decomp.io/data/"
@@ -449,8 +543,12 @@
       href: "https://doi.org/10.18653/v1/D16-1177"
     - label: "pdf"
       href: "https://www.aclweb.org/anthology/D16-1177.pdf"
+    - label: "bib"
+      href: "white_universal_2016"
+      save: "/bibliography/white_universal_2016.bib"
 
-  - citation: "White, Aaron Steven, and Kyle Rawlins. 2016. A Computational Model of S-Selection. Edited by Mary Moroney, Carol-Rose Little, Jacob Collard, and Dan Burgdorf. <i>Semantics and Linguistic Theory</i> 26: 641–663."
+  - citation: "bib"
+    bib_key: "white_computational_2016"
     links:
     - label: "data"
       href: "http://megaattitude.io/projects/mega-acceptability/"
@@ -458,6 +556,9 @@
       href: "https://doi.org/10.3765/salt.v26i0.3819"
     - label: "pdf"
       href: "http://journals.linguisticsociety.org/proceedings/index.php/SALT/article/view/26.641/3662"
+    - label: "bib"
+      href: "white_computational_2016"
+      save: "/bibliography/white_computational_2016.bib"
  
   - citation: "White, Aaron Steven, Philip Resnik, Valentine Hacquard, and Jeffrey Lidz. 2016. The Contextual Modulation of Semantic Information."
     links:
@@ -476,37 +577,57 @@
 
 - year: 2015
   papers:
-  - citation: "White, Aaron Steven. 2015. <i>Information and Incrementality in Syntactic Bootstrapping.</i> PhD Thesis, College Park, MD: University of Maryland."
+  - citation: "bib"
+    bib_key: "white_information_2015"
     links:
     - label: "doi"
       href: "https://doi.org/10.13016/M2X938"
     - label: "pdf"
       href: "https://drum.lib.umd.edu/bitstream/handle/1903/17095/White_umd_0117E_16547.pdf"
+    - label: "bib"
+      href: "white_information_2015"
+      save: "/bibliography/white_information_2015.bib"
   
-  - citation: "Altshuler, Daniel Gordon, Valentine Hacquard, Thomas Roberts, and Aaron Steven White. 2015. On Double Access, Cessation and Parentheticality. Edited by Sarah D’Antonio, Mary Moroney, and Carol Rose Little. <i>Semantics and Linguistic Theory</i> 25: 18–37."
+  - citation: "bib"
+    bib_key: "altshuler_double_2015"
     links:
     - label: "doi"
       href: "https://doi.org/10.3765/salt.v25i0.3048"
     - label: "pdf"
       href: "http://journals.linguisticsociety.org/proceedings/index.php/SALT/article/view/25.18/2920"      
+    - label: "bib"
+      href: "altshuler_double_2015"
+      save: "/bibliography/altshuler_double_2015.bib"
 
 - year: 2014
   papers:
-  - citation: "White, Aaron Steven. 2014. Factive-Implicatives and Modalized Complements. In <i>Proceedings of the 44th Annual Meeting of the North East Linguistic Society</i>, edited by Jyoti Iyer and Leland Kusmer, 2:267–278. Amherst, MA: GLSA Publications."
+  - citation: "bib"
+    bib_key: "white_factive-implicatives_2014"
     links:
     - label: "pdf&nbsp;(preprint)"
       href: "http://aaronstevenwhite.io/papers/white_factive-implicatives_2014.pdf"
+    - label: "bib"
+      href: "white_factive-implicatives_2014"
+      save: "/bibliography/white_factive-implicatives_2014.bib"
 
-  - citation: "White, Aaron Steven, and Thomas Grano. 2014. An Experimental Investigation of Partial Control. In <i>Proceedings of Sinn Und Bedeutung</i>, edited by U. Etxeberria, A. Falaus, A. Irurtzun, and B. Leferman, 18:469–486."
+  - citation: "bib"
+    bib_key: "white_experimental_2014"
     links:
     - label: "data"
       href: "https://github.com/aaronstevenwhite/PartialControlExperiments"
     - label: "pdf"
       href: "https://semanticsarchive.net/sub2013/SeparateArticles/White&Grano.pdf"
+    - label: "bib"
+      href: "white_experimental_2014"
+      save: "/bibliography/white_experimental_2014.bib"
 
-  - citation: "White, Aaron Steven, Rachel Dudley, Valentine Hacquard, and Jeffrey Lidz. 2014. Discovering Classes of Attitude Verbs Using Subcategorization Frame Distributions. In <i>Proceedings of the 43rd Annual Meeting of the North East Linguistic Society</i>, edited by Hsin-Lun Huang, Ethan Poole, and Amanda Rysling, 2:249–260. Amherst, MA: GLSA Publications."
+  - citation: "bib"
+    bib_key: "white_discovering_2014"
     links:
     - label: "data"
       href: "https://github.com/aaronstevenwhite/ProjectionExperiments"
     - label: "pdf&nbsp;(preprint)"
       href: "http://aaronstevenwhite.io/papers/white_discovering_2014.pdf"
+    - label: "bib"
+      href: "white_discovering_2014"
+      save: "/bibliography/white_discovering_2014.bib"
