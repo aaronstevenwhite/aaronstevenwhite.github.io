@@ -2,13 +2,22 @@
   class: "2024"
   papers:
   - citation: "bib"
-    bib_key: "cao_generating_2024"
+    bib_key: "grove_probabilistic_2024"
     links:
     - label: "pdf"
-      href: "https://ling.auf.net/lingbuzz/008208/current.pdf"
+      href: "https://lingbuzz.net/lingbuzz/008478/current.pdf"
     - label: "bib"
-      href: "cao_generating_2024"
-      save: "/bibliography/cao_generating_2024.bib"
+      href: "grove_probabilistic_2024"
+      save: "/bibliography/grove_probabilistic_2024.bib"
+
+  - citation: "bib"
+    bib_key: "grove_modeling_2024"
+    links:
+    - label: "pdf"
+      href: "https://ling.auf.net/lingbuzz/008196/current.pdf"
+    - label: "bib"
+      href: "grove_modeling_2024"
+      save: "/bibliography/grove_modeling_2024.bib"
 
   - citation: "bib"
     bib_key: "grove_factivity_2024"
@@ -27,6 +36,15 @@
     - label: "bib"
       href: "grove_modeling_2024"
       save: "/bibliography/grove_modeling_2024.bib"
+
+  - citation: "bib"
+    bib_key: "cao_generating_2024"
+    links:
+    - label: "pdf"
+      href: "https://ling.auf.net/lingbuzz/008208/current.pdf"
+    - label: "bib"
+      href: "cao_generating_2024"
+      save: "/bibliography/cao_generating_2024.bib"
 
   - citation: "bib"
     bib_key: "vashishtha_famus_2024"
