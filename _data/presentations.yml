@@ -1,6 +1,14 @@
 - year: 2024
   class: "2024"
   presentations:
+  - citation: "White, Aaron Steven. 2024. Identifying lexical semantic categories from noisy inference judgments. Talk given at the University of Edinburgh, October 8, 2024."
+    links:
+    - label: "slides"
+      href: "presentations/slides/edinburgh-mgrg-talk-oct-2024.pptx" 
+  - citation: "White, Aaron Steven. 2024. Distinguishing metalinguistic and occasional uncertainty. Talk given at the University of Edinburgh, September 26, 2024."
+    links:
+    - label: "slides"
+      href: "presentations/slides/edinburgh-colloq-talk-sep-2024.pptx"
   - citation: "Grove, Julian and Aaron Steven White. 2024. Modeling the prompt in inference judgment tasks. Talk given at the third Experiments in Linguistic Meaning conference (ELM 3), June 13, 2024."
     links:
     - label: "slides"
