@@ -427,7 +427,6 @@
           </group>
           <text macro="locators-article"/>
         </group>
-        <text macro="access"/>
       </group>
     </layout>
   </bibliography>
