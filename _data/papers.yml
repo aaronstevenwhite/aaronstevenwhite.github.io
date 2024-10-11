@@ -11,15 +11,6 @@
       save: "/bibliography/grove_probabilistic_2024.bib"
 
   - citation: "bib"
-    bib_key: "grove_modeling_2024"
-    links:
-    - label: "pdf"
-      href: "https://ling.auf.net/lingbuzz/008196/current.pdf"
-    - label: "bib"
-      href: "grove_modeling_2024"
-      save: "/bibliography/grove_modeling_2024.bib"
-
-  - citation: "bib"
     bib_key: "grove_factivity_2024"
     links:
     - label: "pdf"
@@ -49,12 +40,12 @@
   - citation: "bib"
     bib_key: "vashishtha_famus_2024"
     links:
+    - label: "pdf"
+      href: "https://arxiv.org/pdf/2311.05601.pdf"
     - label: "data"
       href: "https://github.com/FACTSlab/FAMuS"
     - label: "doi"
-      href: "https://doi.org/10.48550/arXiv.2311.05601"
-    - label: "pdf"
-      href: "https://arxiv.org/pdf/2311.05601.pdf"
+      href: "https://doi.org/10.18653/v1/2024.naacl-long.457"
     - label: "bib"
       href: "vashishtha_famus_2024"
       save: "/bibliography/vashishtha_famus_2024.bib"
@@ -244,7 +235,7 @@
       href: "https://aclanthology.org/2021.emnlp-main.149.pdf"
 
   - citation: "bib"
-    bib_key: "xia-etal-2021-lome"
+    bib_key: "xia_lome_2021"
     links:
     - label: "demo"
       href: "https://nlp.jhu.edu/demos/lome/"
@@ -253,19 +244,19 @@
     - label: "pdf"
       href: "https://www.aclweb.org/anthology/2021.eacl-demos.19.pdf"
     - label: "bib"
-      href: "xia-etal-2021-lome"
-      save: "/bibliography/xia-etal-2021-lome.bib"
+      href: "xia_lome_2021"
+      save: "/bibliography/xia_lome_2021.bib"
 
   - citation: "bib"
-    bib_key: "xu-etal-2021-gradual"
+    bib_key: "xu_gradual_2021"
     links:
     - label: "code"
       href: "https://github.com/fe1ixxu/Gradual-Finetune"
     - label: "pdf"
       href: "https://www.aclweb.org/anthology/2021.adaptnlp-1.22/"
     - label: "bib"
-      href: "xu-etal-2021-gradual"
-      save: "/bibliography/xu-etal-2021-gradual.bib"
+      href: "xu_gradual_2021"
+      save: "/bibliography/xu_gradual_2021.bib"
     
 - year: 2020
   class: "2020"
@@ -284,15 +275,15 @@
       save: "/bibliography/white_frequency_2020.bib"
 
   - citation: "bib"
-    bib_key: "white-etal-2020-universal"
+    bib_key: "white_universal_2020"
     links:
     - label: "code&nbsp;+&nbsp;data"
       href: "https://github.com/decompositional-semantics-initiative/decomp"
     - label: "pdf"
       href: "https://www.aclweb.org/anthology/2020.lrec-1.699.pdf"
     - label: "bib"
-      href: "white-etal-2020-universal" 
-      save: "/bibliography/white-etal-2020-universal.bib"
+      href: "white_universal_2020" 
+      save: "/bibliography/white_universal_2020.bib"
       
   - citation: "bib"
     bib_key: "stengel-eskin_universal_2020"
