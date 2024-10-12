@@ -9,7 +9,7 @@ nav:
   link: /presentations
   page_id: presentations
 - title: CV
-  link: cv.pdf
+  link: /cv.pdf
   page_id: cv
 - title: lab
   link: http://factslab.io/
