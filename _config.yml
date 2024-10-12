@@ -1,11 +1,11 @@
 title: Aaron Steven White
 email: aaron.white@rochester.edu
 description: >- 
-  I'm a researcher in computational linguistics and natural language processing. I work at the intersection of machine learning and language science
+  I do research in computational linguistics and natural language semantics.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://aaronstevenwhite.io" # the base hostname & protocol for your site, e.g. http://example.com
 author: Aaron Steven White
-logo: /assets/images/facts-logo.png
+logo: /assets/images/facts-logo-2.png
 footer-logo: /assets/images/facts-logo-white.png
 # Build settings
 
