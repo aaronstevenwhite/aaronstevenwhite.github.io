@@ -41,7 +41,7 @@
     bib_key: "vashishtha_famus_2024"
     links:
     - label: "pdf"
-      href: "https://arxiv.org/pdf/2311.05601.pdf"
+      href: "https://aclanthology.org/2024.naacl-long.457.pdf"
     - label: "data"
       href: "https://github.com/FACTSlab/FAMuS"
     - label: "doi"
@@ -54,11 +54,9 @@
     bib_key: "gantt_multimuc_2024"    
     links:
     - label: "pdf"
-      href: "https://arxiv.org/pdf/2401.16209.pdf"
+      href: "https://aclanthology.org/2024.eacl-long.21.pdf"
     - label: "data"
       href: "https://github.com/wgantt/multimuc"
-    - label: "doi"
-      href: "https://doi.org/10.48550/arXiv.2401.16209"
     - label: "bib"
       href: "gantt_multimuc_2024"
       save: "/bibliography/gantt_multimuc_2024.bib"
