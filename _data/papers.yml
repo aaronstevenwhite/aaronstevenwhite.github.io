@@ -1,5 +1,5 @@
-- year: 2024
-  class: "2024"
+- year: new
+  class: "new"
   papers:
   - citation: "bib"
     bib_key: "grove_probabilistic_2024"
@@ -38,6 +38,35 @@
       save: "/bibliography/cao_generating_2024.bib"
 
   - citation: "bib"
+    bib_key: "walden_cross-document_2024"
+    links:
+    - label: "pdf"
+      href: "https://arxiv.org/pdf/2410.14795"
+    - label: "data&nbsp;+&nbsp;code"
+      href: "https://github.com/wgantt/SEAMuS"
+    - label: "doi"
+      href: "https://doi.org/10.48550/arXiv.2410.14795"
+    - label: "bib"
+      href: "walden_cross-document_2024"
+      save: "/assets/bibliography/walden_cross-document_2024.bib"
+
+  - citation: "bib"
+    bib_key: "gantt_small_2024"
+    links:
+    - label: "pdf"
+      href: "https://arxiv.org/pdf/2404.08579"
+    - label: "data"
+      href: "https://github.com/wgantt/eae-transfer"
+    - label: "doi"
+      href: "https://doi.org/10.48550/arXiv.2404.08579"
+    - label: "bib"
+      href: "gantt_small_2024"
+      save: "/bibliography/gantt_small_2024.bib"
+
+- year: 2024
+  class: "2024"
+  papers:
+  - citation: "bib"
     bib_key: "vashishtha_famus_2024"
     links:
     - label: "pdf"
@@ -65,27 +94,12 @@
     bib_key: "gantt_event_2024"
     links:
     - label: "pdf"
-      href: "https://arxiv.org/pdf/2402.06973.pdf"
+      href: "https://aclanthology.org/2024.findings-emnlp.431.pdf"
     - label: "data"
       href: "https://github.com/wgantt/eks"
-    - label: "doi"
-      href: "https://doi.org/10.48550/arXiv.2402.06973"
     - label: "bib"
       href: "gantt_event_2024"
       save: "/bibliography/gantt_event_2024.bib"
-
-  - citation: "bib"
-    bib_key: "gantt_small_2024"
-    links:
-    - label: "pdf"
-      href: "https://arxiv.org/pdf/2404.08579"
-    - label: "data"
-      href: "https://github.com/wgantt/eae-transfer"
-    - label: "doi"
-      href: "https://doi.org/10.48550/arXiv.2404.08579"
-    - label: "bib"
-      href: "gantt_small_2024"
-      save: "/bibliography/gantt_small_2024.bib"
 
 - year: 2023
   class: "2023"
