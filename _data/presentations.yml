@@ -1,6 +1,14 @@
 - year: 2024
   class: "2024"
   presentations:
+  - citation: "White, Aaron Steven. 2024. Characterizing uncertainty in lexically triggered inferences. Talk given at the University of California, Los Angeles, November 20, 2024."
+    links:
+    - label: "slides"
+      href: "/presentations/slides/ucla-synsem-talk-nov-2024.pptx"
+  - citation: "White, Aaron Steven. 2024. Probabilistic Dynamic Semantics. Talk given at the University of California, San Diego, November 19, 2024."
+    links:
+    - label: "slides"
+      href: "/presentations/slides/ucsd-s-babble-talk-nov-2024.pptx"
   - citation: "White, Aaron Steven. 2024. Characterizing uncertainty in lexically triggered inferences. Talk given at the University of California, San Diego, November 18, 2024."
     links:
     - label: "slides"
