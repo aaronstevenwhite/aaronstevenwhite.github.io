@@ -1,6 +1,10 @@
 - year: 2024
   class: "2024"
   presentations:
+  - citation: "White, Aaron Steven. 2024. Characterizing uncertainty in lexically triggered inferences. Talk given at Rochester Institute of Technology, December 6, 2024."
+    links:
+    - label: "slides"
+      href: "/presentations/slides/rit-colloquium-talk-dec-2024.pptx"
   - citation: "White, Aaron Steven. 2024. Characterizing uncertainty in lexically triggered inferences. Talk given at the University of California, Los Angeles, November 20, 2024."
     links:
     - label: "slides"
