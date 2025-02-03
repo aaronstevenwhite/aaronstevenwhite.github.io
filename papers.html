@@ -1,17 +1,15 @@
 ---
 layout: page
 title: Papers
-description: Each paper reflects my commitment to advancing knowledge and contributing meaningful insights to the field.
+description: Publications on which Aaron Steven White is an author.
 share: false
 ---
 
-<p>All of the citations for published papers listed below are collected in the .bib file located <a
-    style="font-weight: 600;" href="/papers/aaronstevenwhite.bib">here</a>.</p>
 <div class="filter-wrapper">
   <span class="arrow left-arrow" onclick="scrollLeftAction()">&#10094;</span>
   <div id="filterContainer" class="scroll-container">
     {% for batch in site.data.papers %}
-    <button data-year="{{ batch.year }}" class=" year-button {% if batch.year == '2024' %}active{% endif %}">
+    <button data-year="{{ batch.year }}" class=" year-button {% if batch.year == 'preprints' %}active{% endif %}">
       {{ batch.year }}
     </button>
     {% endfor %}
@@ -22,7 +20,7 @@ share: false
 
 <div class="papers-container">
   {% for batch in site.data.papers %}
-  <div class="paper-group {{ batch.year }} {% if batch.year == '2024' %}active{% endif %}">
+  <div class="paper-group {{ batch.year }} {% if batch.year == 'preprints' %}active{% endif %}">
     {% for paper in batch.papers %}
     <div class="paper-item">
       <div class="paper-content">

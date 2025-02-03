@@ -101,8 +101,8 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
 
-  filterPapers('2024');
-  filterPresentation('2024');
+  filterPapers('preprints');
+  filterPresentation('preprints');
   checkArrows();
 });
 /* Function to filter papers/presentations by year JS End*/
