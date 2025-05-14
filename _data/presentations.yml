@@ -1,9 +1,12 @@
 - year: 2025
   class: "2025"
   presentations:
-  - citation: "White, Aaron Steven. 2025. The Conceptual and Contextual Correlates of Argument Structure: A case study of intentional events and states. Talk to be given at the University of Pennsylvania, February 14, 2025."
-  - citation: "White, Aaron Steven. 2025. The shape of the clause-embedding lexicon. Talk to be given at the University of Maryland, College Park, May 16, 2025."
-  - citation: "White, Aaron Steven. 2025. Deep Combinatorial Categorial Grammar Induction. Talk to be given at Oxford University, October 13, 2025."
+  - citation: "White, Aaron Steven. 2025. Inducing lexical semantic generalizations. Talk to be given at the University of Maryland, College Park, May 16, 2025."
+  - citation: "Grove, Julian and Aaron Steven White. 2025. Probabilistic Dynamic Semantics. Course to be given at North American Summer School for Logic, Language and Information (NASSLLI), June 23-27, 2025."
+  - citation: "Grove, Julian and Aaron Steven White. 2025. Probabilistic Dynamic Semantics. Course to be given at European Summer School for Logic, Language and Information (ESSLLI), August 4-8, 2025."
+  - citation: "White, Aaron Steven. 2025. Ontology-driven evaluation of summarization and retrieval systems. Talk to be given at NAtural LOgic meets MAchine learning (NALOMA), August 5, 2025."
+  - citation: "White, Aaron Steven. 2025. Deep combinatorial categorial grammar induction. Talk to be given at Oxford University, October 13, 2025."
+  - citation: "White, Aaron Steven. 2025. The Conceptual and Contextual Correlates of Argument Structure: A case study of intentional events and states. Talk to be given at the University of Pennsylvania, November 7, 2025."
 
 - year: 2024
   class: "2024"
