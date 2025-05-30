@@ -2,6 +2,14 @@
   class: "2025"
   papers:
   - citation: "bib"
+    bib_key: "grove_factivity_2025"
+    links:
+    - label: "pdf"
+      href: "https://lingbuzz.net/lingbuzz/007450/current.pdf"
+    - label: "bib"
+      href: "grove_factivity_2025"
+      save: "/bibliography/grove_factivity_2025.bib"
+  - citation: "bib"
     bib_key: "grove_modeling_2025"
     links:
     - label: "pdf"
@@ -21,27 +29,20 @@
     - label: "bib"
       href: "cao_cause_2025"
       save: "/bibliography/cao_cause_2025.bib"
+  - citation: "bib"
+    bib_key: "dou_dynamic_2025"
+    links:
+    - label: "pdf"
+      href: "https://journals.plos.org/ploscompbiol/article/file?id=10.1371/journal.pcbi.1013006&type=printable"
+    - label: "doi"
+      href: "https://doi.org/10.1371/journal.pcbi.1013006"
+    - label: "bib"
+      href: "dou_dynamic_2025"
+      save: "/bibliography/dou_dynamic_2025.bib"
 
 - year: 2024
   class: "2024"
   papers:
-  - citation: "bib"
-    bib_key: "grove_probabilistic_2024"
-    links:
-    - label: "pdf"
-      href: "https://lingbuzz.net/lingbuzz/008478/current.pdf"
-    - label: "bib"
-      href: "grove_probabilistic_2024"
-      save: "/bibliography/grove_probabilistic_2024.bib"
-
-  - citation: "bib"
-    bib_key: "grove_factivity_2024"
-    links:
-    - label: "pdf"
-      href: "https://lingbuzz.net/lingbuzz/007450/current.pdf"
-    - label: "bib"
-      href: "grove_factivity_2024"
-      save: "/bibliography/grove_factivity_2024.bib"
   - citation: "bib"
     bib_key: "vashishtha_famus_2024"
     links:
