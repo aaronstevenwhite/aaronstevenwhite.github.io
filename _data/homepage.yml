@@ -4,7 +4,7 @@ hero_section:
 positions_section:
   title: This summer
   text: |
-    I'm teaching courses on probabilistic dynamic semantics at the <a href="https://nasslli25.shane.st/">North American Summer School for Logic, Language, and Information</a> (23-27 June 2025) and the <a href="https://2025.esslli.eu/">European Summer School for Logic, Language, and Information</a> (4-8 August 2025) with <a href="https://juliangrove.github.io/">Julian Grove</a>. I'll also be giving a keynote talk on ontology-driven evaluation of summarization and retrieval systems at <a href="https://naloma.github.io/2025/">Natural Logic Meets Machine Learning</a>.
+    I'm teaching courses on probabilistic dynamic semantics at the <a href="https://nasslli25.shane.st/">North American Summer School for Logic, Language, and Information</a> (23-27 June 2025) and the <a href="https://2025.esslli.eu/">European Summer School for Logic, Language, and Information</a> (4-8 August 2025) with <a href="https://juliangrove.github.io/">Julian Grove</a>. I'll also be giving a keynote talk on event understanding at <a href="https://naloma.github.io/2025/">Natural Logic Meets Machine Learning</a>.
 
 about_section:
   title: What I do
@@ -37,7 +37,7 @@ where_section:
   title: Where I’ve been
   image: /assets/images/aaron-kate-graduation.png
   text: |
-    Before joining the University of Rochester, I was a postdoctoral fellow at Johns Hopkins University’s <a href="http://scienceoflearning.jhu.edu/">Science of Learning Institute</a> with affiliations in the <a href="http://cogsci.jhu.edu/">Department of Cognitive Science</a> and the <a href="http://www.clsp.jhu.edu">Center for Language and Speech Processing</a> from 2015 to 2017. I  received my PhD in <a href="http://ling.umd.edu/">Linguistics</a> from the University of Maryland in 2015.
+    Before joining the University of Rochester, I was a postdoctoral fellow at Johns Hopkins University’s Science of Learning Institute, with affiliations in the <a href="http://cogsci.jhu.edu/">Department of Cognitive Science</a> and the <a href="http://www.clsp.jhu.edu">Center for Language and Speech Processing</a> from 2015 to 2017. I received my PhD in <a href="http://ling.umd.edu/">Linguistics</a> from the University of Maryland in 2015.
 
 contact_section:
   title: Where I am

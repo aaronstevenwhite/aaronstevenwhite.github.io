@@ -1,0 +1,24 @@
+topics:
+  - tag: datasets-evaluation
+    name: Datasets & Evaluation
+
+  - tag: information-extraction
+    name: Information Extraction
+
+  - tag: natural-language-understanding
+    name: Natural Language Understanding
+
+  - tag: syntactic-semantic-parsing
+    name: Syntactic & Semantic Parsing
+
+  - tag: multilingual-nlp
+    name: Multilingual NLP
+
+  - tag: computational-psycholinguistics
+    name: Computational Psycholinguistics
+
+  - tag: language-acquisition
+    name: Language Acquisition
+
+  - tag: semantic-theory
+    name: Semantic Theory

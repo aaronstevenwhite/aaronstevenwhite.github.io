@@ -1,8 +1,7 @@
-- year: ←2024
-  class: "←2024"
-  papers:
+papers:
   - citation: "bib"
     bib_key: "walden_cross-document_2025"
+    tags: ["information-extraction", "datasets-evaluation"]
     links:
     - label: "pdf"
       href: "https://arxiv.org/pdf/2410.14795"
@@ -16,6 +15,7 @@
 
   - citation: "bib"
     bib_key: "grove_factivity_2025"
+    tags: ["semantic-theory", "computational-psycholinguistics", "natural-language-understanding"]
     links:
     - label: "pdf"
       href: "https://lingbuzz.net/lingbuzz/007450/current.pdf"
@@ -25,6 +25,7 @@
 
   - citation: "bib"
     bib_key: "grove_modeling_2025"
+    tags: ["semantic-theory", "computational-psycholinguistics", "natural-language-understanding"]
     links:
     - label: "pdf"
       href: "https://journals.linguisticsociety.org/proceedings/index.php/ELM/article/view/5857/5609"
@@ -36,6 +37,7 @@
 
   - citation: "bib"
     bib_key: "cao_cause_2025"
+    tags: ["semantic-theory", "computational-psycholinguistics"]
     links:
     - label: "pdf"
       href: "https://journals.linguisticsociety.org/proceedings/index.php/ELM/article/view/5821/5602"
@@ -47,6 +49,7 @@
 
   - citation: "bib"
     bib_key: "dou_dynamic_2025"
+    tags: ["computational-psycholinguistics"]
     links:
     - label: "pdf"
       href: "https://journals.plos.org/ploscompbiol/article/file?id=10.1371/journal.pcbi.1013006&type=printable"
@@ -58,6 +61,7 @@
 
   - citation: "bib"
     bib_key: "vashishtha_famus_2024"
+    tags: ["information-extraction", "datasets-evaluation"]
     links:
     - label: "pdf"
       href: "https://aclanthology.org/2024.naacl-long.457.pdf"
@@ -71,6 +75,7 @@
 
   - citation: "bib"
     bib_key: "grove_probabilistic_2024"
+    tags: ["semantic-theory", "computational-psycholinguistics"]
     links:
     - label: "pdf"
       href: "https://ling.auf.net/lingbuzz/008478/current.pdf"
@@ -80,6 +85,7 @@
 
   - citation: "bib"
     bib_key: "cao_generating_2024"
+    tags: ["computational-psycholinguistics", "datasets-evaluation"]
     links:
     - label: "pdf"
       href: "https://ling.auf.net/lingbuzz/008208/current.pdf"
@@ -89,6 +95,7 @@
 
   - citation: "bib"
     bib_key: "gantt_event_2024"
+    tags: ["information-extraction", "natural-language-understanding", "datasets-evaluation"]
     links:
     - label: "pdf"
       href: "https://aclanthology.org/2024.findings-emnlp.431.pdf"
@@ -102,6 +109,7 @@
 
   - citation: "bib"
     bib_key: "gantt_small_2024"
+    tags: ["information-extraction", "datasets-evaluation"]
     links:
     - label: "pdf"
       href: "https://arxiv.org/pdf/2404.08579"
@@ -114,7 +122,8 @@
       save: "/bibliography/gantt_small_2024.bib"
 
   - citation: "bib"
-    bib_key: "gantt_multimuc_2024"    
+    bib_key: "gantt_multimuc_2024"
+    tags: ["information-extraction", "multilingual-nlp", "datasets-evaluation"]
     links:
     - label: "pdf"
       href: "https://aclanthology.org/2024.eacl-long.21.pdf"
@@ -124,11 +133,9 @@
       href: "gantt_multimuc_2024"
       save: "/bibliography/gantt_multimuc_2024.bib"
 
-- year: 2023
-  class: "2023"
-  papers:
   - citation: "bib"
     bib_key: "gantt_event_2023"
+    tags: ["information-extraction", "datasets-evaluation"]
     links:
     - label: "pdf"
       href: "https://aclanthology.org/2023.findings-emnlp.862.pdf"
@@ -142,6 +149,7 @@
 
   - citation: "bib"
     bib_key: "chen_unified_2023"
+    tags: ["datasets-evaluation", "information-extraction"]
     links:
     - label: "pdf"
       href: "https://aclanthology.org/2023.emnlp-main.795.pdf"
@@ -155,6 +163,7 @@
 
   - citation: "bib"
     bib_key: "barham_megawika_2023"
+    tags: ["datasets-evaluation", "multilingual-nlp"]
     links:
     - label: "pdf"
       href: "https://arxiv.org/pdf/2307.07049"
@@ -168,6 +177,7 @@
 
   - citation: "bib"
     bib_key: "chen_iterative_2023"
+    tags: ["information-extraction"]
     links:
     - label: "pdf"
       href: "https://aclanthology.org/2023.eacl-main.136.pdf"
@@ -177,10 +187,8 @@
       href: "chen_iterative_2023"
       save: "/bibliography/chen_iterative_2023.bib"
 
-- year: 2022
-  class: "2022"
-  papers:
   - citation: "White, Aaron Steven, and Jeffrey Lidz. 2022. Lexicalization in the developing parser. <i>Glossa Psycholinguistics</i> 1(1): 2, 1-22."
+    tags: ["language-acquisition", "computational-psycholinguistics"]
     links:
     - label: "pdf"
       href: "https://escholarship.org/content/qt1h153783/supp/qt1h153783.pdf"
@@ -189,6 +197,7 @@
   
   - citation: "bib"
     bib_key: "gantt_decomposing_2022"
+    tags: ["semantic-theory", "information-extraction", "natural-language-understanding", "datasets-evaluation"]
     links:
     - label: "pdf"
       href: "https://direct.mit.edu/tacl/article-pdf/doi/10.1162/tacl_a_00445/1986604/tacl_a_00445.pdf"
@@ -204,6 +213,7 @@
    
   - citation: "bib"
     bib_key: "kane_intensional_2022"
+    tags: ["semantic-theory", "computational-psycholinguistics", "datasets-evaluation"]
     links:
     - label: "pdf"
       href: "https://journals.linguisticsociety.org/proceedings/index.php/SALT/article/download/31.029/4792"
@@ -218,17 +228,16 @@
       save: "/bibliography/kane_intensional_2022.bib"
       
   - citation: "Huang, Nick, Aaron Steven White, Chia-Hsuan Liao, Valentine Hacquard, and Jeffrey Lidz. 2022. Syntactic bootstrapping attitude verbs despite impoverished morphosyntax. <i>Language Acquisition</i> 29(1): 27--53."
+    tags: ["language-acquisition", "semantic-theory", "computational-psycholinguistics"]
     links:
     - label: "pdf&nbsp;(preprint)"
       href: "https://ling.auf.net/lingbuzz/005553/current.pdf"
     - label: "doi"
       href: "https://doi.org/10.1080/10489223.2021.1934686"
 
-- year: 2021
-  class: "2021"
-  papers:
   - citation: "bib"
     bib_key: "white_believing_2021"
+    tags: ["semantic-theory", "computational-psycholinguistics"]
     links:
     - label: "pdf"
       href: "https://semprag.org/index.php/sp/article/download/sp.14.6/pdf"
@@ -242,6 +251,7 @@
 
   - citation: "bib"
     bib_key: "stengel-eskin_joint_2021"
+    tags: ["syntactic-semantic-parsing", "information-extraction"]
     links:
     - label: "pdf"
       href: "https://direct.mit.edu/tacl/article-pdf/doi/10.1162/tacl_a_00396/1955190/tacl_a_00396.pdf"
@@ -255,6 +265,7 @@
       
   - citation: "bib"
     bib_key: "kim_montague_2021"
+    tags: ["syntactic-semantic-parsing", "semantic-theory", "computational-psycholinguistics"]
     links:
     - label: "pdf"
       href: "https://journals.linguisticsociety.org/proceedings/index.php/SALT/article/download/30.227/4573"
@@ -266,6 +277,7 @@
 
   - citation: "bib"
     bib_key: "yarmohammadi_everything_2021"
+    tags: ["multilingual-nlp", "information-extraction"]
     links:
     - label: "pdf"
       href: "https://aclanthology.org/2021.emnlp-main.149.pdf"
@@ -279,6 +291,7 @@
 
   - citation: "bib"
     bib_key: "xia_lome_2021"
+    tags: ["multilingual-nlp", "information-extraction"]
     links:
     - label: "pdf"
       href: "https://www.aclweb.org/anthology/2021.eacl-demos.19.pdf"
@@ -292,6 +305,7 @@
 
   - citation: "bib"
     bib_key: "xu_gradual_2021"
+    tags: ["multilingual-nlp", "information-extraction"]
     links:
     - label: "pdf"
       href: "https://www.aclweb.org/anthology/2021.adaptnlp-1.22.pdf"
@@ -301,11 +315,9 @@
       href: "xu_gradual_2021"
       save: "/bibliography/xu_gradual_2021.bib"
 
-- year: 2020
-  class: "2020"
-  papers:
   - citation: "bib"
     bib_key: "white_frequency_2020"
+    tags: ["semantic-theory", "computational-psycholinguistics"]
     links:
     - label: "pdf"
       href: "https://www.glossa-journal.org/articles/10.5334/gjgl.1001/galley/1056/download/"
@@ -319,6 +331,7 @@
 
   - citation: "bib"
     bib_key: "white_universal_2020"
+    tags: ["datasets-evaluation", "information-extraction", "natural-language-understanding"]
     links:
     - label: "pdf"
       href: "https://www.aclweb.org/anthology/2020.lrec-1.699.pdf"
@@ -330,6 +343,7 @@
  
   - citation: "bib"
     bib_key: "stengel-eskin_universal_2020"
+    tags: ["syntactic-semantic-parsing", "information-extraction"]
     links:
     - label: "pdf"
       href: "https://www.aclweb.org/anthology/2020.acl-main.746.pdf"
@@ -341,6 +355,7 @@
 
   - citation: "bib"
     bib_key: "gantt_natural_2020"
+    tags: ["natural-language-understanding", "computational-psycholinguistics"]
     links:
     - label: "pdf"
       href: "https://www.aclweb.org/anthology/2020.starsem-1.9.pdf"
@@ -352,6 +367,7 @@
 
   - citation: "bib"
     bib_key: "vashishtha_temporal_2020"
+    tags: ["natural-language-understanding", "information-extraction", "datasets-evaluation"]
     links:
     - label: "pdf"
       href: "https://www.aclweb.org/anthology/2020.findings-emnlp.363.pdf"
@@ -363,6 +379,7 @@
  
   - citation: "bib"
     bib_key: "an_lexical_2020"
+    tags: ["semantic-theory", "computational-psycholinguistics", "datasets-evaluation"]
     links:
     - label: "pdf"
       href: "https://www.aclweb.org/anthology/2020.scil-1.45.pdf"
@@ -376,6 +393,7 @@
 
   - citation: "bib"
     bib_key: "moon_source_2020"
+    tags: ["semantic-theory", "computational-psycholinguistics", "datasets-evaluation"]
     links:
     - label: "pdf&nbsp;(preprint)"
       href: "https://ling.auf.net/lingbuzz/005282/current.pdf"
@@ -387,6 +405,7 @@
 
   - citation: "bib"
     bib_key: "chen_reading_2020"
+    tags: ["information-extraction"]
     links:
     - label: "pdf"
       href: "https://www.aclweb.org/anthology/2020.spnlp-1.9.pdf"
@@ -394,11 +413,9 @@
       href: "chen_reading_2020"
       save: "/bibliography/chen_reading_2020.bib"
 
-- year: 2019
-  class: "2019"
-  papers:
   - citation: "bib"
     bib_key: "govindarajan_decomposing_2019"
+    tags: ["semantic-theory", "natural-language-understanding", "datasets-evaluation"]
     links:
     - label: "pdf"
       href: "https://www.aclweb.org/anthology/Q19-1035.pdf"
@@ -412,6 +429,7 @@
 
   - citation: "bib"
     bib_key: "vashishtha_fine-grained_2019"
+    tags: ["information-extraction", "datasets-evaluation"]
     links:
     - label: "pdf"
       href: "https://www.aclweb.org/anthology/P19-1280.pdf"
@@ -425,6 +443,7 @@
 
   - citation: "bib"
     bib_key: "white_lexically_2019"
+    tags: ["semantic-theory"]
     links:
     - label: "pdf&nbsp;(preprint)"
       href: "https://ling.auf.net/lingbuzz/004664"
@@ -436,6 +455,7 @@
 
   - citation: "bib"
     bib_key: "yan_framework_2019"
+    tags: ["computational-psycholinguistics"]
     links:
     - label: "pdf"
       href: "https://www.aclweb.org/anthology/W19-2910.pdf"
@@ -446,17 +466,16 @@
       save: "/bibliography/yan_framework_2019.bib"
     
   - citation: "Yan, Shaorong, and Aaron Steven White. 2019. Understanding Event Related Potentials during Reading Using Pre-Compiled Abstractive Decoders."
+    tags: ["computational-psycholinguistics"]
     links:
     - label: "pdf"
       href: "https://psyarxiv.com/mwpf5/download"
     - label: "doi"
       href: "https://doi.org/10.31234/osf.io/mwpf5"
 
-- year: 2018
-  class: "2018"
-  papers:
   - citation: "bib"
     bib_key: "white_semantic_2018"
+    tags: ["semantic-theory", "computational-psycholinguistics", "language-acquisition"]
     links:
     - label: "pdf"
       href: "https://onlinelibrary.wiley.com/doi/epdf/10.1111/cogs.12512"
@@ -470,6 +489,7 @@
 
   - citation: "bib"
     bib_key: "white_labeling_2018"
+    tags: ["language-acquisition", "semantic-theory", "computational-psycholinguistics"]
     links:
     - label: "pdf&nbsp;(preprint)"
       href: "https://ling.auf.net/lingbuzz/002917/current.pdf"
@@ -483,6 +503,7 @@
 
   - citation: "bib"
     bib_key: "poliak_collecting_2018"
+    tags: ["natural-language-understanding", "datasets-evaluation"]
     links:
     - label: "pdf"
       href: "https://www.aclweb.org/anthology/D18-1007.pdf"
@@ -496,6 +517,7 @@
 
   - citation: "bib"
     bib_key: "rudinger_neural_2018"
+    tags: ["natural-language-understanding", "datasets-evaluation"]
     links:
     - label: "pdf"
       href: "https://www.aclweb.org/anthology/N18-1067.pdf"
@@ -508,7 +530,8 @@
       save: "/bibliography/rudinger_neural_2018.bib"
 
   - citation: "bib"
-    bib_key: "white_lexicosyntactic_2018"    
+    bib_key: "white_lexicosyntactic_2018"
+    tags: ["natural-language-understanding", "datasets-evaluation"]
     links:
     - label: "pdf"
       href: "https://aclanthology.org/D18-1501.pdf"
@@ -522,6 +545,7 @@
 
   - citation: "bib"
     bib_key: "white_role_2018"
+    tags: ["semantic-theory", "datasets-evaluation"]
     links:
     - label: "pdf&nbsp;(preprint)"
       href: "https://ling.auf.net/lingbuzz/004012/current.pdf"
@@ -533,6 +557,7 @@
 
   - citation: "bib"
     bib_key: "white_question_2018"
+    tags: ["semantic-theory"]
     links:
     - label: "pdf"
       href: "https://semanticsarchive.net/Archive/DRjNjViN/WhiteRawlins.pdf"
@@ -540,11 +565,9 @@
       href: "white_question_2018"
       save: "/bibliography/white_question_2018.bib"
 
-- year: 2017→
-  class: "2017"
-  papers:
   - citation: "bib"
     bib_key: "lidz_role_2017"
+    tags: ["language-acquisition", "computational-psycholinguistics"]
     links:
     - label: "pdf&nbsp;(preprint)"
       href: "https://ling.auf.net/lingbuzz/003145/current.pdf"
@@ -555,7 +578,8 @@
       save: "/bibliography/lidz_role_2017.bib"
 
   - citation: "bib"
-    bib_key: "white_inference_2017"      
+    bib_key: "white_inference_2017"
+    tags: ["natural-language-understanding", "datasets-evaluation"]
     links:
     - label: "pdf"
       href: "https://www.aclweb.org/anthology/I17-1100.pdf"
@@ -566,7 +590,8 @@
       save: "/bibliography/white_inference_2017.bib"
 
   - citation: "bib"
-    bib_key: "white_semantic_2017"     
+    bib_key: "white_semantic_2017"
+    tags: ["semantic-theory", "computational-psycholinguistics"]
     links:
     - label: "pdf"
       href: "https://www.aclweb.org/anthology/E17-2015.pdf"
@@ -578,6 +603,7 @@
 
   - citation: "bib"
     bib_key: "fetters_pseudogapping_2017"
+    tags: ["semantic-theory", "computational-psycholinguistics"]
     links:
     - label: "pdf"
       href: "http://www.lingref.com/cpp/wccfl/34/paper3313.pdf"
@@ -587,6 +613,7 @@
 
   - citation: "bib"
     bib_key: "white_universal_2016"
+    tags: ["datasets-evaluation", "information-extraction"]
     links:
     - label: "pdf"
       href: "https://www.aclweb.org/anthology/D16-1177.pdf"
@@ -600,6 +627,7 @@
 
   - citation: "bib"
     bib_key: "white_computational_2016"
+    tags: ["semantic-theory", "computational-psycholinguistics", "datasets-evaluation"]
     links:
     - label: "pdf"
       href: "http://journals.linguisticsociety.org/proceedings/index.php/SALT/article/view/26.641/3662"
@@ -612,6 +640,7 @@
       save: "/bibliography/white_computational_2016.bib"
 
   - citation: "White, Aaron Steven, Philip Resnik, Valentine Hacquard, and Jeffrey Lidz. 2016. The Contextual Modulation of Semantic Information."
+    tags: ["computational-psycholinguistics", "language-acquisition"]
     links:
     - label: "pdf"
       href: "https://ling.auf.net/lingbuzz/003188/current.pdf"
@@ -619,6 +648,7 @@
       href: "https://github.com/aaronstevenwhite/SpatialHumanSimulationExperiments"
 
   - citation: "White, Aaron Steven. 2016. The Interaction of Implicativity with the Form and Scope of Negation."
+    tags: ["semantic-theory", "computational-psycholinguistics"]
     links:
     - label: "pdf"
       href: "https://ling.auf.net/lingbuzz/003179"
@@ -627,6 +657,7 @@
 
   - citation: "bib"
     bib_key: "white_information_2015"
+    tags: ["language-acquisition", "semantic-theory", "computational-psycholinguistics"]
     links:
     - label: "pdf"
       href: "https://drum.lib.umd.edu/bitstream/handle/1903/17095/White_umd_0117E_16547.pdf"
@@ -635,8 +666,10 @@
     - label: "bib"
       href: "white_information_2015"
       save: "/bibliography/white_information_2015.bib"
+
   - citation: "bib"
     bib_key: "altshuler_double_2015"
+    tags: ["semantic-theory"]
     links:
     - label: "pdf"
       href: "http://journals.linguisticsociety.org/proceedings/index.php/SALT/article/view/25.18/2920"
@@ -645,16 +678,20 @@
     - label: "bib"
       href: "altshuler_double_2015"
       save: "/bibliography/altshuler_double_2015.bib"
+
   - citation: "bib"
     bib_key: "white_factive-implicatives_2014"
+    tags: ["semantic-theory"]
     links:
     - label: "pdf&nbsp;(preprint)"
       href: "http://aaronstevenwhite.io/papers/white_factive-implicatives_2014.pdf"
     - label: "bib"
       href: "white_factive-implicatives_2014"
       save: "/bibliography/white_factive-implicatives_2014.bib"
+
   - citation: "bib"
     bib_key: "white_experimental_2014"
+    tags: ["semantic-theory", "computational-psycholinguistics"]
     links:
     - label: "pdf"
       href: "https://semanticsarchive.net/sub2013/SeparateArticles/White&Grano.pdf"
@@ -663,8 +700,10 @@
     - label: "bib"
       href: "white_experimental_2014"
       save: "/bibliography/white_experimental_2014.bib"
+
   - citation: "bib"
     bib_key: "white_discovering_2014"
+    tags: ["semantic-theory", "language-acquisition", "computational-psycholinguistics"]
     links:
     - label: "pdf&nbsp;(preprint)"
       href: "http://aaronstevenwhite.io/papers/white_discovering_2014.pdf"

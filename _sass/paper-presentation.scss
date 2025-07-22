@@ -316,3 +316,14 @@ code {
   color: var(--main-color);
   font-size: 1rem;
 }
+
+.topic-button {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  font-size: 20px;
+
+  @media (min-width: 600px) {
+    font-size: 28px;
+  }
+}

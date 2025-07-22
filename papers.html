@@ -8,20 +8,20 @@ share: false
 <div class="filter-wrapper">
   <span class="arrow left-arrow" onclick="scrollLeftAction()">&#10094;</span>
   <div id="filterContainer" class="scroll-container">
-    {% for batch in site.data.papers %}
-    <button data-year="{{ batch.year }}" class=" year-button {% if batch.year == '←2024' %}active{% endif %}">
-      {{ batch.year }}
+    {% for topic in site.data.topics.topics %}
+    <button data-topic="{{ topic.tag }}" class="topic-button {% if forloop.first %}active{% endif %}">
+      {{ topic.name }}
     </button>
     {% endfor %}
   </div>
   <span class="arrow right-arrow" onclick="scrollLeftAction()">&#10095;</span>
 </div>
 
-
 <div class="papers-container">
-  {% for batch in site.data.papers %}
-  <div class="paper-group {{ batch.year }} {% if batch.year == '←2024' %}active{% endif %}">
-    {% for paper in batch.papers %}
+  {% for topic in site.data.topics.topics %}
+  <div class="paper-group {{ topic.tag }} {% if forloop.first %}active{% endif %}">
+    {% assign topic_papers = site.data.papers.papers | where_exp: "paper", "paper.tags contains topic.tag" %}
+    {% for paper in topic_papers %}
     <div class="paper-item">
       <div class="paper-content">
         {% include svg/papers.svg %}
@@ -36,8 +36,7 @@ share: false
         <div class="bib-btn">
           {% for link in paper.links %}
             {% if link.label == "bib" %}
-              {% assign unique_id = global_counter | append: "-bib" %}
-              {% assign global_counter = global_counter | plus: 1 %}
+              {% assign unique_id = paper.bib_key | append: "-" | append: topic.tag | append: "-bib" %}
               <a class="label" aria-label="Bibliography link" data-target="{{ unique_id }}" onclick="toggleBibliography('{{ unique_id }}')">
                 {{ link.label }}
               </a>
@@ -75,4 +74,4 @@ share: false
 </div>
 
 <script src="/assets/js/bib.js"></script>
-<script src="/assets/js/years-slider.js"></script>
+<script src="/assets/js/papers-topics.js"></script>
