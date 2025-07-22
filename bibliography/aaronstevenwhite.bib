@@ -183,8 +183,8 @@
     month = {08},
     issn = {2307-387X},
     doi = {10.1162/tacl_a_00396},
-    url = {https://doi.org/10.1162/tacl\_a\_00396},
-    eprint = {https://direct.mit.edu/tacl/article-pdf/doi/10.1162/tacl\_a\_00396/1955190/tacl\_a\_00396.pdf},
+    url = {https://doi.org/10.1162/tacl_a_00396},
+    eprint = {https://direct.mit.edu/tacl/article-pdf/doi/10.1162/tacl_a_00396/1955190/tacl_a_00396.pdf},
 }
 
 @article{kim_montague_2021,
@@ -626,4 +626,109 @@ Publisher: Ubiquity Press},
 	editor = {{Aaron Kaplan} and {Abby Kaplan} and {Miranda K. McCarvel} and {Edward J. Rubin}},
 	year = {2017},
 	pages = {205--213}
+}
+
+@inproceedings{walden_cross-document_2025,
+    address = "Vienna, Austria",
+    title={Cross-Document Event-Keyed Summarization}, 
+    author={William Walden and Pavlo Kuchmiichuk and Alexander Martin and Chihsheng Jin and Angela Cao and Claire Sun and Curisia Allen and Aaron Steven White},
+    month = aug,
+    year={2025},
+    booktitle = "Proceedings of the 1st Joint Workshop on Large Language Models and Structure Modeling",
+	publisher = "Association for Computational Linguistics",
+    url={https://arxiv.org/abs/2410.14795},
+    doi={10.48550/arXiv.2410.14795}
+}
+
+@article{grove_modeling_2025,
+	title = {Modeling the prompt in inference judgment tasks},
+	author = {Grove, Julian and White, Aaron Steven},
+	journal = {Experiments in Linguistic Meaning},
+	month = jan,
+	year = {2025},
+	volume = {3},
+	pages = {176--187},
+	doi = {10.3765/elm.3.5857},
+}
+
+@article{cao_cause_2025,
+	title = {Cause, {Make}, and {Force} as {Graded} {Causatives}},
+	author = {Cao, Angela and White, Aaron and Lassiter, Daniel},
+	journal = {Experiments in Linguistic Meaning},
+	month = jan,
+	year = {2025},
+	volume = {3},
+	pages = {88--103},
+	doi = {10.3765/elm.3.5821},
+}
+
+@inproceedings{vashishtha_famus_2024,
+    title = "{FAM}u{S}: Frames Across Multiple Sources",
+    author = "Vashishtha, Siddharth  and
+      Martin, Alexander  and
+      Gantt, William  and
+      Van Durme, Benjamin  and
+      White, Aaron",
+    editor = "Duh, Kevin  and
+      Gomez, Helena  and
+      Bethard, Steven",
+    booktitle = "Proceedings of the 2024 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 1: Long Papers)",
+    month = jun,
+    year = "2024",
+    address = "Mexico City, Mexico",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2024.naacl-long.457",
+    doi = "10.18653/v1/2024.naacl-long.457",
+    pages = "8250--8273",
+    abstract = "Understanding event descriptions is a central aspect of language processing, but current approaches focus overwhelmingly on single sentences or documents. Aggregating information about an event across documents can offer a much richer understanding. To this end, we present FAMuS, a new corpus of Wikipedia passages that report on some event, paired with underlying, genre-diverse (non-Wikipedia) source articles for the same event. Events and (cross-sentence) arguments in both report and source are annotated against FrameNet, providing broad coverage of different event types. We present results on two key event understanding tasks enabled by FAMuS: source validation{---}determining whether a document is a valid source for a target report event{---}and cross-document argument extraction{---}full-document argument extraction for a target event from both its report and the correct source article.",
+}
+
+@inproceedings{gantt_event_2024,
+    title = "Event-Keyed Summarization",
+    author = "Gantt, William  and
+      Martin, Alexander  and
+      Kuchmiichuk, Pavlo  and
+      White, Aaron",
+    editor = "Al-Onaizan, Yaser  and
+      Bansal, Mohit  and
+      Chen, Yun-Nung",
+    booktitle = "Findings of the Association for Computational Linguistics: EMNLP 2024",
+    month = nov,
+    year = "2024",
+    address = "Miami, Florida, USA",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2024.findings-emnlp.431",
+    pages = "7333--7345",
+    abstract = "We introduce *event-keyed summarization* (EKS), a novel task that marries traditional summarization and document-level event extraction, with the goal of generating a contextualized summary for a specific event, given a document and an extracted event structure. We introduce a dataset for this task, MUCSUM, consisting of summaries of all events in the classic MUC-4 dataset, along with a set of baselines that comprises both pretrained LM standards in the summarization literature, as well as larger frontier models. We show that ablations that reduce EKS to traditional summarization or structure-to-text yield inferior summaries of target events and that MUCSUM is a robust benchmark for this task. Lastly, we conduct a human evaluation of both reference and model summaries, and provide some detailed analysis of the results.",
+}
+
+@misc{gantt_small_2024,
+	title={Small Models Are (Still) Effective Cross-Domain Argument Extractors}, 
+	author={William Gantt and Aaron Steven White},
+	year={2024},
+	eprint={2404.08579},
+	archivePrefix={arXiv},
+	primaryClass={cs.CL},
+	url={https://arxiv.org/abs/2404.08579}, 
+}
+
+@inproceedings{gantt_multimuc_2024,
+  title = "{M}ulti{MUC}: Multilingual Template Filling on {MUC}-4",
+  author = "Gantt, William  and
+    Behzad, Shabnam  and
+    An, Hannah  and
+    Chen, Yunmo  and
+    White, Aaron  and
+    Van Durme, Benjamin  and
+    Yarmohammadi, Mahsa",
+  editor = "Graham, Yvette  and
+    Purver, Matthew",
+  booktitle = "Proceedings of the 18th Conference of the European Chapter of the Association for Computational Linguistics (Volume 1: Long Papers)",
+  month = mar,
+  year = "2024",
+  address = "St. Julian{'}s, Malta",
+  publisher = "Association for Computational Linguistics",
+  url = "https://aclanthology.org/2024.eacl-long.21",
+  pages = "349--368",
+  abstract = "We introduce MultiMUC, the first multilingual parallel corpus for template filling, comprising translations of the classic MUC-4 template filling benchmark into five languages: Arabic, Chinese, Farsi, Korean, and Russian. We obtain automatic translations from a strong multilingual machine translation system and manually project the original English annotations into each target language. For all languages, we also provide human translations for key portions of the dev and test splits. Finally, we present baselines on MultiMUC both with state-of-the-art template filling models for MUC-4 and with ChatGPT. We release MUC-4 and the supervised baselines to facilitate further work on document-level information extraction in multilingual settings.",
 }
