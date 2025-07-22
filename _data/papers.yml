@@ -1,6 +1,19 @@
-- year: 2025
-  class: "2025"
+- year: ←2024
+  class: "←2024"
   papers:
+  - citation: "bib"
+    bib_key: "walden_cross-document_2025"
+    links:
+    - label: "pdf"
+      href: "https://arxiv.org/pdf/2410.14795"
+    - label: "data&nbsp;+&nbsp;code"
+      href: "https://github.com/wgantt/SEAMuS"
+    - label: "doi"
+      href: "https://doi.org/10.48550/arXiv.2410.14795"
+    - label: "bib"
+      href: "walden_cross-document_2025"
+      save: "/assets/bibliography/walden_cross-document_2025.bib"
+
   - citation: "bib"
     bib_key: "grove_factivity_2025"
     links:
@@ -9,6 +22,7 @@
     - label: "bib"
       href: "grove_factivity_2025"
       save: "/bibliography/grove_factivity_2025.bib"
+
   - citation: "bib"
     bib_key: "grove_modeling_2025"
     links:
@@ -19,6 +33,7 @@
     - label: "bib"
       href: "grove_modeling_2025"
       save: "/bibliography/grove_modeling_2025.bib"
+
   - citation: "bib"
     bib_key: "cao_cause_2025"
     links:
@@ -29,6 +44,7 @@
     - label: "bib"
       href: "cao_cause_2025"
       save: "/bibliography/cao_cause_2025.bib"
+
   - citation: "bib"
     bib_key: "dou_dynamic_2025"
     links:
@@ -40,9 +56,6 @@
       href: "dou_dynamic_2025"
       save: "/bibliography/dou_dynamic_2025.bib"
 
-- year: 2024
-  class: "2024"
-  papers:
   - citation: "bib"
     bib_key: "vashishtha_famus_2024"
     links:
@@ -55,6 +68,16 @@
     - label: "bib"
       href: "vashishtha_famus_2024"
       save: "/bibliography/vashishtha_famus_2024.bib"
+
+  - citation: "bib"
+    bib_key: "grove_probabilistic_2024"
+    links:
+    - label: "pdf"
+      href: "https://ling.auf.net/lingbuzz/008478/current.pdf"
+    - label: "bib"
+      href: "grove_probabilistic_2024"
+      save: "/bibliography/grove_probabilistic_2024.bib"
+
   - citation: "bib"
     bib_key: "cao_generating_2024"
     links:
@@ -63,18 +86,7 @@
     - label: "bib"
       href: "cao_generating_2024"
       save: "/bibliography/cao_generating_2024.bib"
-  - citation: "bib"
-    bib_key: "walden_cross-document_2024"
-    links:
-    - label: "pdf"
-      href: "https://arxiv.org/pdf/2410.14795"
-    - label: "data&nbsp;+&nbsp;code"
-      href: "https://github.com/wgantt/SEAMuS"
-    - label: "doi"
-      href: "https://doi.org/10.48550/arXiv.2410.14795"
-    - label: "bib"
-      href: "walden_cross-document_2024"
-      save: "/assets/bibliography/walden_cross-document_2024.bib"
+
   - citation: "bib"
     bib_key: "gantt_event_2024"
     links:
@@ -87,6 +99,7 @@
     - label: "bib"
       href: "gantt_event_2024"
       save: "/bibliography/gantt_event_2024.bib"
+
   - citation: "bib"
     bib_key: "gantt_small_2024"
     links:
@@ -99,6 +112,7 @@
     - label: "bib"
       href: "gantt_small_2024"
       save: "/bibliography/gantt_small_2024.bib"
+
   - citation: "bib"
     bib_key: "gantt_multimuc_2024"    
     links:
@@ -287,7 +301,7 @@
       href: "xu_gradual_2021"
       save: "/bibliography/xu_gradual_2021.bib"
 
-- year: "2020"
+- year: 2020
   class: "2020"
   papers:
   - citation: "bib"
@@ -302,6 +316,7 @@
     - label: "bib"
       href: "white_frequency_2020" 
       save: "/bibliography/white_frequency_2020.bib"
+
   - citation: "bib"
     bib_key: "white_universal_2020"
     links:
@@ -311,7 +326,8 @@
       href: "https://github.com/decompositional-semantics-initiative/decomp"
     - label: "bib"
       href: "white_universal_2020" 
-      save: "/bibliography/white_universal_2020.bib"  
+      save: "/bibliography/white_universal_2020.bib" 
+ 
   - citation: "bib"
     bib_key: "stengel-eskin_universal_2020"
     links:
@@ -322,6 +338,7 @@
     - label: "bib"
       href: "stengel-eskin_universal_2020"  
       save: "/bibliography/stengel-eskin_universal_2020.bib" 
+
   - citation: "bib"
     bib_key: "gantt_natural_2020"
     links:
@@ -332,6 +349,7 @@
     - label: "bib"
       href: "gantt_natural_2020"
       save: "/bibliography/gantt_natural_2020.bib" 
+
   - citation: "bib"
     bib_key: "vashishtha_temporal_2020"
     links:
@@ -341,7 +359,8 @@
       href: "https://github.com/sidsvash26/temporal_nli"
     - label: "bib"
       href: "vashishtha_temporal_2020"
-      save: "/bibliography/vashishtha_temporal_2020.bib"  
+      save: "/bibliography/vashishtha_temporal_2020.bib" 
+ 
   - citation: "bib"
     bib_key: "an_lexical_2020"
     links:
@@ -354,6 +373,7 @@
     - label: "bib"
       href: "an_lexical_2020"
       save: "/bibliography/an_lexical_2020.bib"
+
   - citation: "bib"
     bib_key: "moon_source_2020"
     links:
@@ -364,6 +384,7 @@
     - label: "bib"
       href: "moon_source_2020"
       save: "/bibliography/moon_source_2020.bib"
+
   - citation: "bib"
     bib_key: "chen_reading_2020"
     links:
@@ -373,7 +394,7 @@
       href: "chen_reading_2020"
       save: "/bibliography/chen_reading_2020.bib"
 
-- year: "2019"
+- year: 2019
   class: "2019"
   papers:
   - citation: "bib"
@@ -388,6 +409,7 @@
     - label: "bib"
       href: "govindarajan_decomposing_2019"
       save: "/bibliography/govindarajan_decomposing_2019.bib"
+
   - citation: "bib"
     bib_key: "vashishtha_fine-grained_2019"
     links:
@@ -400,6 +422,7 @@
     - label: "bib"
       href: "vashishtha_fine-grained_2019"
       save: "/bibliography/vashishtha_fine-grained_2019.bib"
+
   - citation: "bib"
     bib_key: "white_lexically_2019"
     links:
@@ -410,6 +433,7 @@
     - label: "bib"
       href: "white_lexically_2019"
       save: "/bibliography/white_lexically_2019.bib"
+
   - citation: "bib"
     bib_key: "yan_framework_2019"
     links:
@@ -419,7 +443,8 @@
       href: "https://doi.org/10.18653/v1/W19-2910"
     - label: "bib"
       href: "yan_framework_2019"
-      save: "/bibliography/yan_framework_2019.bib"    
+      save: "/bibliography/yan_framework_2019.bib"
+    
   - citation: "Yan, Shaorong, and Aaron Steven White. 2019. Understanding Event Related Potentials during Reading Using Pre-Compiled Abstractive Decoders."
     links:
     - label: "pdf"
@@ -427,7 +452,7 @@
     - label: "doi"
       href: "https://doi.org/10.31234/osf.io/mwpf5"
 
-- year: "2018"
+- year: 2018
   class: "2018"
   papers:
   - citation: "bib"
@@ -442,6 +467,7 @@
     - label: "bib"
       href: "white_semantic_2018"
       save: "/bibliography/white_semantic_2018.bib"
+
   - citation: "bib"
     bib_key: "white_labeling_2018"
     links:
@@ -454,6 +480,7 @@
     - label: "bib"
       href: "white_labeling_2018"
       save: "/bibliography/white_labeling_2018.bib"
+
   - citation: "bib"
     bib_key: "poliak_collecting_2018"
     links:
@@ -466,6 +493,7 @@
     - label: "bib"
       href: "poliak_collecting_2018"
       save: "/bibliography/poliak_collecting_2018.bib"
+
   - citation: "bib"
     bib_key: "rudinger_neural_2018"
     links:
@@ -478,6 +506,7 @@
     - label: "bib"
       href: "rudinger_neural_2018"
       save: "/bibliography/rudinger_neural_2018.bib"
+
   - citation: "bib"
     bib_key: "white_lexicosyntactic_2018"    
     links:
@@ -490,6 +519,7 @@
     - label: "bib"
       href: "white_lexicosyntactic_2018"
       save: "/bibliography/white_lexicosyntactic_2018.bib"
+
   - citation: "bib"
     bib_key: "white_role_2018"
     links:
@@ -500,6 +530,7 @@
     - label: "bib"
       href: "white_role_2018"
       save: "/bibliography/white_role_2018.bib"
+
   - citation: "bib"
     bib_key: "white_question_2018"
     links:
@@ -509,7 +540,7 @@
       href: "white_question_2018"
       save: "/bibliography/white_question_2018.bib"
 
-- year: "2017→"
+- year: 2017→
   class: "2017"
   papers:
   - citation: "bib"
@@ -522,6 +553,7 @@
     - label: "bib"
       href: "lidz_role_2017"
       save: "/bibliography/lidz_role_2017.bib"
+
   - citation: "bib"
     bib_key: "white_inference_2017"      
     links:
@@ -532,6 +564,7 @@
     - label: "bib"
       href: "white_inference_2017"
       save: "/bibliography/white_inference_2017.bib"
+
   - citation: "bib"
     bib_key: "white_semantic_2017"     
     links:
@@ -542,6 +575,7 @@
     - label: "bib"
       href: "white_semantic_2017"
       save: "/bibliography/white_semantic_2017.bib"
+
   - citation: "bib"
     bib_key: "fetters_pseudogapping_2017"
     links:
@@ -550,6 +584,7 @@
     - label: "bib"
       href: "fetters_pseudogapping_2017"
       save: "/bibliography/fetters_pseudogapping_2017.bib"
+
   - citation: "bib"
     bib_key: "white_universal_2016"
     links:
@@ -562,6 +597,7 @@
     - label: "bib"
       href: "white_universal_2016"
       save: "/bibliography/white_universal_2016.bib"
+
   - citation: "bib"
     bib_key: "white_computational_2016"
     links:
@@ -574,18 +610,21 @@
     - label: "bib"
       href: "white_computational_2016"
       save: "/bibliography/white_computational_2016.bib"
+
   - citation: "White, Aaron Steven, Philip Resnik, Valentine Hacquard, and Jeffrey Lidz. 2016. The Contextual Modulation of Semantic Information."
     links:
     - label: "pdf"
       href: "https://ling.auf.net/lingbuzz/003188/current.pdf"
     - label: "data"
       href: "https://github.com/aaronstevenwhite/SpatialHumanSimulationExperiments"
+
   - citation: "White, Aaron Steven. 2016. The Interaction of Implicativity with the Form and Scope of Negation."
     links:
     - label: "pdf"
       href: "https://ling.auf.net/lingbuzz/003179"
     - label: "data"
       href: "https://github.com/aaronstevenwhite/ImplicativeExperiments"
+
   - citation: "bib"
     bib_key: "white_information_2015"
     links:

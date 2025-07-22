@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
 
-  filterPapers('2025');
+  filterPapers('←2024');
   filterPresentation('2025');
   checkArrows();
 });
