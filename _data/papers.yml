@@ -4,11 +4,9 @@ papers:
     tags: ["information-extraction", "datasets-evaluation"]
     links:
     - label: "pdf"
-      href: "https://arxiv.org/pdf/2410.14795"
+      href: "https://aclanthology.org/2025.xllm-1.19.pdf"
     - label: "data&nbsp;+&nbsp;code"
       href: "https://github.com/wgantt/SEAMuS"
-    - label: "doi"
-      href: "https://doi.org/10.48550/arXiv.2410.14795"
     - label: "bib"
       href: "walden_cross-document_2025"
       save: "/assets/bibliography/walden_cross-document_2025.bib"
