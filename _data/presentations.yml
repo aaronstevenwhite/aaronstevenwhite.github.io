@@ -10,7 +10,13 @@
     - label: "notes"
       href: "https://juliangrove.github.io/nasslli-2025/"
   - citation: "Grove, Julian and Aaron Steven White. 2025. Probabilistic Dynamic Semantics. Course to be given at European Summer School for Logic, Language and Information (ESSLLI), August 4-8, 2025."
+    links:
+    - label: "notes"
+      href: "https://juliangrove.github.io/esslli-2025/"
   - citation: "White, Aaron Steven. 2025. Understanding complex situation descriptions. Talk to be given at NAtural LOgic meets MAchine learning (NALOMA), August 5, 2025."
+    links:
+    - label: "slides"
+      href: "/presentations/slides/naloma-talk-aug-2025.pptx"
   - citation: "White, Aaron Steven. 2025. Deep combinatorial categorial grammar induction. Talk to be given at Oxford University, October 13, 2025."
   - citation: "White, Aaron Steven. 2025. The Conceptual and Contextual Correlates of Argument Structure: A case study of intentional events and states. Talk to be given at the University of Pennsylvania, November 7, 2025."
 
