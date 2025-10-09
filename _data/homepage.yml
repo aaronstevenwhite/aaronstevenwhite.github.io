@@ -1,10 +1,10 @@
 hero_section:
-  title: "I’m <span style=\"color: #022F78;\">Aaron Steven White</span>. I do research in computational semantics at the University of Rochester." 
+  title: "I'm <span style=\"color: #022F78;\">Aaron Steven White</span>. I do research in computational semantics at the University of Rochester." 
 
 positions_section:
-  title: This summer
+  title: This fall
   text: |
-    I'm teaching courses on probabilistic dynamic semantics at the <a href="https://nasslli25.shane.st/">North American Summer School for Logic, Language, and Information</a> (23-27 June 2025) and the <a href="https://2025.esslli.eu/">European Summer School for Logic, Language, and Information</a> (4-8 August 2025) with <a href="https://juliangrove.github.io/">Julian Grove</a>. I'll also be giving a keynote talk on event understanding at <a href="https://naloma.github.io/2025/">Natural Logic Meets Machine Learning</a>.
+    I'm giving a talk at Oxford on <i>Characterizing uncertainty in lexically triggered inferences</i> on October 13.
 
 about_section:
   title: What I do
@@ -12,7 +12,7 @@ about_section:
   btn: Schedule
   btn-link: "#"
   text: |
-    I’m an Associate Professor in the <a href="http://www.sas.rochester.edu/lin/index.html">Department of Linguistics</a> at the University of Rochester, with a secondary appointment in the <a href="https://www.cs.rochester.edu/">Department of Computer Science</a> and an affiliation with the <a href="http://www.sas.rochester.edu/dsc/">Goergen Institute for Data Science</a>. I’m also Director of the  <a href="https://www.sas.rochester.edu/cls/">Center for Language Sciences</a> (CLS) and the <a href="http://factslab.io">Formal and Computational Semantics Lab</a> (FACTS.lab) at UR. An overview of my research  can be found <a href="/research">here</a>.
+    I’m an Associate Professor in the <a href="http://www.sas.rochester.edu/lin/index.html">Department of Linguistics</a> at the University of Rochester, with a secondary appointment in the <a href="https://www.cs.rochester.edu/">Department of Computer Science</a> and an affiliation with the <a href="http://www.sas.rochester.edu/dsc/">Goergen Institute for Data Science</a>. I’m also Director of the  <a href="https://www.sas.rochester.edu/cls/">Center for Language Sciences</a> (CLS) and the <a href="http://factslab.io">Formal and Computational Semantics Lab</a> (FACTS.lab) at UR.
 
 find_section: 
   title: How to Find me
