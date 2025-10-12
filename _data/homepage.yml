@@ -4,7 +4,7 @@ hero_section:
 positions_section:
   title: This fall
   text: |
-    I'm giving a talk at Oxford on <i>Characterizing uncertainty in lexically triggered inferences</i> on October 13.
+    I'm giving a talk at Oxford on <i><a href="/presentations/slides/oxford-colloquium-talk-oct-2025.pptx">Characterizing uncertainty in lexically triggered inferences</a></i> on October 13. I have also released <a href="https://github.com/aaronstevenwhite/glazing">a python package</a> with unified data models and interfaces for syntactic and semantic frame ontologies as well as pre-released <a href="https://fovea.video/">FOVEA</a> (Flexible Ontology Visual Event Analyzer), which is a web-based video annotation tool designed for analysts developing custom event ontologies for video data.
 
 about_section:
   title: What I do

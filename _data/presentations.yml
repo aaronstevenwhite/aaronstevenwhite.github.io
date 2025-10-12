@@ -6,12 +6,15 @@
 - year: 2025
   class: "2025"
   presentations:
-  - citation: "White, Aaron Steven. 2025. Characterizing uncertainty in lexically triggered inferences. Talk to be given at Oxford University, October 13, 2025."
-  - citation: "White, Aaron Steven. 2025. Understanding complex situation descriptions. Talk to be given at NAtural LOgic meets MAchine learning (NALOMA), August 5, 2025."
+  - citation: "White, Aaron Steven. 2025. Characterizing uncertainty in lexically triggered inferences. Talk given at Oxford University, October 13, 2025."
+    links:
+    - label: "slides"
+      href: "/presentations/slides/oxford-colloquium-talk-oct-2025.pptx"
+  - citation: "White, Aaron Steven. 2025. Understanding complex situation descriptions. Talk given at NAtural LOgic meets MAchine learning (NALOMA), August 5, 2025."
     links:
     - label: "slides"
       href: "/presentations/slides/naloma-talk-aug-2025.pptx"
-  - citation: "Grove, Julian and Aaron Steven White. 2025. Probabilistic Dynamic Semantics. Course to be given at European Summer School for Logic, Language and Information (ESSLLI), August 4-8, 2025."
+  - citation: "Grove, Julian and Aaron Steven White. 2025. Probabilistic Dynamic Semantics. Course given at European Summer School for Logic, Language and Information (ESSLLI), August 4-8, 2025."
     links:
     - label: "notes"
       href: "https://juliangrove.github.io/esslli-2025/notes/"
@@ -19,7 +22,7 @@
     links:
     - label: "notes"
       href: "https://juliangrove.github.io/nasslli-2025/"
-  - citation: "White, Aaron Steven. 2025. Inducing lexical semantic generalizations. Talk to be given at the University of Maryland, College Park, May 16, 2025."
+  - citation: "White, Aaron Steven. 2025. Inducing lexical semantic generalizations. Talk given at the University of Maryland, College Park, May 16, 2025."
     links:
     - label: "slides"
       href: "/presentations/slides/mayfest-talk-may-2025.pptx"
