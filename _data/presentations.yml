@@ -6,6 +6,10 @@
 - year: 2025
   class: "2025"
   presentations:
+  - citation: "White, Aaron Steven. 2025. FOVEA: Flexible Ontology Visual Event Analyzer. Talk given at Johns Hopkins University Human Language Technology Center of Excellence, November 6, 2025."
+    links:
+    - label: "slides"
+      href: "/presentations/slides/hltcoe-wip-nov-2025.pptx"
   - citation: "White, Aaron Steven. 2025. Characterizing uncertainty in lexically triggered inferences. Talk given at Oxford University, October 13, 2025."
     links:
     - label: "slides"
