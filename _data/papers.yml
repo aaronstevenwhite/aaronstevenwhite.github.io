@@ -16,7 +16,9 @@ papers:
     tags: ["semantic-theory", "computational-psycholinguistics", "natural-language-understanding"]
     links:
     - label: "pdf"
-      href: "https://lingbuzz.net/lingbuzz/007450/current.pdf"
+      href: "https://link.springer.com/article/10.1007/s11050-025-09244-9"
+    - label: "doi"
+      href: "https://doi.org/10.1007/s11050-025-09244-9"
     - label: "bib"
       href: "grove_factivity_2025"
       save: "/bibliography/grove_factivity_2025.bib"

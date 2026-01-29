@@ -1,0 +1,60 @@
+repos:
+  - name: decomp
+    owner: decompositional-semantics-initiative
+    description: "The Universal Decompositional Semantics (UDS) dataset and the Decomp toolkit"
+    url: https://github.com/decompositional-semantics-initiative/decomp
+    language: Python
+
+  - name: fovea
+    owner: parafovea
+    description: "Web-based tool for developing annotation ontologies for video data with automated video analysis, object detection, and intelligent ontology suggestions."
+    url: https://github.com/parafovea/fovea
+    language: TypeScript
+
+  - name: chive
+    owner: chive-pub
+    description: "Decentralized eprints on ATProto"
+    url: https://github.com/chive-pub/chive
+    language: TypeScript
+
+  - name: glazing
+    owner: aaronstevenwhite
+    description: "Unified data models and interfaces for syntactic and semantic frame ontologies."
+    url: https://github.com/aaronstevenwhite/glazing
+    language: Python
+
+  - name: arcweight
+    owner: aaronstevenwhite
+    description: "A high-performance Rust library for weighted finite-state transducers with comprehensive semiring support."
+    url: https://github.com/aaronstevenwhite/arcweight
+    language: Rust
+
+  - name: spectrans
+    owner: aaronstevenwhite
+    description: "Modular spectral transformer implementations in PyTorch with Fourier, wavelet, and other frequency-domain operations for efficient sequence modeling."
+    url: https://github.com/aaronstevenwhite/spectrans
+    language: Python
+
+  - name: slopit
+    owner: slopit
+    description: "Tools for detecting the use of AI assistance in crowd-sourced data collection"
+    url: https://github.com/slopit/slopit
+    language: TypeScript
+
+  - name: bead
+    owner: caulking
+    description: "A Python framework for constructing, deploying, and analyzing large-scale linguistic judgment experiments with active learning."
+    url: https://github.com/caulking/bead
+    language: Python
+
+  - name: connotate
+    owner: connotate
+    description: "A flexible framework for text annotation built on a hardened data model."
+    url: https://github.com/connotate/connotate
+    language: TypeScript
+
+  - name: pds
+    owner: probabilistic-dynamic-semantics
+    description: "Develop probabilistic semantic grammar fragments and convert them to Stan code."
+    url: https://github.com/probabilistic-dynamic-semantics/pds
+    language: Haskell

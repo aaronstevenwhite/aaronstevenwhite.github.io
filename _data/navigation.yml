@@ -8,6 +8,9 @@ nav:
 - title: Presentations
   link: /presentations
   page_id: presentations
+- title: Code
+  link: /code
+  page_id: code
 - title: CV
   link: /cv.pdf
   page_id: cv

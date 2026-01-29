@@ -1,0 +1,11 @@
+// Code page - GitHub Cards single column layout
+
+.gh-cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+gh-repo-card {
+  width: 100%;
+}
