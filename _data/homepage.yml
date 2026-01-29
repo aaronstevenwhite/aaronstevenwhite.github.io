@@ -2,9 +2,9 @@ hero_section:
   title: "I'm <span style=\"color: #022F78;\">Aaron Steven White</span>. I do research in computational semantics at the University of Rochester." 
 
 positions_section:
-  title: This fall
+  title: Recent and upcoming
   text: |
-    I'm giving a talk at Oxford on <i><a href="/presentations/slides/oxford-colloquium-talk-oct-2025.pptx">Characterizing uncertainty in lexically triggered inferences</a></i> on October 13. I have also released <a href="https://github.com/aaronstevenwhite/glazing">a python package</a> with unified data models and interfaces for syntactic and semantic frame ontologies as well as pre-released <a href="https://fovea.video/">FOVEA</a> (Flexible Ontology Visual Event Analyzer), which is a web-based video annotation tool designed for analysts developing custom event ontologies for video data.
+    I'm giving a talk at Penn on <i><a href="https://mindcore.sas.upenn.edu/calendar_event/mindcore-ilst-seminar-aaron-white-2/">Characterizing uncertainty in lexically triggered inferences</a></i> on January 30 as part of the MindCORE/ILST seminar series and a talk at <a href="https://atproto.science/">ATScience 2026</a> on <a href="https://chive.pub/">Chive</a>, a decentralized eprint service on <a href="https://atproto.com/">ATProto<a/>.
 
 about_section:
   title: What I do
@@ -28,7 +28,7 @@ find_section:
       icon-link: https://github.com/aaronstevenwhite
     - title: Bluesky
       icon: svg/bluesky.svg
-      icon-link: https://bsky.app/profile/aaronsteven.bsky.social
+      icon-link: https://bsky.app/profile/aaronstevenwhite.io
     - title: 511A Lattimore Hall
       icon: svg/location.svg
       icon-link: https://maps.app.goo.gl/Quo4Wxhzs4PyoDQN6
