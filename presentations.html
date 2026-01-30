@@ -8,7 +8,7 @@ share: false
   <span class="arrow left-arrow" onclick="scrollLeftAction()">&#10094;</span>
   <div id="filterContainer" class="scroll-container">
     {% for batch in site.data.presentations %}
-    <button class="{% if batch.year == '2025' %}active{% endif %}" data-year="{{ batch.year }}"
+    <button class="{% if batch.year == '2026' %}active{% endif %}" data-year="{{ batch.year }}"
       onclick="filterPresentation('{{ batch.year }}')">
       {{ batch.year }}
     </button>
@@ -19,7 +19,7 @@ share: false
 
 <div class="presentations-container">
   {% for batch in site.data.presentations %}
-  <div class="presentations {{ batch.year }} {% if batch.year == '2025' %}active{% endif %}">
+  <div class="presentations {{ batch.year }} {% if batch.year == '2026' %}active{% endif %}">
     {% for paper in batch.presentations %}
     <div class="paper-item">
       <div class="paper-content">
