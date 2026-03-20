@@ -1,0 +1,19 @@
+- date: "2026-01-30"
+  text: "Gave a talk at Penn on <em>Characterizing uncertainty in lexically triggered inferences</em> as part of the MindCORE/ILST seminar series."
+  links:
+    - label: "MindCORE seminar"
+      url: "https://mindcore.sas.upenn.edu/calendar_event/mindcore-ilst-seminar-aaron-white-2/"
+
+- date: "2026-03-27"
+  text: "Giving a talk at ATScience 2026 on Chive, a decentralized eprint service on ATProto."
+  links:
+    - label: "ATScience 2026"
+      url: "https://atproto.science/"
+    - label: "Chive"
+      url: "https://chive.pub/"
+
+- date: "2026-06-01"
+  text: "Giving two posters at Experiments in Linguistic Meaning 4: <em>The context-sensitivity of subordinate clause selection</em> and <em>Aspectual similarity predicts sense similarity</em>."
+  links:
+    - label: "ELM 4"
+      url: "https://www.elm-conference.net/elm-4-2026/"

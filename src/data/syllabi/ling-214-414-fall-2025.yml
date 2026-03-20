@@ -1,0 +1,256 @@
+course:
+  number: "LING 214/414"
+  title: "Statistical Methods in Linguistics"
+  semester: "Fall 2025"
+  university: "University of Rochester"
+  department: "Department of Linguistics"
+  slug: "ling-214-414-fall-2025"
+
+instructor:
+  name: "Aaron Steven White"
+  office: "511A Lattimore Hall"
+  website: "http://aaronstevenwhite.io"
+  office_hours:
+    type: "by-appointment"
+    url: "https://app.squarespacescheduling.com/schedule.php?owner=26977798&appointmentType=36264617"
+
+meetings:
+  days: "Monday & Wednesday"
+  time: "12:30 PM - 1:45 PM"
+  location: "Lattimore 513"
+
+workshop: null
+
+communication:
+  platform: "Zulip"
+  url: "https://stat-methods-in-ling-f25.zulipchat.com/"
+  notes: "All course communication will be conducted through Zulip. Post general questions to the appropriate channel. Use direct messages (DMs) for private matters. Do not use email for course-related communication. If you are registered for the course, you should have received an invitation to join the Zulip workspace. If not, please contact me."
+
+course_notes_url: ""
+description: "This course provides an introduction to probability and statistics for linguistics, serving as an essential foundation for linguistics students who aim to analyze experimental and corpus linguistic data. The course covers elementary probability theory, descriptive and inferential statistics, fixed and mixed effects models, model evaluation and comparison, analysis of corpus data, analysis of judgment data, analysis of reading time data, and analysis of acoustic measures."
+prerequisites:
+  - "LING 110 with a grade of C- or better"
+credits: 4
+
+learning_objectives:
+  - "Master fundamental concepts in probability and statistics"
+  - "Apply statistical methods to linguistic data analysis"
+  - "Design and analyze linguistic experiments"
+  - "Interpret statistical results in linguistics research"
+  - "Implement analyses using R programming"
+  - "Construct mixed effects models for complex datasets"
+
+materials:
+  textbooks:
+    - title: "An Introduction to Bayesian Data Analysis for Cognitive Science"
+      authors: "Bruno Nicenboim, Daniel Schad, and Shravan Vasishth"
+      url: "https://bruno.nicenboim.me/bayescogsci/"
+    - title: "Statistics for Linguistics with R: A Practical Introduction"
+      authors: "Bodo Winter"
+      url: "https://appliedstatisticsforlinguists.org/bwinter_stats_proofs.pdf"
+    - title: "Doing Bayesian Data Analysis: A Tutorial with R, JAGS, and Stan"
+      authors: "John K. Kruschke"
+      url: "https://nyu-cdsc.github.io/learningr/assets/kruschke_bayesian_in_R.pdf"
+  software:
+    - name: "R"
+      description: "Statistical computing language"
+      url: "https://www.r-project.org/"
+    - name: "RStudio"
+      description: "Integrated development environment"
+      url: "https://posit.co/download/rstudio-desktop/"
+    - name: "Visual Studio Code"
+      description: "Integrated development environment"
+      url: "https://code.visualstudio.com/"
+  readings:
+    - title: "Zipf's Word Frequency Law"
+      authors: "Piantadosi (2014)"
+      url: "https://doi.org/10.3758/s13423-014-0585-6"
+    - title: "Poisson Mixtures"
+      authors: "Church & Gale (1995)"
+      url: "https://www.aclweb.org/anthology/J95-2008/"
+    - title: "Latent Dirichlet Allocation"
+      authors: "Blei, Ng, & Jordan (2003)"
+      url: "https://www.jmlr.org/papers/v3/blei03a.html"
+    - title: "The influence of categories on perception"
+      authors: "Feldman, Griffiths, & Morgan (2009)"
+      url: "https://pubmed.ncbi.nlm.nih.gov/19839683/"
+
+assessment:
+  tracks:
+    - track: "LING 214"
+      components:
+        - name: "Problem Sets"
+          weight: 65
+          details: "Five coding assignments with in-class assessments"
+        - name: "Midterm Exam"
+          weight: 25
+          details: "Comprehensive exam on Oct. 29"
+        - name: "Participation"
+          weight: 10
+          details: "Attend office hours twice"
+    - track: "LING 414"
+      components:
+        - name: "Problem Sets"
+          weight: 40
+          details: "Five coding assignments with in-class assessments"
+        - name: "Midterm Exam"
+          weight: 20
+          details: "Comprehensive exam on Oct. 29"
+        - name: "Final Project"
+          weight: 40
+          details: "See rubric"
+  problem_set_grading:
+    - component: "Functionality and Completeness"
+      weight: 50
+      details: "Code works correctly and addresses all requirements"
+    - component: "In-Class Presentation"
+      weight: 50
+      details: "Randomly selected students present their homework solution and explain how it works to the class. All students must be prepared to present on any assessment day following the problem set due date."
+  problem_set_notes:
+    - "Students will not know in advance if they will present on a given day"
+    - "All students must attend class and be ready to present their solutions"
+    - "LLM Usage: While LLMs may be used for problem sets, you must fully understand your code to present it effectively"
+  final_project:
+    track: "LING 414 Only"
+    total_weight: 40
+    components:
+      - name: "Pre-proposal meeting"
+        weight: 5
+        details: "Meeting with me to discuss proposal (by Oct. 14)"
+      - name: "Proposal"
+        weight: 5
+        details: "Proposal outlining research question and methods (due Oct. 29)"
+      - name: "Presentation"
+        weight: 20
+        details: "In-class presentation with professional slides (Dec. 1, 3, 8)"
+      - name: "Code Submission"
+        weight: 20
+        details: "All code structured following the rubric (due Dec. 8); evaluated via 20 minute oral assessment scheduled during finals week"
+      - name: "Paper Submission"
+        weight: 50
+        details: "Research paper (due Dec. 8)"
+    project_options:
+      - "Corpus Analysis: using open source or LDC corpora with external NLP tools"
+      - "Experiment Design: judgment/reading experiment, including data collection instrument, with simulated data analysis"
+      - "Mechanistic Interpretation: deep learning model analysis"
+    note: "See separate Final Project Rubric document for detailed requirements and grading criteria"
+  grading_scale:
+    - grade: "A"
+      minimum: 93
+    - grade: "A-"
+      minimum: 90
+    - grade: "B+"
+      minimum: 87
+    - grade: "B"
+      minimum: 83
+    - grade: "B-"
+      minimum: 80
+    - grade: "C+"
+      minimum: 77
+    - grade: "C"
+      minimum: 73
+    - grade: "C-"
+      minimum: 70
+    - grade: "D+"
+      minimum: 67
+    - grade: "D"
+      minimum: 60
+    - grade: "E"
+      minimum: 0
+
+policies:
+  late_work: "Problem sets: 10% deduction per day (max 3 days). Project components (414 only): No late submissions without prior approval. Extensions require 48-hour advance notice (except emergencies)."
+  academic_integrity: "Collaboration on problem sets with classmates is encouraged, but each student must write their own solutions. See the generative AI policy and the University of Rochester's Academic Honesty Policy at http://www.rochester.edu/college/honesty/"
+  ai_policy: "Students may use generative AI tools (e.g., ChatGPT, Claude, GitHub Copilot) for coding assistance on problem sets and projects. However, students must fully understand and be able to explain all generated code (assessed during in-class presentations and oral assessments), cite in code comments any AI tools used including the specific prompts, and not use AI tools for written assignments."
+  accessibility: "The University of Rochester welcomes students with disabilities. Students seeking accommodations must request them through the Office of Disability Resources: https://www.rochester.edu/disability/"
+  exceptions: ""
+  title_ix: "All faculty are mandatory reporters for Title IX issues. Students can contact the Title IX Office directly at titleix@rochester.edu or 585-275-1654. More information: www.rochester.edu/sexualmisconduct"
+  credit_hour: "This 4-credit course includes 150 minutes per week of direct instruction (two 75-minute sessions) and a minimum of 480 minutes per week of out-of-class student work, including reading assignments, problem sets, data analysis, and project work. This aligns with the University of Rochester's credit hour policy, where each credit hour requires 50 minutes of instruction and 120 minutes of supplementary work. As a cross-listed course, LING414 students are expected to demonstrate advanced content mastery, rigor, and requirements beyond the LING214 level. Graduate students will complete a comprehensive final project that demonstrates independent research capabilities consistent with graduate-level scholarship."
+  communication: "All communication must be done through Zulip. Post general questions to appropriate Zulip channels. Use Zulip DMs for grade questions, course absence notifications, etc. Response time: 1-2 business days during work hours. No monitoring after 5 PM or weekends."
+  office_hours: "By appointment. Please schedule using the form linked above. I am available to meet if and only if a time is listed as available on the scheduling form."
+
+schedule:
+  - week: 1
+    dates: "Aug 25, 27"
+    topics: "Introduction; What is a probability?"
+    due: null
+  - week: 2
+    dates: "Sep 1, 3"
+    topics: "Labor Day; Aaron away"
+    due: null
+    notes: "No class"
+  - week: 3
+    dates: "Sep 8, 10"
+    topics: "Random variables; Discrete distributions"
+    due: null
+  - week: 4
+    dates: "Sep 15, 17"
+    topics: "Continuous distributions"
+    due: null
+  - week: 5
+    dates: "Sep 22, 24"
+    topics: "Statistical inference"
+    due: null
+  - week: 6
+    dates: "Sep 29, Oct 1"
+    topics: "Linear regression"
+    due: "PS1"
+  - week: 7
+    dates: "Oct 6, 8"
+    topics: "Model evaluation"
+    due: "PS2"
+  - week: 8
+    dates: "Oct 13, 15"
+    topics: "Fall Break; Aaron away"
+    due: "PS3"
+    notes: "No class"
+  - week: 9
+    dates: "Oct 20, 22"
+    topics: "Generalized linear models"
+    due: null
+  - week: 10
+    dates: "Oct 27, 29"
+    topics: "Experimental design; Midterm"
+    due: "Proposal (414)"
+  - week: 11
+    dates: "Nov 3, 5"
+    topics: "Mixed effects models"
+    due: null
+  - week: 12
+    dates: "Nov 10, 12"
+    topics: "Clustering and mixture models"
+    due: "PS4"
+  - week: 13
+    dates: "Nov 17, 19"
+    topics: "Factorization"
+    due: "PS5"
+  - week: 14
+    dates: "Nov 24, 26"
+    topics: "Custom model design; Thanksgiving"
+    due: null
+  - week: 15
+    dates: "Dec 1, 3"
+    topics: "Presentations (414)"
+    due: null
+  - week: 16
+    dates: "Dec 8"
+    topics: "Presentations (414)"
+    due: null
+  - week: null
+    dates: "Dec 9-12"
+    topics: "Oral assessments (414)"
+    due: "Paper (414)"
+
+resources:
+  academic_support:
+    - "Center for Excellence in Teaching"
+    - "Writing, Speaking & Argument Program"
+    - "Q&i Statistics Help"
+    - "Library Research Support"
+  health_and_wellness:
+    - "University Counseling: 585-275-3113"
+    - "University Health: 585-275-2662"
+    - "CARE Network"
+    - "IT Help Desk: 585-275-2000"
+
+references: []

@@ -1,0 +1,70 @@
+---
+---
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-left">
+      <span class="footer-name">Aaron Steven White</span>
+      <a href="mailto:aaron.white@rochester.edu" class="footer-link">aaron.white@rochester.edu</a>
+    </div>
+    <div class="footer-right">
+      <span class="footer-address">
+        511A Lattimore Hall<br />
+        University of Rochester<br />
+        Rochester, NY 14627
+      </span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    border-top: 1px solid var(--border);
+    padding: var(--space-12) 0;
+    margin-top: var(--space-24);
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--space-8);
+  }
+
+  @media (max-width: 640px) {
+    .footer-inner {
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+  }
+
+  .footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .footer-name {
+    font-family: var(--font-serif);
+    font-size: var(--text-lg);
+  }
+
+  .footer-link {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    transition: color var(--transition-fast);
+  }
+
+  .footer-link:hover { color: var(--accent); }
+
+  .footer-address {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    text-align: right;
+    line-height: var(--leading-relaxed);
+  }
+
+  @media (max-width: 640px) {
+    .footer-address { text-align: left; }
+  }
+</style>

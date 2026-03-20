@@ -1,0 +1,195 @@
+---
+import { loadYaml } from '../../lib/data';
+import fs from 'node:fs';
+import path from 'node:path';
+import Sparkline from '../code/Sparkline.astro';
+
+interface Repo {
+  name: string;
+  owner: string;
+  description: string;
+  url: string;
+  language: string;
+}
+
+const data = loadYaml<{ repos: Repo[] }>('code.yml');
+const repos = data.repos;
+
+const statsRaw = fs.readFileSync(path.join(process.cwd(), 'src/data/github_stats.json'), 'utf-8');
+const stats: Record<string, number[]> = JSON.parse(statsRaw);
+
+const langColors: Record<string, string> = {
+  Python: '#3572A5',
+  TypeScript: '#3178C6',
+  Rust: '#DEA584',
+  Haskell: '#5e5086',
+};
+
+const featured = loadYaml<{ projects: string[] }>('featured.yml');
+const manualPicks = featured.projects || [];
+
+let ranked: { repo: Repo; total: number; weekly: number[] }[];
+
+if (manualPicks.length > 0) {
+  // Use manually specified repos
+  ranked = manualPicks
+    .map(name => repos.find(r => r.name === name))
+    .filter((r): r is Repo => !!r)
+    .map(r => ({
+      repo: r,
+      total: (stats[r.name] || []).reduce((a, b) => a + b, 0),
+      weekly: stats[r.name] || [],
+    }));
+} else {
+  // Auto-pick 4 repos with highest recent commits
+  ranked = repos
+    .filter(r => stats[r.name])
+    .map(r => ({
+      repo: r,
+      total: stats[r.name].reduce((a, b) => a + b, 0),
+      weekly: stats[r.name],
+    }))
+    .sort((a, b) => b.total - a.total)
+    .slice(0, 4);
+}
+---
+
+<section class="section active-projects-section">
+  <div class="container">
+    <h2 class="section-heading">Selected Code</h2>
+    <div class="active-projects-grid">
+      {ranked.map(({ repo, weekly }) => (
+        <div class="active-project-card" data-url={repo.url} role="link" tabindex="0">
+          <div class="active-project-titlebar">
+            <div class="active-project-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <span class="active-project-name">{repo.owner}/{repo.name}</span>
+          </div>
+          <div class="active-project-body">
+            <p class="active-project-desc">{repo.description}</p>
+            <div class="active-project-meta">
+              <span class="active-project-lang">
+                <span class="lang-dot" style={`background-color: ${langColors[repo.language] || '#888'}`}></span>
+                {repo.language}
+              </span>
+              <Sparkline data={weekly} />
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+    <a href="/code" class="link">See all code &rarr;</a>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('.active-project-card[data-url]').forEach(card => {
+    card.addEventListener('click', () => {
+      window.open((card as HTMLElement).dataset.url, '_blank');
+    });
+  });
+</script>
+
+<style is:global>
+  .active-projects-section {
+    background-color: var(--code-bg, #1e1e2e);
+  }
+
+  .active-projects-section .section-heading {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .active-projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+    margin-bottom: var(--space-8);
+  }
+
+  @media (max-width: 768px) {
+    .active-projects-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .active-project-card {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.04);
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  }
+
+  .active-project-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  .active-project-titlebar {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    background-color: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .active-project-dots {
+    display: flex;
+    gap: 6px;
+  }
+
+  .active-project-card:hover .dot {
+    transform: scale(1.2);
+  }
+
+  .active-project-name {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .active-project-body {
+    padding: var(--space-6);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .active-project-desc {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--code-text, rgba(255, 255, 255, 0.8));
+    line-height: 1.6;
+    flex: 1;
+    margin-bottom: var(--space-4);
+  }
+
+  .active-project-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .active-project-lang {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .active-projects-section .link {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .active-projects-section .link:hover {
+    color: var(--accent);
+  }
+</style>

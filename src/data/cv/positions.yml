@@ -1,0 +1,55 @@
+full_time:
+  - title: "Associate Professor"
+    institution: "University of Rochester"
+    start: 2023
+    end: null
+    primary: "Linguistics"
+    primary_url: "http://www.sas.rochester.edu/lin/"
+    secondary: "Computer Science"
+    secondary_url: "https://www.cs.rochester.edu/"
+    affiliations:
+      - name: "Goergen Institute for Data Science"
+        url: "http://www.sas.rochester.edu/dsc/"
+  - title: "Assistant Professor"
+    institution: "University of Rochester"
+    start: 2017
+    end: 2023
+    primary: "Linguistics"
+    primary_url: "http://www.sas.rochester.edu/lin/"
+    secondary: "Computer Science"
+    secondary_url: "https://www.cs.rochester.edu/"
+    affiliations:
+      - name: "Goergen Institute for Data Science"
+        url: "http://www.sas.rochester.edu/dsc/"
+  - title: "Postdoctoral Fellow"
+    institution: "Johns Hopkins University"
+    start: 2015
+    end: 2017
+    primary: "Science of Learning Institute"
+    affiliations:
+      - name: "Cognitive Science"
+        url: "https://cogsci.jhu.edu/"
+      - name: "Center for Language and Speech Processing"
+        url: "http://www.clsp.jhu.edu/"
+
+temporary:
+  - title: "Instructor"
+    event: "European Summer School on Logic, Language, and Information (ESSLLI 2025)"
+    event_url: "https://2025.esslli.eu/"
+    institution: "Ruhr University Bochum"
+    year: 2025
+  - title: "Instructor"
+    event: "North American Summer School on Logic, Language, and Information (NASSLLI 2025)"
+    event_url: "https://nasslli25.shane.st/"
+    institution: "University of Washington"
+    year: 2025
+  - title: "Instructor"
+    event: "Linguistic Society of America Institute"
+    event_url: "https://blogs.umass.edu/lingstitute2023/"
+    institution: "University of Massachusetts, Amherst"
+    year: 2023
+  - title: "Instructor"
+    event: "European Summer School on Logic, Language, and Information (ESSLLI 2017)"
+    event_url: "https://www.irit.fr/esslli2017"
+    institution: "University of Toulouse"
+    year: 2017

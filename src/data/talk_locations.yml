@@ -1,0 +1,154 @@
+locations:
+  - venue: "University of Pennsylvania"
+    lat: 39.95
+    lng: -75.19
+  - venue: "Oxford University"
+    lat: 51.75
+    lng: -1.25
+  - venue: "University of Maryland"
+    lat: 38.99
+    lng: -76.94
+  - venue: "Johns Hopkins University"
+    lat: 39.33
+    lng: -76.62
+  - venue: "Cornell University"
+    lat: 42.45
+    lng: -76.47
+  - venue: "Massachusetts Institute of Technology"
+    lat: 42.36
+    lng: -71.09
+  - venue: "Stanford University"
+    lat: 37.43
+    lng: -122.17
+  - venue: "University of Texas"
+    lat: 30.29
+    lng: -97.74
+  - venue: "University of Edinburgh"
+    lat: 55.95
+    lng: -3.19
+  - venue: "University of Toulouse"
+    lat: 43.60
+    lng: 1.44
+  - venue: "Ruhr University Bochum"
+    lat: 51.44
+    lng: 7.26
+  - venue: "University of Washington"
+    lat: 47.66
+    lng: -122.31
+  - venue: "University of Massachusetts"
+    lat: 42.39
+    lng: -72.53
+  - venue: "University of Rochester"
+    lat: 43.13
+    lng: -77.63
+  - venue: "University of Chicago"
+    lat: 41.79
+    lng: -87.60
+  - venue: "Rutgers University"
+    lat: 40.50
+    lng: -74.45
+  - venue: "Leipzig University"
+    lat: 51.34
+    lng: 12.37
+  - venue: "Humboldt University"
+    lat: 52.52
+    lng: 13.39
+  - venue: "Saarland University"
+    lat: 49.26
+    lng: 7.05
+  - venue: "University of Connecticut"
+    lat: 41.81
+    lng: -72.25
+  - venue: "University of Utah"
+    lat: 40.76
+    lng: -111.84
+  - venue: "Brown University"
+    lat: 41.83
+    lng: -71.40
+  - venue: "University of California, Santa Cruz"
+    lat: 36.99
+    lng: -122.06
+  - venue: "University of California, Los Angeles"
+    lat: 34.07
+    lng: -118.44
+  - venue: "University of California, San Diego"
+    lat: 32.88
+    lng: -117.24
+  - venue: "University of Toronto"
+    lat: 43.66
+    lng: -79.40
+  - venue: "University of Iceland"
+    lat: 64.14
+    lng: -21.95
+  - venue: "Rochester Institute of Technology"
+    lat: 43.08
+    lng: -77.67
+  - venue: "NYU"
+    lat: 40.73
+    lng: -73.99
+  - venue: "Boston University"
+    lat: 42.35
+    lng: -71.10
+  - venue: "CUNY"
+    lat: 40.75
+    lng: -73.98
+  - venue: "University of Florida"
+    lat: 29.64
+    lng: -82.35
+  - venue: "Brussels"
+    lat: 50.85
+    lng: 4.35
+  - venue: "Florence"
+    lat: 43.77
+    lng: 11.25
+  - venue: "Minneapolis"
+    lat: 44.98
+    lng: -93.27
+  - venue: "Seattle"
+    lat: 47.61
+    lng: -122.33
+  - venue: "New Orleans"
+    lat: 29.95
+    lng: -90.07
+  - venue: "Valencia"
+    lat: 39.47
+    lng: -0.38
+  - venue: "Taipei"
+    lat: 25.03
+    lng: 121.57
+  - venue: "Dubrovnik"
+    lat: 42.65
+    lng: 18.09
+  - venue: "Singapore"
+    lat: 1.35
+    lng: 103.82
+  - venue: "St. Julian's"
+    lat: 35.92
+    lng: 14.49
+  - venue: "Mexico City"
+    lat: 19.43
+    lng: -99.13
+  - venue: "Vienna"
+    lat: 48.21
+    lng: 16.37
+  - venue: "Amsterdam"
+    lat: 52.37
+    lng: 4.90
+  - venue: "Portland"
+    lat: 45.51
+    lng: -122.68
+  - venue: "Austin"
+    lat: 30.27
+    lng: -97.74
+  - venue: "Kyiv"
+    lat: 50.45
+    lng: 30.52
+  - venue: "Punta Cana"
+    lat: 18.58
+    lng: -68.37
+  - venue: "Miami"
+    lat: 25.76
+    lng: -80.19
+  - venue: "Marseille"
+    lat: 43.30
+    lng: 5.37

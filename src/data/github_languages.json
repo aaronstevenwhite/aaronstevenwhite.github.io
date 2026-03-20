@@ -1,0 +1,78 @@
+{
+  "decomp": {
+    "Python": 875248,
+    "Dockerfile": 511
+  },
+  "pds": {
+    "Haskell": 86377,
+    "Nix": 506
+  },
+  "fovea": {
+    "TypeScript": 4769923,
+    "Python": 818065,
+    "Dockerfile": 8282,
+    "PHP": 6362,
+    "JavaScript": 1676,
+    "CSS": 1594,
+    "HTML": 727,
+    "Makefile": 634
+  },
+  "chive": {
+    "TypeScript": 14171552,
+    "JavaScript": 40391,
+    "Shell": 38684,
+    "Dockerfile": 7369,
+    "CSS": 5148,
+    "Cypher": 4813,
+    "HTML": 3892
+  },
+  "bead": {
+    "Python": 4590464,
+    "TypeScript": 220530,
+    "JavaScript": 57983,
+    "Makefile": 22593,
+    "CSS": 6090,
+    "Shell": 3567,
+    "HTML": 2102
+  },
+  "glazing": {
+    "Python": 1961998,
+    "Dockerfile": 1097
+  },
+  "slopit": {
+    "TypeScript": 889433,
+    "Python": 431455,
+    "JavaScript": 385654,
+    "CSS": 22174,
+    "HTML": 936
+  },
+  "arcweight": {
+    "Rust": 2660213,
+    "Python": 60471,
+    "Shell": 12110
+  },
+  "spectrans": {
+    "Python": 1203262
+  },
+  "connotate": {
+    "TypeScript": 303048,
+    "SCSS": 40937,
+    "Python": 20690,
+    "Thrift": 7916,
+    "HTML": 5375,
+    "Shell": 2091,
+    "CSS": 366
+  },
+  "layers": {
+    "JavaScript": 3062
+  },
+  "panproto": {
+    "Rust": 3696570,
+    "Python": 334479,
+    "TypeScript": 236843,
+    "HTML": 65549,
+    "TeX": 23410,
+    "Lua": 7464,
+    "CSS": 958
+  }
+}

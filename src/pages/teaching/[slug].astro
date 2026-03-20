@@ -1,0 +1,511 @@
+---
+import Base from '../../layouts/Base.astro';
+import { loadYaml } from '../../lib/data';
+import fs from 'node:fs';
+import path from 'node:path';
+import yaml from 'js-yaml';
+
+export function getStaticPaths() {
+  const syllabiDir = path.join(process.cwd(), 'src', 'data', 'syllabi');
+  if (!fs.existsSync(syllabiDir)) return [];
+
+  const files = fs.readdirSync(syllabiDir).filter(f => f.endsWith('.yml'));
+  return files.map(file => {
+    const slug = file.replace('.yml', '');
+    const raw = fs.readFileSync(path.join(syllabiDir, file), 'utf-8');
+    const syllabus = yaml.load(raw) as any;
+    return { params: { slug }, props: { syllabus } };
+  });
+}
+
+const { syllabus } = Astro.props;
+const course = syllabus.course;
+const meetings = syllabus.meetings;
+const instructor = syllabus.instructor;
+
+// Compute all unique component names across assessment tracks
+const allComponentNames: string[] = [];
+if (syllabus.assessment?.tracks) {
+  const seen = new Set();
+  for (const track of syllabus.assessment.tracks) {
+    for (const comp of track.components || []) {
+      if (!seen.has(comp.name)) {
+        seen.add(comp.name);
+        allComponentNames.push(comp.name);
+      }
+    }
+  }
+}
+---
+
+<Base title={`${course.number}: ${course.title}`} activeNav="teaching">
+  <div class="syllabus-page container">
+    <header class="syllabus-header section">
+      <div class="syllabus-meta">
+        <span class="course-number">{course.number}</span>
+        <span class="course-semester">{course.semester}</span>
+      </div>
+      <h1>{course.title}</h1>
+      <p class="syllabus-university">{course.university} &middot; {course.department}</p>
+    </header>
+
+    <div class="syllabus-layout">
+      <!-- Sticky sidebar TOC -->
+      <nav class="syllabus-toc" id="syllabus-toc">
+        <a href="#overview" class="toc-link">Overview</a>
+        {syllabus.learning_objectives?.length > 0 && <a href="#objectives" class="toc-link">Objectives</a>}
+        <a href="#materials" class="toc-link">Materials</a>
+        <a href="#assessment" class="toc-link">Assessment</a>
+        <a href="#schedule" class="toc-link">Schedule</a>
+        <a href="#policies" class="toc-link">Policies</a>
+      </nav>
+
+      <div class="syllabus-content">
+        <!-- Overview -->
+        <section id="overview" class="syllabus-section">
+          <h2>Overview</h2>
+
+          <div class="info-grid">
+            <div class="info-item">
+              <span class="info-label">Instructor</span>
+              <span class="info-value">
+                <a href={instructor.website} class="link" target="_blank">{instructor.name}</a>
+              </span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Office</span>
+              <span class="info-value">{instructor.office}</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Meetings</span>
+              <span class="info-value">{meetings.days}, {meetings.time}</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Location</span>
+              <span class="info-value">{meetings.location}</span>
+            </div>
+            {syllabus.workshop && (
+              <div class="info-item">
+                <span class="info-label">Workshop</span>
+                <span class="info-value">{syllabus.workshop.days} {syllabus.workshop.time} &middot; {syllabus.workshop.leader}</span>
+              </div>
+            )}
+            {syllabus.communication && (
+              <div class="info-item">
+                <span class="info-label">Communication</span>
+                <span class="info-value">
+                  <a href={syllabus.communication.url} class="link" target="_blank">{syllabus.communication.platform}</a>
+                </span>
+              </div>
+            )}
+            {syllabus.course_notes_url && (
+              <div class="info-item">
+                <span class="info-label">Course Notes</span>
+                <span class="info-value">
+                  <a href={syllabus.course_notes_url} class="link" target="_blank">View notes</a>
+                </span>
+              </div>
+            )}
+            <div class="info-item">
+              <span class="info-label">Office Hours</span>
+              <span class="info-value">
+                <a href={instructor.office_hours.url} class="link" target="_blank">By appointment</a>
+              </span>
+            </div>
+          </div>
+
+          <div class="description-block">
+            <p>{syllabus.description}</p>
+          </div>
+
+          {syllabus.prerequisites?.length > 0 && (
+            <div class="prereqs">
+              <strong>Prerequisites:</strong> {syllabus.prerequisites.join('; ')}
+            </div>
+          )}
+        </section>
+
+        <!-- Learning Objectives -->
+        {syllabus.learning_objectives?.length > 0 && (
+          <section id="objectives" class="syllabus-section">
+            <h2>Learning Objectives</h2>
+            <ol class="objectives-list">
+              {syllabus.learning_objectives.map((obj: string) => (
+                <li>{obj}</li>
+              ))}
+            </ol>
+          </section>
+        )}
+
+        <!-- Materials -->
+        <section id="materials" class="syllabus-section">
+          <h2>Materials</h2>
+
+          {syllabus.materials?.textbooks?.length > 0 && (
+            <div class="materials-group">
+              <h3>Textbooks</h3>
+              <div class="material-cards">
+                {syllabus.materials.textbooks.map((book: any) => (
+                  <a href={book.url} class="material-card" target="_blank" rel="noopener noreferrer">
+                    <span class="material-title">{book.title}</span>
+                    <span class="material-author">{book.authors}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {syllabus.materials?.software?.length > 0 && (
+            <div class="materials-group">
+              <h3>Software</h3>
+              <div class="software-list">
+                {syllabus.materials.software.map((sw: any) => (
+                  <a href={sw.url} class="link software-item" target="_blank">{sw.name}</a>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {syllabus.materials?.readings?.length > 0 && (
+            <div class="materials-group">
+              <h3>Readings</h3>
+              <div class="material-cards">
+                {syllabus.materials.readings.map((r: any) => (
+                  <a href={r.url} class="material-card" target="_blank" rel="noopener noreferrer">
+                    <span class="material-title">{r.title}</span>
+                    <span class="material-author">{r.authors}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+        </section>
+
+        <!-- Assessment -->
+        <section id="assessment" class="syllabus-section">
+          <h2>Assessment</h2>
+          {syllabus.assessment?.tracks && (
+            <div class="assessment-table-wrap">
+              <table class="assessment-table">
+                <thead>
+                  <tr>
+                    <th>Component</th>
+                    {syllabus.assessment.tracks.map((track: any) => (
+                      <th>{track.label}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {allComponentNames.map(name => (
+                    <tr>
+                      <td>{name}</td>
+                      {syllabus.assessment.tracks.map((track: any) => {
+                        const comp = track.components.find((c: any) => c.name === name);
+                        return <td>{comp ? `${comp.weight}%` : '—'}</td>;
+                      })}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </section>
+
+        <!-- Schedule -->
+        <section id="schedule" class="syllabus-section">
+          <h2>Schedule</h2>
+          {syllabus.schedule?.length > 0 && (
+            <div class="schedule-table-wrap">
+              <table class="schedule-table">
+                <thead>
+                  <tr>
+                    <th>Week</th>
+                    <th>Dates</th>
+                    <th>Topic</th>
+                    <th>Due</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {syllabus.schedule.map((row: any) => (
+                    <tr class:list={[{ holiday: row.note === 'holiday', exam: row.note === 'exam' }]}>
+                      <td>{row.week}</td>
+                      <td class="schedule-dates">{row.dates}</td>
+                      <td>{row.topic}</td>
+                      <td class="schedule-due">{row.due || '—'}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </section>
+
+        <!-- Policies -->
+        <section id="policies" class="syllabus-section">
+          <h2>Policies</h2>
+          {syllabus.policies && Object.entries(syllabus.policies).map(([key, value]) => (
+            <div class="policy-item">
+              <h3>{key.replace(/_/g, ' ').replace(/\b\w/g, (c: string) => c.toUpperCase())}</h3>
+              <p>{value}</p>
+            </div>
+          ))}
+        </section>
+
+        <!-- References -->
+        {syllabus.references?.length > 0 && (
+          <section id="references" class="syllabus-section">
+            <h2>References</h2>
+            <ol class="references-list">
+              {syllabus.references.map((ref: any) => {
+                const display = ref.citation || ref.text || ref.key || '';
+                return (
+                  <li>
+                    {ref.url
+                      ? <a href={ref.url} class="link" target="_blank">{display}</a>
+                      : display
+                    }
+                  </li>
+                );
+              })}
+            </ol>
+          </section>
+        )}
+      </div>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .syllabus-header {
+    padding-top: calc(var(--space-32) + 60px);
+    padding-bottom: var(--space-8);
+  }
+
+  .syllabus-meta {
+    display: flex;
+    gap: var(--space-4);
+    align-items: center;
+    margin-bottom: var(--space-3);
+  }
+
+  .course-number {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .course-semester {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+  }
+
+  .syllabus-university {
+    color: var(--text-muted);
+    margin-top: var(--space-2);
+  }
+
+  .syllabus-layout {
+    display: grid;
+    grid-template-columns: 10rem 1fr;
+    gap: var(--space-12);
+    padding-bottom: var(--space-24);
+  }
+
+  @media (max-width: 960px) {
+    .syllabus-layout { grid-template-columns: 1fr; }
+  }
+
+  .syllabus-toc {
+    position: sticky;
+    top: calc(60px + var(--space-8));
+    align-self: start;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  @media (max-width: 960px) {
+    .syllabus-toc { display: none; }
+  }
+
+  .toc-link {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    padding: var(--space-1) 0;
+    transition: color var(--transition-fast);
+  }
+
+  .toc-link:hover { color: var(--text); }
+
+  .syllabus-section {
+    margin-bottom: var(--space-16);
+  }
+
+  .syllabus-section h2 {
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-2);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .syllabus-section h3 {
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    font-weight: 600;
+    margin-bottom: var(--space-3);
+    margin-top: var(--space-6);
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+    margin-bottom: var(--space-8);
+  }
+
+  @media (max-width: 640px) {
+    .info-grid { grid-template-columns: 1fr; }
+  }
+
+  .info-label {
+    display: block;
+    font-size: var(--text-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    margin-bottom: var(--space-1);
+  }
+
+  .info-value {
+    font-size: var(--text-sm);
+  }
+
+  .description-block {
+    margin-bottom: var(--space-6);
+    line-height: var(--leading-relaxed);
+  }
+
+  .prereqs {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+  }
+
+  .objectives-list {
+    list-style: decimal;
+    padding-left: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .material-cards {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .material-card {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-4);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    transition: border-color var(--transition-fast);
+  }
+
+  .material-card:hover { border-color: var(--accent); }
+
+  .material-title {
+    font-weight: 500;
+    margin-bottom: var(--space-1);
+  }
+
+  .material-author {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+  }
+
+  .software-list {
+    display: flex;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+  }
+
+  .software-item {
+    font-size: var(--text-sm);
+  }
+
+  .assessment-table-wrap, .schedule-table-wrap {
+    overflow-x: auto;
+  }
+
+  .assessment-table, .schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--text-sm);
+  }
+
+  .assessment-table th, .schedule-table th {
+    text-align: left;
+    font-weight: 600;
+    padding: var(--space-3) var(--space-4);
+    border-bottom: 2px solid var(--border);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+  }
+
+  .assessment-table td, .schedule-table td {
+    padding: var(--space-3) var(--space-4);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .schedule-table tr:nth-child(even) {
+    background-color: var(--surface);
+  }
+
+  .schedule-table tr.holiday {
+    opacity: 0.5;
+    font-style: italic;
+  }
+
+  .schedule-table tr.exam {
+    font-weight: 600;
+  }
+
+  .schedule-dates {
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .schedule-due {
+    color: var(--text-muted);
+  }
+
+  .policy-item {
+    margin-bottom: var(--space-6);
+  }
+
+  .policy-item p {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    line-height: var(--leading-relaxed);
+  }
+
+  .references-list {
+    list-style: decimal;
+    padding-left: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+  }
+
+  @media print {
+    .syllabus-toc { display: none; }
+    .syllabus-layout { grid-template-columns: 1fr; }
+    .syllabus-section { break-inside: avoid; }
+  }
+</style>

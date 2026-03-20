@@ -1,0 +1,221 @@
+---
+import Base from '../layouts/Base.astro';
+import { loadYaml } from '../lib/data';
+import TalkMap from '../components/presentations/TalkMap.astro';
+import SlidePreview from '../components/presentations/SlidePreview.astro';
+
+interface PresentationLink {
+  label: string;
+  href: string;
+}
+
+interface Presentation {
+  citation: string;
+  links?: PresentationLink[];
+}
+
+interface YearGroup {
+  year: number;
+  class: string;
+  presentations: Presentation[];
+}
+
+const yearGroups = loadYaml<YearGroup[]>('presentations.yml');
+const years = yearGroups.map(g => g.year);
+---
+
+<Base title="Presentations" activeNav="presentations" description="Presentations by Aaron Steven White.">
+  <div class="presentations-page container">
+    <header class="pres-header section">
+      <h1>Presentations</h1>
+    </header>
+
+    <!-- Year filter -->
+    <div class="year-filter" id="year-filter">
+      <button class="year-btn active" data-year="all">All</button>
+      {years.map(year => (
+        <button class="year-btn" data-year={String(year)}>{year}</button>
+      ))}
+    </div>
+
+    <TalkMap />
+
+    <!-- Presentations list -->
+    <div class="pres-list">
+      {yearGroups.map(group => (
+        <div class="pres-year-group" data-year={String(group.year)}>
+          <div class="pres-year-label">{group.year}</div>
+          <div class="pres-items">
+            {group.presentations.map(pres => (
+              <div class="pres-item">
+                <p class="pres-citation" set:html={pres.citation} />
+                {pres.links && pres.links.length > 0 && (
+                  <div class="pres-links">
+                    {pres.links.map(link => (
+                      <a
+                        href={link.href}
+                        class="icon-link"
+                        title={link.label}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {link.label}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</Base>
+
+<style>
+  .pres-header {
+    padding-top: calc(var(--space-32) + 60px);
+    padding-bottom: var(--space-8);
+  }
+
+  .year-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1);
+    padding-bottom: var(--space-6);
+    margin-bottom: var(--space-8);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .year-btn {
+    background: none;
+    border: 1px solid transparent;
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: var(--space-2) var(--space-3);
+    border-radius: 4px;
+    transition: all var(--transition-fast);
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .year-btn:hover {
+    color: var(--text);
+    border-color: var(--border);
+  }
+
+  .year-btn.active {
+    color: var(--text);
+    font-weight: 600;
+    border-color: var(--accent);
+    background-color: var(--surface);
+  }
+
+  .pres-viz {
+    display: flex;
+    gap: var(--space-8);
+    margin-bottom: var(--space-8);
+    padding-bottom: var(--space-6);
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .pres-viz-bars {
+    flex: 1 1 300px;
+    min-width: 250px;
+  }
+
+  .pres-viz-stats {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+  }
+
+  .pres-viz-map {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+
+  .pres-list {
+    padding-bottom: var(--space-24);
+  }
+
+  .pres-year-group {
+    display: grid;
+    grid-template-columns: 4.5rem 1fr;
+    gap: var(--space-6);
+    margin-bottom: var(--space-12);
+    transition: opacity var(--transition-normal);
+  }
+
+  .pres-year-group.hidden {
+    display: none;
+  }
+
+  @media (max-width: 640px) {
+    .pres-year-group {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .pres-year-label {
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--text-muted);
+    padding-top: var(--space-1);
+    font-variant-numeric: tabular-nums;
+  }
+
+  @media (max-width: 640px) {
+    .pres-year-label {
+      margin-bottom: var(--space-2);
+    }
+  }
+
+  .pres-items {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .pres-item {
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .pres-citation {
+    font-size: var(--text-sm);
+    line-height: 1.6;
+    margin-bottom: var(--space-2);
+  }
+
+  .pres-links {
+    display: flex;
+    gap: var(--space-2);
+  }
+</style>
+
+<script>
+  const yearBtns = document.querySelectorAll('.year-btn');
+  const yearGroups = document.querySelectorAll('.pres-year-group');
+
+  yearBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const year = (btn as HTMLElement).dataset.year;
+
+      yearBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      yearGroups.forEach(group => {
+        const groupYear = (group as HTMLElement).dataset.year;
+        const show = year === 'all' || groupYear === year;
+        group.classList.toggle('hidden', !show);
+      });
+    });
+  });
+</script>

@@ -1,0 +1,86 @@
+---
+import { loadBibliography } from '../../lib/bibtex';
+import { loadYaml } from '../../lib/data';
+
+const bib = loadBibliography();
+const featured = loadYaml<{ papers: string[] }>('featured.yml');
+
+const papers = featured.papers
+  .map(key => bib.get(key))
+  .filter((entry): entry is NonNullable<typeof entry> => !!entry);
+---
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-heading">Selected Papers</h2>
+    <div class="featured-papers-grid">
+      {papers.map(paper => {
+        const href = paper.doi ? `https://doi.org/${paper.doi}` : paper.url;
+        const venue = paper.journal || paper.booktitle || '';
+        const authorStr = paper.authors.length > 3
+          ? `${paper.authors[0]} et al.`
+          : paper.authors.join(', ');
+        return (
+          <a class="featured-paper-card" href={href} target="_blank" rel="noopener noreferrer">
+            <span class="featured-paper-title">{paper.title}</span>
+            <span class="featured-paper-authors">{authorStr}</span>
+            <span class="featured-paper-venue">
+              <em>{venue}</em>, {paper.year}
+            </span>
+          </a>
+        );
+      })}
+    </div>
+    <a href="/papers" class="link">See all papers &rarr;</a>
+  </div>
+</section>
+
+<style is:global>
+  .featured-papers-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+    margin-bottom: var(--space-8);
+  }
+
+  @media (max-width: 768px) {
+    .featured-papers-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .featured-paper-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-6);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text);
+    transition: border-color var(--transition-fast), transform var(--transition-fast);
+  }
+
+  .featured-paper-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .featured-paper-title {
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  .featured-paper-authors {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .featured-paper-venue {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+  }
+</style>

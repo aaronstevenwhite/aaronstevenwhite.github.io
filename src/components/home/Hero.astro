@@ -1,0 +1,41 @@
+---
+---
+
+<section class="hero">
+  <div class="container">
+    <h1 class="hero-name fade-up">Aaron Steven White</h1>
+    <p class="hero-subtitle fade-up" style="animation-delay: 100ms;">
+      Computational semanticist.
+    </p>
+  </div>
+</section>
+
+<style>
+  .hero {
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    padding: var(--space-32) 0;
+  }
+
+  .hero-name {
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    max-width: 14ch;
+    margin-bottom: var(--space-6);
+  }
+
+  .hero-subtitle {
+    font-size: var(--text-xl);
+    color: var(--text-muted);
+    max-width: 36ch;
+    line-height: var(--leading-relaxed);
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      min-height: 80dvh;
+      padding: var(--space-24) 0;
+    }
+  }
+</style>

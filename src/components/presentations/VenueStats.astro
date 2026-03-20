@@ -1,0 +1,96 @@
+---
+import { loadYaml } from '../../lib/data';
+
+interface Presentation {
+  citation: string;
+  links?: any[];
+}
+
+interface YearGroup {
+  year: number | string;
+  class: string;
+  presentations: Presentation[];
+}
+
+const data = loadYaml<YearGroup[]>('presentations.yml');
+
+const allPresentations = data.flatMap(g => g.presentations);
+
+let talks = 0;
+let posters = 0;
+let demos = 0;
+let other = 0;
+const venues = new Set<string>();
+
+for (const p of allPresentations) {
+  const c = p.citation;
+
+  // Categorize
+  if (/system demonstration/i.test(c)) {
+    demos++;
+  } else if (/poster/i.test(c)) {
+    posters++;
+  } else if (/talk/i.test(c)) {
+    talks++;
+  } else {
+    other++;
+  }
+
+  // Extract venue: look for "at <Venue>" patterns
+  // Typical: "Talk given at <Venue>, <date>"
+  // or "Poster at <Venue>, <date>"
+  const atMatch = c.match(/(?:at|at the)\s+(.+?)(?:,\s+(?:January|February|March|April|May|June|July|August|September|October|November|December)|\.\s)/i);
+  if (atMatch) {
+    const venue = atMatch[1].trim().replace(/[.,]+$/, '');
+    venues.add(venue);
+  }
+}
+
+const stats = [
+  { value: talks, label: 'Talks' },
+  { value: posters, label: 'Posters' },
+  { value: demos, label: 'Demos' },
+  { value: venues.size, label: 'Venues' },
+].filter(s => s.value > 0);
+---
+
+<div class="venue-stats">
+  {stats.map(s => (
+    <div class="venue-stat-item">
+      <span class="venue-stat-number">{s.value}</span>
+      <span class="venue-stat-label">{s.label}</span>
+    </div>
+  ))}
+</div>
+
+<style is:global>
+  .venue-stats {
+    display: flex;
+    gap: var(--space-8);
+    flex-wrap: wrap;
+    align-items: baseline;
+  }
+
+  .venue-stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-1);
+  }
+
+  .venue-stat-number {
+    font-family: var(--font-serif);
+    font-size: 1.875rem; /* ~text-3xl */
+    line-height: 1;
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .venue-stat-label {
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+</style>

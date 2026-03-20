@@ -1,0 +1,623 @@
+---
+import Base from '../layouts/Base.astro';
+import ReadingPaths from '../components/papers/ReadingPaths.astro';
+import TopicTimeline from '../components/papers/TopicTimeline.astro';
+import CoAuthorGraph from '../components/papers/CoAuthorGraph.astro';
+import AbstractTooltip from '../components/papers/AbstractTooltip.astro';
+import { loadYaml } from '../lib/data';
+import { loadBibliography, getCitation, getAbstract, getRawBibtex, formatAPA } from '../lib/bibtex';
+
+interface PaperLink {
+  label: string;
+  href: string;
+  save?: string;
+}
+
+interface Paper {
+  citation: string;
+  bib_key?: string;
+  tags: string[];
+  links: PaperLink[];
+  chive_uri?: string;
+}
+
+interface Topic {
+  tag: string;
+  name: string;
+}
+
+const papersData = loadYaml<{ papers: Paper[] } | Paper[]>('papers.yml');
+const papers = Array.isArray(papersData) ? papersData : papersData.papers;
+const topicsData = loadYaml<{ topics: Topic[] } | Topic[]>('topics.yml');
+const topics = Array.isArray(topicsData) ? topicsData : topicsData.topics;
+const bib = loadBibliography();
+
+// Decode HTML entities in link labels
+function decodeLabel(label: string): string {
+  return label.replace(/&nbsp;/g, '\u00A0').replace(/&amp;/g, '&');
+}
+
+// Resolve citations from bibtex
+const resolvedPapers = papers
+  .map(p => {
+    const bibEntry = p.bib_key ? bib.get(p.bib_key) : null;
+    let citationText: string;
+    if (p.citation === 'bib') {
+      if (bibEntry) {
+        citationText = getCitation(p.bib_key!);
+      } else {
+        // BibTeX key missing — skip this paper
+        return null;
+      }
+    } else {
+      citationText = p.citation;
+    }
+    const year = bibEntry?.year || citationText.match(/\b(19|20)\d{2}\b/)?.[0] || '????';
+    const abstract = p.bib_key ? getAbstract(p.bib_key) : undefined;
+    const rawBib = p.bib_key ? getRawBibtex(p.bib_key) : '';
+    const apa = bibEntry ? formatAPA(bibEntry) : '';
+    // Decode link labels
+    const links = p.links?.map((l: PaperLink) => ({ ...l, label: decodeLabel(l.label) }));
+
+    return { ...p, citationText, year, abstract, rawBib, apa, links, relatedPapers: [] as { citationText: string; bib_key: string }[] };
+  })
+  .filter((p): p is NonNullable<typeof p> => p !== null);
+
+// Compute related papers based on shared tags and year proximity
+for (let i = 0; i < resolvedPapers.length; i++) {
+  const paper = resolvedPapers[i];
+  const paperTags = new Set(paper.tags || []);
+  if (paperTags.size === 0) continue;
+
+  const candidates: { index: number; overlap: number; yearDist: number }[] = [];
+  for (let j = 0; j < resolvedPapers.length; j++) {
+    if (i === j) continue;
+    const other = resolvedPapers[j];
+    const otherTags = other.tags || [];
+    const overlap = otherTags.filter(t => paperTags.has(t)).length;
+    if (overlap === 0) continue;
+    const yearA = parseInt(paper.year, 10) || 0;
+    const yearB = parseInt(other.year, 10) || 0;
+    const yearDist = Math.abs(yearA - yearB);
+    candidates.push({ index: j, overlap, yearDist });
+  }
+
+  // Sort by most tag overlap, then by closest year
+  candidates.sort((a, b) => b.overlap - a.overlap || a.yearDist - b.yearDist);
+
+  paper.relatedPapers = candidates.slice(0, 3).map(c => ({
+    citationText: resolvedPapers[c.index].citationText,
+    bib_key: resolvedPapers[c.index].bib_key || '',
+  }));
+}
+
+// Group by year
+const years = [...new Set(resolvedPapers.map(p => p.year))].sort((a, b) => b.localeCompare(a));
+
+// Count papers per topic
+const topicCounts = new Map<string, number>();
+for (const topic of topics) {
+  topicCounts.set(topic.tag, resolvedPapers.filter(p => p.tags?.includes(topic.tag)).length);
+}
+---
+
+<Base title="Papers" activeNav="papers" description="Publications by Aaron Steven White.">
+  <div class="papers-page container">
+    <header class="papers-header section">
+      <h1>Papers</h1>
+    </header>
+
+    <ReadingPaths />
+    <TopicTimeline />
+    <CoAuthorGraph />
+
+    <div class="papers-layout">
+      <!-- Sidebar filter -->
+      <aside class="papers-sidebar" id="topic-sidebar">
+        <div class="sidebar-heading">Topics</div>
+        <button class="topic-btn active" data-topic="all">
+          All <span class="topic-count">{resolvedPapers.length}</span>
+        </button>
+        {topics.map(topic => (
+          <button class="topic-btn" data-topic={topic.tag}>
+            {topic.name} <span class="topic-count">{topicCounts.get(topic.tag)}</span>
+          </button>
+        ))}
+      </aside>
+
+      <!-- Mobile topic pills -->
+      <div class="topic-pills" id="topic-pills">
+        <button class="pill active" data-topic="all">All</button>
+        {topics.map(topic => (
+          <button class="pill" data-topic={topic.tag}>{topic.name}</button>
+        ))}
+      </div>
+
+      <!-- Paper list -->
+      <div class="papers-list">
+        {years.map(year => (
+          <div class="year-group" data-year={year}>
+            <div class="year-label">{year}</div>
+            <div class="year-papers">
+              {resolvedPapers.filter(p => p.year === year).map((paper, i) => (
+                <article
+                  class="paper-row"
+                  data-tags={paper.tags?.join(',') || ''}
+                  data-key={paper.bib_key || `paper-${year}-${i}`}
+                  data-bib-key={paper.bib_key || ''}
+                >
+                  <div class="paper-citation">
+                    <button class="paper-title-btn" aria-expanded="false">
+                      <span set:html={paper.citationText} />
+                    </button>
+                    <div class="paper-meta">
+                      {paper.tags?.map(tag => {
+                        const topic = topics.find(t => t.tag === tag);
+                        return topic ? <span class="paper-tag">{topic.name}</span> : null;
+                      })}
+                      <span class="paper-links">
+                        {paper.links?.map(link => (
+                          <a
+                            href={link.href.startsWith('http') || link.href.startsWith('/') ? link.href : `#`}
+                            class="icon-link"
+                            title={link.label}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {link.label.replace(/&nbsp;\+&nbsp;/g, '+')}
+                          </a>
+                        ))}
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Expandable detail card -->
+                  <div class="paper-detail" hidden>
+                    {paper.abstract && (
+                      <div class="paper-abstract">
+                        <strong>Abstract:</strong> {paper.abstract}
+                      </div>
+                    )}
+                    {(paper.rawBib || paper.apa || paper.citationText) && (
+                      <div class="paper-cite-section">
+                        <div class="cite-formats">
+                          <strong>Cite</strong>
+                          <div class="cite-dropdown-wrap">
+                            <details class="cite-dropdown">
+                              <summary class="btn cite-btn">Copy as...</summary>
+                              <div class="cite-menu">
+                                {paper.rawBib && (
+                                  <button class="cite-option" data-cite={paper.rawBib} data-format="BibTeX">BibTeX</button>
+                                )}
+                                {paper.apa && (
+                                  <button class="cite-option" data-cite={paper.apa} data-format="APA">APA</button>
+                                )}
+                                <button class="cite-option" data-cite={paper.citationText.replace(/<[^>]*>/g, '')} data-format="Plain text">Plain text</button>
+                              </div>
+                            </details>
+                          </div>
+                        </div>
+                        {paper.rawBib && (
+                          <div class="paper-bibtex">
+                            <pre><code>{paper.rawBib}</code></pre>
+                          </div>
+                        )}
+                      </div>
+                    )}
+                    {paper.relatedPapers.length > 0 && (
+                      <div class="paper-related">
+                        <strong>Related</strong>
+                        <ul class="related-list">
+                          {paper.relatedPapers.map(rp => (
+                            <li>
+                              <a
+                                href="#"
+                                class="related-link"
+                                data-related-key={rp.bib_key}
+                              >
+                                <span set:html={rp.citationText} />
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+  <AbstractTooltip />
+</Base>
+
+<style>
+  .papers-header {
+    padding-top: calc(var(--space-32) + 60px);
+    padding-bottom: var(--space-8);
+  }
+
+  .papers-layout {
+    display: grid;
+    grid-template-columns: var(--sidebar-width) 1fr;
+    gap: var(--space-12);
+    padding-bottom: var(--space-24);
+  }
+
+  @media (max-width: 960px) {
+    .papers-layout {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Sidebar */
+  .papers-sidebar {
+    position: sticky;
+    top: calc(60px + var(--space-8));
+    align-self: start;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  @media (max-width: 960px) {
+    .papers-sidebar { display: none; }
+  }
+
+  .sidebar-heading {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: var(--space-2);
+  }
+
+  .topic-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: none;
+    border: none;
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    padding: var(--space-2) var(--space-3);
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: left;
+    transition: all var(--transition-fast);
+  }
+
+  .topic-btn:hover { color: var(--text); background-color: var(--surface); }
+  .topic-btn.active { color: var(--text); font-weight: 500; }
+
+  .topic-count {
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Mobile pills */
+  .topic-pills {
+    display: none;
+    overflow-x: auto;
+    gap: var(--space-2);
+    padding-bottom: var(--space-4);
+    -webkit-overflow-scrolling: touch;
+  }
+
+  @media (max-width: 960px) {
+    .topic-pills { display: flex; }
+  }
+
+  /* Year groups */
+  .year-group {
+    display: grid;
+    grid-template-columns: 4.5rem 1fr;
+    gap: var(--space-6);
+    margin-bottom: var(--space-12);
+  }
+
+  @media (max-width: 640px) {
+    .year-group {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .year-label {
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--text-muted);
+    padding-top: var(--space-1);
+    position: sticky;
+    top: calc(60px + var(--space-8));
+    font-variant-numeric: tabular-nums;
+  }
+
+  @media (max-width: 640px) {
+    .year-label {
+      position: static;
+      margin-bottom: var(--space-2);
+    }
+  }
+
+  .year-papers {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  /* Paper row */
+  .paper-row {
+    padding: var(--space-4) 0;
+    border-bottom: 1px solid var(--border);
+    transition: opacity var(--transition-normal);
+  }
+
+  .paper-row:first-child {
+    padding-top: 0;
+  }
+
+  .paper-row.hidden {
+    opacity: 0;
+    height: 0;
+    padding: 0;
+    border: none;
+    overflow: hidden;
+    transition: all var(--transition-normal);
+  }
+
+  .paper-title-btn {
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 0;
+    transition: color var(--transition-fast);
+  }
+
+  .paper-title-btn:hover { color: var(--accent); }
+
+  .paper-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2);
+    margin-top: var(--space-3);
+  }
+
+  .paper-tag {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    padding: 0.15em 0.5em;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  .paper-links {
+    display: inline-flex;
+    gap: var(--space-2);
+    margin-left: auto;
+  }
+
+  /* Detail card */
+  .paper-detail {
+    margin-top: var(--space-4);
+    padding: var(--space-6);
+    background-color: var(--surface);
+    border-radius: 6px;
+  }
+
+  .paper-detail[hidden] { display: none; }
+
+  .paper-abstract {
+    margin-bottom: var(--space-6);
+    font-size: var(--text-sm);
+    line-height: var(--leading-relaxed);
+    color: var(--text-muted);
+  }
+
+  .paper-cite-section {
+    margin-top: var(--space-4);
+  }
+
+  .cite-formats {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-2);
+  }
+
+  .cite-dropdown-wrap {
+    position: relative;
+  }
+
+  .cite-dropdown {
+    position: relative;
+  }
+
+  .cite-btn {
+    cursor: pointer;
+    font-size: var(--text-xs);
+    padding: var(--space-1) var(--space-3);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: var(--bg);
+    color: var(--text-muted);
+    transition: all var(--transition-fast);
+  }
+
+  .cite-btn:hover {
+    color: var(--text);
+    border-color: var(--accent);
+  }
+
+  .cite-btn::marker,
+  .cite-btn::-webkit-details-marker {
+    display: none;
+  }
+
+  .cite-menu {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    z-index: 20;
+    min-width: 140px;
+    padding: var(--space-1) 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cite-option {
+    background: none;
+    border: none;
+    text-align: left;
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    white-space: nowrap;
+  }
+
+  .cite-option:hover {
+    background: var(--surface);
+    color: var(--text);
+  }
+
+  .paper-bibtex {
+    margin-top: var(--space-2);
+  }
+
+  .paper-bibtex pre {
+    font-size: var(--text-xs);
+    max-height: 200px;
+    overflow-y: auto;
+  }
+
+  /* Related papers */
+  .paper-related {
+    margin-top: var(--space-6);
+  }
+
+  .related-list {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-2) 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .related-link {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    text-decoration: none;
+    line-height: 1.5;
+    transition: color var(--transition-fast);
+  }
+
+  .related-link:hover {
+    color: var(--accent);
+  }
+</style>
+
+<script>
+  // Topic filtering
+  const topicBtns = document.querySelectorAll('[data-topic]');
+  const paperRows = document.querySelectorAll('.paper-row');
+  const yearGroups = document.querySelectorAll('.year-group');
+
+  topicBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const topic = (btn as HTMLElement).dataset.topic;
+
+      // Update active states
+      topicBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      // Filter papers
+      paperRows.forEach(row => {
+        const tags = (row as HTMLElement).dataset.tags || '';
+        const show = topic === 'all' || tags.split(',').includes(topic!);
+        row.classList.toggle('hidden', !show);
+      });
+
+      // Hide empty year groups
+      yearGroups.forEach(group => {
+        const visible = group.querySelectorAll('.paper-row:not(.hidden)');
+        (group as HTMLElement).style.display = visible.length === 0 ? 'none' : '';
+      });
+    });
+  });
+
+  // Paper expansion
+  document.querySelectorAll('.paper-title-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const row = btn.closest('.paper-row');
+      const detail = row?.querySelector('.paper-detail');
+      if (detail) {
+        const isHidden = detail.hasAttribute('hidden');
+        detail.toggleAttribute('hidden', !isHidden);
+        btn.setAttribute('aria-expanded', String(isHidden));
+      }
+    });
+  });
+
+  // Related paper links — scroll to and expand the target paper
+  document.querySelectorAll('.related-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const key = (link as HTMLElement).dataset.relatedKey;
+      if (!key) return;
+      const target = document.querySelector(`.paper-row[data-key="${key}"]`);
+      if (!target) return;
+      target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      const detail = target.querySelector('.paper-detail');
+      const btn = target.querySelector('.paper-title-btn');
+      if (detail && detail.hasAttribute('hidden')) {
+        detail.removeAttribute('hidden');
+        btn?.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  // Cite format copy
+  document.querySelectorAll('.cite-option').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const text = (btn as HTMLElement).dataset.cite || '';
+      const format = (btn as HTMLElement).dataset.format || '';
+      await navigator.clipboard.writeText(text);
+      const details = btn.closest('details');
+      const summary = details?.querySelector('summary');
+      if (summary) {
+        const original = summary.textContent;
+        summary.textContent = `Copied ${format}!`;
+        if (details) details.removeAttribute('open');
+        setTimeout(() => { summary.textContent = original; }, 1500);
+      }
+    });
+  });
+
+  // Close cite dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    document.querySelectorAll('.cite-dropdown[open]').forEach(details => {
+      if (!details.contains(e.target as Node)) {
+        details.removeAttribute('open');
+      }
+    });
+  });
+</script>

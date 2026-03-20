@@ -1,0 +1,124 @@
+---
+import { loadYaml } from '../../lib/data';
+
+interface YearGroup {
+  year: number | string;
+  class: string;
+  presentations: any[];
+}
+
+const data = loadYaml<YearGroup[]>('presentations.yml');
+
+// Build year -> count, ordered chronologically
+const yearCounts = data
+  .map(g => ({
+    year: String(g.year).replace('→', '+'),
+    dataYear: g.class,
+    count: g.presentations.length,
+  }))
+  .reverse(); // oldest first (top)
+
+const maxCount = Math.max(...yearCounts.map(yc => yc.count));
+
+const barHeight = 16;
+const gap = 4;
+const labelWidth = 50;
+const countWidth = 28;
+const chartLeft = labelWidth + 8;
+const chartRight = countWidth + 8;
+const barAreaWidth = 400;
+const svgWidth = chartLeft + barAreaWidth + chartRight;
+const svgHeight = yearCounts.length * (barHeight + gap) - gap + 4;
+---
+
+<div class="year-bars-container">
+  <svg
+    class="year-bars-svg"
+    viewBox={`0 0 ${svgWidth} ${svgHeight}`}
+    preserveAspectRatio="xMinYMin meet"
+    role="img"
+    aria-label="Presentations per year bar chart"
+  >
+    {yearCounts.map((yc, i) => {
+      const y = i * (barHeight + gap);
+      const barW = Math.max(4, (yc.count / maxCount) * barAreaWidth);
+      return (
+        <g class="year-bar-group" data-year={yc.dataYear} style="cursor:pointer">
+          <text
+            x={labelWidth}
+            y={y + barHeight / 2 + 1}
+            text-anchor="end"
+            dominant-baseline="middle"
+            class="year-bar-label"
+          >
+            {yc.year}
+          </text>
+          <rect
+            x={chartLeft}
+            y={y}
+            width={barW}
+            height={barHeight}
+            rx="3"
+            class="year-bar-rect"
+          />
+          <text
+            x={chartLeft + barW + 6}
+            y={y + barHeight / 2 + 1}
+            dominant-baseline="middle"
+            class="year-bar-count"
+          >
+            {yc.count}
+          </text>
+        </g>
+      );
+    })}
+  </svg>
+</div>
+
+<style is:global>
+  .year-bars-container {
+    width: 100%;
+    max-height: 200px;
+    overflow: hidden;
+  }
+
+  .year-bars-svg {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    display: block;
+  }
+
+  .year-bar-label {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    fill: var(--text-muted);
+  }
+
+  .year-bar-rect {
+    fill: var(--accent);
+    opacity: 0.75;
+    transition: opacity 0.15s ease;
+  }
+
+  .year-bar-group:hover .year-bar-rect {
+    opacity: 1;
+  }
+
+  .year-bar-count {
+    font-family: var(--font-mono);
+    font-size: 8px;
+    fill: var(--text-muted);
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.year-bar-group').forEach(g => {
+    g.addEventListener('click', () => {
+      const year = (g as SVGElement).dataset.year;
+      if (!year) return;
+      const btn = document.querySelector(`.year-btn[data-year="${year}"]`) as HTMLElement | null;
+      if (btn) btn.click();
+    });
+  });
+</script>

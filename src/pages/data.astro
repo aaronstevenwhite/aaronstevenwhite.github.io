@@ -1,0 +1,288 @@
+---
+import Base from '../layouts/Base.astro';
+import { loadYamlSafe } from '../lib/data';
+
+interface Dataset {
+  name: string;
+  version: string | null;
+  description: string;
+  task: string;
+  annotation: string;
+  project: string | null;
+  source_corpus: string | null;
+  url: string;
+  paper: string;
+  paper_url: string;
+  platform: string;
+}
+
+const resources = loadYamlSafe<any>('cv/resources.yml', { datasets: [] });
+const datasets: Dataset[] = resources?.datasets || [];
+
+const megaAttitude = datasets.filter(d => d.project === 'MegaAttitude Project');
+const decomp = datasets.filter(d => d.project === 'Decompositional Semantics Initiative');
+const staramus = datasets.filter(d => d.project === 'STARAMUS');
+const other = datasets.filter(d => !d.project);
+
+const platformIcon: Record<string, string> = {
+  github: 'GitHub',
+  huggingface: 'HuggingFace',
+  web: 'Web',
+};
+
+const groups = [
+  {
+    heading: 'MegaAttitude Project',
+    url: 'http://megaattitude.io',
+    datasets: megaAttitude,
+  },
+  {
+    heading: 'Decompositional Semantics Initiative',
+    url: 'http://decomp.io',
+    datasets: decomp,
+  },
+  {
+    heading: 'STARAMUS',
+    url: 'https://staramus.github.io/',
+    datasets: staramus,
+  },
+  {
+    heading: 'Other',
+    url: null,
+    datasets: other,
+  },
+].filter(g => g.datasets.length > 0);
+---
+
+<Base title="Data" activeNav="data" description="Datasets by Aaron Steven White.">
+  <div class="data-page container">
+    <header class="data-header section">
+      <h1>Data</h1>
+    </header>
+
+    {groups.map(group => (
+      <section class="data-group">
+        <h2 class="data-group-heading">
+          {group.url ? (
+            <a href={group.url} target="_blank" rel="noopener noreferrer" class="data-group-link">
+              {group.heading}<span class="data-group-arrow">&#8599;</span>
+            </a>
+          ) : (
+            group.heading
+          )}
+        </h2>
+
+        <div class="data-cards">
+          {group.datasets.map((d: Dataset) => (
+            <div class="data-card" data-url={d.url}>
+              <div class="data-card-header">
+                <h3 class="data-card-name">
+                  {d.name}{d.version ? ` (${d.version})` : ''}
+                </h3>
+                <span class="data-card-arrow">&#8599;</span>
+              </div>
+              <p class="data-card-desc">{d.description}</p>
+              <div class="data-card-meta">
+                <span class="data-pill data-pill-task">{d.task}</span>
+                <span class="data-pill data-pill-annotation">{d.annotation}</span>
+                {d.source_corpus && (
+                  <span class="data-pill data-pill-corpus">{d.source_corpus}</span>
+                )}
+                <span class={`data-pill data-pill-platform data-pill-${d.platform}`}>
+                  {platformIcon[d.platform] || d.platform}
+                </span>
+              </div>
+              <div class="data-card-citation">
+                <a href={d.paper_url} class="data-paper-link" target="_blank" rel="noopener noreferrer">{d.paper}</a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    ))}
+  </div>
+</Base>
+
+<script>
+  document.querySelectorAll('.data-card[data-url]').forEach(card => {
+    card.addEventListener('click', (e) => {
+      if ((e.target as HTMLElement).closest('a')) return;
+      window.open((card as HTMLElement).dataset.url, '_blank');
+    });
+  });
+</script>
+
+<style>
+  .data-header {
+    padding-top: calc(var(--space-32) + 60px);
+    padding-bottom: var(--space-8);
+  }
+
+  .data-group {
+    margin-bottom: var(--space-12);
+  }
+
+  .data-group-heading {
+    font-size: var(--text-xl);
+    font-family: var(--font-serif);
+    font-weight: 400;
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-2);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .data-group-link {
+    color: var(--text);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .data-group-link:hover {
+    color: var(--accent);
+  }
+
+  .data-group-arrow {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    transition: color var(--transition-fast);
+  }
+
+  .data-group-link:hover .data-group-arrow {
+    color: var(--accent);
+  }
+
+  .data-cards {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .data-card {
+    display: block;
+    padding: var(--space-6);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    background: var(--bg);
+    cursor: pointer;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
+  }
+
+  .data-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    transform: translateY(-1px);
+  }
+
+  .data-card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-4);
+    margin-bottom: var(--space-2);
+  }
+
+  .data-card-name {
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    font-weight: 600;
+    line-height: var(--leading-tight);
+  }
+
+  .data-card-arrow {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    flex-shrink: 0;
+    transition: color var(--transition-fast);
+  }
+
+  .data-card:hover .data-card-arrow {
+    color: var(--accent);
+  }
+
+  .data-card-desc {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-3);
+  }
+
+  .data-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-bottom: var(--space-2);
+  }
+
+  .data-pill {
+    display: inline-block;
+    font-size: var(--text-xs);
+    font-family: var(--font-sans);
+    font-weight: 500;
+    padding: 0.15em 0.6em;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+
+  .data-pill-task {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .data-pill-corpus {
+    border-color: var(--border);
+    color: var(--text-muted);
+  }
+
+  .data-pill-github {
+    border-color: var(--border);
+    color: var(--text-muted);
+  }
+
+  .data-pill-huggingface {
+    border-color: var(--border);
+    color: var(--text-muted);
+  }
+
+  .data-pill-web {
+    border-color: var(--border);
+    color: var(--text-muted);
+  }
+
+  .data-pill-annotation {
+    border-color: var(--text-muted);
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  .data-card-citation {
+    font-size: var(--text-xs);
+    margin-top: var(--space-1);
+  }
+
+  .data-paper-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-style: italic;
+    transition: color var(--transition-fast);
+  }
+
+  .data-paper-link:hover {
+    text-decoration: underline;
+  }
+
+  .data-page {
+    padding-bottom: var(--space-24);
+  }
+
+  @media (max-width: 768px) {
+    .data-card {
+      padding: var(--space-4);
+    }
+  }
+</style>

@@ -1,0 +1,191 @@
+---
+import { loadYaml } from '../../lib/data';
+
+const data = loadYaml<any>('code.yml');
+const repos = data.repos;
+
+const langColors: Record<string, string> = {
+  Python: '#3572A5',
+  TypeScript: '#3178C6',
+  Rust: '#DEA584',
+  Haskell: '#5e5086',
+  JavaScript: '#F7DF1E',
+};
+
+// Count repos per language
+const langCounts = new Map<string, number>();
+for (const repo of repos) {
+  langCounts.set(repo.language, (langCounts.get(repo.language) || 0) + 1);
+}
+
+const total = repos.length;
+const languages = [...langCounts.entries()].sort((a, b) => b[1] - a[1]);
+
+// Build donut segments
+const cx = 100;
+const cy = 100;
+const outerR = 80;
+const innerR = 50;
+
+interface Segment {
+  lang: string;
+  count: number;
+  color: string;
+  path: string;
+}
+
+const segments: Segment[] = [];
+let cumAngle = -Math.PI / 2; // start at top
+
+for (const [lang, count] of languages) {
+  const fraction = count / total;
+  const angle = fraction * 2 * Math.PI;
+  const startAngle = cumAngle;
+  const endAngle = cumAngle + angle;
+
+  // Outer arc
+  const x1o = cx + outerR * Math.cos(startAngle);
+  const y1o = cy + outerR * Math.sin(startAngle);
+  const x2o = cx + outerR * Math.cos(endAngle);
+  const y2o = cy + outerR * Math.sin(endAngle);
+
+  // Inner arc
+  const x1i = cx + innerR * Math.cos(endAngle);
+  const y1i = cy + innerR * Math.sin(endAngle);
+  const x2i = cx + innerR * Math.cos(startAngle);
+  const y2i = cy + innerR * Math.sin(startAngle);
+
+  const largeArc = angle > Math.PI ? 1 : 0;
+
+  const path = [
+    `M ${x1o} ${y1o}`,
+    `A ${outerR} ${outerR} 0 ${largeArc} 1 ${x2o} ${y2o}`,
+    `L ${x1i} ${y1i}`,
+    `A ${innerR} ${innerR} 0 ${largeArc} 0 ${x2i} ${y2i}`,
+    'Z',
+  ].join(' ');
+
+  segments.push({ lang, count, color: langColors[lang] || '#888', path });
+  cumAngle = endAngle;
+}
+---
+
+<div class="lang-chart-wrapper">
+  <svg class="lang-chart-svg" viewBox="0 0 200 200" width="180" height="180">
+    {segments.map(seg => (
+      <path
+        class="lang-segment"
+        d={seg.path}
+        fill={seg.color}
+        data-lang={seg.lang}
+        style="cursor: pointer; transition: opacity 0.2s;"
+      />
+    ))}
+    <text x={cx} y={cy - 6} text-anchor="middle" class="lang-chart-total">{total}</text>
+    <text x={cx} y={cy + 12} text-anchor="middle" class="lang-chart-label">repos</text>
+  </svg>
+
+  <div class="lang-chart-legend">
+    {languages.map(([lang, count]) => (
+      <button class="lang-legend-item" data-lang={lang} type="button">
+        <span class="lang-legend-dot" style={`background-color: ${langColors[lang] || '#888'}`}></span>
+        <span class="lang-legend-name">{lang}</span>
+        <span class="lang-legend-count">{count}</span>
+      </button>
+    ))}
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.lang-segment').forEach(seg => {
+    seg.addEventListener('click', () => {
+      const lang = (seg as HTMLElement).dataset.lang;
+      if (lang) {
+        document.dispatchEvent(new CustomEvent('filter-by-lang', { detail: lang }));
+      }
+    });
+  });
+
+  document.querySelectorAll('.lang-legend-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const lang = (item as HTMLElement).dataset.lang;
+      if (lang) {
+        document.dispatchEvent(new CustomEvent('filter-by-lang', { detail: lang }));
+      }
+    });
+  });
+</script>
+
+<style is:global>
+  .lang-chart-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 200px;
+    margin: 0 auto;
+  }
+
+  .lang-chart-svg {
+    display: block;
+  }
+
+  .lang-segment:hover {
+    opacity: 0.8;
+  }
+
+  .lang-chart-total {
+    font-family: var(--font-mono);
+    font-size: 22px;
+    font-weight: 700;
+    fill: var(--code-text, #fff);
+  }
+
+  .lang-chart-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    fill: rgba(255, 255, 255, 0.5);
+  }
+
+  .lang-chart-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: var(--space-4, 16px);
+    width: 100%;
+  }
+
+  .lang-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    padding: 2px 4px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.15s;
+    font-family: var(--font-mono);
+    font-size: var(--text-xs, 12px);
+    color: rgba(255, 255, 255, 0.7);
+    text-align: left;
+  }
+
+  .lang-legend-item:hover {
+    background-color: rgba(255, 255, 255, 0.06);
+  }
+
+  .lang-legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .lang-legend-name {
+    flex: 1;
+  }
+
+  .lang-legend-count {
+    color: rgba(255, 255, 255, 0.4);
+  }
+</style>

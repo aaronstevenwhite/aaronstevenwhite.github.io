@@ -1,0 +1,40 @@
+paths:
+  - label: "New to my work?"
+    description: "Start here for a broad overview."
+    papers:
+      - bib_key: "white_computational_2016"
+        note: "Models clause selection probabilistically"
+      - bib_key: "white_universal_2016"
+        note: "Introduces Universal Decompositional Semantics"
+      - bib_key: "white_believing_2021"
+        note: "Challenges generalizations about clause embedding"
+
+  - label: "Coming from NLP?"
+    description: "Systems and datasets for semantic tasks."
+    papers:
+      - bib_key: "gantt_decomposing_2022"
+        note: "Induces event structure from annotations"
+      - bib_key: "vashishtha_famus_2024"
+        note: "Cross-document frame-semantic argument extraction"
+      - bib_key: "gantt_event_2024"
+        note: "Summarization grounded in event structure"
+
+  - label: "Coming from linguistics?"
+    description: "Formal and experimental semantics at scale."
+    papers:
+      - bib_key: "white_frequency_2020"
+        note: "Connects distributional data to selection"
+      - bib_key: "grove_probabilistic_2024"
+        note: "Probabilistic foundation for dynamic semantics"
+      - bib_key: "grove_factivity_2025"
+        note: "Comparing alternative analyses of gradience in factivity"
+
+  - label: "Coming from cognitive science?"
+    description: "Language acquisition and processing."
+    papers:
+      - bib_key: "white_semantic_2018"
+        note: "Syntax-semantics mapping in attitude verbs"
+      - bib_key: "white_labeling_2018"
+        note: "Computational model of syntactic bootstrapping"
+      - bib_key: "white_lexicalization_2022"
+        note: "How toddlers' parsing decisions conditioned verb knowledge"

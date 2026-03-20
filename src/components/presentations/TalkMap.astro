@@ -1,0 +1,321 @@
+---
+import { loadYaml } from '../../lib/data';
+
+interface Location {
+  venue: string;
+  lat: number;
+  lng: number;
+}
+
+interface Presentation {
+  citation: string;
+  links?: any[];
+}
+
+interface YearGroup {
+  year: number | string;
+  class: string;
+  presentations: Presentation[];
+}
+
+const locData = loadYaml<{ locations: Location[] }>('talk_locations.yml');
+const locations = locData.locations;
+const presData = loadYaml<YearGroup[]>('presentations.yml');
+const allPresentations = presData.flatMap(g => g.presentations);
+
+// Match presentations to venues
+interface VenueMatch {
+  venue: string;
+  lat: number;
+  lng: number;
+  count: number;
+  titles: string[];
+}
+
+const venueMatches: VenueMatch[] = locations.map(loc => {
+  const matched: string[] = [];
+  const venueLC = loc.venue.toLowerCase();
+  for (const p of allPresentations) {
+    if (p.citation.toLowerCase().includes(venueLC)) {
+      // Extract a short title: text between the year period and the next period
+      const titleMatch = p.citation.match(/\d{4}\.\s+(.+?)\./);
+      const title = titleMatch ? titleMatch[1] : p.citation.slice(0, 80);
+      matched.push(title);
+    }
+  }
+  return {
+    venue: loc.venue,
+    lat: loc.lat,
+    lng: loc.lng,
+    count: matched.length,
+    titles: matched,
+  };
+}).filter(v => v.count > 0);
+
+import fs from 'node:fs';
+import path from 'node:path';
+
+// Same projection params as the pre-generated SVG path
+const minLat = 5, maxLat = 75, minLng = -145, maxLng = 165;
+const svgWidth = 900;
+const svgHeight = 280;
+const padding = 10;
+
+function toX(lng: number): number {
+  return padding + ((lng - minLng) / (maxLng - minLng)) * (svgWidth - 2 * padding);
+}
+
+function toY(lat: number): number {
+  return padding + ((maxLat - lat) / (maxLat - minLat)) * (svgHeight - 2 * padding);
+}
+
+const maxCount = Math.max(...venueMatches.map(v => v.count));
+const minR = 4;
+const maxR = 14;
+
+function radius(count: number): number {
+  return minR + ((count - 1) / Math.max(maxCount - 1, 1)) * (maxR - minR);
+}
+
+// Load pre-generated land outline SVG path
+const landPath = fs.readFileSync(path.join(process.cwd(), 'src/data/world-land-path.txt'), 'utf-8');
+---
+
+<div class="talk-map-container">
+  <svg
+    class="talk-map-svg"
+    viewBox={`0 0 ${svgWidth} ${svgHeight}`}
+    preserveAspectRatio="xMidYMid meet"
+    role="img"
+    aria-label="Map of presentation venues"
+  >
+    <!-- Background -->
+    <rect x="0" y="0" width={svgWidth} height={svgHeight} fill="var(--surface)" rx="8" />
+    <!-- Land masses -->
+    <path d={landPath} fill="var(--border)" fill-opacity="0.35" stroke="none" />
+
+    <!-- Venue dots -->
+    {venueMatches.map((v, i) => {
+      const x = toX(v.lng);
+      const y = toY(v.lat);
+      const r = radius(v.count);
+      const label = v.venue.replace(/University of /g, '').replace(/University/g, 'U.').split(',')[0];
+      return (
+        <g class="map-venue-group" data-venue-idx={i}>
+          <circle cx={x} cy={y} r={r} class="map-dot" />
+          <circle cx={x} cy={y} r={r + 8} class="map-dot-hitarea" />
+          <text
+            x={x}
+            y={y - r - 5}
+            text-anchor="middle"
+            class="map-label"
+          >{label}</text>
+        </g>
+      );
+    })}
+  </svg>
+
+  <!-- Tooltip -->
+  <div class="map-tooltip" id="map-tooltip" hidden>
+    <div class="map-tooltip-venue" id="map-tooltip-venue"></div>
+    <div class="map-tooltip-count" id="map-tooltip-count"></div>
+  </div>
+
+  <!-- Click panel -->
+  <div class="map-panel" id="map-panel" hidden>
+    <div class="map-panel-header">
+      <strong id="map-panel-venue"></strong>
+      <button class="map-panel-close" id="map-panel-close" aria-label="Close">&times;</button>
+    </div>
+    <ul class="map-panel-list" id="map-panel-list"></ul>
+  </div>
+</div>
+
+<style is:global>
+  .talk-map-container {
+    position: relative;
+    width: 100%;
+    max-height: 400px;
+    margin-bottom: var(--space-4);
+  }
+
+  .talk-map-svg {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    display: block;
+  }
+
+  .map-grid-line {
+    stroke: var(--border);
+    stroke-width: 0.5;
+    stroke-dasharray: 2 4;
+  }
+
+  .map-border {
+    stroke: var(--border);
+    stroke-width: 1;
+  }
+
+  .map-equator {
+    stroke: var(--border);
+    stroke-width: 0.75;
+  }
+
+  .map-dot {
+    fill: var(--accent);
+    opacity: 0.7;
+    transition: opacity 0.15s ease, r 0.15s ease;
+    cursor: pointer;
+  }
+
+  .map-dot-hitarea {
+    fill: transparent;
+    cursor: pointer;
+  }
+
+  .map-label {
+    font-family: var(--font-sans);
+    font-size: 9px;
+    fill: var(--text);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+  }
+
+  .map-venue-group:hover .map-label {
+    opacity: 1;
+  }
+
+  .map-venue-group:hover .map-dot {
+    opacity: 1;
+    stroke: var(--text);
+    stroke-width: 1.5;
+  }
+
+  .map-tooltip {
+    position: absolute;
+    pointer-events: none;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--text-xs);
+    z-index: 10;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  .map-tooltip-venue {
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .map-tooltip-count {
+    color: var(--text-muted);
+  }
+
+  .map-panel {
+    position: absolute;
+    bottom: var(--space-2);
+    right: var(--space-2);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: var(--space-4);
+    font-size: var(--text-xs);
+    max-width: 320px;
+    max-height: 400px;
+    overflow-y: auto;
+    z-index: 10;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+  }
+
+  .map-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-2);
+  }
+
+  .map-panel-close {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--text-muted);
+    padding: 0 var(--space-1);
+    line-height: 1;
+  }
+
+  .map-panel-close:hover {
+    color: var(--text);
+  }
+
+  .map-panel-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .map-panel-list li {
+    color: var(--text-muted);
+    line-height: 1.4;
+    padding-left: var(--space-3);
+    position: relative;
+  }
+
+  .map-panel-list li::before {
+    content: "\2022";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+</style>
+
+<script define:vars={{ venueMatches }}>
+  const tooltip = document.getElementById('map-tooltip');
+  const tooltipVenue = document.getElementById('map-tooltip-venue');
+  const tooltipCount = document.getElementById('map-tooltip-count');
+  const panel = document.getElementById('map-panel');
+  const panelVenue = document.getElementById('map-panel-venue');
+  const panelList = document.getElementById('map-panel-list');
+  const panelClose = document.getElementById('map-panel-close');
+  const container = document.querySelector('.talk-map-container');
+
+  document.querySelectorAll('.map-venue-group').forEach(g => {
+    const idx = parseInt(g.dataset.venueIdx, 10);
+    const data = venueMatches[idx];
+
+    g.addEventListener('mouseenter', (e) => {
+      tooltipVenue.textContent = data.venue;
+      tooltipCount.textContent = data.count + (data.count === 1 ? ' presentation' : ' presentations');
+      tooltip.hidden = false;
+    });
+
+    g.addEventListener('mousemove', (e) => {
+      const rect = container.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      tooltip.style.left = (x + 12) + 'px';
+      tooltip.style.top = (y - 8) + 'px';
+    });
+
+    g.addEventListener('mouseleave', () => {
+      tooltip.hidden = true;
+    });
+
+    g.addEventListener('click', () => {
+      panelVenue.textContent = data.venue + ' (' + data.count + ')';
+      panelList.innerHTML = data.titles.map(t => '<li>' + t + '</li>').join('');
+      panel.hidden = false;
+    });
+  });
+
+  panelClose.addEventListener('click', () => {
+    panel.hidden = true;
+  });
+</script>

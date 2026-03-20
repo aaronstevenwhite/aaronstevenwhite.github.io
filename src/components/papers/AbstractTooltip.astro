@@ -1,0 +1,83 @@
+---
+// Paper abstract hover tooltips
+// Adds a tooltip to any element with data-bib-key that has an abstract
+import { loadBibliography } from '../../lib/bibtex';
+
+const bib = loadBibliography();
+const abstracts: Record<string, string> = {};
+for (const [key, entry] of bib) {
+  if (entry.abstract) {
+    // Truncate to ~200 chars for tooltip
+    const truncated = entry.abstract.length > 250
+      ? entry.abstract.slice(0, 250).replace(/\s\S*$/, '') + '…'
+      : entry.abstract;
+    abstracts[key] = truncated;
+  }
+}
+const abstractsJson = JSON.stringify(abstracts);
+---
+
+<div class="abstract-tooltip" id="abstract-tooltip" hidden></div>
+<script type="application/json" id="abstracts-data" set:html={abstractsJson} />
+
+<script>
+  const abstracts = JSON.parse(document.getElementById('abstracts-data')?.textContent || '{}');
+  const tooltip = document.getElementById('abstract-tooltip')!;
+
+  let hideTimeout: number;
+
+  document.addEventListener('mouseover', (e) => {
+    const target = (e.target as HTMLElement).closest('[data-bib-key]') as HTMLElement;
+    if (!target) return;
+
+    const key = target.dataset.bibKey;
+    if (!key || !abstracts[key]) return;
+
+    clearTimeout(hideTimeout);
+    tooltip.textContent = abstracts[key];
+    tooltip.hidden = false;
+
+    const rect = target.getBoundingClientRect();
+    const tooltipRect = tooltip.getBoundingClientRect();
+
+    let top = rect.bottom + 8;
+    let left = rect.left;
+
+    // Keep within viewport
+    if (left + 400 > window.innerWidth) left = window.innerWidth - 420;
+    if (left < 10) left = 10;
+    if (top + tooltipRect.height > window.innerHeight) {
+      top = rect.top - tooltipRect.height - 8;
+    }
+
+    tooltip.style.top = `${top}px`;
+    tooltip.style.left = `${left}px`;
+  });
+
+  document.addEventListener('mouseout', (e) => {
+    const target = (e.target as HTMLElement).closest('[data-bib-key]');
+    if (!target) return;
+    hideTimeout = window.setTimeout(() => {
+      tooltip.hidden = true;
+    }, 150);
+  });
+</script>
+
+<style is:global>
+  .abstract-tooltip {
+    position: fixed;
+    z-index: 500;
+    max-width: 400px;
+    padding: 12px 16px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    font-size: 0.75rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+    pointer-events: none;
+  }
+
+  .abstract-tooltip[hidden] { display: none; }
+</style>

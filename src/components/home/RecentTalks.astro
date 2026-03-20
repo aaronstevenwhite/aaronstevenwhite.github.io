@@ -1,0 +1,111 @@
+---
+import { loadYaml } from '../../lib/data';
+import * as chrono from 'chrono-node';
+
+interface PresentationLink {
+  label: string;
+  href: string;
+}
+
+interface Presentation {
+  citation: string;
+  links?: PresentationLink[];
+}
+
+interface YearGroup {
+  year: number;
+  presentations: Presentation[];
+}
+
+const data = loadYaml<YearGroup[]>('presentations.yml');
+const featured = loadYaml<{ recent_talks: number }>('featured.yml');
+const count = featured.recent_talks || 4;
+
+// Take the N most recent talks that are in the past
+const today = new Date();
+const recentTalks: Presentation[] = [];
+for (const group of data) {
+  for (const pres of group.presentations) {
+    const parsed = chrono.parseDate(pres.citation);
+    if (parsed && parsed > today) continue;
+    recentTalks.push(pres);
+    if (recentTalks.length >= count) break;
+  }
+  if (recentTalks.length >= count) break;
+}
+
+function stripHtml(str: string): string {
+  return str.replace(/<[^>]*>/g, '');
+}
+---
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-heading">Recent Presentations</h2>
+    <div class="recent-talks-list">
+      {recentTalks.map((talk, i) => (
+        <div class:list={['recent-talk-item', { 'recent-talk-border': i > 0 }]}>
+          <p class="recent-talk-citation">{stripHtml(talk.citation)}</p>
+          {talk.links && talk.links.length > 0 && (
+            <div class="recent-talk-links">
+              {talk.links.map(link => (
+                <a
+                  href={link.href}
+                  class="recent-talk-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+    <a href="/presentations" class="link">See all presentations &rarr;</a>
+  </div>
+</section>
+
+<style is:global>
+  .recent-talks-list {
+    margin-bottom: var(--space-8);
+  }
+
+  .recent-talk-item {
+    padding: var(--space-4) 0;
+  }
+
+  .recent-talk-border {
+    border-top: 1px solid var(--border);
+  }
+
+  .recent-talk-citation {
+    font-size: var(--text-sm);
+    line-height: 1.6;
+    margin-bottom: var(--space-2);
+  }
+
+  .recent-talk-links {
+    display: flex;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+  }
+
+  .recent-talk-link {
+    display: inline-flex;
+    align-items: center;
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+    padding: var(--space-1) var(--space-3);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all var(--transition-fast);
+  }
+
+  .recent-talk-link:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+</style>

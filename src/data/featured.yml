@@ -1,0 +1,14 @@
+# Featured items on the home page
+# Edit these to change what's showcased
+
+papers:
+  - gantt_decomposing_2022         # TACL — event structure (last)
+  - white_believing_2021           # Semantics & Pragmatics — attitude verbs (1st)
+  - white_semantic_2018            # Cognitive Science — syntactic bootstrapping (1st)
+  - white_frequency_2020           # Glossa — clause-embedding selection (1st)
+
+# Code repos to feature (by name). Leave empty to auto-pick by recent activity.
+projects: []
+
+# Number of recent talks to show
+recent_talks: 4

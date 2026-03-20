@@ -1,0 +1,73 @@
+repos:
+  - name: decomp
+    owner: decompositional-semantics-initiative
+    description: "The Universal Decompositional Semantics (UDS) dataset and the Decomp toolkit"
+    url: https://github.com/decompositional-semantics-initiative/decomp
+    language: Python
+
+  - name: pds
+    owner: probabilistic-dynamic-semantics
+    description: "Develop probabilistic semantic grammar fragments and convert them to Stan code."
+    url: https://github.com/probabilistic-dynamic-semantics/pds
+    language: Haskell
+
+  - name: fovea
+    owner: parafovea
+    description: "Web-based tool for developing annotation ontologies for video data with automated video analysis, object detection, and intelligent ontology suggestions."
+    url: https://github.com/parafovea/fovea
+    language: TypeScript
+
+  - name: chive
+    owner: chive-pub
+    description: "Decentralized eprints on ATProto"
+    url: https://github.com/chive-pub/chive
+    language: TypeScript
+    bluesky: "https://bsky.app/profile/chive.pub"
+
+  - name: bead
+    owner: FACTSlab
+    description: "A Python framework for constructing, deploying, and analyzing large-scale linguistic judgment experiments with active learning."
+    url: https://github.com/FACTSlab/bead
+    language: Python
+
+  - name: glazing
+    owner: FACTSlab
+    description: "Unified data models and interfaces for syntactic and semantic frame ontologies."
+    url: https://github.com/FACTSlab/glazing
+    language: Python
+
+  - name: slopit
+    owner: slopit
+    description: "Tools for detecting the use of AI assistance in crowd-sourced data collection"
+    url: https://github.com/slopit/slopit
+    language: TypeScript
+
+  - name: arcweight
+    owner: aaronstevenwhite
+    description: "A high-performance Rust library for weighted finite-state transducers with comprehensive semiring support."
+    url: https://github.com/aaronstevenwhite/arcweight
+    language: Rust
+
+  - name: spectrans
+    owner: aaronstevenwhite
+    description: "Modular spectral transformer implementations in PyTorch with Fourier, wavelet, and other frequency-domain operations for efficient sequence modeling."
+    url: https://github.com/aaronstevenwhite/spectrans
+    language: Python
+
+  - name: connotate
+    owner: connotate
+    description: "A flexible framework for text annotation built on a hardened data model."
+    url: https://github.com/connotate/connotate
+    language: TypeScript
+
+  - name: layers
+    owner: layers-pub
+    description: "Composable ATProto Lexicon schemas for representing, sharing, and interlinking linguistic annotation data across text, audio, video, and image modalities."
+    url: https://github.com/layers-pub/layers
+    language: TypeScript
+
+  - name: panproto
+    owner: panproto
+    description: "A universal schema migration engine built on Generalized Algebraic Theories with automatic lens generation and bidirectional data transformation across 77 schema languages."
+    url: https://github.com/panproto/panproto
+    language: Rust

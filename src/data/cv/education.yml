@@ -1,0 +1,23 @@
+- degree: "Ph.D."
+  field: "Linguistics"
+  year: 2015
+  institution: "University of Maryland, College Park"
+  thesis:
+    title: "Information and incrementality in syntactic bootstrapping"
+    doi: "https://doi.org/10.13016/M2X938"
+  advisors:
+    - name: "Valentine Hacquard"
+      url: "https://valentinehacquard.org/"
+    - name: "Jeffrey Lidz"
+      url: "https://jefflidz.com/"
+  committee:
+    - name: "Philip Resnik"
+      url: "http://users.umiacs.umd.edu/~resnik/"
+    - name: "Naomi Feldman"
+      url: "http://users.umiacs.umd.edu/~nhf/index.html"
+    - name: "Hal Daume III"
+      url: "http://users.umiacs.umd.edu/~hal/"
+- degree: "B.A."
+  field: "Linguistics"
+  year: 2009
+  institution: "University of California, Santa Cruz"

@@ -1,0 +1,380 @@
+---
+import { loadYaml } from '../lib/data';
+import { loadBibliography, getCitation } from '../lib/bibtex';
+
+// Build search index with structured fields per type
+const items: any[] = [];
+
+const papersData = loadYaml<any>('papers.yml');
+const papers = Array.isArray(papersData) ? papersData : papersData.papers;
+const bib = loadBibliography();
+
+for (const paper of papers) {
+  const entry = paper.bib_key ? bib.get(paper.bib_key) : null;
+  if (paper.citation === 'bib' && !entry) continue;
+  const title = entry?.title || paper.citation;
+  const authors = entry?.authors?.join(', ') || '';
+  const year = entry?.year || '';
+  const venue = entry?.journal || entry?.booktitle || '';
+  const pdfLink = paper.links?.find((l: any) => l.label === 'pdf');
+  items.push({
+    type: 'paper', title, authors, year, venue,
+    url: pdfLink?.href || '/papers',
+    search: `${authors} ${title} ${venue}`,
+  });
+}
+
+const presData = loadYaml<any>('presentations.yml');
+for (const group of presData) {
+  for (const pres of group.presentations || []) {
+    const raw = pres.citation.replace(/<[^>]*>/g, '');
+    // Extract title: text between year. and next period after title
+    const titleMatch = raw.match(/\d{4}\.\s*(.+?)(?:\.\s*(?:Talk|Poster|Presented|System))/);
+    const presTitle = titleMatch ? titleMatch[1] : raw.slice(0, 80);
+    const slideLink = pres.links?.find((l: any) => l.label === 'slides');
+    items.push({
+      type: 'talk', title: presTitle, year: String(group.year),
+      url: slideLink?.href || '/presentations',
+      search: raw,
+    });
+  }
+}
+
+const codeData = loadYaml<any>('code.yml');
+for (const repo of (codeData.repos || codeData)) {
+  items.push({
+    type: 'code',
+    title: repo.name,
+    owner: repo.owner,
+    lang: repo.language,
+    desc: repo.description,
+    url: repo.url,
+    search: `${repo.owner} ${repo.name} ${repo.description} ${repo.language}`,
+  });
+}
+
+items.push(
+  { type: 'page', title: 'Papers', url: '/papers', search: 'papers publications' },
+  { type: 'page', title: 'Presentations', url: '/presentations', search: 'presentations talks' },
+  { type: 'page', title: 'Code', url: '/code', search: 'code github repos' },
+  { type: 'page', title: 'Teaching', url: '/teaching', search: 'teaching courses' },
+  { type: 'page', title: 'CV', url: '/cv', search: 'cv curriculum vitae' },
+);
+
+const searchIndex = JSON.stringify(items);
+---
+
+<div class="search-overlay" id="search-overlay" hidden>
+  <div class="search-modal" id="search-modal">
+    <div class="search-input-wrap">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+      <input
+        type="text"
+        class="search-input"
+        id="search-input"
+        placeholder="Search papers, presentations, code..."
+        autocomplete="off"
+      />
+      <kbd class="search-kbd">esc</kbd>
+    </div>
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+
+<script type="application/json" id="search-data" set:html={searchIndex} />
+
+<script>
+  import Fuse from 'fuse.js';
+
+  const dataEl = document.getElementById('search-data');
+  const items = JSON.parse(dataEl?.textContent || '[]');
+
+  let fuse: Fuse<any> | null = null;
+  function getFuse() {
+    if (!fuse) {
+      fuse = new Fuse(items, {
+        keys: ['search', 'title'],
+        threshold: 0.35,
+      });
+    }
+    return fuse;
+  }
+
+  const overlay = document.getElementById('search-overlay')!;
+  const input = document.getElementById('search-input') as HTMLInputElement;
+  const results = document.getElementById('search-results')!;
+  const trigger = document.getElementById('search-trigger');
+
+  function open() {
+    overlay.hidden = false;
+    input.value = '';
+    results.innerHTML = '';
+    requestAnimationFrame(() => input.focus());
+  }
+
+  function close() {
+    overlay.hidden = true;
+  }
+
+  const langColors: Record<string, string> = {
+    Python: '#3572A5', TypeScript: '#3178C6', Rust: '#DEA584', Haskell: '#5e5086',
+  };
+
+  function esc(s: string) { return s.replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+
+  function renderItem(item: any): string {
+    switch (item.type) {
+      case 'paper':
+        return `<div class="sr-paper">
+          <span class="sr-badge">paper</span>
+          <div class="sr-body">
+            <span class="sr-title">${esc(item.title)}</span>
+            <span class="sr-sub">${esc(item.authors)}${item.year ? ' · ' + item.year : ''}${item.venue ? ' · <em>' + esc(item.venue) + '</em>' : ''}</span>
+          </div>
+        </div>`;
+      case 'talk':
+        return `<div class="sr-talk">
+          <span class="sr-badge">talk</span>
+          <div class="sr-body">
+            <span class="sr-title">${esc(item.title)}</span>
+            <span class="sr-sub">${item.year}</span>
+          </div>
+        </div>`;
+      case 'code':
+        return `<div class="sr-code">
+          <span class="sr-badge">code</span>
+          <div class="sr-body">
+            <span class="sr-title"><span class="sr-owner">${esc(item.owner)}/</span>${esc(item.title)}</span>
+            <span class="sr-sub"><span class="sr-lang-dot" style="background:${langColors[item.lang] || '#888'}"></span>${item.lang} · ${esc(item.desc.length > 80 ? item.desc.slice(0, 80) + '…' : item.desc)}</span>
+          </div>
+        </div>`;
+      case 'page':
+        return `<div class="sr-page">
+          <span class="sr-badge">page</span>
+          <div class="sr-body">
+            <span class="sr-title">${esc(item.title)}</span>
+          </div>
+        </div>`;
+      default:
+        return `<span>${esc(item.title)}</span>`;
+    }
+  }
+
+  function renderResults(matches: any[]) {
+    if (matches.length === 0) {
+      results.innerHTML = '<div class="search-empty">No results found.</div>';
+      return;
+    }
+
+    const html = matches.slice(0, 10).map((m, i) => {
+      const item = m.item || m;
+      const isExternal = item.url.startsWith('http');
+      return `<a href="${item.url}" class="search-result ${i === 0 ? 'active' : ''}" ${isExternal ? 'target="_blank" rel="noopener noreferrer"' : ''}>
+        ${renderItem(item)}
+      </a>`;
+    }).join('');
+    results.innerHTML = html;
+  }
+
+  // Open triggers
+  trigger?.addEventListener('click', open);
+
+  document.addEventListener('keydown', (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      e.preventDefault();
+      if (overlay.hidden) open(); else close();
+    }
+    if (e.key === 'Escape' && !overlay.hidden) close();
+  });
+
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) close();
+  });
+
+  // Search on input
+  input.addEventListener('input', () => {
+    const query = input.value.trim();
+    if (!query) {
+      results.innerHTML = '';
+      return;
+    }
+    const f = getFuse();
+    const matches = f.search(query);
+    renderResults(matches);
+  });
+
+  // Keyboard navigation in results
+  input.addEventListener('keydown', (e) => {
+    const active = results.querySelector('.search-result.active');
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      const next = active?.nextElementSibling || results.firstElementChild;
+      active?.classList.remove('active');
+      next?.classList.add('active');
+      (next as HTMLElement)?.scrollIntoView({ block: 'nearest' });
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      const prev = active?.previousElementSibling || results.lastElementChild;
+      active?.classList.remove('active');
+      prev?.classList.add('active');
+      (prev as HTMLElement)?.scrollIntoView({ block: 'nearest' });
+    } else if (e.key === 'Enter') {
+      e.preventDefault();
+      if (active) (active as HTMLElement).click();
+    }
+  });
+</script>
+
+<style is:global>
+  .search-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 15vh;
+  }
+
+  .search-overlay[hidden] { display: none; }
+
+  .search-modal {
+    width: 100%;
+    max-width: 640px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.2);
+  }
+
+  .search-input-wrap {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-4) var(--space-6);
+    border-bottom: 1px solid var(--border);
+    color: var(--text-muted);
+  }
+
+  .search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: var(--text-lg);
+    color: var(--text);
+  }
+
+  .search-input::placeholder {
+    color: var(--text-muted);
+  }
+
+  .search-kbd {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    padding: 2px 6px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--text-muted);
+  }
+
+  .search-results {
+    max-height: 400px;
+    overflow-y: auto;
+  }
+
+  .search-result {
+    display: block;
+    padding: var(--space-3) var(--space-6);
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+    text-decoration: none;
+    color: var(--text);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .search-result:last-child { border-bottom: none; }
+
+  .search-result:hover,
+  .search-result.active {
+    background-color: var(--surface);
+  }
+
+  .sr-paper, .sr-talk, .sr-code, .sr-page {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+
+  .sr-badge {
+    font-size: 0.6rem;
+    font-family: var(--font-mono);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+    background: transparent;
+    border: 1px solid var(--accent);
+    border-radius: 3px;
+    padding: 1px 0;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 2px;
+    width: 3.2rem;
+    text-align: center;
+  }
+
+  .sr-body {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+  }
+
+  .sr-title {
+    font-size: var(--text-sm);
+    font-weight: 500;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .sr-owner {
+    color: var(--text-muted);
+    font-weight: 400;
+  }
+
+  .sr-sub {
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .sr-lang-dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+
+  .search-empty {
+    padding: var(--space-8) var(--space-6);
+    text-align: center;
+    color: var(--text-muted);
+    font-size: var(--text-sm);
+  }
+</style>

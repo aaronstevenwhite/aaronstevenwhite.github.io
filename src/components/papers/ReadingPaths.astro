@@ -1,0 +1,99 @@
+---
+import { loadYamlSafe } from '../../lib/data';
+import { loadBibliography } from '../../lib/bibtex';
+
+const data = loadYamlSafe<any>('reading_paths.yml', { paths: [] });
+const bib = loadBibliography();
+
+const paths = data.paths.map((path: any) => ({
+  ...path,
+  papers: path.papers.map((p: any) => {
+    const entry = bib.get(p.bib_key);
+    return { title: entry?.title || p.bib_key, note: p.note };
+  }),
+}));
+---
+
+{paths.length > 0 && (
+  <div class="rp">
+    <div class="rp-header">
+      <span class="rp-label">Start here</span>
+      <span class="rp-divider"></span>
+    </div>
+    <div class="rp-row">
+      {paths.map((path: any) => (
+        <div class="rp-col">
+          <div class="rp-col-title">{path.label}</div>
+          {path.papers.map((p: any) => (
+            <div class="rp-item">
+              <div class="rp-item-title">{p.title}</div>
+              <div class="rp-item-note">{p.note}</div>
+            </div>
+          ))}
+        </div>
+      ))}
+    </div>
+  </div>
+)}
+
+<style is:global>
+  .rp {
+    margin-bottom: var(--space-12);
+  }
+
+  .rp-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+  }
+
+  .rp-label {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+
+  .rp-divider {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .rp-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-8) var(--space-12);
+  }
+
+  @media (max-width: 640px) {
+    .rp-row { grid-template-columns: 1fr; }
+  }
+
+  .rp-col-title {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    margin-bottom: var(--space-3);
+    padding-bottom: var(--space-2);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .rp-item {
+    margin-bottom: var(--space-3);
+  }
+
+  .rp-item-title {
+    font-size: var(--text-xs);
+    line-height: 1.4;
+  }
+
+  .rp-item-note {
+    font-size: 0.65rem;
+    color: var(--accent);
+    font-style: italic;
+    margin-top: 1px;
+  }
+</style>

@@ -1,0 +1,343 @@
+---
+import { loadBibliography } from '../../lib/bibtex';
+import { loadYamlSafe } from '../../lib/data';
+
+const bib = loadBibliography();
+const coauthorUrls = loadYamlSafe<Record<string, string | null>>('coauthor_urls.yml', {});
+
+// Build author → papers mapping and co-authorship edges
+const authorPapers = new Map<string, { title: string; year: string; url?: string }[]>();
+const edgeWeights = new Map<string, number>();
+
+for (const [, entry] of bib) {
+  const authors = entry.authors;
+  for (const author of authors) {
+    if (!authorPapers.has(author)) authorPapers.set(author, []);
+    authorPapers.get(author)!.push({
+      title: entry.title,
+      year: entry.year,
+      url: entry.url || (entry.doi ? `https://doi.org/${entry.doi}` : undefined),
+    });
+  }
+  for (let i = 0; i < authors.length; i++) {
+    for (let j = i + 1; j < authors.length; j++) {
+      const edgeKey = [authors[i], authors[j]].sort().join('|||');
+      edgeWeights.set(edgeKey, (edgeWeights.get(edgeKey) || 0) + 1);
+    }
+  }
+}
+
+// Compute short label: use last "word group" but keep compound surnames
+function shortName(name: string): string {
+  // Known compound surnames
+  if (name.includes('Van Durme')) return 'Van Durme';
+  if (name.includes('Stengel-Eskin')) return 'Stengel-Eskin';
+  if (name.includes('Boyd-Graber')) return 'Boyd-Graber';
+  if (name.includes('Norman-Haignere')) return 'Norman-Haignere';
+  if (name.includes('Kumar Lal')) return 'Lal';
+  const parts = name.split(' ');
+  return parts[parts.length - 1];
+}
+
+const nodes = [...authorPapers.entries()].map(([author, papers]) => ({
+  id: author,
+  short: shortName(author),
+  papers: papers.length,
+  isCenter: author.includes('White') && author.includes('Aaron'),
+  paperList: papers.sort((a, b) => b.year.localeCompare(a.year)),
+  url: coauthorUrls[author] || null,
+}));
+
+const edges = [...edgeWeights.entries()].map(([key, weight]) => {
+  const [source, target] = key.split('|||');
+  return { source, target, weight };
+});
+
+const graphDataJson = JSON.stringify({ nodes, edges });
+---
+
+<div class="cag-container">
+  <h3 class="cag-title">Co-Author Network</h3>
+  <div class="cag-wrap">
+    <div class="cag-graph" id="cag-graph"></div>
+    <div class="cag-panel" id="cag-panel" hidden>
+      <button class="cag-panel-close" id="cag-panel-close">&times;</button>
+      <div id="cag-panel-content"></div>
+    </div>
+  </div>
+</div>
+
+<script type="application/json" id="cag-data" set:html={graphDataJson} />
+
+<script>
+  import * as d3 from 'd3';
+
+  function initGraph() {
+    const container = document.getElementById('cag-graph');
+    const dataEl = document.getElementById('cag-data');
+    const panel = document.getElementById('cag-panel');
+    const panelContent = document.getElementById('cag-panel-content');
+    const panelClose = document.getElementById('cag-panel-close');
+    if (!container || !dataEl) return;
+
+    const data = JSON.parse(dataEl.textContent || '{}');
+    if (!data.nodes?.length) return;
+
+    container.innerHTML = '';
+
+    const width = container.clientWidth || 800;
+    const height = 400;
+
+    const maxPapers = Math.max(...data.nodes.map((n: any) => n.papers));
+    const maxWeight = Math.max(...data.edges.map((e: any) => e.weight));
+
+    function r(papers: number): number {
+      return 3 + (papers / maxPapers) * 15;
+    }
+
+    const svg = d3.select(container)
+      .append('svg')
+      .attr('width', width)
+      .attr('height', height);
+
+    const simulation = d3.forceSimulation(data.nodes)
+      .force('link', d3.forceLink(data.edges).id((d: any) => d.id).distance(60))
+      .force('charge', d3.forceManyBody().strength(-80))
+      .force('center', d3.forceCenter(width / 2, height / 2))
+      .force('collision', d3.forceCollide().radius((d: any) => r(d.papers) + 3))
+      .force('x', d3.forceX(width / 2).strength(0.05))
+      .force('y', d3.forceY(height / 2).strength(0.05));
+
+    const link = svg.append('g')
+      .selectAll('line')
+      .data(data.edges)
+      .join('line')
+      .attr('stroke', 'var(--border)')
+      .attr('stroke-width', 0.5)
+      .attr('stroke-opacity', (d: any) => 0.15 + (d.weight / maxWeight) * 0.5);
+
+    const node = svg.append('g')
+      .selectAll('circle')
+      .data(data.nodes)
+      .join('circle')
+      .attr('r', (d: any) => r(d.papers))
+      .attr('fill', (d: any) => d.isCenter ? 'var(--accent)' : 'var(--text-muted)')
+      .attr('fill-opacity', (d: any) => d.isCenter ? 1 : 0.6)
+      .attr('stroke', 'var(--bg)')
+      .attr('stroke-width', 1)
+      .attr('cursor', 'pointer')
+      .on('click', function(_: any, d: any) {
+        // Reset all nodes
+        node.attr('fill', (n: any) => n.isCenter ? 'var(--accent)' : 'var(--text-muted)')
+            .attr('fill-opacity', (n: any) => n.isCenter ? 1 : 0.6);
+        // Highlight clicked node
+        if (!d.isCenter) {
+          d3.select(this).attr('fill', '#C85A17').attr('fill-opacity', 1);
+        }
+
+        if (!panel || !panelContent) return;
+        const papers = d.paperList || [];
+        const papersHtml = papers.map((p: any) =>
+          p.url
+            ? `<li><a href="${p.url}" target="_blank" rel="noopener noreferrer">${p.title}</a> <span class="cag-year">${p.year}</span></li>`
+            : `<li>${p.title} <span class="cag-year">${p.year}</span></li>`
+        ).join('');
+        const websiteHtml = d.url
+          ? `<a href="${d.url}" class="cag-panel-website" target="_blank" rel="noopener noreferrer">${d.url.replace(/^https?:\/\//, '').replace(/\/$/, '')} &#8599;</a>`
+          : '';
+        panelContent.innerHTML = `
+          <div class="cag-panel-name">${d.id}</div>
+          ${websiteHtml}
+          <div class="cag-panel-count">${d.papers} paper${d.papers !== 1 ? 's' : ''}</div>
+          <ul class="cag-panel-papers">${papersHtml}</ul>
+        `;
+        panel.hidden = false;
+      });
+
+    // Labels for nodes with 3+ papers
+    svg.append('g')
+      .selectAll('text')
+      .data(data.nodes.filter((n: any) => n.papers >= 3))
+      .join('text')
+      .attr('font-size', '9px')
+      .attr('font-family', 'var(--font-sans)')
+      .attr('fill', 'var(--text-muted)')
+      .attr('text-anchor', 'middle')
+      .attr('dy', (d: any) => -r(d.papers) - 4)
+      .text((d: any) => d.short);
+
+    const drag = d3.drag()
+      .on('start', (event: any, d: any) => {
+        if (!event.active) simulation.alphaTarget(0.3).restart();
+        d.fx = d.x; d.fy = d.y;
+      })
+      .on('drag', (event: any, d: any) => {
+        d.fx = event.x; d.fy = event.y;
+      })
+      .on('end', (event: any, d: any) => {
+        if (!event.active) simulation.alphaTarget(0);
+        d.fx = null; d.fy = null;
+      });
+
+    node.call(drag as any);
+
+    // Clamp nodes within bounds
+    const pad = 20;
+    simulation.on('tick', () => {
+      data.nodes.forEach((d: any) => {
+        d.x = Math.max(pad, Math.min(width - pad, d.x));
+        d.y = Math.max(pad, Math.min(height - pad, d.y));
+      });
+
+      link
+        .attr('x1', (d: any) => d.source.x)
+        .attr('y1', (d: any) => d.source.y)
+        .attr('x2', (d: any) => d.target.x)
+        .attr('y2', (d: any) => d.target.y);
+
+      node
+        .attr('cx', (d: any) => d.x)
+        .attr('cy', (d: any) => d.y);
+
+      svg.selectAll('text')
+        .attr('x', (d: any) => d.x)
+        .attr('y', (d: any) => d.y);
+    });
+
+    panelClose?.addEventListener('click', () => { panel!.hidden = true; });
+  }
+
+  function safeInit() {
+    requestAnimationFrame(() => requestAnimationFrame(initGraph));
+  }
+
+  document.addEventListener('astro:page-load', safeInit);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', safeInit);
+  } else {
+    safeInit();
+  }
+</script>
+
+<style is:global>
+  .cag-container {
+    margin: var(--space-12) 0;
+  }
+
+  .cag-title {
+    font-family: var(--font-sans);
+    font-size: var(--text-lg);
+    font-weight: 600;
+    margin-bottom: var(--space-4);
+    color: var(--text);
+  }
+
+  .cag-wrap {
+    position: relative;
+    display: flex;
+    gap: 0;
+  }
+
+  .cag-graph {
+    flex: 1;
+    height: 400px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface);
+  }
+
+  .cag-graph svg {
+    display: block;
+  }
+
+  .cag-panel {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 300px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 0 8px 8px 0;
+    padding: var(--space-6);
+    overflow-y: auto;
+    box-shadow: -4px 0 12px rgba(0,0,0,0.06);
+    z-index: 10;
+  }
+
+  .cag-panel[hidden] { display: none; }
+
+  .cag-panel-close {
+    position: absolute;
+    top: var(--space-3);
+    right: var(--space-3);
+    background: none;
+    border: none;
+    font-size: var(--text-xl);
+    color: var(--text-muted);
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  .cag-panel-name {
+    font-weight: 600;
+    font-size: var(--text-base);
+    margin-bottom: var(--space-1);
+  }
+
+  .cag-panel-website {
+    display: block;
+    font-size: var(--text-xs);
+    color: var(--accent);
+    margin-bottom: var(--space-2);
+    text-decoration: none;
+  }
+
+  .cag-panel-website:hover { text-decoration: underline; }
+
+  .cag-panel-count {
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+    margin-bottom: var(--space-4);
+  }
+
+  .cag-panel-papers {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .cag-panel-papers li {
+    font-size: var(--text-xs);
+    line-height: 1.4;
+    padding-bottom: var(--space-2);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .cag-panel-papers a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .cag-panel-papers a:hover {
+    text-decoration: underline;
+  }
+
+  .cag-year {
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+  }
+
+  @media (max-width: 768px) {
+    .cag-panel {
+      width: 100%;
+      border-radius: 0 0 8px 8px;
+      top: auto;
+      bottom: 0;
+      max-height: 50%;
+    }
+  }
+</style>

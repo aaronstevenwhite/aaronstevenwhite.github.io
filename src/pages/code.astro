@@ -1,0 +1,493 @@
+---
+import fs from 'node:fs';
+import path from 'node:path';
+import Base from '../layouts/Base.astro';
+import { loadYaml } from '../lib/data';
+import Sparkline from '../components/code/Sparkline.astro';
+
+const statsRaw = fs.readFileSync(path.join(process.cwd(), 'src/data/github_stats.json'), 'utf-8');
+const stats: Record<string, number[]> = JSON.parse(statsRaw);
+
+interface Repo {
+  name: string;
+  owner: string;
+  description: string;
+  url: string;
+  language: string;
+  bluesky?: string;
+}
+
+const data = loadYaml<{ repos: Repo[] }>('code.yml');
+const repos = data.repos;
+
+// Load real GitHub language stats (bytes per language per repo)
+const ghLangsRaw = fs.readFileSync(path.join(process.cwd(), 'src/data/github_languages.json'), 'utf-8');
+const ghLangs: Record<string, Record<string, number>> = JSON.parse(ghLangsRaw);
+
+// Aggregate language bytes across all repos for the global bar
+const globalLangBytes = new Map<string, number>();
+for (const repoLangs of Object.values(ghLangs)) {
+  for (const [lang, bytes] of Object.entries(repoLangs)) {
+    globalLangBytes.set(lang, (globalLangBytes.get(lang) || 0) + bytes);
+  }
+}
+
+// Filter to top languages (>0.5% of total)
+const totalBytes = [...globalLangBytes.values()].reduce((a, b) => a + b, 0);
+const significantLangs = [...globalLangBytes.entries()]
+  .filter(([, bytes]) => bytes / totalBytes > 0.005)
+  .sort((a, b) => b[1] - a[1]);
+
+// Language colors
+const langColors: Record<string, string> = {
+  Python: '#3572A5',
+  TypeScript: '#3178C6',
+  Rust: '#DEA584',
+  Haskell: '#5e5086',
+  JavaScript: '#F7DF1E',
+  Shell: '#89e051',
+  CSS: '#563d7c',
+  SCSS: '#c6538c',
+  HTML: '#e34c26',
+  Dockerfile: '#384d54',
+  Makefile: '#427819',
+  PHP: '#4F5D95',
+  Nix: '#7e7eff',
+  TeX: '#3D6117',
+  Lua: '#000080',
+  Go: '#00ADD8',
+  Cypher: '#34495e',
+  Thrift: '#D12127',
+};
+
+// Pre-compute per-repo language breakdowns
+const repoLangBars = new Map<string, { lang: string; bytes: number; pct: number; color: string }[]>();
+for (const repo of repos) {
+  const repoLangs = ghLangs[repo.name];
+  if (!repoLangs) continue;
+  const repoTotal = Object.values(repoLangs).reduce((a, b) => a + b, 0);
+  const topLangs = Object.entries(repoLangs)
+    .sort((a, b) => b[1] - a[1])
+    .filter(([, b]) => b / repoTotal > 0.01);
+  repoLangBars.set(repo.name, topLangs.map(([lang, bytes]) => ({
+    lang, bytes,
+    pct: Math.round(bytes / repoTotal * 1000) / 10,
+    color: langColors[lang] || '#888',
+  })));
+}
+
+// Build language→repos breakdown for click panel
+const langToRepos: Record<string, { name: string; owner: string; pct: number; bytes: number; url: string }[]> = {};
+for (const repo of repos) {
+  const repoLangs = ghLangs[repo.name];
+  if (!repoLangs) continue;
+  const repoTotal = Object.values(repoLangs).reduce((a, b) => a + b, 0);
+  for (const [lang, bytes] of Object.entries(repoLangs)) {
+    if (!langToRepos[lang]) langToRepos[lang] = [];
+    langToRepos[lang].push({
+      name: repo.name,
+      owner: repo.owner,
+      pct: Math.round(bytes / repoTotal * 1000) / 10,
+      bytes,
+      url: repo.url,
+    });
+  }
+}
+// Sort repos within each language by bytes descending
+for (const repos of Object.values(langToRepos)) {
+  repos.sort((a, b) => b.bytes - a.bytes);
+}
+const langToReposJson = JSON.stringify(langToRepos);
+---
+
+<Base title="Code" activeNav="code" description="Open source projects by Aaron Steven White.">
+  <div class="code-page container">
+    <header class="code-header section">
+      <h1>Code</h1>
+    </header>
+
+    <!-- Global language distribution (by bytes across all repos) -->
+    <div class="lang-bar">
+      {significantLangs.map(([lang, bytes]) => (
+        <div
+          class="lang-bar-segment"
+          style={`flex: ${bytes}; background-color: ${langColors[lang] || '#888'}`}
+          title={`${lang}: ${(bytes / totalBytes * 100).toFixed(1)}%`}
+          data-lang-click={lang}
+        />
+      ))}
+    </div>
+    <div class="lang-bar-legend">
+      {significantLangs.map(([lang, bytes]) => (
+        <span class="lang-bar-item">
+          <span class="lang-dot" style={`background-color: ${langColors[lang] || '#888'}`}></span>
+          {lang} <span class="lang-bar-count">{(bytes / totalBytes * 100).toFixed(1)}%</span>
+        </span>
+      ))}
+    </div>
+
+    <div class="repo-grid" id="repo-grid">
+      {repos.map(repo => (
+        <div class="repo-card" data-lang={repo.language} data-url={repo.url} role="link" tabindex="0">
+          <div class="repo-titlebar">
+            <div class="repo-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <span class="repo-name">{repo.owner}/{repo.name}</span>
+          </div>
+          <div class="repo-body">
+            <p class="repo-desc">{repo.description}</p>
+            {repoLangBars.get(repo.name) && (
+              <div class="repo-lang-bar">
+                {repoLangBars.get(repo.name)!.map(entry => (
+                  <div
+                    class="repo-lang-seg"
+                    style={`flex: ${entry.bytes}; background-color: ${entry.color}`}
+                    title={`${entry.lang}: ${entry.pct}%`}
+                  />
+                ))}
+              </div>
+            )}
+            <div class="repo-meta">
+              <span class="repo-lang">
+                <span class="lang-dot" style={`background-color: ${langColors[repo.language] || '#888'}`}></span>
+                {repo.language}
+              </span>
+              {stats[repo.name] && <Sparkline data={stats[repo.name]} />}
+              {repo.bluesky && (
+                <a href={repo.bluesky} class="repo-bluesky" title="Bluesky" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();">
+                  <svg viewBox="0 0 600 530" width="14" height="14" fill="currentColor">
+                    <path d="m135.72 44.03c66.496 49.921 138.02 151.14 164.28 205.46 26.262-54.316 97.782-155.54 164.28-205.46 47.98-36.021 125.72-63.892 125.72 24.795 0 17.712-10.155 148.79-16.111 170.07-20.703 73.984-96.144 92.854-163.25 81.433 117.3 19.964 147.14 86.092 82.697 152.22-122.39 125.59-175.91-31.511-189.63-71.766-2.514-7.3797-3.6904-10.832-3.7077-7.8964-0.0174-2.9357-1.1937 0.51669-3.7077 7.8964-13.72 40.255-67.233 197.36-189.63 71.766-64.444-66.128-34.605-132.26 82.697-152.22-67.108 11.421-142.55-7.4491-163.25-81.433-5.9562-21.282-16.111-152.36-16.111-170.07 0-88.687 77.742-60.816 125.72-24.795z"/>
+                  </svg>
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Language detail popover -->
+    <div class="lang-popover" id="lang-popover" hidden>
+      <button class="lang-popover-close" id="lang-popover-close">&times;</button>
+      <div id="lang-popover-content"></div>
+    </div>
+  </div>
+</Base>
+
+<script type="application/json" id="lang-repos-data" set:html={langToReposJson} />
+
+<script>
+  // Make repo cards clickable
+  document.querySelectorAll('.repo-card[data-url]').forEach(card => {
+    card.addEventListener('click', (e) => {
+      if ((e.target as HTMLElement).closest('a')) return;
+      window.open((card as HTMLElement).dataset.url, '_blank');
+    });
+  });
+
+  // Language bar click → show repos using that language
+  const langData = JSON.parse(document.getElementById('lang-repos-data')?.textContent || '{}');
+  const popover = document.getElementById('lang-popover')!;
+  const popContent = document.getElementById('lang-popover-content')!;
+  const popClose = document.getElementById('lang-popover-close')!;
+
+  document.querySelectorAll('[data-lang-click]').forEach(seg => {
+    seg.addEventListener('click', () => {
+      const lang = (seg as HTMLElement).dataset.langClick!;
+      const repos = langData[lang] || [];
+      if (repos.length === 0) return;
+
+      const totalBytes = repos.reduce((s: number, r: any) => s + r.bytes, 0);
+      const html = repos.map((r: any) =>
+        `<a href="${r.url}" class="lang-pop-repo" target="_blank">
+          <span class="lang-pop-name">${r.owner}/${r.name}</span>
+          <span class="lang-pop-pct">${r.pct}% of repo</span>
+        </a>`
+      ).join('');
+
+      popContent.innerHTML = `
+        <div class="lang-pop-title">${lang}</div>
+        <div class="lang-pop-total">${(totalBytes / 1024).toFixed(0)} KB across ${repos.length} repo${repos.length > 1 ? 's' : ''}</div>
+        <div class="lang-pop-list">${html}</div>
+      `;
+      popover.hidden = false;
+    });
+  });
+
+  // Also make per-repo bar segments clickable
+  document.querySelectorAll('.repo-lang-seg').forEach(seg => {
+    (seg as HTMLElement).style.cursor = 'pointer';
+    seg.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const lang = (seg as HTMLElement).title.split(':')[0];
+      const repos = langData[lang] || [];
+      if (repos.length === 0) return;
+
+      const totalBytes = repos.reduce((s: number, r: any) => s + r.bytes, 0);
+      const html = repos.map((r: any) =>
+        `<a href="${r.url}" class="lang-pop-repo" target="_blank">
+          <span class="lang-pop-name">${r.owner}/${r.name}</span>
+          <span class="lang-pop-pct">${r.pct}% of repo</span>
+        </a>`
+      ).join('');
+
+      popContent.innerHTML = `
+        <div class="lang-pop-title">${lang}</div>
+        <div class="lang-pop-total">${(totalBytes / 1024).toFixed(0)} KB across ${repos.length} repo${repos.length > 1 ? 's' : ''}</div>
+        <div class="lang-pop-list">${html}</div>
+      `;
+      popover.hidden = false;
+    });
+  });
+
+  popClose.addEventListener('click', () => { popover.hidden = true; });
+</script>
+
+<style is:global>
+  /* Popover + dynamic styles need global scope */
+  .lang-popover {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: var(--space-8);
+    z-index: 500;
+    box-shadow: 0 24px 48px rgba(0,0,0,0.2);
+    max-width: 400px;
+    width: 90%;
+  }
+  .lang-popover[hidden] { display: none; }
+  .lang-popover-close {
+    position: absolute;
+    top: var(--space-3);
+    right: var(--space-4);
+    background: none;
+    border: none;
+    font-size: var(--text-xl);
+    color: var(--text-muted);
+    cursor: pointer;
+  }
+  .lang-pop-title { font-weight: 600; font-size: var(--text-lg); margin-bottom: var(--space-1); }
+  .lang-pop-total { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: var(--space-4); }
+  .lang-pop-list { display: flex; flex-direction: column; gap: var(--space-2); }
+  .lang-pop-repo {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: var(--space-2) var(--space-3); border: 1px solid var(--border);
+    border-radius: 6px; text-decoration: none; color: var(--text);
+    transition: border-color var(--transition-fast);
+  }
+  .lang-pop-repo:hover { border-color: var(--accent); }
+  .lang-pop-name { font-family: var(--font-mono); font-size: var(--text-sm); }
+  .lang-pop-pct { font-size: var(--text-xs); color: var(--text-muted); }
+  .repo-card.dimmed { opacity: 0.25; transform: scale(0.98); }
+  .repo-card.highlighted { box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3), 0 8px 24px rgba(0, 0, 0, 0.2); }
+</style>
+
+<style>
+  .code-header {
+    padding-top: calc(var(--space-32) + 60px);
+    padding-bottom: var(--space-8);
+  }
+
+  .repo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+    padding-bottom: var(--space-24);
+  }
+
+  @media (max-width: 768px) {
+    .repo-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .repo-card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--code-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    text-decoration: none;
+  }
+
+  .repo-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  .repo-titlebar {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    background-color: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .repo-dots {
+    display: flex;
+    gap: 6px;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    transition: transform var(--transition-fast);
+  }
+
+  .repo-card:hover .dot { transform: scale(1.2); }
+
+  .dot-red { background-color: #FF5F57; }
+  .dot-yellow { background-color: #FEBC2E; }
+  .dot-green { background-color: #28C840; }
+
+  .repo-name {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .repo-body {
+    padding: var(--space-6);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .repo-desc {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--code-text);
+    line-height: 1.6;
+    flex: 1;
+    margin-bottom: var(--space-4);
+  }
+
+  .repo-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .repo-lang {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .lang-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+  .repo-lang-bar {
+    display: flex;
+    height: 3px;
+    border-radius: 2px;
+    overflow: hidden;
+    gap: 1px;
+    margin-bottom: var(--space-3);
+  }
+
+  .repo-lang-seg {
+    border-radius: 2px;
+  }
+
+  .repo-bluesky {
+    display: flex;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.5);
+    transition: color var(--transition-fast);
+  }
+
+  .repo-bluesky:hover {
+    color: #0085ff;
+  }
+
+  .lang-bar {
+    display: flex;
+    height: 6px;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: var(--space-2);
+    gap: 2px;
+  }
+
+  .lang-bar-segment {
+    border-radius: 3px;
+    transition: opacity var(--transition-fast);
+    cursor: pointer;
+  }
+
+  .lang-bar-segment:hover {
+    opacity: 0.8;
+  }
+
+  .lang-bar-legend {
+    display: flex;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-8);
+  }
+
+  .lang-bar-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+  }
+
+  .lang-bar-item .lang-dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .lang-bar-count {
+    font-variant-numeric: tabular-nums;
+  }
+
+</style>
+
+<script>
+  let activeLang: string | null = null;
+
+  document.addEventListener('filter-by-lang', ((e: CustomEvent) => {
+    const lang = e.detail;
+    const cards = document.querySelectorAll('.repo-card');
+
+    if (activeLang === lang) {
+      // Toggle off
+      activeLang = null;
+      cards.forEach(card => {
+        card.classList.remove('highlighted', 'dimmed');
+      });
+      return;
+    }
+
+    activeLang = lang;
+    cards.forEach(card => {
+      const cardLang = (card as HTMLElement).dataset.lang;
+      if (cardLang === lang) {
+        card.classList.add('highlighted');
+        card.classList.remove('dimmed');
+      } else {
+        card.classList.add('dimmed');
+        card.classList.remove('highlighted');
+      }
+    });
+  }) as EventListener);
+</script>

@@ -1,0 +1,168 @@
+---
+import { loadYaml } from '../../lib/data';
+
+const data = loadYaml<any>('code.yml');
+const repos = data.repos;
+
+const langColors: Record<string, string> = {
+  Python: '#3572A5',
+  TypeScript: '#3178C6',
+  Rust: '#DEA584',
+  Haskell: '#5e5086',
+  JavaScript: '#F7DF1E',
+};
+
+// Build repo lookup
+const repoMap = new Map<string, { name: string; language: string; url: string }>();
+for (const r of repos) {
+  repoMap.set(r.name, { name: r.name, language: r.language, url: r.url });
+}
+
+// Hardcoded relationships: [from, to, label]
+const edges: [string, string, string][] = [
+  ['layers', 'panproto', 'depends on'],
+  ['chive', 'layers', 'similar patterns'],
+  ['bead', 'decomp', 'collects for'],
+  ['fovea', 'connotate', 'annotation tool'],
+  ['glazing', 'decomp', 'models for'],
+];
+
+// Fixed node positions in a grid-like layout
+// SVG viewBox: 700 x 250
+interface NodePos {
+  name: string;
+  x: number;
+  y: number;
+  lang: string;
+  url: string;
+}
+
+const positions: Record<string, [number, number]> = {
+  // Top row: ATProto ecosystem
+  panproto:  [100, 45],
+  layers:    [250, 45],
+  chive:     [400, 45],
+  // Middle row: data/annotation tools
+  decomp:    [100, 130],
+  glazing:   [250, 130],
+  connotate: [400, 130],
+  fovea:     [550, 130],
+  // Bottom row: other tools & libraries
+  bead:      [100, 215],
+  slopit:    [250, 215],
+  arcweight: [400, 215],
+  spectrans: [550, 215],
+  pds:       [660, 45],
+};
+
+const nodes: NodePos[] = repos.map((r: any) => ({
+  name: r.name,
+  x: positions[r.name]?.[0] ?? 350,
+  y: positions[r.name]?.[1] ?? 125,
+  lang: r.language,
+  url: r.url,
+}));
+
+// Compute edges with coordinates
+const edgeData = edges.map(([from, to, label]) => {
+  const fromPos = positions[from];
+  const toPos = positions[to];
+  if (!fromPos || !toPos) return null;
+  return { from, to, label, x1: fromPos[0], y1: fromPos[1], x2: toPos[0], y2: toPos[1] };
+}).filter(Boolean) as { from: string; to: string; label: string; x1: number; y1: number; x2: number; y2: number }[];
+---
+
+<div class="dep-graph-wrapper">
+  <svg class="dep-graph-svg" viewBox="0 0 730 250" preserveAspectRatio="xMidYMid meet">
+    <defs>
+      <marker id="dep-arrow" viewBox="0 0 10 10" refX="9" refY="5"
+              markerWidth="6" markerHeight="6" orient="auto-start-reverse"
+              fill="rgba(255,255,255,0.25)">
+        <path d="M 0 0 L 10 5 L 0 10 z" />
+      </marker>
+    </defs>
+
+    {/* Edges */}
+    {edgeData.map(e => {
+      // Shorten line so it doesn't overlap the node text
+      const dx = e.x2 - e.x1;
+      const dy = e.y2 - e.y1;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      const pad = 35;
+      const ux = dx / dist;
+      const uy = dy / dist;
+      const sx = e.x1 + ux * pad;
+      const sy = e.y1 + uy * pad;
+      const ex = e.x2 - ux * pad;
+      const ey = e.y2 - uy * pad;
+
+      return (
+        <line
+          x1={sx} y1={sy} x2={ex} y2={ey}
+          stroke="rgba(255,255,255,0.15)"
+          stroke-width="1.5"
+          marker-end="url(#dep-arrow)"
+        />
+      );
+    })}
+
+    {/* Nodes */}
+    {nodes.map(n => (
+      <a href={n.url} target="_blank" rel="noopener noreferrer" class="dep-graph-node-link">
+        <circle
+          cx={n.x} cy={n.y} r="22"
+          fill={langColors[n.lang] || '#888'}
+          opacity="0.18"
+          class="dep-graph-node-bg"
+        />
+        <circle
+          cx={n.x} cy={n.y} r="22"
+          fill="none"
+          stroke={langColors[n.lang] || '#888'}
+          stroke-width="1.5"
+          opacity="0.5"
+          class="dep-graph-node-ring"
+        />
+        <text
+          x={n.x} y={n.y + 4}
+          text-anchor="middle"
+          class="dep-graph-node-label"
+        >{n.name}</text>
+      </a>
+    ))}
+  </svg>
+</div>
+
+<style is:global>
+  .dep-graph-wrapper {
+    max-height: 250px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .dep-graph-svg {
+    width: 100%;
+    max-height: 250px;
+  }
+
+  .dep-graph-node-label {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    fill: rgba(255, 255, 255, 0.8);
+    pointer-events: none;
+  }
+
+  .dep-graph-node-link:hover .dep-graph-node-bg {
+    opacity: 0.35;
+  }
+
+  .dep-graph-node-link:hover .dep-graph-node-ring {
+    opacity: 0.9;
+    stroke-width: 2;
+  }
+
+  .dep-graph-node-link:hover .dep-graph-node-label {
+    fill: #fff;
+  }
+</style>

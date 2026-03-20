@@ -1,0 +1,78 @@
+---
+import { loadYamlSafe } from '../../lib/data';
+
+interface NewsItem {
+  date: string;
+  text: string;
+  links?: { label: string; url: string }[];
+}
+
+const news = loadYamlSafe<NewsItem[]>('news.yml', []);
+---
+
+{news.length > 0 && (
+  <section class="section now">
+    <div class="container">
+      <h2 class="section-heading">News</h2>
+      <div class="now-items">
+        {news.map((item) => (
+          <div class="now-item">
+            <time class="now-date" datetime={item.date}>
+              {new Date(item.date + 'T00:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+            </time>
+            <p class="now-text" set:html={item.text} />
+            {item.links && (
+              <div class="now-links">
+                {item.links.map((link) => (
+                  <a href={link.url} class="link now-link" target="_blank" rel="noopener noreferrer">
+                    {link.label} &#8599;
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+<style>
+  .section-heading {
+    margin-bottom: var(--space-8);
+  }
+
+  .now-items {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+    max-width: var(--content-width);
+  }
+
+  .now-item {
+    padding-left: var(--space-6);
+    border-left: 2px solid var(--border);
+  }
+
+  .now-date {
+    display: block;
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+    margin-bottom: var(--space-2);
+  }
+
+  .now-text {
+    margin-bottom: var(--space-2);
+  }
+
+  .now-links {
+    display: flex;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+  }
+
+  .now-link {
+    font-size: var(--text-sm);
+  }
+</style>

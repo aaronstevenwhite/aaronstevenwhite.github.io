@@ -1,0 +1,57 @@
+---
+interface Props {
+  href: string;
+}
+
+const { href } = Astro.props;
+
+// Check if there's a thumbnail for this PDF
+const isPdf = href.endsWith('.pdf');
+const thumbPath = isPdf
+  ? href.replace('/presentations/slides/', '/presentations/thumbs/').replace('.pdf', '.png')
+  : null;
+---
+
+{thumbPath ? (
+  <a href={href} class="slide-preview" target="_blank" rel="noopener noreferrer" title="View slides">
+    <img src={thumbPath} alt="Slide preview" class="slide-thumb" loading="lazy" />
+    <span class="slide-preview-label">slides</span>
+  </a>
+) : (
+  <a href={href} class="icon-link" target="_blank" rel="noopener noreferrer" title="View slides">
+    slides
+  </a>
+)}
+
+<style is:global>
+  .slide-preview {
+    display: inline-block;
+    position: relative;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+    max-width: 120px;
+  }
+
+  .slide-preview:hover {
+    border-color: var(--accent);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  .slide-thumb {
+    width: 120px;
+    height: auto;
+    display: block;
+  }
+
+  .slide-preview-label {
+    display: block;
+    text-align: center;
+    font-size: 0.6rem;
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+    padding: 2px 0;
+    background: var(--surface);
+  }
+</style>

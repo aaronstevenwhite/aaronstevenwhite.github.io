@@ -1,0 +1,76 @@
+grants:
+  - agency: "National Science Foundation"
+    number: "NSF-BCS/IIS-2237175"
+    title: "CAREER: Logical Form Induction"
+    amount: 497928
+    start: 2023
+    end: 2028
+    role: "PI"
+    url: "https://www.nsf.gov/awardsearch/showAward?AWD_ID=2237175"
+  - agency: "National Science Foundation"
+    number: "NSF-BCS-2040831"
+    title: "Computational Modeling of the Internal Structure of Events"
+    amount: 449932
+    start: 2021
+    end: 2024
+    role: "PI (Lead Organization)"
+    url: "https://www.nsf.gov/awardsearch/showAward?AWD_ID=2040831"
+  - agency: "National Science Foundation"
+    number: "NSF-BCS-1748969"
+    title: "The MegaAttitude Project: Investigating selection and polysemy at the scale of the lexicon"
+    amount: 407930
+    start: 2018
+    end: 2022
+    role: "PI (Lead Organization)"
+    url: "https://www.nsf.gov/awardsearch/showAward?AWD_ID=1748969"
+  - agency: "National Science Foundation"
+    number: "NSF-BCS-2214933"
+    title: "The typology of subordinate clauses: A study of Zulu"
+    amount: 439222
+    start: 2022
+    end: 2025
+    role: "Co-PI"
+    url: "https://nsf.gov/awardsearch/showAward?AWD_ID=2214933"
+  - agency: "National Science Foundation"
+    number: "NSF-BCS-DDRIG-1456013"
+    title: "Learning attitude verb meanings"
+    amount: 18112
+    start: 2015
+    end: 2016
+    role: "Co-PI"
+    url: "https://www.nsf.gov/awardsearch/showAward?AWD_ID=1456013"
+
+contracts:
+  - agency: "Intelligence Advanced Research Projects Activity"
+    number: "IARPA BETTER"
+    title: "Multilingual Decompositional Analysis and Retrieval"
+    amount: 2868000
+    start: 2019
+    end: 2022
+    role: "Co-PI"
+  - agency: "Defense Advanced Research Projects Agency"
+    number: "DARPA AIDA"
+    title: "Multimodal Decompositional Semantics"
+    amount: 3213569
+    start: 2018
+    end: 2022
+    role: "Co-PI"
+  - agency: "Defense Advanced Research Projects Agency"
+    number: "DARPA KAIROS"
+    title: "Decompositional Schema Induction and Prediction"
+    amount: 4045546
+    start: 2019
+    end: 2021
+    role: "Co-PI"
+
+fellowships:
+  - title: "Distinguished Postdoctoral Fellowship"
+    institution: "Science of Learning Institute, Johns Hopkins University"
+    start: 2015
+    end: 2017
+  - title: "Baggett Post-Baccalaureate Fellowship"
+    url: "https://linguistics.umd.edu/academic-programs/graduate/baggett-post-bac-fellowship"
+    institution: "Department of Linguistics, University of Maryland, College Park"
+    institution_url: "http://ling.umd.edu/"
+    start: 2009
+    end: 2010

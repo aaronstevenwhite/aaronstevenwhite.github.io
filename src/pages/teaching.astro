@@ -1,0 +1,147 @@
+---
+import Base from '../layouts/Base.astro';
+import { loadYamlSafe } from '../lib/data';
+
+interface Course {
+  number: string;
+  title: string;
+  description: string;
+  syllabus_slug?: string;
+  course_notes_url?: string;
+}
+
+interface TeachingData {
+  current: Course[];
+  previous: Course[];
+}
+
+const teaching = loadYamlSafe<TeachingData>('teaching.yml', { current: [], previous: [] });
+---
+
+<Base title="Teaching" activeNav="teaching" description="Courses taught by Aaron Steven White.">
+  <div class="teaching-page container">
+    <header class="teaching-header section">
+      <h1>Teaching</h1>
+    </header>
+
+    <div class="teaching-content content">
+      {teaching.current.length > 0 && (
+        <section class="course-section">
+          <h2>Current Courses</h2>
+          <div class="course-list">
+            {teaching.current.map(course => (
+              <div class="course-card">
+                <div class="course-header-row">
+                  <span class="course-number">{course.number}</span>
+                  <span class="course-links">
+                    {course.course_notes_url && (
+                      <a href={course.course_notes_url} class="link course-syllabus-link" target="_blank" rel="noopener noreferrer">
+                        Notes &#8599;
+                      </a>
+                    )}
+                    {course.syllabus_slug && (
+                      <a href={`/teaching/${course.syllabus_slug}`} class="link course-syllabus-link">
+                        Syllabus &#8599;
+                      </a>
+                    )}
+                  </span>
+                </div>
+                <h3 class="course-title">{course.title}</h3>
+                <p class="course-desc">{course.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {teaching.previous.length > 0 && (
+        <section class="course-section">
+          <h2>Previously Taught</h2>
+          <div class="course-list muted">
+            {teaching.previous.map(course => (
+              <div class="course-card">
+                <span class="course-number">{course.number}</span>
+                <h3 class="course-title">{course.title}</h3>
+                <p class="course-desc">{course.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+    </div>
+  </div>
+</Base>
+
+<style>
+  .teaching-header {
+    padding-top: calc(var(--space-32) + 60px);
+    padding-bottom: var(--space-8);
+  }
+
+  .course-section {
+    margin-bottom: var(--space-16);
+  }
+
+  .course-section h2 {
+    margin-bottom: var(--space-8);
+  }
+
+  .course-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .course-list.muted .course-card {
+    opacity: 0.7;
+  }
+
+  .course-list.muted .course-card:hover {
+    opacity: 1;
+  }
+
+  .course-card {
+    padding: var(--space-6);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    transition: all var(--transition-fast);
+  }
+
+  .course-card:hover {
+    border-color: var(--accent);
+  }
+
+  .course-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .course-number {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .course-links {
+    display: flex;
+    gap: var(--space-4);
+  }
+
+  .course-syllabus-link {
+    font-size: var(--text-sm);
+  }
+
+  .course-title {
+    font-size: var(--text-xl);
+    margin: var(--space-2) 0 var(--space-3);
+  }
+
+  .course-desc {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    line-height: var(--leading-relaxed);
+    margin-bottom: 0;
+  }
+</style>

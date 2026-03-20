@@ -1,0 +1,263 @@
+course:
+  number: "LING 224/424"
+  title: "Introduction to Computational Linguistics"
+  semester: "Spring 2026"
+  university: "University of Rochester"
+  department: "Department of Linguistics"
+  slug: "ling-224-424-spring-2026"
+
+instructor:
+  name: "Aaron Steven White"
+  office: "511A Lattimore Hall"
+  website: "http://aaronstevenwhite.io"
+  office_hours:
+    type: "by-appointment"
+    url: "https://app.squarespacescheduling.com/schedule.php?owner=26977798&appointmentType=36264617"
+
+meetings:
+  days: "Monday & Wednesday"
+  time: "12:30 PM - 1:45 PM"
+  location: "Lattimore 513"
+
+workshop:
+  days: "Friday"
+  time: "9:00 AM - 10:15 AM"
+  leader: "Helena Feng"
+
+communication:
+  platform: "Zulip"
+  url: "https://intro-to-cl-spring-2026.zulipchat.com/"
+  notes: ""
+
+course_notes_url: "http://aaronstevenwhite.io/intro-to-cl/"
+description: "This course covers foundational concepts in computational linguistics. Major focus is placed on the use of formal languages as a tool for understanding natural language as well as on developing students' ability to implement foundational algorithms pertaining to those formal languages. Topics include basic formal language theory, finite state phonological and morphological parsing, and syntactic parsing for context free grammars and mildly context sensitive formalisms."
+prerequisites:
+  - "LIN110 (Introduction to Linguistic Analysis)"
+  - "CSC161 (Introduction To Programming) or equivalent"
+credits: 4
+
+learning_objectives: []
+
+materials:
+  textbooks: []
+  software:
+    - name: "Python"
+      description: "Programming language"
+      url: "https://www.python.org/downloads/"
+    - name: "Jupyter"
+      description: "Interactive notebook environment"
+      url: "https://jupyter.org/"
+    - name: "Anaconda"
+      description: "Python distribution for data science"
+      url: "https://www.anaconda.com/distribution/"
+    - name: "Google Colab"
+      description: "Cloud-based Jupyter notebook environment"
+      url: "https://colab.research.google.com/notebooks/welcome.ipynb"
+  readings:
+    - title: "Course notes"
+      authors: ""
+      url: "http://aaronstevenwhite.io/intro-to-cl/"
+      notes: "There are two kinds of readings in this course: (i) the course notes and (ii) primary and secondary sources. For each module, I will specify the primary and secondary sources you should read for that module at the beginning of the course notes for that module. I expect you to read both before the lecture they are associated with and will assume that you have."
+
+assessment:
+  tracks:
+    - track: "LING 224"
+      components:
+        - name: "Weekly Assignments"
+          weight: 80
+          details: "Homework assignments distributed as Jupyter notebooks, consisting of programming tasks in Python and short response questions"
+        - name: "Participation"
+          weight: 20
+          details: "Based half on recitation attendance and half on attending office hours at least twice by Thursday, Mar. 5"
+    - track: "LING 424"
+      components:
+        - name: "Weekly Assignments"
+          weight: 70
+          details: "Homework assignments distributed as Jupyter notebooks, consisting of programming tasks in Python and short response questions"
+        - name: "Project"
+          weight: 30
+          details: "Implement an agenda-based multiple context free grammar (MCFG) parser, packaged using standard Python packaging conventions with a full suite of unit tests using a unit testing framework (preferably pytest). Due Tuesday, May 5."
+  homework_notes:
+    - "Homeworks will be assigned weekly throughout the semester."
+    - "They will generally consist of a mix of programming tasks in Python and short response questions distributed as a Jupyter notebook."
+    - "The homework problems for a particular week will be discussed in the workshop, and so they must be turned in via Blackboard before the start of the workshop (even for students taking LING424)."
+    - "Grading focuses on reasonable effort over correctness: (i) you have made some demonstrable progress on completing that task; and (ii) if you are unable to complete a task, you must provide a very detailed description of where you are getting stuck with reference to your code."
+    - "A major component of each homework assignment is unit testing. Fully half of the grade for each programming task is based on the unit tests you write. These tests do not need to be written in a unit testing framework (e.g. pytest), but they must check for the correctness of a piece of code and raise an exception if that piece of code does not function in the expected way. They must not simply print results that you check manually."
+    - "You can write unit tests before you write the code they test. In fact, you should be writing unit tests before you write the code they test. These tests are easy credit."
+  workshop_notes: "This course has an associated workshop led by Helena Feng. For students taking LING224, attendance at the workshop is mandatory and part of the overall course grade."
+  exams: "There are no exams in this course."
+  extra_credit: "You can earn 2% extra credit by attending both of the following linguistics colloquia: Jane Chandlee (Haverford College) on Friday, Apr. 3, 2-3:30pm in Bausch and Lomb 106; and Aniello De Santo (University of Utah) on Friday, Apr. 24, 2-3:30pm in Dewey 1101 Auditorium. You must attend both to get the extra credit. Attending one is not sufficient. An additional 3% extra credit is available for students who ask a question during the question period after both talks. Both the base 2% and the additional 3% are all or nothing."
+  grading_scale:
+    notes: "All grades are curved to account for task and assignment difficulty. This curving is implemented in a way that guarantees students receive a grade that is at least as good as (and generally better than) the grade they would receive using a standard 3-4% grading band system -- i.e. 97-100% maps to A+ (for LING224 only), 93-97% maps to A, 90-93% maps to A-, 87-90% maps to B+, etc."
+
+policies:
+  late_work: "Homeworks should be submitted before the workshop each week -- i.e. by the start of the recitation (9am on Fridays). Because homeworks are discussed in workshop, no late work will be accepted unless I have given you an extension prior to the deadline. You must ask for an extension at least 48 hours before the deadline, unless you are asking because it is an emergency."
+  academic_integrity: "All assignments and activities associated with this course must be performed in accordance with the University of Rochester's Academic Honesty Policy. More information is available at: http://www.rochester.edu/college/honesty/"
+  ai_policy: ""
+  accessibility: "Any student who needs special accommodations due to a disability should let me know privately, at the start of the semester."
+  exceptions: "Students will not be penalized because of important civic, ethnic, family or religious obligations, or university service. You will have a chance, whenever feasible, to make up within a reasonable time any assignment that is missed for these reasons. Absences for these reasons will count as excused for the sake of the participation grade. But it is your job to inform me of any expected absences in advance, as soon as possible."
+  credit_hour: "This course follows the College credit hour policy for four-credit courses, which stipulates that students are expected to complete a 'fourth period' in addition to the course instructional time of two class periods per week. In this course, students will use this 'fourth period' for enriched independent study using readings and other class materials, including those associated with the course project."
+
+schedule:
+  - date: "Jan 21"
+    topic: "The role of computation in linguistics"
+    reading: null
+  - date: "Jan 23"
+    topic: "Developing the notion of strings and"
+    reading: null
+  - date: "Jan 26"
+    topic: "languages as formal objects"
+    reading: null
+    continuation: true
+  - date: "Jan 28"
+    topic: "Grammars as languages that describe languages"
+    reading: null
+  - date: "Feb 02"
+    topic: "Grammars as languages that describe languages (continued)"
+    reading: null
+    continuation: true
+  - date: "Feb 04"
+    topic: "Uncertainty about languages"
+    reading: null
+  - date: "Feb 09"
+    topic: "Uncertainty about languages (continued)"
+    reading: null
+    continuation: true
+  - date: "Feb 11"
+    topic: "Describing languages in terms of strings"
+    reading:
+      text: "de Marneffe & Potts 2017"
+      url: "https://doi.org/10.1007/978-94-024-0881-2_16"
+  - date: "Feb 16"
+    topic: "Describing languages in terms of strings (continued)"
+    reading:
+      text: "Hunter to appear"
+      url: "https://timhunter.humspace.ucla.edu/papers/CompetencePerformanceCambridge.pdf"
+    continuation: true
+  - date: "Feb 18"
+    topic: "The relationship between languages"
+    reading:
+      text: "Gorman & Sproat 2022 (Ch. 2)"
+      url: "https://link.springer.com/book/10.1007/978-3-031-02179-4"
+  - date: "Feb 23"
+    topic: "The relationship between languages and their use"
+    reading:
+      text: "Piantadosi 2014"
+      url: "https://doi.org/10.3758/s13423-014-0585-6"
+    continuation: true
+  - date: "Feb 25"
+    topic: "The nature of phonological patterns"
+    reading:
+      text: "Heinz 2018 (Sec. 1-4)"
+      url: "https://www.jeffreyheinz.net/papers/Heinz-CNPG-2016.pdf"
+  - date: "Mar 02"
+    topic: "Recognizing well-formed words"
+    reading: null
+    continuation: true
+  - date: "Mar 04"
+    topic: "Analyzing well-formed words"
+    reading: null
+    continuation: true
+  - date: "Mar 09"
+    topic: "No class (spring break)"
+    reading: null
+    break: true
+  - date: "Mar 11"
+    topic: "No class (spring break)"
+    reading: null
+    break: true
+  - date: "Mar 16"
+    topic: "Describing phonological rules"
+    reading: null
+    continuation: true
+  - date: "Mar 18"
+    topic: "Mapping between rule descriptions"
+    reading: null
+    continuation: true
+  - date: "Mar 23"
+    topic: "The nature of morphological patterns"
+    reading:
+      text: "Chandlee 2017; Oseki & Marantz 2020"
+      urls:
+        - "https://doi.org/10.1007/s11525-017-9316-9"
+        - "https://doi.org/10.3389/fpsyg.2020.513740"
+  - date: "Mar 25"
+    topic: "Recognizing well-formed words (redux)"
+    reading: null
+    continuation: true
+  - date: "Mar 30"
+    topic: "Analyzing well-formed words (redux)"
+    reading: null
+    continuation: true
+  - date: "Apr 01"
+    topic: "Predicting upcoming morphemes in a word"
+    reading: null
+    continuation: true
+  - date: "Apr 06"
+    topic: "Word and sentence analysis as deduction"
+    reading:
+      text: "Shieber et al. 1993 (Sec. 1-3)"
+      url: "https://doi.org/10.1016/0743-1066(95)00035-I"
+  - date: "Apr 08"
+    topic: "The nature of syntactic patterns"
+    reading: null
+  - date: "Apr 13"
+    topic: "Alternative formalizations of"
+    reading:
+      text: "Clark 2014"
+      url: "https://alexc17.github.io/static/pdfs/mcfgsforlinguists.pdf"
+    continuation: true
+  - date: "Apr 15"
+    topic: "the notion of a gap"
+    reading:
+      text: "Kallmeyer 2013"
+      url: "https://doi.org/10.1002/lnc3.359"
+    continuation: true
+  - date: "Apr 20"
+    topic: "Recognizing well-formed sentences"
+    reading: null
+    continuation: true
+  - date: "Apr 22"
+    topic: "Recognizing well-formed sentences (continued)"
+    reading: null
+    continuation: true
+  - date: "Apr 27"
+    topic: "Recognizing well-formed sentences (continued)"
+    reading: null
+    continuation: true
+  - date: "Apr 29"
+    topic: "Recognizing well-formed sentences (continued)"
+    reading: null
+    continuation: true
+
+references:
+  - key: "chandlee2017"
+    text: "Chandlee, J. 2017. Computational locality in morphological maps. Morphology 27, 599-641."
+    url: "https://doi.org/10.1007/s11525-017-9316-9"
+  - key: "clark2014"
+    text: "Clark, A. 2014. An introduction to multiple context free grammars for linguists."
+    url: "https://alexc17.github.io/static/pdfs/mcfgsforlinguists.pdf"
+  - key: "gorman2022"
+    text: "Gorman, K., & Sproat, R. 2022. Finite-State Text Processing. Morgan & Claypool."
+    url: "https://link.springer.com/book/10.1007/978-3-031-02179-4"
+  - key: "heinz2018"
+    text: "Heinz, J. 2018. The computational nature of phonological generalizations. In Larry Hyman and Frans Plank, editors, Phonological Typology, Phonetics and Phonology, chapter 5, pages 126-195. De Gruyter Mouton."
+    url: "https://www.jeffreyheinz.net/papers/Heinz-CNPG-2016.pdf"
+  - key: "hunter"
+    text: "Hunter, T. to appear. Competence and Performance. In K. Grohmann & E. Leivada (eds.), The Cambridge Handbook of Minimalism."
+    url: "https://timhunter.humspace.ucla.edu/papers/CompetencePerformanceCambridge.pdf"
+  - key: "kallmeyer2013"
+    text: "Kallmeyer, L. 2013. Linear Context-Free Rewriting Systems. Language and Linguistics Compass 7/1: 22-38."
+    url: "https://doi.org/10.1002/lnc3.359"
+  - key: "demarneffe2017"
+    text: "de Marneffe, M.-C. & Potts, C. 2017. Developing Linguistic Theories Using Annotated Corpora. In Handbook of Linguistic Annotation (pp. 411-438). Springer Netherlands."
+    url: "https://doi.org/10.1007/978-94-024-0881-2_16"
+  - key: "oseki2020"
+    text: "Oseki, Y. & Marantz, A. 2020. Modeling Human Morphological Competence. Frontiers in Psychology 11."
+    url: "https://doi.org/10.3389/fpsyg.2020.513740"
+  - key: "piantadosi2014"
+    text: "Piantadosi, S.T. 2014. Zipf's word frequency law in natural language: A critical review and future directions. Psychonomic Bulletin & Review 21, 1112-1130."
+    url: "https://doi.org/10.3758/s13423-014-0585-6"
+  - key: "shieber1993"
+    text: "Shieber, S., Y. Schabes, & F. Pereira. 1993. Principles and implementation of deductive parsing. The Journal of Logic Programming, 3-36."
+    url: "https://doi.org/10.1016/0743-1066(95)00035-I"

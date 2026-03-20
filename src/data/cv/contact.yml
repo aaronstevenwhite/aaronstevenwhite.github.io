@@ -1,0 +1,20 @@
+name: "Aaron Steven White"
+title: "Associate Professor"
+department: "Department of Linguistics"
+university: "University of Rochester"
+address:
+  building: "511A Lattimore Hall"
+  street: "500 Joseph C. Wilson Blvd."
+  city: "Rochester, NY 14627"
+email: "aaron.white@rochester.edu"
+website: "http://aaronstevenwhite.io"
+labsite: "http://factslab.io"
+github: "aaronstevenwhite"
+bluesky: "aaronstevenwhite.io"
+linkedin: "aaronstevenwhite"
+keywords:
+  - computational psycholinguistics
+  - linguistic theory
+  - first language acquisition
+  - semantics
+  - syntax

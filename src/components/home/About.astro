@@ -1,0 +1,117 @@
+---
+const socialLinks = [
+  { label: 'Email', href: 'mailto:aaron.white@rochester.edu', icon: 'email' },
+  { label: 'GitHub', href: 'https://github.com/aaronstevenwhite', icon: 'github' },
+  { label: 'Bluesky', href: 'https://bsky.app/profile/aaronstevenwhite.io', icon: 'bluesky' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/aaronstevenwhite/', icon: 'linkedin' },
+  { label: 'Office', href: 'https://maps.app.goo.gl/Quo4Wxhzs4PyoDQN6', icon: 'location' },
+];
+---
+
+<section class="section about">
+  <div class="container">
+    <h2 class="section-heading">About</h2>
+    <div class="about-grid">
+      <div class="about-photo-wrap">
+        <img
+          src="/assets/images/aaron-white.jpg"
+          alt="Aaron Steven White"
+          class="about-photo"
+          loading="lazy"
+        />
+      </div>
+      <div class="about-text">
+        <p>
+          I'm an Associate Professor in the
+          <a href="http://www.sas.rochester.edu/lin/index.html" class="link" target="_blank" rel="noopener noreferrer">Department of Linguistics</a>
+          at the University of Rochester, with a secondary appointment in the
+          <a href="https://www.cs.rochester.edu/" class="link" target="_blank" rel="noopener noreferrer">Department of Computer Science</a>
+          and an affiliation with the
+          <a href="http://www.sas.rochester.edu/dsc/" class="link" target="_blank" rel="noopener noreferrer">Goergen Institute for Data Science</a>.
+          I'm also Director of the
+          <a href="https://www.sas.rochester.edu/cls/" class="link" target="_blank" rel="noopener noreferrer">Center for Language Sciences</a>
+          and the
+          <a href="http://factslab.io" class="link" target="_blank" rel="noopener noreferrer">Formal and Computational Semantics Lab</a>
+          (FACTS.lab).
+        </p>
+        <div class="social-links">
+          {socialLinks.map((link) => (
+            <a
+              href={link.href}
+              class="social-link"
+              target={link.href.startsWith('mailto:') ? undefined : '_blank'}
+              rel={link.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
+              title={link.label}
+            >
+              <span class="social-label">{link.label}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-heading {
+    margin-bottom: var(--space-8);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: var(--space-12);
+    max-width: var(--content-width);
+    align-items: start;
+  }
+
+  @media (max-width: 640px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+    }
+  }
+
+  .about-photo-wrap {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+  }
+
+  .about-photo {
+    width: 100%;
+    filter: grayscale(40%);
+    transition: filter var(--transition-normal);
+  }
+
+  .about-photo-wrap:hover .about-photo {
+    filter: grayscale(0%);
+  }
+
+  .about-text p {
+    margin-bottom: var(--space-6);
+  }
+
+  .social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+
+  .social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    padding: var(--space-1) var(--space-3);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    transition: all var(--transition-fast);
+  }
+
+  .social-link:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+</style>

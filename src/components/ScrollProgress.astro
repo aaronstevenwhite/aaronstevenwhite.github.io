@@ -1,0 +1,27 @@
+---
+---
+
+<div class="scroll-progress" id="scroll-progress"></div>
+
+<style>
+  .scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2px;
+    background-color: var(--accent);
+    z-index: 1000;
+    width: 0%;
+    transition: width 50ms linear;
+  }
+</style>
+
+<script>
+  const bar = document.getElementById('scroll-progress');
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    if (bar) bar.style.width = `${progress}%`;
+  }, { passive: true });
+</script>

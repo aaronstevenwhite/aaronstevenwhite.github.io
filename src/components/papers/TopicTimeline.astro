@@ -1,0 +1,267 @@
+---
+import { loadYaml } from '../../lib/data';
+import { loadBibliography, getCitation } from '../../lib/bibtex';
+
+const papersData = loadYaml<any>('papers.yml');
+const papers = Array.isArray(papersData) ? papersData : papersData.papers;
+const topicsData = loadYaml<any>('topics.yml');
+const topics = Array.isArray(topicsData) ? topicsData : topicsData.topics;
+const bib = loadBibliography();
+
+// Resolve papers with titles
+const resolved = papers
+  .map((p: any) => {
+    const entry = p.bib_key ? bib.get(p.bib_key) : null;
+    if (p.citation === 'bib' && !entry) return null;
+    const title = entry?.title || p.citation;
+    const year = entry?.year || (p.citation.match(/\b(19|20)\d{2}\b/)?.[0]);
+    const url = entry?.url || (entry?.doi ? `https://doi.org/${entry.doi}` : null);
+    if (!year) return null;
+    return { title, year, tags: p.tags || [], url };
+  })
+  .filter(Boolean);
+
+const startYear = 2014;
+const endYear = 2025;
+const yearRange: number[] = [];
+for (let y = startYear; y <= endYear; y++) yearRange.push(y);
+
+// Build grid: count + paper list per (topic, year)
+const grid = new Map<string, Map<number, any[]>>();
+let maxCount = 1;
+
+for (const topic of topics) {
+  const row = new Map<number, any[]>();
+  for (const y of yearRange) row.set(y, []);
+  grid.set(topic.tag, row);
+}
+
+for (const paper of resolved) {
+  const y = parseInt(paper.year, 10);
+  if (y < startYear || y > endYear) continue;
+  for (const tag of paper.tags) {
+    const row = grid.get(tag);
+    if (row) {
+      row.get(y)!.push({ title: paper.title, url: paper.url });
+      if (row.get(y)!.length > maxCount) maxCount = row.get(y)!.length;
+    }
+  }
+}
+
+// Build dot data for client-side click handling
+const dotData: Record<string, { topic: string; year: number; papers: { title: string; url?: string }[] }> = {};
+for (const topic of topics) {
+  const row = grid.get(topic.tag)!;
+  for (const y of yearRange) {
+    const papers = row.get(y)!;
+    if (papers.length > 0) {
+      dotData[`${topic.tag}-${y}`] = { topic: topic.name, year: y, papers };
+    }
+  }
+}
+const dotDataJson = JSON.stringify(dotData);
+
+// SVG layout
+const leftMargin = 180;
+const topMargin = 10;
+const cellWidth = 40;
+const cellHeight = 30;
+const svgWidth = leftMargin + yearRange.length * cellWidth + 10;
+const svgHeight = topMargin + topics.length * cellHeight + 25;
+const maxRadius = 10;
+const minRadius = 3;
+---
+
+<div class="tl-container">
+  <h2 class="tl-heading">Research Timeline</h2>
+  <div class="tl-wrap">
+    <div class="tl-scroll">
+      <svg
+        viewBox={`0 0 ${svgWidth} ${svgHeight}`}
+        width="100%"
+        preserveAspectRatio="xMidYMid meet"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        {yearRange.map((y, i) => (
+          <text
+            x={leftMargin + i * cellWidth + cellWidth / 2}
+            y={topMargin + topics.length * cellHeight + 20}
+            text-anchor="middle"
+            class="tl-axis"
+          >{y}</text>
+        ))}
+
+        {topics.map((topic: any, rowIdx: number) => {
+          const cy = topMargin + rowIdx * cellHeight + cellHeight / 2;
+          const row = grid.get(topic.tag)!;
+          return (
+            <g>
+              <text x={leftMargin - 12} y={cy + 4} text-anchor="end" class="tl-topic">{topic.name}</text>
+              <line x1={leftMargin} y1={cy} x2={leftMargin + yearRange.length * cellWidth} y2={cy} class="tl-guide" />
+              {yearRange.map((y, colIdx) => {
+                const papers = row.get(y)!;
+                if (papers.length === 0) return null;
+                const count = papers.length;
+                const r = minRadius + (count / maxCount) * (maxRadius - minRadius);
+                const opacity = 0.3 + (count / maxCount) * 0.7;
+                const cx = leftMargin + colIdx * cellWidth + cellWidth / 2;
+                return (
+                  <circle
+                    cx={cx} cy={cy} r={r}
+                    fill="var(--accent)"
+                    opacity={opacity}
+                    class="tl-dot"
+                    data-dot-id={`${topic.tag}-${y}`}
+                    style="cursor: pointer;"
+                  />
+                );
+              })}
+            </g>
+          );
+        })}
+      </svg>
+    </div>
+    <div class="tl-popover" id="tl-popover" hidden>
+      <button class="tl-popover-close" id="tl-popover-close">&times;</button>
+      <div id="tl-popover-content"></div>
+    </div>
+  </div>
+</div>
+
+<script type="application/json" id="tl-dot-data" set:html={dotDataJson} />
+
+<script>
+  const dotData = JSON.parse(document.getElementById('tl-dot-data')?.textContent || '{}');
+  const popover = document.getElementById('tl-popover')!;
+  const popContent = document.getElementById('tl-popover-content')!;
+  const popClose = document.getElementById('tl-popover-close')!;
+
+  document.querySelectorAll('.tl-dot').forEach(dot => {
+    dot.addEventListener('click', (e) => {
+      const id = (dot as HTMLElement).dataset.dotId;
+      if (!id || !dotData[id]) return;
+      const d = dotData[id];
+
+      // Highlight clicked dot
+      document.querySelectorAll('.tl-dot').forEach(d => (d as SVGElement).style.stroke = 'none');
+      (dot as SVGElement).style.stroke = '#C85A17';
+      (dot as SVGElement).style.strokeWidth = '2.5';
+
+      const html = d.papers.map((p: any) =>
+        p.url
+          ? `<li><a href="${p.url}" target="_blank">${p.title}</a></li>`
+          : `<li>${p.title}</li>`
+      ).join('');
+
+      popContent.innerHTML = `
+        <div class="tl-pop-heading">${d.topic} · ${d.year}</div>
+        <ul class="tl-pop-list">${html}</ul>
+      `;
+      popover.hidden = false;
+    });
+  });
+
+  popClose.addEventListener('click', () => {
+    popover.hidden = true;
+    document.querySelectorAll('.tl-dot').forEach(d => (d as SVGElement).style.stroke = 'none');
+  });
+</script>
+
+<style is:global>
+  .tl-container { margin: var(--space-12) 0; }
+
+  .tl-heading {
+    font-family: var(--font-sans);
+    font-size: var(--text-lg);
+    font-weight: 600;
+    margin-bottom: var(--space-4);
+    color: var(--text);
+  }
+
+  .tl-wrap { position: relative; }
+
+  .tl-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    max-width: 800px;
+  }
+
+  .tl-axis {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    fill: var(--text-muted);
+  }
+
+  .tl-topic {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    fill: var(--text);
+  }
+
+  .tl-guide {
+    stroke: var(--border);
+    stroke-width: 1;
+    stroke-dasharray: 2 4;
+  }
+
+  .tl-dot:hover {
+    stroke: var(--text);
+    stroke-width: 1.5;
+  }
+
+  .tl-popover {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    max-height: 100%;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: var(--space-6);
+    overflow-y: auto;
+    box-shadow: -4px 0 12px rgba(0,0,0,0.06);
+    z-index: 10;
+  }
+
+  .tl-popover[hidden] { display: none; }
+
+  .tl-popover-close {
+    position: absolute;
+    top: var(--space-2);
+    right: var(--space-3);
+    background: none;
+    border: none;
+    font-size: var(--text-xl);
+    color: var(--text-muted);
+    cursor: pointer;
+  }
+
+  .tl-pop-heading {
+    font-weight: 600;
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-3);
+  }
+
+  .tl-pop-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .tl-pop-list li {
+    font-size: var(--text-xs);
+    line-height: 1.4;
+    padding-bottom: var(--space-2);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .tl-pop-list a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .tl-pop-list a:hover { text-decoration: underline; }
+</style>

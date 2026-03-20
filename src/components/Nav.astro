@@ -1,0 +1,270 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+
+interface Props {
+  active?: string;
+}
+
+const { active = '' } = Astro.props;
+
+const links = [
+  { href: '/papers', label: 'Papers', id: 'papers' },
+  { href: '/presentations', label: 'Presentations', id: 'presentations' },
+  { href: '/code', label: 'Code', id: 'code' },
+  { href: '/data', label: 'Data', id: 'data' },
+  { href: '/teaching', label: 'Teaching', id: 'teaching' },
+  { href: '/cv', label: 'CV', id: 'cv' },
+  { href: 'http://factslab.io', label: 'Lab', id: 'lab', external: true },
+];
+---
+
+<nav class="nav" id="main-nav">
+  <div class="nav-inner container">
+    <a href="/" class="nav-name">
+      <span class="nav-name-full">Aaron Steven White</span>
+      <span class="nav-name-short">ASW</span>
+    </a>
+
+    <div class="nav-links" id="nav-links">
+      {links.map(link => (
+        <a
+          href={link.href}
+          class:list={['nav-link', { active: active === link.id }]}
+          {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+        >
+          {link.label}
+          {link.external && <span class="external-icon" aria-hidden="true">&#8599;</span>}
+        </a>
+      ))}
+      <ThemeToggle />
+      <button class="nav-search-btn" id="search-trigger" aria-label="Search" title="Search (⌘K)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
+    </div>
+
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile slide-out panel -->
+<div class="nav-panel" id="nav-panel">
+  <div class="nav-panel-links">
+    {links.map(link => (
+      <a
+        href={link.href}
+        class:list={['nav-panel-link', { active: active === link.id }]}
+        {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+      >
+        {link.label}
+        {link.external && <span class="external-icon">&#8599;</span>}
+      </a>
+    ))}
+  </div>
+</div>
+<div class="nav-overlay" id="nav-overlay"></div>
+
+<style>
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: var(--space-4) 0;
+    background-color: var(--bg);
+    transition: box-shadow var(--transition-normal);
+  }
+
+  .nav.scrolled {
+    box-shadow: 0 1px 0 var(--border);
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-name {
+    font-family: var(--font-serif);
+    font-size: var(--text-lg);
+    color: var(--text);
+    transition: color var(--transition-fast);
+  }
+
+  .nav-name:hover { color: var(--accent); }
+
+  .nav-name-short { display: none; }
+
+  @media (max-width: 768px) {
+    .nav-name-full { display: none; }
+    .nav-name-short { display: inline; }
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+  }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+  }
+
+  .nav-link {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    transition: color var(--transition-fast);
+    position: relative;
+  }
+
+  .nav-link:hover { color: var(--text); }
+
+  .nav-link.active {
+    color: var(--text);
+  }
+
+  .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 1.5px;
+    background-color: var(--accent);
+    border-radius: 1px;
+  }
+
+  .external-icon {
+    font-size: 0.7em;
+    margin-left: 1px;
+    opacity: 0.5;
+  }
+
+  .nav-search-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all var(--transition-fast);
+  }
+
+  .nav-search-btn:hover {
+    color: var(--text);
+    background-color: var(--surface);
+  }
+
+  /* Mobile toggle */
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-2);
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 20px;
+    height: 1.5px;
+    background-color: var(--text);
+    transition: all var(--transition-fast);
+  }
+
+  @media (max-width: 768px) {
+    .nav-toggle { display: flex; }
+  }
+
+  /* Mobile panel */
+  .nav-panel {
+    position: fixed;
+    top: 0;
+    right: -280px;
+    width: 280px;
+    height: 100dvh;
+    background-color: var(--bg);
+    z-index: 200;
+    padding: var(--space-16) var(--space-8);
+    transition: right var(--transition-normal);
+    border-left: 1px solid var(--border);
+  }
+
+  .nav-panel.open { right: 0; }
+
+  .nav-panel-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .nav-panel-link {
+    font-family: var(--font-serif);
+    font-size: var(--text-2xl);
+    color: var(--text-muted);
+    transition: color var(--transition-fast);
+  }
+
+  .nav-panel-link:hover,
+  .nav-panel-link.active { color: var(--text); }
+
+  .nav-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 199;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-normal);
+  }
+
+  .nav-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+</style>
+
+<script>
+  // Scroll detection for backdrop blur
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav?.classList.toggle('scrolled', window.scrollY > 10);
+  }, { passive: true });
+
+  // Mobile menu toggle
+  const toggle = document.getElementById('nav-toggle');
+  const panel = document.getElementById('nav-panel');
+  const overlay = document.getElementById('nav-overlay');
+
+  function closeMenu() {
+    panel?.classList.remove('open');
+    overlay?.classList.remove('open');
+    toggle?.setAttribute('aria-expanded', 'false');
+  }
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = panel?.classList.toggle('open');
+    overlay?.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  overlay?.addEventListener('click', closeMenu);
+
+  // Close on escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
+</script>

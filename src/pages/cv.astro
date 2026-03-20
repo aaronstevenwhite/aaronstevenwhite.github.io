@@ -1,0 +1,639 @@
+---
+import Base from '../layouts/Base.astro';
+import { loadYaml, loadYamlSafe } from '../lib/data';
+
+const contact = loadYamlSafe<any>('cv/contact.yml', null);
+const positions = loadYamlSafe<any>('cv/positions.yml', null);
+const education = loadYamlSafe<any>('cv/education.yml', null);
+const awards = loadYamlSafe<any>('cv/awards.yml', null);
+const advising = loadYamlSafe<any>('cv/advising.yml', null);
+const service = loadYamlSafe<any>('cv/service.yml', null);
+const hasData = contact !== null;
+
+function yearRange(start: number, end: number | null): string {
+  return end ? `${start}–${end}` : `${start}–present`;
+}
+
+function formatAmount(amount: number): string {
+  return '$' + amount.toLocaleString('en-US');
+}
+
+function adviseeYear(s: any): string {
+  return s.expected ? `exp. ${s.year}` : String(s.year);
+}
+
+function adviseeDetail(s: any): string {
+  const parts = [s.degree, s.department, s.institution].filter(Boolean);
+  return parts.length > 0 ? `, ${parts.join(', ')}` : '';
+}
+
+const sections = [
+  { id: 'positions', label: 'Positions' },
+  { id: 'education', label: 'Education' },
+  { id: 'awards', label: 'Awards' },
+  { id: 'papers', label: 'Papers' },
+  { id: 'presentations', label: 'Presentations' },
+  { id: 'resources', label: 'Resources' },
+  { id: 'teaching', label: 'Teaching' },
+  { id: 'advising', label: 'Advising' },
+  { id: 'service', label: 'Service' },
+];
+---
+
+<Base title="CV" activeNav="cv" description="Curriculum Vitae of Aaron Steven White.">
+  <div class="cv-page container">
+    <header class="cv-header section">
+      <div class="cv-header-row">
+        <h1>Curriculum Vitae</h1>
+        <a href="/cv.pdf" class="btn" target="_blank" rel="noopener noreferrer">
+          Download PDF &#8599;
+        </a>
+      </div>
+    </header>
+
+    {!hasData ? (
+      <div class="cv-content content">
+        <p class="cv-placeholder">CV data is loading. <a href="/cv.pdf" class="link">Download PDF</a> in the meantime.</p>
+      </div>
+    ) : (
+      <div class="cv-layout">
+        <!-- Sticky sidebar TOC -->
+        <nav class="cv-toc">
+          {sections.map(s => (
+            <a href={`#${s.id}`} class="toc-link">{s.label}</a>
+          ))}
+        </nav>
+
+        <div class="cv-content">
+          <!-- Contact header -->
+          <div class="cv-contact">
+            <div class="cv-contact-left">
+              <h2 class="cv-name">{contact.name}</h2>
+              <p class="cv-title-line">{contact.title}, {contact.department}</p>
+              <p class="cv-title-line">{contact.university}</p>
+            </div>
+            <div class="cv-contact-right">
+              <div class="cv-contact-item">
+                <a href={`mailto:${contact.email}`} class="link">{contact.email}</a>
+              </div>
+              <div class="cv-contact-item">
+                <a href={contact.website} class="link" target="_blank">{contact.website}</a>
+              </div>
+              <div class="cv-contact-item">
+                <a href={contact.labsite} class="link" target="_blank">{contact.labsite}</a>
+              </div>
+              <div class="cv-contact-item">
+                <a href={`https://github.com/${contact.github}`} class="link" target="_blank">github.com/{contact.github}</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Positions -->
+          {positions && (
+            <section id="positions" class="cv-section">
+              <h2>Positions</h2>
+
+              <h3>Full-time appointments</h3>
+              {positions.full_time?.map((p: any) => (
+                <div class="cv-entry">
+                  <span class="cv-year">{yearRange(p.start, p.end)}</span>
+                  <div class="cv-detail">
+                    <strong>{p.title}</strong>, {p.institution}
+                    <div class="cv-sub">Primary: {p.primary_url ? <a href={p.primary_url} class="link" target="_blank">{p.primary}</a> : p.primary}{p.secondary && <Fragment> · Secondary: {p.secondary_url ? <a href={p.secondary_url} class="link" target="_blank">{p.secondary}</a> : p.secondary}</Fragment>}</div>
+                    {p.affiliations?.length > 0 && (
+                      <div class="cv-sub">Affiliations: {p.affiliations.map((a: any, i: number) => (
+                        <Fragment>{i > 0 && ', '}{typeof a === 'string' ? a : (a.url ? <a href={a.url} class="link" target="_blank">{a.name}</a> : a.name)}</Fragment>
+                      ))}</div>
+                    )}
+                  </div>
+                </div>
+              ))}
+
+              <h3>Temporary appointments</h3>
+              {positions.temporary?.map((p: any) => (
+                <div class="cv-entry">
+                  <span class="cv-year">{p.year}</span>
+                  <div class="cv-detail">
+                    <strong>{p.title}</strong>, {p.event_url ? <a href={p.event_url} class="link" target="_blank">{p.event}</a> : p.event}. {p.institution}.
+                  </div>
+                </div>
+              ))}
+            </section>
+          )}
+
+          <!-- Education -->
+          {education && (
+            <section id="education" class="cv-section">
+              <h2>Education</h2>
+              {(Array.isArray(education) ? education : [education]).map((e: any) => (
+                <div class="cv-entry">
+                  <span class="cv-year">{e.year}</span>
+                  <div class="cv-detail">
+                    <strong>{e.degree} {e.field}</strong>, {e.institution}
+                    {e.thesis && (
+                      <div class="cv-sub">
+                        Thesis: <a href={e.thesis.doi} class="link" target="_blank">{e.thesis.title}</a>
+                      </div>
+                    )}
+                    {e.advisors && (
+                      <div class="cv-sub">Advisors: {e.advisors.map((a: any, i: number) => (
+                        <Fragment>{i > 0 && ', '}{typeof a === 'string' ? a : (a.url ? <a href={a.url} class="link" target="_blank">{a.name}</a> : a.name)}</Fragment>
+                      ))}</div>
+                    )}
+                    {e.committee && (
+                      <div class="cv-sub">Committee: {e.committee.map((c: any, i: number) => (
+                        <Fragment>{i > 0 && ', '}{typeof c === 'string' ? c : (c.url ? <a href={c.url} class="link" target="_blank">{c.name}</a> : c.name)}</Fragment>
+                      ))}</div>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </section>
+          )}
+
+          <!-- Awards -->
+          {awards && (
+            <section id="awards" class="cv-section">
+              <h2>Awards</h2>
+
+              {awards.grants?.length > 0 && (
+                <Fragment>
+                  <h3>Grants</h3>
+                  {awards.grants.map((g: any) => (
+                    <div class="cv-entry">
+                      <span class="cv-year">{yearRange(g.start, g.end)}</span>
+                      <div class="cv-detail">
+                        <strong>{g.role}</strong>. {g.agency} {g.number}.
+                        <span class="cv-amount">{formatAmount(g.amount)}</span>
+                        <div class="cv-sub">{g.url ? <a href={g.url} class="link" target="_blank">{g.title}</a> : g.title}</div>
+                      </div>
+                    </div>
+                  ))}
+                </Fragment>
+              )}
+
+              {awards.contracts?.length > 0 && (
+                <Fragment>
+                  <h3>Contracts</h3>
+                  {awards.contracts.map((c: any) => (
+                    <div class="cv-entry">
+                      <span class="cv-year">{yearRange(c.start, c.end)}</span>
+                      <div class="cv-detail">
+                        <strong>{c.role}</strong>. {c.agency} {c.program}.
+                        <span class="cv-amount">{formatAmount(c.amount)}</span>
+                        <div class="cv-sub">{c.title}</div>
+                      </div>
+                    </div>
+                  ))}
+                </Fragment>
+              )}
+
+              {awards.fellowships?.length > 0 && (
+                <Fragment>
+                  <h3>Fellowships</h3>
+                  {awards.fellowships.map((f: any) => (
+                    <div class="cv-entry">
+                      <span class="cv-year">{yearRange(f.start, f.end)}</span>
+                      <div class="cv-detail">
+                        <strong>{f.url ? <a href={f.url} class="link" target="_blank">{f.title}</a> : f.title}</strong>. {f.institution_url ? <a href={f.institution_url} class="link" target="_blank">{f.institution}</a> : f.institution}.
+                      </div>
+                    </div>
+                  ))}
+                </Fragment>
+              )}
+            </section>
+          )}
+
+          <!-- Papers -->
+          <section id="papers" class="cv-section">
+            <h2>Papers</h2>
+            <p class="cv-link-out"><a href="/papers" class="link">See all papers &rarr;</a></p>
+          </section>
+
+          <!-- Presentations -->
+          <section id="presentations" class="cv-section">
+            <h2>Presentations</h2>
+            <p class="cv-link-out"><a href="/presentations" class="link">See all presentations &rarr;</a></p>
+          </section>
+
+          <!-- Resources -->
+          <section id="resources" class="cv-section">
+            <h2>Resources</h2>
+            <h3>Software</h3>
+            <p class="cv-link-out"><a href="/code" class="link">See all code &rarr;</a></p>
+            <h3>Data</h3>
+            <p class="cv-link-out"><a href="/data" class="link">See all data &rarr;</a></p>
+          </section>
+
+          <!-- Teaching -->
+          <section id="teaching" class="cv-section">
+            <h2>Teaching</h2>
+            <p class="cv-link-out"><a href="/teaching" class="link">See all courses &rarr;</a></p>
+          </section>
+
+          <!-- Advising -->
+          {advising && (
+            <section id="advising" class="cv-section">
+              <h2>Advising</h2>
+
+              {advising.primary_phd?.length > 0 && (
+                <Fragment>
+                  <h3>Primary PhD Advising</h3>
+                  {advising.primary_phd.map((s: any) => (
+                    <div class="cv-entry">
+                      <span class="cv-year">{adviseeYear(s)}</span>
+                      <div class="cv-detail">
+                        {s.url ? <a href={s.url} class="link" target="_blank">{s.name}</a> : s.name}{adviseeDetail(s)}
+                      </div>
+                    </div>
+                  ))}
+                </Fragment>
+              )}
+
+              {advising.secondary_phd?.length > 0 && (
+                <Fragment>
+                  <h3>Secondary PhD Advising</h3>
+                  {advising.secondary_phd.map((s: any) => (
+                    <div class="cv-entry">
+                      <span class="cv-year">{adviseeYear(s)}</span>
+                      <div class="cv-detail">
+                        {s.url ? <a href={s.url} class="link" target="_blank">{s.name}</a> : s.name}{adviseeDetail(s)}
+                      </div>
+                    </div>
+                  ))}
+                </Fragment>
+              )}
+
+              {advising.ms_ma?.length > 0 && (
+                <Fragment>
+                  <h3>MS/MA Advising</h3>
+                  {advising.ms_ma.map((s: any) => (
+                    <div class="cv-entry">
+                      <span class="cv-year">{s.year}</span>
+                      <div class="cv-detail">
+                        {s.url ? <a href={s.url} class="link" target="_blank">{s.name}</a> : s.name}{adviseeDetail(s)}
+                      </div>
+                    </div>
+                  ))}
+                </Fragment>
+              )}
+
+              {advising.undergraduate_honors?.length > 0 && (
+                <Fragment>
+                  <h3>Undergraduate Honors Thesis</h3>
+                  {advising.undergraduate_honors.map((s: any) => (
+                    <div class="cv-entry">
+                      <span class="cv-year">{s.year}</span>
+                      <div class="cv-detail">
+                        {s.url ? <a href={s.url} class="link" target="_blank">{s.name}</a> : s.name}{adviseeDetail(s)}
+                      </div>
+                    </div>
+                  ))}
+                </Fragment>
+              )}
+
+              {advising.thesis_committees?.length > 0 && (
+                <Fragment>
+                  <h3>Thesis Committees</h3>
+                  {advising.thesis_committees.map((s: any) => (
+                    <div class="cv-entry">
+                      <span class="cv-year">{adviseeYear(s)}</span>
+                      <div class="cv-detail">
+                        {s.name}{adviseeDetail(s)}
+                      </div>
+                    </div>
+                  ))}
+                </Fragment>
+              )}
+
+              {advising.thesis_defense_chair?.length > 0 && (
+                <Fragment>
+                  <h3>Thesis Defense Chair</h3>
+                  {advising.thesis_defense_chair.map((s: any) => (
+                    <div class="cv-entry">
+                      <span class="cv-year">{s.year}</span>
+                      <div class="cv-detail">
+                        {s.name}{adviseeDetail(s)}
+                      </div>
+                    </div>
+                  ))}
+                </Fragment>
+              )}
+            </section>
+          )}
+
+          <!-- Service -->
+          {service && (
+            <section id="service" class="cv-section">
+              <h2>Service</h2>
+
+              {service.university_roles?.length > 0 && (
+                <Fragment>
+                  <h3>University roles</h3>
+                  {service.university_roles.map((r: any) => (
+                    <div class="cv-entry">
+                      <span class="cv-year">{yearRange(r.start, r.end)}</span>
+                      <div class="cv-detail">{r.role || r.title}{(r.body || r.department) ? `, ${r.body || r.department}` : ''}{r.institution ? `, ${r.institution}` : ''}</div>
+                    </div>
+                  ))}
+                </Fragment>
+              )}
+
+              {service.departmental_roles?.length > 0 && (
+                <Fragment>
+                  <h3>Departmental roles</h3>
+                  {service.departmental_roles.map((r: any) => (
+                    <div class="cv-entry">
+                      <span class="cv-year">{yearRange(r.start, r.end)}</span>
+                      <div class="cv-detail">{r.role || r.title}{(r.body || r.department) ? `, ${r.body || r.department}` : ''}{r.institution ? `, ${r.institution}` : ''}</div>
+                    </div>
+                  ))}
+                </Fragment>
+              )}
+
+              {service.departmental_service?.length > 0 && (
+                <Fragment>
+                  <h3>Other departmental service</h3>
+                  {service.departmental_service.map((r: any) => (
+                    <div class="cv-entry">
+                      <span class="cv-year">{yearRange(r.start, r.end)}</span>
+                      <div class="cv-detail">{r.role || r.title}{(r.body || r.department) ? `, ${r.body || r.department}` : ''}{r.institution ? `, ${r.institution}` : ''}</div>
+                    </div>
+                  ))}
+                </Fragment>
+              )}
+
+              {service.university_service?.length > 0 && (
+                <Fragment>
+                  <h3>Other university service</h3>
+                  {service.university_service.map((r: any) => (
+                    <div class="cv-entry">
+                      <span class="cv-year">{r.year || yearRange(r.start, r.end)}</span>
+                      <div class="cv-detail">{r.role}{r.institution ? `, ${r.institution}` : ''}</div>
+                    </div>
+                  ))}
+                </Fragment>
+              )}
+
+              {service.grant_reviewing_panel?.length > 0 && (
+                <Fragment>
+                  <h3>Grant reviewing (panel)</h3>
+                  <ul class="cv-list">
+                    {service.grant_reviewing_panel.map((g: any) => <li>{typeof g === 'string' ? g : g.agency}</li>)}
+                  </ul>
+                </Fragment>
+              )}
+
+              {service.grant_reviewing_adhoc?.length > 0 && (
+                <Fragment>
+                  <h3>Grant reviewing (ad hoc)</h3>
+                  <ul class="cv-list">
+                    {service.grant_reviewing_adhoc.map((g: any) => <li>{typeof g === 'string' ? g : g.agency}</li>)}
+                  </ul>
+                </Fragment>
+              )}
+
+              {service.journal_reviewing_standing?.length > 0 && (
+                <Fragment>
+                  <h3>Journal reviewing (standing)</h3>
+                  <ul class="cv-list">
+                    {service.journal_reviewing_standing.map((j: any) => <li>{typeof j === 'string' ? j : j.journal}</li>)}
+                  </ul>
+                </Fragment>
+              )}
+
+              {service.journal_reviewing_adhoc?.length > 0 && (
+                <Fragment>
+                  <h3>Journal reviewing (ad hoc)</h3>
+                  <ul class="cv-list">
+                    {service.journal_reviewing_adhoc.map((j: string) => <li>{j}</li>)}
+                  </ul>
+                </Fragment>
+              )}
+
+              {service.chapter_reviewing?.length > 0 && (
+                <Fragment>
+                  <h3>Chapter reviewing</h3>
+                  <ul class="cv-list">
+                    {service.chapter_reviewing.map((c: any) => <li>{typeof c === 'string' ? c : c.publisher}</li>)}
+                  </ul>
+                </Fragment>
+              )}
+
+              {service.conference_organizing?.length > 0 && (
+                <Fragment>
+                  <h3>Conference organizing</h3>
+                  <ul class="cv-list">
+                    {service.conference_organizing.map((c: any) => <li>{typeof c === 'string' ? c : `${c.role}, ${c.event}`}</li>)}
+                  </ul>
+                </Fragment>
+              )}
+
+              {service.workshop_organizing?.length > 0 && (
+                <Fragment>
+                  <h3>Workshop organizing</h3>
+                  <ul class="cv-list">
+                    {service.workshop_organizing.map((w: any) => <li>{typeof w === 'string' ? w : `${w.role}, ${w.event}`}</li>)}
+                  </ul>
+                </Fragment>
+              )}
+
+              {service.conference_senior_pc?.length > 0 && (
+                <Fragment>
+                  <h3>Conference senior program committee</h3>
+                  <ul class="cv-list">
+                    {service.conference_senior_pc.map((c: any) => <li>{typeof c === 'string' ? c : c}</li>)}
+                  </ul>
+                </Fragment>
+              )}
+
+              {service.conference_pc?.length > 0 && (
+                <Fragment>
+                  <h3>Conference program committee</h3>
+                  <ul class="cv-list">
+                    {service.conference_pc.map((c: any) => <li>{typeof c === 'string' ? c : c}</li>)}
+                  </ul>
+                </Fragment>
+              )}
+
+              {service.conference_reviewing?.length > 0 && (
+                <Fragment>
+                  <h3>Conference reviewing</h3>
+                  <ul class="cv-list">
+                    {service.conference_reviewing.map((c: any) => (
+                      <li>{typeof c === 'string' ? c : `${c.venue} (${c.years})`}</li>
+                    ))}
+                  </ul>
+                </Fragment>
+              )}
+            </section>
+          )}
+
+        </div>
+      </div>
+    )}
+  </div>
+</Base>
+
+<style>
+  .cv-header {
+    padding-top: calc(var(--space-32) + 60px);
+    padding-bottom: var(--space-8);
+  }
+
+  .cv-header-row {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-8);
+    flex-wrap: wrap;
+  }
+
+  .cv-placeholder {
+    padding: var(--space-24) 0;
+    color: var(--text-muted);
+  }
+
+  .cv-layout {
+    display: grid;
+    grid-template-columns: 10rem 1fr;
+    gap: var(--space-12);
+    padding-bottom: var(--space-24);
+  }
+
+  @media (max-width: 960px) {
+    .cv-layout { grid-template-columns: 1fr; }
+  }
+
+  .cv-toc {
+    position: sticky;
+    top: calc(60px + var(--space-8));
+    align-self: start;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  @media (max-width: 960px) {
+    .cv-toc { display: none; }
+  }
+
+  .toc-link {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    padding: var(--space-1) 0;
+    transition: color var(--transition-fast);
+  }
+
+  .toc-link:hover { color: var(--text); }
+
+  .cv-contact {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-8);
+    margin-bottom: var(--space-12);
+    padding-bottom: var(--space-8);
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+
+  .cv-name {
+    margin-bottom: var(--space-2);
+  }
+
+  .cv-title-line {
+    color: var(--text-muted);
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-1);
+  }
+
+  .cv-contact-right {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    font-size: var(--text-sm);
+  }
+
+  .cv-section {
+    margin-bottom: var(--space-16);
+  }
+
+  .cv-section h2 {
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-2);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .cv-section h3 {
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    font-style: italic;
+    color: var(--text-muted);
+    margin-top: var(--space-6);
+    margin-bottom: var(--space-3);
+  }
+
+  .cv-entry {
+    display: grid;
+    grid-template-columns: 7rem 1fr;
+    gap: var(--space-4);
+    margin-bottom: var(--space-3);
+    font-size: var(--text-sm);
+  }
+
+  @media (max-width: 640px) {
+    .cv-entry { grid-template-columns: 1fr; }
+  }
+
+  .cv-year {
+    font-variant-numeric: tabular-nums;
+    color: var(--text-muted);
+    white-space: nowrap;
+    padding-top: 1px;
+  }
+
+  .cv-detail {
+    line-height: var(--leading-normal);
+  }
+
+  .cv-sub {
+    color: var(--text-muted);
+    font-size: var(--text-xs);
+    margin-top: 2px;
+  }
+
+  .cv-amount {
+    font-variant-numeric: tabular-nums;
+    color: var(--text-muted);
+    margin-left: var(--space-2);
+  }
+
+  .cv-list {
+    list-style: disc;
+    padding-left: var(--space-6);
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    columns: 2;
+    column-gap: var(--space-8);
+  }
+
+  .cv-list li {
+    margin-bottom: var(--space-1);
+  }
+
+  @media (max-width: 640px) {
+    .cv-list { columns: 1; }
+  }
+
+  .cv-link-out {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    padding: var(--space-2) 0;
+  }
+
+  @media print {
+    .cv-toc { display: none; }
+    .cv-layout { grid-template-columns: 1fr; }
+    .cv-section { break-inside: avoid; }
+  }
+</style>

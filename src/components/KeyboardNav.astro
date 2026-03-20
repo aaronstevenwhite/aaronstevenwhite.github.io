@@ -1,0 +1,81 @@
+---
+// Vim-style keyboard navigation for paper/presentation lists
+---
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Only activate on pages with navigable items
+    const items = document.querySelectorAll('.paper-row, .pres-item, .repo-card, .course-card');
+    if (items.length === 0) return;
+
+    let activeIndex = -1;
+
+    function setActive(index: number) {
+      // Remove previous
+      if (activeIndex >= 0 && activeIndex < items.length) {
+        items[activeIndex].classList.remove('kb-active');
+      }
+
+      activeIndex = Math.max(0, Math.min(index, items.length - 1));
+      const item = items[activeIndex] as HTMLElement;
+      item.classList.add('kb-active');
+      item.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    }
+
+    function clearActive() {
+      if (activeIndex >= 0 && activeIndex < items.length) {
+        items[activeIndex].classList.remove('kb-active');
+      }
+      activeIndex = -1;
+    }
+
+    document.addEventListener('keydown', (e) => {
+      // Don't interfere with search or inputs
+      const target = e.target as HTMLElement;
+      if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA') return;
+      if (document.getElementById('search-overlay')?.hidden === false) return;
+
+      switch (e.key) {
+        case 'j':
+          e.preventDefault();
+          setActive(activeIndex + 1);
+          break;
+        case 'k':
+          e.preventDefault();
+          setActive(activeIndex - 1);
+          break;
+        case 'Enter':
+          if (activeIndex >= 0) {
+            e.preventDefault();
+            const item = items[activeIndex] as HTMLElement;
+            // Try clicking the expand button or the link
+            const btn = item.querySelector('.paper-title-btn') as HTMLElement;
+            const link = item.querySelector('a') as HTMLElement;
+            if (btn) btn.click();
+            else if (link) link.click();
+          }
+          break;
+        case 'Escape':
+          clearActive();
+          // Also close any expanded paper
+          document.querySelectorAll('.paper-detail:not([hidden])').forEach(d => {
+            d.setAttribute('hidden', '');
+          });
+          break;
+        case '/':
+          // Open search
+          e.preventDefault();
+          document.getElementById('search-trigger')?.click();
+          break;
+      }
+    });
+  });
+</script>
+
+<style is:global>
+  .kb-active {
+    outline: 2px solid var(--accent) !important;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+</style>

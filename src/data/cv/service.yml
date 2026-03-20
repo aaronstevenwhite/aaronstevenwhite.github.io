@@ -1,0 +1,141 @@
+university_roles:
+  - role: "Director"
+    body: "Center for Language Sciences"
+    institution: "University of Rochester"
+    start: 2025
+    end: null
+
+departmental_roles:
+  - role: "Director of Graduate Studies"
+    body: "Department of Linguistics"
+    institution: "University of Rochester"
+    start: 2023
+    end: 2024
+
+departmental_service:
+  - role: "Hiring Committee Member, Open Rank (Computational Social Science)"
+    department: "Goergen Institute for Data Science"
+    institution: "University of Rochester"
+    start: 2023
+    end: 2024
+  - role: "Hiring Committee Member, Associate or Full Professor (NLP/ML)"
+    department: "Department of Computer Science"
+    institution: "University of Rochester"
+    start: 2021
+    end: 2022
+  - role: "University Faculty Council Representative"
+    department: "Department of Linguistics"
+    institution: "University of Rochester"
+    start: 2018
+    end: 2020
+  - role: "Cognitive Science Dinner Committee Member"
+    department: "Center for Language Sciences"
+    institution: "University of Rochester"
+    start: 2017
+    end: 2019
+  - role: "Hiring Committee, Open Rank (Syntax)"
+    department: "Department of Linguistics"
+    institution: "University of Rochester"
+    start: 2018
+    end: 2019
+  - role: "Hiring Committee, Open Rank (Semantics)"
+    department: "Department of Linguistics"
+    institution: "University of Rochester"
+    start: 2017
+    end: 2018
+
+university_service:
+  - role: "Presenter at CAREER Award Preparation Workshop"
+    institution: "University of Rochester"
+    year: 2025
+  - role: "Reviewer for University Research Awards"
+    institution: "University of Rochester"
+    year: 2025
+  - role: "Member of Research Computing Assessment Focus Group"
+    institution: "University of Rochester"
+    year: 2025
+  - role: "Presenter at CAREER Award Preparation Workshop"
+    institution: "University of Rochester"
+    year: 2024
+  - role: "Faculty Student Marshal for University Commencement"
+    institution: "University of Rochester"
+    year: 2023
+  - role: "Reviewer for University Research Awards"
+    institution: "University of Rochester"
+    year: 2023
+  - role: "Leader of Workshop on De-Mystifying the Federal Research Grant Submission Process for the Humanities and Social Sciences"
+    institution: "University of Rochester"
+    year: 2022
+  - role: "Member of Fulbright Campus Evaluation Committee"
+    institution: "University of Rochester"
+    year: 2022
+  - role: "Reviewer for Sproull and Provost Fellowships"
+    institution: "University of Rochester"
+    year: 2019
+  - role: "Member of Academic Job Search Faculty Panel"
+    institution: "University of Rochester"
+    year: 2018
+
+grant_reviewing_panel:
+  - "National Science Foundation (DGE-BCS, Sep. 2025)"
+  - "National Science Foundation (DGE-BCS, Dec. 2023)"
+
+grant_reviewing_adhoc:
+  - "National Science Foundation (DGE-BCS, Oct. 2023)"
+  - "National Science Foundation (DGE-BCS, Mar. 2023)"
+  - "German Research Foundation (Deutsche Forschungsgemeinschaft)"
+
+journal_reviewing_standing:
+  - "Transactions of the Association for Computational Linguistics"
+
+journal_reviewing_adhoc:
+  - "Language"
+  - "Semantics & Pragmatics"
+  - "Linguistics & Philosophy"
+  - "Journal of Semantics"
+  - "Natural Language Semantics"
+  - "Linguistic Inquiry"
+  - "Cognition"
+  - "Cognitive Science"
+  - "Language Acquisition"
+  - "Glossa"
+  - "Transactions of the Association for Computational Linguistics"
+  - "Language, Cognition, and Neuroscience"
+  - "Journal of Psycholinguistic Research"
+  - "Linguistics Vanguard"
+
+chapter_reviewing:
+  - "Cambridge Elements in Semantics, Cambridge University Press"
+  - "Semantics in Acquisition, Trends in Language Acquisition Research, John Benjamins"
+
+conference_organizing:
+  - "Organizer, SALT34"
+
+workshop_organizing:
+  - "Organizer, PEER2025"
+  - "Organizer, PEER2023"
+
+conference_senior_pc:
+  - "Senior Area Chair (Lexical Semantics), ACL 2024"
+  - "Senior Area Chair (Information Extraction), ACL 2023"
+
+conference_pc:
+  - "Area Chair (Linguistic Theories, Cognitive Modeling and Psycholinguistics), EMNLP 2022"
+  - "Area Chair (Language Resources and Evaluation), NAACL-HLT 2021"
+
+conference_reviewing:
+  - "Semantics and Linguistic Theory (SALT 2017, 2019-2023)"
+  - "Amsterdam Colloquium (AC 2017)"
+  - "Annual Meeting of the North East Linguistic Society (NELS 2017-2021)"
+  - "Annual Meeting of the Society for Computation in Linguistics (SCiL 2020, 2022)"
+  - "West Coast Conference on Formal Linguistics (WCCFL 2022)"
+  - "Experiments in Linguistic Meaning (ELM 2022)"
+  - "Cognitive Science Society annual conference (CogSci 2014-2019)"
+  - "Boston University Conference on Language Development (BUCLD 2017)"
+  - "Annual Meeting of the Association for Computational Linguistics (ACL 2019-2020, 2022)"
+  - "Annual Meeting of the European Chapter of the Association for Computational Linguistics (EACL 2021, 2023)"
+  - "International Conference on Computational Linguistics (COLING 2018)"
+  - "International Joint Conference on Natural Language Processing (IJCNLP 2017)"
+  - "Empirical Methods in Natural Language Processing (EMNLP 2018-2020)"
+  - "AAAI Conference on Artificial Intelligence (AAAI 2019)"
+  - "Language, Data, and Knowledge (LDK 2019)"

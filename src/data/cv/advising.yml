@@ -1,0 +1,205 @@
+primary_phd:
+  - name: "Woo Jin Choi"
+    year: 2029
+    expected: true
+    url: "https://wchoi20.github.io/"
+  - name: "Pavlo Kuchmiichuk"
+    year: 2029
+    expected: true
+  - name: "Stephanie Richter"
+    year: 2026
+    expected: true
+    url: "https://stephrichter.github.io/"
+  - name: "William Gantt"
+    year: 2024
+    url: "https://wgantt.github.io/"
+  - name: "Siddharth Vashishtha"
+    year: 2024
+    url: "https://sidsvash26.github.io/"
+
+secondary_phd:
+  - name: "Jin Dou"
+    year: 2026
+    expected: true
+  - name: "Hannah An"
+    year: 2025
+    expected: true
+    url: "https://hannah0n.github.io/"
+  - name: "Benjamin Kane"
+    year: 2024
+    url: "https://www.cs.rochester.edu/u/bkane2/"
+
+ms_ma:
+  - name: "Angela Cao"
+    year: 2025
+    degree: "MS"
+    department: "Computer Science"
+  - name: "Chihsheng Jin"
+    year: 2025
+    degree: "MS"
+    department: "Computational Linguistics"
+  - name: "Pavlo Kuchmiichuk"
+    year: 2024
+    degree: "MS"
+    department: "Computational Linguistics"
+  - name: "Akash Chaudhuri"
+    year: 2024
+    degree: "MS"
+    department: "Computational Linguistics"
+  - name: "Congwen Zhang"
+    year: 2024
+    degree: "MS"
+    department: "Computational Linguistics"
+  - name: "Siwei Tang"
+    year: 2024
+    degree: "MS"
+    department: "Computational Linguistics"
+  - name: "Arsal Imtiaz"
+    year: 2023
+    degree: "MS"
+    department: "Computer Science"
+  - name: "Chandrashekar Nair"
+    year: 2023
+    degree: "MS"
+    department: "Computer Science"
+  - name: "Zixu Wang"
+    year: 2023
+    degree: "MS"
+    department: "Computational Linguistics"
+  - name: "Zhendong Liu"
+    year: 2022
+    degree: "MS"
+    department: "Computational Linguistics"
+    url: "https://zhendongliu.com/"
+  - name: "Weiwei Gu"
+    year: 2022
+    degree: "MS"
+    department: "Computer Science"
+    url: "https://weiweigu1998.github.io/"
+  - name: "Ellise Moon"
+    year: 2020
+    degree: "MA"
+    department: "Linguistics"
+    url: "https://eclairemoon.github.io/"
+  - name: "Hannah An"
+    year: 2019
+    degree: "MS"
+    department: "Computational Linguistics"
+    url: "https://hannah0n.github.io/"
+  - name: "Siddharth Vashishtha"
+    year: 2019
+    degree: "MS"
+    department: "Computational Linguistics"
+    url: "https://sidsvash26.github.io/"
+  - name: "Venkata Govindarajan"
+    year: 2019
+    degree: "MS"
+    department: "Computational Linguistics"
+    url: "https://venkatasg.net/"
+
+undergraduate_honors:
+  - name: "Alexander Martin"
+    year: 2024
+    degree: "BS"
+    department: "Computer Science"
+    url: "https://alexmartin1722.github.io/"
+
+thesis_committees:
+  - name: "Ruby Zeng"
+    year: 2025
+    expected: true
+    degree: "PhD"
+    department: "Brain and Cognitive Sciences"
+    institution: "University of Rochester"
+  - name: "Seth Ebner"
+    year: 2024
+    degree: "PhD"
+    department: "Computer Science"
+    institution: "Johns Hopkins University"
+  - name: "Chen Yu"
+    year: 2023
+    degree: "PhD"
+    department: "Computer Science"
+    institution: "University of Rochester"
+  - name: "Zachary Burchill"
+    year: 2023
+    degree: "PhD"
+    department: "Brain and Cognitive Sciences"
+    institution: "University of Rochester"
+  - name: "Lane Lawley"
+    year: 2022
+    degree: "PhD"
+    department: "Computer Science"
+    institution: "University of Rochester"
+  - name: "Georgiy Platonov"
+    year: 2022
+    degree: "PhD"
+    department: "Computer Science"
+    institution: "University of Rochester"
+  - name: "Lisa Jin"
+    year: 2022
+    degree: "PhD"
+    department: "Computer Science"
+    institution: "University of Rochester"
+  - name: "Gene Kim"
+    year: 2021
+    degree: "PhD"
+    department: "Computer Science"
+    institution: "University of Rochester"
+  - name: "Parker Riley"
+    year: 2021
+    degree: "PhD"
+    department: "Computer Science"
+    institution: "University of Rochester"
+  - name: "Tianlang Chen"
+    year: 2021
+    degree: "PhD"
+    department: "Computer Science"
+    institution: "University of Rochester"
+  - name: "Nabil Hossain"
+    year: 2020
+    degree: "PhD"
+    department: "Computer Science"
+    institution: "University of Rochester"
+  - name: "Adam Poliak"
+    year: 2020
+    degree: "PhD"
+    department: "Computer Science"
+    institution: "Johns Hopkins University"
+  - name: "Rachel Rudinger"
+    year: 2019
+    degree: "PhD"
+    department: "Computer Science"
+    institution: "Johns Hopkins University"
+  - name: "Adam Teichert"
+    year: 2019
+    degree: "PhD"
+    department: "Computer Science"
+    institution: "Johns Hopkins University"
+
+thesis_defense_chair:
+  - name: "Wednesday Bushong"
+    year: 2020
+    degree: "PhD"
+    department: "Brain and Cognitive Sciences"
+    institution: "University of Rochester"
+  - name: "Ryan Yates"
+    year: 2019
+    degree: "PhD"
+    department: "Computer Science"
+    institution: "University of Rochester"
+  - name: "Frank Mollica"
+    year: 2019
+    degree: "PhD"
+    department: "Brain and Cognitive Sciences"
+    institution: "University of Rochester"
+  - name: "Matthew Overlan"
+    year: 2019
+    degree: "PhD"
+    department: "Brain and Cognitive Sciences"
+    institution: "University of Rochester"
+  - name: "Xiaochang Peng"
+    year: 2018
+    degree: "PhD"
+    department: "Computer Science"
+    institution: "University of Rochester"
