@@ -161,6 +161,13 @@ const links = [
     transition: all var(--transition-fast);
   }
 
+  @media (max-width: 768px) {
+    .nav-search-btn {
+      min-width: 44px;
+      min-height: 44px;
+    }
+  }
+
   .nav-search-btn:hover {
     color: var(--text);
     background-color: var(--surface);
@@ -175,6 +182,15 @@ const links = [
     border: none;
     cursor: pointer;
     padding: var(--space-2);
+  }
+
+  @media (max-width: 768px) {
+    .nav-toggle {
+      min-width: 44px;
+      min-height: 44px;
+      align-items: center;
+      justify-content: center;
+    }
   }
 
   .nav-toggle span {
@@ -198,7 +214,7 @@ const links = [
     height: 100dvh;
     background-color: var(--bg);
     z-index: 200;
-    padding: var(--space-16) var(--space-8);
+    padding: var(--space-12) var(--space-8);
     transition: right var(--transition-normal);
     border-left: 1px solid var(--border);
   }
@@ -212,8 +228,8 @@ const links = [
   }
 
   .nav-panel-link {
-    font-family: var(--font-serif);
-    font-size: var(--text-2xl);
+    font-family: var(--font-sans);
+    font-size: var(--text-lg);
     color: var(--text-muted);
     transition: color var(--transition-fast);
   }
@@ -238,33 +254,44 @@ const links = [
 </style>
 
 <script>
-  // Scroll detection for backdrop blur
-  const nav = document.getElementById('main-nav');
-  window.addEventListener('scroll', () => {
-    nav?.classList.toggle('scrolled', window.scrollY > 10);
-  }, { passive: true });
+  function initNav() {
+    const nav = document.getElementById('main-nav');
+    const toggle = document.getElementById('nav-toggle');
+    const panel = document.getElementById('nav-panel');
+    const overlay = document.getElementById('nav-overlay');
 
-  // Mobile menu toggle
-  const toggle = document.getElementById('nav-toggle');
-  const panel = document.getElementById('nav-panel');
-  const overlay = document.getElementById('nav-overlay');
+    // Scroll detection
+    window.addEventListener('scroll', () => {
+      nav?.classList.toggle('scrolled', window.scrollY > 10);
+    }, { passive: true });
 
-  function closeMenu() {
-    panel?.classList.remove('open');
-    overlay?.classList.remove('open');
-    toggle?.setAttribute('aria-expanded', 'false');
+    // Close menu helper
+    function closeMenu() {
+      panel?.classList.remove('open');
+      overlay?.classList.remove('open');
+      toggle?.setAttribute('aria-expanded', 'false');
+    }
+
+    // Toggle
+    toggle?.addEventListener('click', () => {
+      const isOpen = panel?.classList.toggle('open');
+      overlay?.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    overlay?.addEventListener('click', closeMenu);
+
+    // Close on escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMenu();
+    });
+
+    // Close on nav link click (mobile)
+    panel?.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
   }
 
-  toggle?.addEventListener('click', () => {
-    const isOpen = panel?.classList.toggle('open');
-    overlay?.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', String(isOpen));
-  });
-
-  overlay?.addEventListener('click', closeMenu);
-
-  // Close on escape
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeMenu();
-  });
+  // Run on initial load and after view transitions
+  document.addEventListener('astro:page-load', initNav);
 </script>

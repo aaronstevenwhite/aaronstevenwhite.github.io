@@ -183,7 +183,12 @@ const minRadius = 3;
   .tl-scroll {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    max-width: 800px;
+  }
+
+  @media (max-width: 640px) {
+    .tl-scroll {
+      margin: 0 calc(-1 * var(--space-4));
+    }
   }
 
   .tl-axis {
@@ -235,6 +240,11 @@ const minRadius = 3;
     font-size: var(--text-xl);
     color: var(--text-muted);
     cursor: pointer;
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .tl-pop-heading {

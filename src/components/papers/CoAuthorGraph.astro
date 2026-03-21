@@ -278,6 +278,11 @@ const graphDataJson = JSON.stringify({ nodes, edges });
     color: var(--text-muted);
     cursor: pointer;
     line-height: 1;
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .cag-panel-name {
@@ -333,11 +338,21 @@ const graphDataJson = JSON.stringify({ nodes, edges });
 
   @media (max-width: 768px) {
     .cag-panel {
-      width: 100%;
-      border-radius: 0 0 8px 8px;
+      position: fixed;
       top: auto;
       bottom: 0;
-      max-height: 50%;
+      left: 0;
+      right: 0;
+      width: 100%;
+      max-height: 60vh;
+      border-radius: 12px 12px 0 0;
+      border-left: none;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .cag-graph {
+      height: 250px;
     }
   }
 </style>

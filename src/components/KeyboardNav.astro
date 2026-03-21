@@ -3,7 +3,7 @@
 ---
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('astro:page-load', () => {
     // Only activate on pages with navigable items
     const items = document.querySelectorAll('.paper-row, .pres-item, .repo-card, .course-card');
     if (items.length === 0) return;

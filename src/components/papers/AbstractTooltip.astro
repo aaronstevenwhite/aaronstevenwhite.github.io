@@ -80,4 +80,12 @@ const abstractsJson = JSON.stringify(abstracts);
   }
 
   .abstract-tooltip[hidden] { display: none; }
+
+  @media (max-width: 640px) {
+    .abstract-tooltip {
+      max-width: calc(100vw - 2rem);
+      left: 1rem !important;
+      right: 1rem;
+    }
+  }
 </style>

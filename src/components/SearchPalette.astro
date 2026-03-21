@@ -377,4 +377,20 @@ const searchIndex = JSON.stringify(items);
     color: var(--text-muted);
     font-size: var(--text-sm);
   }
+
+  @media (max-width: 640px) {
+    .search-modal {
+      max-width: 100%;
+      margin: 0 var(--space-2);
+      border-radius: 8px;
+    }
+
+    .search-input {
+      font-size: var(--text-base);
+    }
+
+    .search-result {
+      padding: var(--space-2) var(--space-4);
+    }
+  }
 </style>

@@ -180,6 +180,7 @@ const langToReposJson = JSON.stringify(langToRepos);
 <script type="application/json" id="lang-repos-data" set:html={langToReposJson} />
 
 <script>
+document.addEventListener('astro:page-load', () => {
   // Make repo cards clickable
   document.querySelectorAll('.repo-card[data-url]').forEach(card => {
     card.addEventListener('click', (e) => {
@@ -244,6 +245,7 @@ const langToReposJson = JSON.stringify(langToRepos);
   });
 
   popClose.addEventListener('click', () => { popover.hidden = true; });
+});
 </script>
 
 <style is:global>
@@ -272,6 +274,11 @@ const langToReposJson = JSON.stringify(langToRepos);
     font-size: var(--text-xl);
     color: var(--text-muted);
     cursor: pointer;
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .lang-pop-title { font-weight: 600; font-size: var(--text-lg); margin-bottom: var(--space-1); }
   .lang-pop-total { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: var(--space-4); }
@@ -354,6 +361,9 @@ const langToReposJson = JSON.stringify(langToRepos);
     font-family: var(--font-mono);
     font-size: var(--text-xs);
     color: rgba(255, 255, 255, 0.5);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .repo-body {

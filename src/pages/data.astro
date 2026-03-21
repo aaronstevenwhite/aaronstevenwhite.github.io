@@ -104,12 +104,14 @@ const groups = [
 </Base>
 
 <script>
+document.addEventListener('astro:page-load', () => {
   document.querySelectorAll('.data-card[data-url]').forEach(card => {
     card.addEventListener('click', (e) => {
       if ((e.target as HTMLElement).closest('a')) return;
       window.open((card as HTMLElement).dataset.url, '_blank');
     });
   });
+});
 </script>
 
 <style>
@@ -283,6 +285,16 @@ const groups = [
   @media (max-width: 768px) {
     .data-card {
       padding: var(--space-4);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .data-card-meta {
+      gap: var(--space-1);
+    }
+
+    .data-pill {
+      font-size: 0.6rem;
     }
   }
 </style>

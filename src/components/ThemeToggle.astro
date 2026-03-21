@@ -33,6 +33,13 @@
     transition: all var(--transition-fast);
   }
 
+  @media (max-width: 768px) {
+    .theme-toggle {
+      min-width: 44px;
+      min-height: 44px;
+    }
+  }
+
   .theme-toggle:hover {
     color: var(--text);
     background-color: var(--surface);
@@ -50,18 +57,22 @@
 </style>
 
 <script>
-  const btn = document.getElementById('theme-toggle');
+  function initThemeToggle() {
+    const btn = document.getElementById('theme-toggle');
 
-  function getTheme(): string {
-    const saved = localStorage.getItem('theme');
-    if (saved) return saved;
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    function getTheme(): string {
+      const saved = localStorage.getItem('theme');
+      if (saved) return saved;
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    btn?.addEventListener('click', () => {
+      const current = getTheme();
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
   }
 
-  btn?.addEventListener('click', () => {
-    const current = getTheme();
-    const next = current === 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', next);
-    localStorage.setItem('theme', next);
-  });
+  document.addEventListener('astro:page-load', initThemeToggle);
 </script>

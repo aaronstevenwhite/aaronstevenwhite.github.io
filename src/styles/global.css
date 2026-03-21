@@ -122,6 +122,12 @@ h4 { font-size: var(--text-xl); }
   h1 { font-size: var(--text-4xl); }
   h2 { font-size: var(--text-2xl); }
   h3 { font-size: var(--text-xl); }
+
+  body { font-size: var(--text-sm); }
+
+  .container { padding: 0 var(--space-4); }
+
+  .section { padding: var(--space-16) 0; }
 }
 
 p {

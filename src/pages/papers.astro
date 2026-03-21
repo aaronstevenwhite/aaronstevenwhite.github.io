@@ -536,6 +536,7 @@ for (const topic of topics) {
 </style>
 
 <script>
+document.addEventListener('astro:page-load', () => {
   // Topic filtering
   const topicBtns = document.querySelectorAll('[data-topic]');
   const paperRows = document.querySelectorAll('.paper-row');
@@ -620,4 +621,5 @@ for (const topic of topics) {
       }
     });
   });
+});
 </script>
