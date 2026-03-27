@@ -3,8 +3,10 @@
   presentations:
   - citation: "White, Aaron Steven. 2026. Aspectual similarity predicts sense similarity. Poster to be presented at Experiments in Linguistic Meaning 4, June 10-12, 2026."
   - citation: "White, Aaron Steven. 2026. The context-sensitivity of subordinate clause selection. Poster to be presented at Experiments in Linguistic Meaning 4, June 10-12, 2026."
-  - citation: "White, Aaron Steven. 2026. Chive: Decentralized eprints on ATProto. Talk to be given at the ATScience 2026, March 27, 2026."
+  - citation: "White, Aaron Steven. 2026. Chive: Decentralized eprints on ATProto. Talk given at the ATScience 2026, March 27, 2026."
     links:
+    - label: "slides"
+      href: "/presentations/slides/chive-atscience2026-talk-march-2026.pptx"
     - label: "app"
       href: "https://chive.pub/"
     - label: "code"
