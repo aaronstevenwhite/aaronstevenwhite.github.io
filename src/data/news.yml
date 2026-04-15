@@ -5,18 +5,29 @@
       url: "https://mindcore.sas.upenn.edu/calendar_event/mindcore-ilst-seminar-aaron-white-2/"
 
 - date: "2026-03-27"
-  text: "Giving a talk at ATScience 2026 on Chive, a decentralized eprint service on ATProto."
+  text: "Gave a talk at ATScience 2026 on Chive, a decentralized eprint service on ATProto."
   links:
     - label: "ATScience 2026"
       url: "https://atproto.science/"
     - label: "Chive"
       url: "https://chive.pub/"
 
-- date: "2026-06-01"
-  text: "Giving two posters at Experiments in Linguistic Meaning 4: <em>The context-sensitivity of subordinate clause selection</em> and <em>Aspectual similarity predicts sense similarity</em>."
+- date: "2026-06-10"
+  text: "Giving a demo of FOVEA (Flexible Ontology Visual Event Analyzer) at CVPR 2026."
+  links:
+    - label: "CVPR 2026"
+      url: "https://cvpr.thecvf.com/"
+    - label: "FOVEA"
+      url: "https://fovea.video/"
+
+- date: "2026-06-10"
+  text: "Giving two posters at ELM4: <em>The context-sensitivity of subordinate clause selection</em> and <em>Aspectual similarity predicts sense similarity</em>."
   links:
     - label: "ELM 4"
       url: "https://www.elm-conference.net/elm-4-2026/"
 
 - date: "2026-07-29"
   text: "Giving a poster with Julian Grove at SALT36 on <em>Arrows for Conventional Implicature</em>."
+  links:
+    - label: "SALT36"
+      url: "https://saltconf.github.io/salt36/"
